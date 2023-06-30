@@ -6,9 +6,9 @@ SITE Course Year: **2023**
 
 Cohort: **Salesforce Cohort 1**
 
-Team Member Names:**Gustavo Grijalba Gerardo Perez Jessica Flores Olmos**
+Team Member Names:**Gustavo Grijalba, Gerardo Perez, Jessica Flores Olmos**
 
-Mentors Names: **Karim Fanadka**
+Mentors Names: **Karim Fanadka, Ankit Arora**
 
 Project Code Repository Links
 
