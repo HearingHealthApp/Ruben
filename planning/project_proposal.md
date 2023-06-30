@@ -33,6 +33,8 @@ Main Purpose:
 
 Add a list of your groups's brainstormed features list
 
+Features:
+
 -General information on preventative and corrective measures
 
 -“Ask A Doctor” Page
@@ -58,6 +60,11 @@ Distinguishing feature:
 
 What questions do you still have? What topics do you need to research more for your project?
 
-Verifying healthcare proffesionals?
-Chatbot?
-Common conditions/important information to share
+Open Questions:
+- ensuring confidentiality
+
+Topics to research:
+- Veifying credentials for doctors?
+- Chatbot?
+- Common conditions/important information to share
+
