@@ -1,6 +1,6 @@
 # Project Proposal
 
-Pod Members: **Add Pod Members Names**
+Pod Members: **Gustavo Grijalba Gerardo Perez Jessica Flores Olmos**
 
 ## Problem Statement
 
