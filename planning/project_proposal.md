@@ -24,7 +24,9 @@ Expected Audience:
 What is the main purpose of your project? What are the key features your site has to offer its users? How will your targeted audience use your website?
 
 Main Purpose:
+
 -Increase awareness through information
+
 -Track surroundings and give suggestions regarding their environment
 
 ## Expected Features List
