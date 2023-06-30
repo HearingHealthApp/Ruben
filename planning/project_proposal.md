@@ -4,7 +4,7 @@ Pod Members: **Gustavo Grijalba Gerardo Perez Jessica Flores Olmos**
 
 ## Problem Statement
 
-Insert your groups problem statement and target audience.
+There's a lack of hearing health awareness which leads to hearing damage due to headphones and being exposed to loud environments
 
 ## Description
 
