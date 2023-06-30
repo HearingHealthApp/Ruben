@@ -10,18 +10,18 @@ There's a lack of hearing health awareness which leads to hearing damage due to 
 
 What is the main purpose of your project? What are the key features your site has to offer its users? How will your targeted audience use your website?
 
-Increase awareness through information
-Track surroundings and give suggestions regarding their environment
+-Increase awareness through information
+-Track surroundings and give suggestions regarding their environment
 
 ## Expected Features List
 
 Add a list of your groups's brainstormed features list
 
-General information on preventative and corrective measure
-“Ask A Doctor” Page
-Survey that gives users tentative diagnosis
-Map to nearest clinics/local pharmacies
-External audio classifier and exposure recommendations
+-General information on preventative and corrective measures
+-“Ask A Doctor” Page
+-Survey that gives users tentative diagnosis
+-Map to nearest clinics/local pharmacies
+-External audio classifier and exposure recommendations
 
 
 ## Related Work
