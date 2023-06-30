@@ -25,7 +25,6 @@ What is the main purpose of your project? What are the key features your site ha
 
 Main Purpose:
 -Increase awareness through information
-
 -Track surroundings and give suggestions regarding their environment
 
 ## Expected Features List
