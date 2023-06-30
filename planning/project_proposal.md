@@ -17,7 +17,7 @@ Expected Audience:
 
 - People sho are seeking help for others
 
-- Poeple seeking alternative solutions
+- Poeple unaware of their exploring their options in terms of ways to deal with their hearing loss
 
 ## Description
 
