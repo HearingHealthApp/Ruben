@@ -27,7 +27,7 @@ Main Purpose:
 
 -Increase awareness through information
 
--Track surroundings and give suggestions regarding their environment
+-Track surroundings and give suggestions regarding their environment as a preventative measure for ear related concerns
 
 ## Expected Features List
 
