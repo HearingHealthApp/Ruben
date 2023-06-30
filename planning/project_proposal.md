@@ -9,7 +9,7 @@ There's a lack of hearing health awareness which leads to hearing damage due to 
 Expected Audience:
 - Old people
   
-- Poeple concerned regarding how their environments affect their hearing in the future
+- People concerned regarding how their environments affect their hearing in the future
 
 - Audiologists seeking to increase awareness
 
