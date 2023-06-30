@@ -4,7 +4,10 @@ Pod Members: **Gustavo Grijalba Gerardo Perez Jessica Flores Olmos**
 
 ## Problem Statement
 
-There's a lack of hearing health awareness which leads to hearing damage due to headphones and being exposed to loud environments
+There's a lack of hearing health awareness which leads to hearing damage due to headphones and being exposed to loud environments.
+
+Expected Audience:
+- 
 
 ## Description
 
@@ -29,7 +32,7 @@ Add a list of your groups's brainstormed features list
 What similar apps and websites? How will your project stand out from these other websites?
 
 Similar Apps:
-WebMD 
+- WebMD 
 
 Distinguishing feature:
 External audio classifier and exposure recommendations
@@ -37,3 +40,7 @@ External audio classifier and exposure recommendations
 ## Open Questions
 
 What questions do you still have? What topics do you need to research more for your project?
+
+Verifying healthcare proffesionals?
+Chatbot?
+Common conditions/important information to share
