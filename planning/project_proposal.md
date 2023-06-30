@@ -1,6 +1,6 @@
 # Project Proposal
 
-Pod Members: **Gustavo Grijalba Gerardo Perez Jessica Flores Olmos**
+Pod Members: **Gustavo Grijalba, Gerardo Perez, Jessica Flores Olmos**
 
 ## Problem Statement
 
