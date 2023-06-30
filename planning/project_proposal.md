@@ -7,7 +7,7 @@ Pod Members: **Gustavo Grijalba Gerardo Perez Jessica Flores Olmos**
 There's a lack of hearing health awareness which leads to hearing damage due to headphones and being exposed to loud environments.
 
 Expected Audience:
-- Old people
+- Old people with hearing problems/starting to have hearing issues
   
 - People concerned regarding how their environments affect their hearing in the future
 
@@ -29,21 +29,30 @@ Main Purpose:
 
 - Track surroundings and give suggestions regarding their environment as a preventative measure for ear related concerns
 
+Targeted Audience use:
+
+- Audiologists will be able to sign up and answer questions
+  
+- People seeking help for others will have access to general information
+  
+- People with hearing issues will be able to find ou more information about resources they can use
+  
+
 ## Expected Features List
 
 Add a list of your groups's brainstormed features list
 
 Features:
 
--General information on preventative and corrective measures
+- General information on preventative and corrective measures
 
--“Ask A Doctor” Page
+- “Ask A Doctor” Page
 
--Survey that gives users tentative diagnosis
+- Survey that gives users tentative diagnosis
 
--Map to nearest clinics/local pharmacies
+- Map to nearest clinics/local pharmacies
 
--External audio classifier and exposure recommendations
+- External audio classifier and exposure recommendations
 
 
 ## Related Work
@@ -61,7 +70,7 @@ Distinguishing feature:
 What questions do you still have? What topics do you need to research more for your project?
 
 Open Questions:
-- ensuring confidentiality
+- Ensuring confidentiality
 
 Topics to research:
 - Veifying credentials for doctors?
