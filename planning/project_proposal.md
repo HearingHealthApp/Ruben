@@ -25,9 +25,9 @@ What is the main purpose of your project? What are the key features your site ha
 
 Main Purpose:
 
--Increase awareness through information
+- Increase awareness through information
 
--Track surroundings and give suggestions regarding their environment as a preventative measure for ear related concerns
+- Track surroundings and give suggestions regarding their environment as a preventative measure for ear related concerns
 
 ## Expected Features List
 
