@@ -2,13 +2,13 @@
 
 # SITE Capstone Project
 
-SITE Course Year: **20__**
+SITE Course Year: **2023**
 
-Cohort: **Add Company Sponsor Name**
+Cohort: **Salesforce Cohort 1**
 
-Team Member Names:**Insert Team Member Names**
+Team Member Names:**Gustavo Grijalba Gerardo Perez Jessica Flores Olmos**
 
-Mentors Names: **Insert Professional Mentor Names**
+Mentors Names: **Karim Fanadka**
 
 Project Code Repository Links
 
