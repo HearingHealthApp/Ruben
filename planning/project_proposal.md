@@ -15,9 +15,9 @@ Expected Audience:
 
 - People with hearing issues
 
-- People sho are seeking help for others
+- People who are seeking help for others
 
-- Poeple unaware of their exploring their options in terms of ways to deal with their hearing loss
+- People exploring their options in terms of ways to deal with their hearing loss
 
 ## Description
 
