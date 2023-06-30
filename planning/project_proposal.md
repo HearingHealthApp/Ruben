@@ -7,13 +7,24 @@ Pod Members: **Gustavo Grijalba Gerardo Perez Jessica Flores Olmos**
 There's a lack of hearing health awareness which leads to hearing damage due to headphones and being exposed to loud environments.
 
 Expected Audience:
-- 
+- Old people
+  
+- Poeple concerned regarding how their environments affect their hearing in the future
+
+- Audiologists seeking to increase awareness
+
+- People with hearing issues
+
+- People sho are seeking help for others
+
+- Poeple seeking alternative solutions
 
 ## Description
 
 What is the main purpose of your project? What are the key features your site has to offer its users? How will your targeted audience use your website?
 
 -Increase awareness through information
+
 -Track surroundings and give suggestions regarding their environment
 
 ## Expected Features List
@@ -21,9 +32,13 @@ What is the main purpose of your project? What are the key features your site ha
 Add a list of your groups's brainstormed features list
 
 -General information on preventative and corrective measures
+
 -“Ask A Doctor” Page
+
 -Survey that gives users tentative diagnosis
+
 -Map to nearest clinics/local pharmacies
+
 -External audio classifier and exposure recommendations
 
 
@@ -35,7 +50,7 @@ Similar Apps:
 - WebMD 
 
 Distinguishing feature:
-External audio classifier and exposure recommendations
+- External audio classifier and exposure recommendations
 
 ## Open Questions
 
