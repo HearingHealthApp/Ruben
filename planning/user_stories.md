@@ -28,7 +28,8 @@ There's a lack of hearing health awareness which leads to hearing damage due to 
 Include at least at least 1, but no more than 3, user roles
 
 ### User roles:
-- 
+- Healthcare Professional (More specific?)
+- General User 
 
 ## User Personas
 
