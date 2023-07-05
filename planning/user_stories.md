@@ -65,8 +65,11 @@ Tech-savy
 ## User Stories
 
 Include at least 10 user stories.
+
 Template:
-- **As a [user role], I want to [what], so that [why]**
+
+**As a [user role], I want to [what], so that [why]**
+
 1. As a concert enthusiast, I want to ensure that my listening habits are not impacting my health by being able to track the loudness of my environment in decibels and get live feedback on its impact on my hearing health using the website’s microphone listening tool, so that I can safely go to concerts in the future. 
 
 2. As a registered user I want to be able to keep track of the forum posts and questions I make so that I can be updated on when they receive an answer. 
