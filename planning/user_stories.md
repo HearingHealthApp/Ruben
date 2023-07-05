@@ -6,8 +6,9 @@ Pod Members: Gustavo, Jessica, Gerardo
 
 Insert your groups problem statement and target audience
 
+
 ### Problem Statement:
-- 
+There's a lack of hearing health awareness which leads to hearing damage due to headphones and being exposed to loud environments.
 
 ### Target Audience:
 - 
