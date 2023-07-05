@@ -1,18 +1,30 @@
 # Project Proposal
 
-Pod Members: **Add Pod Members Names**
+Pod Members: Gustavo, Jessica, Gerardo
 
 ## Problem Statement
 
-Insert your groups problem statement and target audience.
+Insert your groups problem statement and target audience
+
+Problem Statement:
+- 
+
+Target Audience:
+- 
 
 ## User Roles
 
 Include at least at least 1, but no more than 3, user roles
 
+User roles:
+- 
+
 ## User Personas
 
 Include at least 2 personas per User Role
+
+User Personas:
+- 
 
 ## User Stories
 
@@ -23,3 +35,4 @@ Include at least 10 user stories.
 ## Wireframe (Bonus)
 
 Insert link or image to your group's wireframe. 
+
