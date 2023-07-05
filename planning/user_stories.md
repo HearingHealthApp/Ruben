@@ -11,7 +11,17 @@ Insert your groups problem statement and target audience
 There's a lack of hearing health awareness which leads to hearing damage due to headphones and being exposed to loud environments.
 
 ### Target Audience:
-- 
+- Old people with hearing problems/starting to have hearing issues
+  
+- People concerned regarding how their environments affect their hearing in the future
+
+- Audiologists seeking to increase awareness
+
+- People with hearing issues
+
+- People who are seeking help for others
+
+- People exploring their options in terms of ways to deal with their hearing loss
 
 ## User Roles
 
