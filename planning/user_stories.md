@@ -16,14 +16,14 @@ Insert your groups problem statement and target audience
 
 Include at least at least 1, but no more than 3, user roles
 
-###User roles:
+### User roles:
 - 
 
 ## User Personas
 
 Include at least 2 personas per User Role
 
-###User Personas:
+### User Personas:
 - 
 
 ## User Stories
