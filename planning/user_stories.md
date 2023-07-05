@@ -44,6 +44,8 @@ Include at least 10 user stories.
 
 1. **As a [user role], I want to [what], so that [why]**
 
+1. As an avid music listener, I want to be able to ask an audiologist, as someone who avidly listens music
+
 ## Wireframe (Bonus)
 
 Insert link or image to your group's wireframe. 
