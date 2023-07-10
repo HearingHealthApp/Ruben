@@ -65,8 +65,17 @@ Audiologists
 - Unregistered: 2, 7 
 - Doctors: 6, 9
 
-### Features per user story
-- 
+### Features based on user stories
+- User updated based on responses to posts (notifications): 1
+- Universal Access: 2
+- Reply/comment relationships in posts: 3, 5
+- Anonymous posts for registered users: 4
+- Informative Doctor profiles: 6
+- Filters for the forum posts: 7
+- Similar Questions are shown before posting a question: 8
+- Doctor access to personal information: 9
+- Limiting information acces based on user preferences: 10
+- Tracking user environment sound: 11
 
 ## Pages/Screens
 
