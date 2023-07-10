@@ -1,6 +1,6 @@
 # Project Plan
 
-Pod Members: **Add Pod Members Names**
+Pod Members: **Gustavo Grijalba, Gerardo Perez, Jessica Flores Olmos**
 
 ## Problem Statement and Description
 
@@ -8,11 +8,58 @@ Insert the latest summary of your problem statement and app description.
 
 ## User Roles and Personas
 
-Include the most up-to-date user roles and personas.
+Name: John Kaneer
+Age: 37
+Location: Paris, TX
+Occupation: Construction Worker
+Income: 85k
+Status: Single
+
+Personality Traits:
+Loves watching american football
+He is prone to believing stereotypes
+
+Name: Guy John
+Age: 15
+Location: New York City, NY
+Hobby: avid concert goer
+Income: Dependent 
+Status: Single
+
+Personality traits: 
+Concerned about his health
+Listens to music non-stop
+Tech-savy 
+
+USER ROLES:
+Anonymous/Unregistered
+Registered Users
+Doctors
 
 ## User Stories
 
-List the current user stories you will implement.
+As a registered user I want to be able to keep track of the forum posts and questions I make so that I can be updated on when they receive an answer. 
+
+As a non-registered user I want to still be able to browse the forum and current posts so that I would not have to create an account to receive help through previously answered questions. 
+
+As a person with tinnitus, I want to be able to interact on other posts made by other users that also have tinnitus so that I can better cope with my situation based on other people’s experiences. 
+
+As a registered user I want to have the option to create anonymous posts so that I do not have to worry about giving identifying information to other users within the forum. 
+
+As someone with mild hearing loss I want to be able to respond to other posts within the forum so that I can be able to support them through their hardships. 
+
+As an audiologist I want to be able to create a user profile consisting of my medical information so that other users are more trusting of my advice. 
+
+As a browser of the forum, I want to be able to filter and search through previously asked questions so that I can easily find a question that may pertain or relate to my query. 
+
+As a user, I want to be shown relevant posts within the forum so that I would not have to ask a question that is already there.
+
+As an audiologist, I want to be able to see the personal information of users so that I can better assess their needs and give personalized advice.
+
+As a registered user, I want to be able to toggle privacy settings pertaining to personal information given during the registered survey so that I am more comfortable with who can access my information. 
+
+As a concert enthusiast, I want to ensure that my listening habits are not impacting my health by being able to track the loudness of my environment in decibels and get live feedback on its impact on my hearing health using the website’s microphone listening tool, so that I can safely go to concerts in the future. 
+
 
 ## Pages/Screens
 
