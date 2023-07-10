@@ -4,7 +4,7 @@ Pod Members: **Gustavo Grijalba, Gerardo Perez, Jessica Flores Olmos**
 
 ## Problem Statement and Description
 
-Insert the latest summary of your problem statement and app description.
+There's a lack of hearing health awareness which leads to hearing damage due to headphones and being exposed to loud environments. Our application is meant to have two core features: an audio listener that listens to the user's environment through their microphone and returns the average amt of decibels listened to throughout the listening session. The other feature is an interactive forum where users can post lifestyle or medical related posts.
 
 ## User Roles and Personas
 
