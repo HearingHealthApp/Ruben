@@ -91,6 +91,18 @@ Audiologists
 
 List all the pages and screens in the app. Include wireframes for at least 3 of them.
 
+- Landing page
+- Register page for both general users and audiologists
+- Login page
+- Forum page
+- Create a post page (popup within the Forum page)
+- Individual Forum post page
+- Listening page
+
+  **WIREFRAME**
+
+  {https://www.figma.com/file/YxhmoHBKcaxdPWMgIBSjY4/EARIE?type=design&node-id=38%3A10&mode=design&t=VuayNRkVbwqVMDlk-1}
+
 ## Data Model
 
 Describe your app's data model using diagrams or tables
