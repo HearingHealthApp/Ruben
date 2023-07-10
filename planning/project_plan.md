@@ -67,7 +67,7 @@ Audiologists
 
 ### Features based on user stories
 - User updated based on responses to posts (notifications): 1
-- [ ] Notifications 
+  - [ ] Notifications 
 - Universal Access: 2
 [ ] Universal Access to Forum
 - Reply/comment relationships in posts: 3, 5
