@@ -69,23 +69,23 @@ Audiologists
 - User updated based on responses to posts (notifications): 1
   - [ ] Notifications 
 - Universal Access: 2
-[ ] Universal Access to Forum
+  - [ ] Universal Access to Forum
 - Reply/comment relationships in posts: 3, 5
-[ ] Reply Comment Relationship
+  - [ ] Reply Comment Relationship
 - Anonymous posts for registered users: 4
-  [ ] Regitered users able to post anonymously
+  - [ ] Regitered users able to post anonymously
 - Informative Doctor profiles: 6
-  [ ] Extensive Doctor Profiles
+  - [ ] Extensive Doctor Profiles
 - Filters for the forum posts: 7
-  [ ] Filter Capabilities in Forum
+  - [ ] Filter Capabilities in Forum
 - Similar Questions are shown before posting a question: 8
-  [ ] Redirecting to relevnat posts before posting
+  - [ ] Redirecting to relevnat posts before posting
 - Doctor access to personal information: 9
-  [ ] Doctor View
+  - [ ] Doctor View
 - Limiting information acces based on user preferences: 10
-  [ ] Privacy Settings for users
+  - [ ] Privacy Settings for users
 - Tracking user environment sound: 11
-  [ ] Sound Analysis 
+  - [ ] Sound Analysis 
 
 ## Pages/Screens
 
