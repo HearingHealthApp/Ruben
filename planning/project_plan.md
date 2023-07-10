@@ -63,7 +63,7 @@ Audiologists
 ### User Types 
 - Registered: 1, 3, 4, 5, 7, 8, 9, 10, 11
 - Unregistered: 2, 7 
-- Doctors: 6, 9
+- Audiologists: 6, 9
 
 ### Features based on user stories
 - User updated based on responses to posts (notifications): 1
