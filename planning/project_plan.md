@@ -67,11 +67,11 @@ Audiologists
 
 ### Features based on user stories
 - User updated based on responses to posts (notifications): 1
-  [ ] Notifications 
+[ ] Notifications 
 - Universal Access: 2
-  [ ] Universal Access to Forum
+[ ] Universal Access to Forum
 - Reply/comment relationships in posts: 3, 5
-  [ ] Reply Comment Relationship
+[ ] Reply Comment Relationship
 - Anonymous posts for registered users: 4
   [ ] Regitered users able to post anonymously
 - Informative Doctor profiles: 6
