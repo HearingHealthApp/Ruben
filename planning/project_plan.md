@@ -34,7 +34,7 @@ Tech-savy
 USER ROLES:
 Anonymous/Unregistered
 Registered Users
-Doctors
+Audiologists
 
 ## User Stories
 
