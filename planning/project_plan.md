@@ -58,7 +58,9 @@ Audiologists
 
 10. As a registered user, I want to be able to toggle privacy settings pertaining to personal information given during the registered survey so that I am more comfortable with who can access my information. 
 
-11. As a concert enthusiast, I want to ensure that my listening habits are not impacting my health by being able to track the loudness of my environment in decibels and get live feedback on its impact on my hearing health using the website’s microphone listening tool, so that I can safely go to concerts in the future. 
+11. As a concert enthusiast, I want to ensure that my listening habits are not impacting my health by being able to track the loudness of my environment in decibels and get live feedback on its impact on my hearing health using the website’s microphone listening tool, so that I can safely go to concerts in the future.
+
+### User Types 
 
 
 ## Pages/Screens
