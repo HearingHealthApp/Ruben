@@ -42,7 +42,7 @@ Audiologists
 
 2. As a non-registered user I want to still be able to browse the forum and current posts so that I would not have to create an account to receive help through previously answered questions. 
 
-3. As a person with tinnitus, I want to be able to interact on other posts made by other users that also have tinnitus so that I can better cope with my situation based on other people’s experiences. 
+3. As a person with a hearing related medical conditon, I want to be able to interact on other posts made by other users that also have the same medical condition so that I can better adjust with my situation based on other people’s experiences. 
 
 4. As a registered user I want to have the option to create anonymous posts so that I do not have to worry about giving identifying information to other users within the forum. 
 
@@ -61,9 +61,9 @@ Audiologists
 11. As a concert enthusiast, I want to ensure that my listening habits are not impacting my health by being able to track the loudness of my environment in decibels and get live feedback on its impact on my hearing health using the website’s microphone listening tool, so that I can safely go to concerts in the future.
 
 ### User Types 
-- Registered: 
-- Unregistered: 
-- Doctors: 
+- Registered: 1, 3, 4, 5, 7, 8, 9, 10, 11
+- Unregistered: 2, 7 
+- Doctors: 6, 9
 
 
 ## Pages/Screens
