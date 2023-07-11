@@ -107,16 +107,16 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | R | GET| GET ALL REPLIES FROM COMMENT | 8 |
 
 ### Front End Routes:
-| Address | Description | User Stories |
-| --- | --- | --- |
-| '/' | Landing Page |   |
-| '/forum' | Forum Page | 2,3,4,5,7, 8|
-| '/login' | Login Page |  |
-| '/register' | Registration |  |
-| '/register/doctor' | Registration | 6 |
-| '/forum/:id' | Forum Page child post | 5 |
-| '/listener' | Listening Page | 11 |
-| '/inbox' | Notification Page | 1 |
+| Address | Description | User Stories | ComponentName |
+| --- | --- | --- | --- |
+| '/' | Landing Page |  | Home |
+| '/forum' | Forum Page | 2,3,4,5,7, 8| ForumView |
+| '/login' | Login Page |  | LoginPage |
+| '/register' | Registration |  | RegistartionPage |
+| '/register/doctor' | Registration | 6 | DoctorRegistartionPage |
+| '/forum/:id' | Forum Page child post | 5 | ForumPost |
+| '/listener' | Listening Page | 11 | Listener |
+| '/inbox' | Notification Page | 1 |  |
 
 
 ### Data Tables:
