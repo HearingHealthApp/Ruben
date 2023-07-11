@@ -91,13 +91,10 @@ Audiologists
 
 List all the pages and screens in the app. Include wireframes for at least 3 of them.
 
-- Landing page
 - Register page for both general users and audiologists
 - Login page
-- Forum page
 - Create a post page (popup within the Forum page)
 - Individual Forum post page
-- Listening page
 
 ### Back End Routes:
 
@@ -111,10 +108,13 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 ### Front End Routes:
 | Address | Description | User Stories |
 | --- | --- | --- |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| '/' | Landing Page |  |
+| '/forum' | Forum Page |  |
+| '/login' |  |  |
+| '/register' |  |  |
+| '/forum/:id' |  |  |
+| '/listener' |  |  |
+| '' |  |  |
 
   **WIREFRAME**
 
