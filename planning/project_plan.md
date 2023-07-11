@@ -100,11 +100,11 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 
 | CRUD | HTTP Verb | Description | User Stories |
 | --- | --- | --- | --- |
-|  R |  GET|  | GET ALL FORUM POSTS FROM FORUM |
-|  C| POST |  | REGISTER USER |
-|  C|  POST |  | LOGIN USER |
-|  R|  GET |  | GET ALL COMMENTS FROM FORUM POST |
-| R | GET| | GET ALL REPLIES FROM COMMENT |
+|  R |  GET| GET ALL FORUM POSTS FROM FORUM |  |
+|  C| POST | REGISTER USER |  |
+|  C|  POST | LOGIN USER  |  |
+|  R|  GET | GET ALL COMMENTS FROM FORUM POST |  |
+| R | GET| GET ALL REPLIES FROM COMMENT |  |
 
 ### Front End Routes:
 | Address | Description | User Stories |
