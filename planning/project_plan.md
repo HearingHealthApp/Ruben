@@ -122,7 +122,7 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 ### Data Tables:
 
 | Column Name | Type | Description |
-| —-- | —-- | --— |
+| --- | --- | --- |
 | user_id | uniqueidentifier | a users unique key |
 | username | string | a users unique id |
 | created_at |  | creation date for the account |
