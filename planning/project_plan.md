@@ -108,6 +108,14 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 |  |  |  |  |
 |  |  |  |  |
 
+### Front End Routes:
+| Address | Description | User Stories |
+| --- | --- | --- |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+
   **WIREFRAME**
 
   {https://www.figma.com/file/YxhmoHBKcaxdPWMgIBSjY4/EARIE?type=design&node-id=38%3A10&mode=design&t=VuayNRkVbwqVMDlk-1}
