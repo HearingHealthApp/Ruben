@@ -111,4 +111,14 @@ Describe your app's data model using diagrams or tables
 
 List the API endpoints you will need to implement.
 
+/ (frontend)
+/register (frontend/backend)
+/doctor/register (frontend/backend)
+/login (frontend/backend)
+/listener (frontend/backend)
+/forum (frontend/backend)
+/forum/post/:postId (frontend/backend)
+/forum/post/comments (backend)
+
+
 ***Don't forget to set up your Issues, Milestones, and Project Board!***
