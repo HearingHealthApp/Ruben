@@ -135,6 +135,20 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | last_name |  | the users last name |
 | is_doctor | bool | a boolean that states if a user is a doctor |
 
+#### Doctors
+
+| Column Name | Type | Description |
+| --- | --- | --- |
+| doctor_id | uniqueidentifier | the id of the doctor | 
+| user_id |  | the id of the doctor in the users table |
+| specialties | array | an array of all of the docto's specialties |
+| registrtion_number |  | the doctors registartion number (credentials) |
+| name_of_council |  | the doctors name of council (credentials) |
+| years_of_registartion |  | the doctor's years of registartion (credentials) |
+| description | string | persobnal description the doctor makes |
+| verified | bool | boolean that indicates if a user has been verified |
+
+
 
   **WIREFRAME**
 
