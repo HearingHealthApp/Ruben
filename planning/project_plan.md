@@ -154,19 +154,19 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | --- | --- | --- |
 | post_id| uniqueidentifier | the id of the post | 
 | user_id | uniqueidentifier | the id of the doctor in the users table |
-| text | text | the text content of the forum post |
+| content | text | the text content of the forum post |
 | title | text | the title of the forum post |
 | category | text | type of forum post (lifestyle or medical) |
 | created_at| date | when the post was created |
 
-#### Forum Comments
+####  Comments
 
 | Column Name | Type | Description |
 | --- | --- | --- |
 | forum_id| uniqueidentifier | the id of the post | 
 | comment_id| uniqueidentifier | the id of the comment | 
 | user_id | uniqueidentifier | the id of the doctor in the users table |
-| text | text | the text content of the forum post |
+| content | text | the text content of the forum post |
 | created_at| date | when the post was created |
 
 
