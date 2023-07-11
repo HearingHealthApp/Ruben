@@ -98,6 +98,12 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 - Create a post page (popup within the Forum page)
 - Individual Forum post page
 - Listening page
+| CRUD | HTTP Verb | Description | User Stories |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
 
   **WIREFRAME**
 
