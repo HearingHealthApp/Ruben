@@ -100,21 +100,23 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 
 | CRUD | HTTP Verb | Description | User Stories |
 | --- | --- | --- | --- |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+|  R |  GET|  | GET ALL FORUM POSTS FROM FORUM |
+|  C| POST |  | REGISTER USER |
+|  C|  POST |  | LOGIN USER |
+|  R|  GET |  | GET ALL COMMENTS FROM FORUM POST |
+| R | GET| | GET ALL REPLIES FROM COMMENT |
 
 ### Front End Routes:
 | Address | Description | User Stories |
 | --- | --- | --- |
-| '/' | Landing Page |  |
-| '/forum' | Forum Page |  |
-| '/login' |  |  |
-| '/register' |  |  |
-| '/forum/:id' |  |  |
-| '/listener' |  |  |
-| '' |  |  |
+| '/' | Landing Page |   |
+| '/forum' | Forum Page | 2,3,4,5,7, 8|
+| '/login' | Login Page |  |
+| '/register' | Registration |  |
+| '/register/doctor' | Registration | 6 |
+| '/forum/:id' | Forum Page child post | 5 |
+| '/listener' | Listening Page | 11 |
+| '/inbox' | Notification Page | 1 |
 
   **WIREFRAME**
 
