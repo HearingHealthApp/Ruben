@@ -123,8 +123,8 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 
 | Column Name | Type | Description |
 | --- | --- | --- |
-| user_id | uniqueidentifier | a users unique key |
-| username | string | a users unique id |
+| user_id | uniqueidentifier | a user's unique key |
+| username | string | a user's unique id |
 | created_at |  | creation date for the account |
 | email |  | unique email for user |
 | password |  | the password the user will use to login |
