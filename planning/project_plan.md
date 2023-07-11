@@ -118,6 +118,21 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | '/listener' | Listening Page | 11 |
 | '/inbox' | Notification Page | 1 |
 
+
+### Data Tables:
+
+| Column Name | Type | Description |
+| —-- | —-- | --— |
+| user_id | uniqueidentifier | a users unique key |
+| username | string | a users unique id |
+| created_at |  | creation date for the account |
+| email |  | unique email for user |
+| password |  | the password the user will use to login |
+| first_name |  | the user’s first name |
+| last_name |  | the users last name |
+| is_doctor | bool | a boolean that states if a user is a doctor |
+
+
   **WIREFRAME**
 
   {https://www.figma.com/file/YxhmoHBKcaxdPWMgIBSjY4/EARIE?type=design&node-id=38%3A10&mode=design&t=VuayNRkVbwqVMDlk-1}
