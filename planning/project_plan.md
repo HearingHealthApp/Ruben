@@ -118,6 +118,22 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | '/listener' | Listening Page | 11 | Listener |
 | '/inbox' | Notification Page | 1 |  |
 
+### Additional Components:
+
+| Component Name | Direct Children Components |
+| --- | --- |
+| App | Home, Footer, Header |
+| Home | Hero |
+| Footer |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
+
 
 ### Data Tables:
 
