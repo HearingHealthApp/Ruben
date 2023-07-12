@@ -123,18 +123,22 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 
 ### Additional Components:
 
-| Component Name | Direct Children Components |
-| -------------- | -------------------------- |
-| App            | Home, Footer, Navbar       |
-| Home           | Hero                       |
-| Footer         |                            |
-| Navbar         |                            |
-|                |                            |
-|                |                            |
-|                |                            |
-|                |                            |
-|                |                            |
-|                |                            |
+| Component Name         | Direct Children Components                                                                    |
+| ---------------------- | --------------------------------------------------------------------------------------------- |
+| App                    | Home, Footer, Navbar, ForumView,LoginPage, RegistrationPage, DoctorRegistrationPage, Listener |
+| Home                   | Hero                                                                                          |
+| Footer                 |                                                                                               |
+| Navbar                 | NavLinks                                                                                      |
+| NavLiks                |                                                                                               |
+| ForumView              | ForumPost                                                                                     |
+| LoginPage              |                                                                                               |
+| RegistrationPage       |                                                                                               |
+| DoctorRegistrationPage |                                                                                               |
+| Listener               |                                                                                               |
+| ForumPost              | PostComment                                                                                   |
+| PostComment            |                                                                                               |
+|                        |                                                                                               |
+|                        |                                                                                               |
 
 ### Data Tables:
 
