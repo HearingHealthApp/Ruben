@@ -113,7 +113,7 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | '/forum' | Forum Page | 2,3,4,5,7, 8| ForumView |
 | '/login' | Login Page |  | LoginPage |
 | '/register' | Registration |  | RegistartionPage |
-| '/register/doctor' | Registration | 6 | DoctorRegistartionPage |
+| '/register/doctor' | Registration | 6 | DoctorRegistrationPage |
 | '/forum/:id' | Forum Page child post | 5 | ForumPost |
 | '/listener' | Listening Page | 11 | Listener |
 | '/inbox' | Notification Page | 1 |  |
