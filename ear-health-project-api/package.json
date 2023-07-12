@@ -1,0 +1,14 @@
+{
+  "name": "ear-health-project-api",
+  "version": "1.0.0",
+  "description": "the api for our hearing health app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
