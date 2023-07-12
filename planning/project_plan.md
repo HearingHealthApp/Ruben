@@ -126,9 +126,9 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 
 | Column Name | Type | Description |
 | --- | --- | --- |
-| user_id | uniqueidentifier | a user's unique key |
+| user_id | SERIAL PRIMARY KEY | a user's unique key |
 | username | string | a user's unique id |
-| created_at |  | creation date for the account |
+| created_at | TIMESTAMP NOT NULL | creation date for the account |
 | email |  | unique email for user |
 | password |  | the password the user will use to login |
 | first_name |  | the user’s first name |
@@ -139,7 +139,7 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 
 | Column Name | Type | Description |
 | --- | --- | --- |
-| doctor_id | uniqueidentifier | the id of the doctor | 
+| doctor_id | SERIAL PRIMARY KEY | the id of the doctor | 
 | user_id |  | the id of the doctor in the users table |
 | specialties | array | an array of all of the docto's specialties |
 | registrtion_number |  | the doctors registartion number (credentials) |
@@ -152,22 +152,22 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 
 | Column Name | Type | Description |
 | --- | --- | --- |
-| post_id| uniqueidentifier | the id of the post | 
+| post_id | SERIAL PRIMARY KEY | the id of the post | 
 | user_id | uniqueidentifier | the id of the doctor in the users table |
 | content | text | the text content of the forum post |
 | title | text | the title of the forum post |
 | category | text | type of forum post (lifestyle or medical) |
-| created_at| date | when the post was created |
+| created_at| TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created |
 
 ####  Comments
 
 | Column Name | Type | Description |
 | --- | --- | --- |
-| forum_id| uniqueidentifier | the id of the post | 
-| comment_id| uniqueidentifier | the id of the comment | 
-| user_id | uniqueidentifier | the id of the doctor in the users table |
+| forum_id| SERIAL PRIMARY KEY | the id of the post | 
+| comment_id| int | the id of the comment | 
+| user_id | int | the id of the doctor in the users table |
 | content | text | the text content of the forum post |
-| created_at| date | when the post was created |
+| created_at| TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created |
 
 
 
