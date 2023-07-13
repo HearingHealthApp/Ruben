@@ -9,6 +9,7 @@ import LoginPage from "../LoginPage/LoginPage"
 import Footer from "../Footer/Footer"
 import Forum from "../Forum/Forum"
 import {BrowserRouter, Routes , Route, Link} from "react-router-dom"
+import RegisterDoctor from '../RegisterDoctor/RegisterDoctor'
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
           <Route path = "/register" element = {<RegisterPage/>}/>
           <Route path = "/login" element = {<LoginPage/>}/>
           <Route path = "/forum" element = {<Forum/>}/>
+          <Route path = "/register/doctor" element = {<RegisterDoctor/>}/>
         </Routes>
         </BrowserRouter>
 
