@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({isLoggedIn}) => {
+const Navbar = 
+({isLoggedIn,
+  logOutHandler
+}) => {
   return (
     <div>
       <nav>
@@ -15,9 +18,27 @@ const Navbar = ({isLoggedIn}) => {
             <Link to="/forum">
               <p>Forum</p>
             </Link>
-          </li>
-          
+          </li>   
         </ul>
+        {isLoggedIn ? 
+        (
+          <ul>
+            <button className='signout' onClick={logOutHandler}>Sign Out</button>
+          </ul>
+        ) : (
+          <ul>
+            <li>
+              <Link to="/login">
+              <button className='login'>Login</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="register">
+                <button className='register_button'>Register</button>
+              </Link>
+            </li>
+          </ul>
+        )}
       </nav>
     </div>
   )
