@@ -23,7 +23,7 @@ const Navbar =
         {isLoggedIn ? 
         (
           <ul>
-            <button className='signout' onClick={loginHandler}>Sign Out</button>
+            <button className='signout' onClick={logOutHandler}>Sign Out</button>
           </ul>
         ) : (
           <ul>
