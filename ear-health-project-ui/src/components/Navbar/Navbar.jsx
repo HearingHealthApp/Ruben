@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = 
 ({isLoggedIn,
-  loginHandler
+  logOutHandler
 }) => {
   return (
     <div>
