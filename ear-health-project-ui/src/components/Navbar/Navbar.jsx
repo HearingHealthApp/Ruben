@@ -16,8 +16,8 @@ const Navbar = ({isLoggedIn}) => {
               <p>Forum</p>
             </Link>
           </li>
+          
         </ul>
-        {i}
       </nav>
     </div>
   )
