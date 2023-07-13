@@ -24,9 +24,9 @@ function App() {
   return (
     <>
       <div>
-        <Navbar></Navbar>
 
         <BrowserRouter>
+        <Navbar isLoggedIn = {isLoggedIn}></Navbar>
         <Routes>
           <Route path = "/" element = {<Home/>}/>
           <Route path = "/register" element = {<RegisterPage loginHandler = {loginHandler}/>}/>
