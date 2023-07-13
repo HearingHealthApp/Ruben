@@ -28,7 +28,14 @@ const Navbar =
         ) : (
           <ul>
             <li>
+              <Link to="/login">
               <button className='login'>Login</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="register">
+                <button className='register_button'>Register</button>
+              </Link>
             </li>
           </ul>
         )}
