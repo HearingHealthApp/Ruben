@@ -3,7 +3,15 @@ import "./LoginPage.css"
 
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <div>
+      <div className='login-container'>
+        <form className='login-form'>
+          <div>
+            
+          </div>
+        </form>
+      </div>
+    </div>
   )
 }
 
