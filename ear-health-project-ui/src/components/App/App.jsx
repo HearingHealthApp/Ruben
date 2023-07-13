@@ -20,13 +20,18 @@ function App() {
   const loginHandler = () => {
     setIsLoggedIn(true)
   }
+
+  //setup a logout handler 
+  const logOutHandler = () => {
+    setIsLoggedIn(false)
+  }
   
   return (
     <>
       <div>
 
         <BrowserRouter>
-        <Navbar isLoggedIn = {isLoggedIn}></Navbar>
+        <Navbar isLoggedIn = {isLoggedIn} logOutHandler = {logOutHandler}></Navbar>
         <Routes>
           <Route path = "/" element = {<Home/>}/>
           <Route path = "/register" element = {<RegisterPage loginHandler = {loginHandler}/>}/>
