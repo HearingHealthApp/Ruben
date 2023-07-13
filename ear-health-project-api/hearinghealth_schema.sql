@@ -11,10 +11,10 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS doctors (
     user_id                 INTEGER,
-    specialties             ARRAY,
-    registration_number     INTEGER NOT NULL,
+    specialties             TEXT [],
+    registration_number     TEXT NOT NULL,
     description             TEXT,
-    verified                BOOLEAN,
+    verified                BOOLEAN
     );
 
 CREATE TABLE IF NOT EXISTS posts (
@@ -22,9 +22,9 @@ CREATE TABLE IF NOT EXISTS posts (
     user_id                 INT NOT NULL,
     title                   TEXT NOT NULL,
     content                 TEXT,
-    category                ARRAY,
+    category                TEXT [],
     created_at              TIMESTAMP NOT NULL DEFAULT NOW()
-)
+);
 
 CREATE TABLE IF NOT EXISTS comments (
     comment_id              SERIAL PRIMARY KEY,
@@ -33,4 +33,4 @@ CREATE TABLE IF NOT EXISTS comments (
     content                 TEXT NOT NULL,
     created_at              TIMESTAMP NOT NULL DEFAULT NOW()
 
-)
+);
