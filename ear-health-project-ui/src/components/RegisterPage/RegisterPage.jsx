@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link} from 'react-router-dom'
 import "./RegisterPage.css"
 
-const RegisterPage = () => {
+const RegisterPage = ({loginHandler}) => {
 
   //useState variables for the individual input types
   const [email, setEmail] = useState("")
@@ -19,6 +19,8 @@ const RegisterPage = () => {
   const handleRegistration = (e) => {
     e.preventDefault()
     console.log(JSON.stringify({email, firstName, lastName, userName, password}))
+    loginHandler()
+
     navigate("/")
   }
 
@@ -55,6 +57,12 @@ const RegisterPage = () => {
         onChange={(e) => setPassword(e.target.value)} required/>
 
         <button type = "submit">Submit</button>
+
+        <p>
+      Are you a doctor?{' '}
+      <Link to="/register/doctor">Register <span>here</span></Link>.
+    </p>
+    
       </form>
     </div>
   )

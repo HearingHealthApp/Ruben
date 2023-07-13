@@ -2,7 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const RegisterDoctor = () => {
+const RegisterDoctor = ({loginHandler}) => {
 //useState variables for the individual input types
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
@@ -18,6 +18,8 @@ const RegisterDoctor = () => {
   const handleRegistration = (e) => {
     e.preventDefault()
     console.log(JSON.stringify({email, firstName, lastName, userName, registrationNum, password}))
+    loginHandler()
+
     navigate("/")
   }
 

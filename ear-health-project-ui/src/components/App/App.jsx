@@ -12,6 +12,14 @@ import {BrowserRouter, Routes , Route, Link} from "react-router-dom"
 import RegisterDoctor from '../RegisterDoctor/RegisterDoctor'
 
 function App() {
+
+  //useState for login boolean
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  //loginHandler
+  const loginHandler = () => {
+    setIsLoggedIn(true)
+  }
   
   return (
     <>
@@ -21,10 +29,10 @@ function App() {
         <BrowserRouter>
         <Routes>
           <Route path = "/" element = {<Home/>}/>
-          <Route path = "/register" element = {<RegisterPage/>}/>
+          <Route path = "/register" element = {<RegisterPage loginHandler = {loginHandler}/>}/>
           <Route path = "/login" element = {<LoginPage/>}/>
           <Route path = "/forum" element = {<Forum/>}/>
-          <Route path = "/register/doctor" element = {<RegisterDoctor/>}/>
+          <Route path = "/register/doctor" element = {<RegisterDoctor loginHandler = {loginHandler}/>}/>
         </Routes>
         </BrowserRouter>
 
