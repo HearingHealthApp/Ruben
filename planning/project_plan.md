@@ -98,16 +98,6 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 - Create a post page (popup within the Forum page)
 - Individual Forum post page
 
-### Back End Routes:
-
-| CRUD | HTTP Verb | Description                      | User Stories |
-| ---- | --------- | -------------------------------- | ------------ |
-| R    | GET       | GET ALL FORUM POSTS FROM FORUM   | 7            |
-| C    | POST      | REGISTER USER                    | 1            |
-| C    | POST      | LOGIN USER                       | 5            |
-| R    | GET       | GET ALL COMMENTS FROM FORUM POST | 8            |
-| R    | GET       | GET ALL REPLIES FROM COMMENT     | 8            |
-
 ### Front End Routes:
 
 | Address            | Description           | User Stories | ComponentName          |
@@ -140,6 +130,14 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 |                        |                                                                                               |
 |                        |                                                                                               |
 
+**WIREFRAME**
+
+{https://www.figma.com/file/YxhmoHBKcaxdPWMgIBSjY4/EARIE?type=design&node-id=38%3A10&mode=design&t=VuayNRkVbwqVMDlk-1}
+
+## Data Model
+
+Describe your app's data model using diagrams or tables
+
 ### Data Tables:
 
 #### Users
@@ -147,26 +145,24 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | Column Name | Type               | Description                                 |
 | ----------- | ------------------ | ------------------------------------------- |
 | user_id     | SERIAL PRIMARY KEY | a user's unique key                         |
-| username    | string             | a user's unique id                          |
+| username    | TEXT               | a user's unique id                          |
 | created_at  | TIMESTAMP NOT NULL | creation date for the account               |
-| email       |                    | unique email for user                       |
+| email       | TEXT               | unique email for user                       |
 | password    |                    | the password the user will use to login     |
 | first_name  |                    | the user’s first name                       |
 | last_name   |                    | the users last name                         |
-| is_doctor   | bool               | a boolean that states if a user is a doctor |
+| is_doctor   | BOOL DEFAULT FALSE | a boolean that states if a user is a doctor |
 
 #### Doctors
 
-| Column Name           | Type               | Description                                        |
-| --------------------- | ------------------ | -------------------------------------------------- |
-| doctor_id             | SERIAL PRIMARY KEY | the id of the doctor                               |
-| user_id               |                    | the id of the doctor in the users table            |
-| specialties           | array              | an array of all of the docto's specialties         |
-| registrtion_number    |                    | the doctors registartion number (credentials)      |
-| name_of_council       |                    | the doctors name of council (credentials)          |
-| years_of_registartion |                    | the doctor's years of registartion (credentials)   |
-| description           | string             | persobnal description the doctor makes             |
-| verified              | bool               | boolean that indicates if a user has been verified |
+| Column Name        | Type               | Description                                        |
+| ------------------ | ------------------ | -------------------------------------------------- |
+| doctor_id          | SERIAL PRIMARY KEY | the id of the doctor                               |
+| user_id            | INTEGER            | the id of the doctor in the users table            |
+| specialties        | TEXT []            | an array of all of the docto's specialties         |
+| registrtion_number | TEXT               | the doctors registartion number (credentials)      |
+| description        | TEXT               | persobnal description the doctor makes             |
+| verified           | BOOL DEFAULT FALSE | boolean that indicates if a user has been verified |
 
 #### Forum Post
 
@@ -189,14 +185,6 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | content     | text                             | the text content of the forum post      |
 | created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created               |
 
-**WIREFRAME**
-
-{https://www.figma.com/file/YxhmoHBKcaxdPWMgIBSjY4/EARIE?type=design&node-id=38%3A10&mode=design&t=VuayNRkVbwqVMDlk-1}
-
-## Data Model
-
-Describe your app's data model using diagrams or tables
-
 ## Endpoints
 
 List the API endpoints you will need to implement.
@@ -209,5 +197,15 @@ List the API endpoints you will need to implement.
 /forum (frontend/backend)
 /forum/post/:postId (frontend/backend)
 /forum/post/comments (backend)
+
+### Back End Routes:
+
+| CRUD | HTTP Verb | Description                      | User Stories |
+| ---- | --------- | -------------------------------- | ------------ |
+| R    | GET       | GET ALL FORUM POSTS FROM FORUM   | 7            |
+| C    | POST      | REGISTER USER                    | 1            |
+| C    | POST      | LOGIN USER                       | 5            |
+| R    | GET       | GET ALL COMMENTS FROM FORUM POST | 8            |
+| R    | GET       | GET ALL REPLIES FROM COMMENT     | 8            |
 
 **_Don't forget to set up your Issues, Milestones, and Project Board!_**
