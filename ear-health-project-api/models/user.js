@@ -26,7 +26,7 @@ class User {
 
         //hash the user's password using bcrypt and salt 
         //generate our salt using our work factor
-        const salt =  await bcrypt.genSalt(BCRYPT_WORK_FACTOR)
+        const salt =  await bcrypt.genSalt(10)
 
         //use salt to hash our pasword 
         const hashedPassword = await bcrypt.hash(credentials.password, salt)
