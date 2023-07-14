@@ -127,8 +127,6 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | Listener               |                                                                                               |
 | ForumPost              | PostComment                                                                                   |
 | PostComment            |                                                                                               |
-|                        |                                                                                               |
-|                        |                                                                                               |
 
 **WIREFRAME**
 
@@ -148,9 +146,9 @@ Describe your app's data model using diagrams or tables
 | username    | TEXT               | a user's unique id                          |
 | created_at  | TIMESTAMP NOT NULL | creation date for the account               |
 | email       | TEXT               | unique email for user                       |
-| password    |                    | the password the user will use to login     |
-| first_name  |                    | the user’s first name                       |
-| last_name   |                    | the users last name                         |
+| password    | TEXT               | the password the user will use to login     |
+| first_name  | TEXT               | the user’s first name                       |
+| last_name   | TEXT               | the users last name                         |
 | is_doctor   | BOOL DEFAULT FALSE | a boolean that states if a user is a doctor |
 
 #### Doctors
@@ -170,9 +168,9 @@ Describe your app's data model using diagrams or tables
 | ----------- | -------------------------------- | ----------------------------------------- |
 | post_id     | SERIAL PRIMARY KEY               | the id of the post                        |
 | user_id     | uniqueidentifier                 | the id of the doctor in the users table   |
-| content     | text                             | the text content of the forum post        |
-| title       | text                             | the title of the forum post               |
-| category    | text                             | type of forum post (lifestyle or medical) |
+| content     | TEXT                             | the text content of the forum post        |
+| title       | TEXT                             | the title of the forum post               |
+| category    | TEXT                             | type of forum post (lifestyle or medical) |
 | created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                 |
 
 #### Comments
@@ -180,9 +178,9 @@ Describe your app's data model using diagrams or tables
 | Column Name | Type                             | Description                             |
 | ----------- | -------------------------------- | --------------------------------------- |
 | forum_id    | SERIAL PRIMARY KEY               | the id of the post                      |
-| comment_id  | int                              | the id of the comment                   |
-| user_id     | int                              | the id of the doctor in the users table |
-| content     | text                             | the text content of the forum post      |
+| comment_id  | INT                              | the id of the comment                   |
+| user_id     | INT                              | the id of the doctor in the users table |
+| content     | TEXT                             | the text content of the forum post      |
 | created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created               |
 
 ## Endpoints
@@ -204,8 +202,8 @@ List the API endpoints you will need to implement.
 | ---- | --------- | -------------------------------- | ------------ |
 | R    | GET       | GET ALL FORUM POSTS FROM FORUM   | 7            |
 | C    | POST      | REGISTER USER                    | 1            |
+| C    | POST      | REGISTER DOCTOR                  | 9            |
 | C    | POST      | LOGIN USER                       | 5            |
 | R    | GET       | GET ALL COMMENTS FROM FORUM POST | 8            |
-| R    | GET       | GET ALL REPLIES FROM COMMENT     | 8            |
 
 **_Don't forget to set up your Issues, Milestones, and Project Board!_**
