@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS users (
     password        TEXT NOT NULL,
     first_name      TEXT NOT NULL,
     last_name       TEXT NOT NULL,
-    is_doctor       BOOLEAN,
+    is_doctor       BOOLEAN DEFAULT false,
     created_at      TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS doctors (
     specialties             TEXT [],
     registration_number     TEXT NOT NULL,
     description             TEXT,
-    verified                BOOLEAN
+    verified                BOOLEAN DEFAULT false
     );
 
 CREATE TABLE IF NOT EXISTS posts (
