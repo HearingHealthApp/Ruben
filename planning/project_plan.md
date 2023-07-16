@@ -167,7 +167,7 @@ Describe your app's data model using diagrams or tables
 | Column Name | Type                             | Description                               |
 | ----------- | -------------------------------- | ----------------------------------------- |
 | post_id     | SERIAL PRIMARY KEY               | the id of the post                        |
-| user_id     | uniqueidentifier                 | the id of the doctor in the users table   |
+| user_id     | INTEGER                          | the id of the doctor in the users table   |
 | content     | TEXT                             | the text content of the forum post        |
 | title       | TEXT                             | the title of the forum post               |
 | category    | TEXT                             | type of forum post (lifestyle or medical) |
@@ -178,8 +178,8 @@ Describe your app's data model using diagrams or tables
 | Column Name | Type                             | Description                             |
 | ----------- | -------------------------------- | --------------------------------------- |
 | forum_id    | SERIAL PRIMARY KEY               | the id of the post                      |
-| comment_id  | INT                              | the id of the comment                   |
-| user_id     | INT                              | the id of the doctor in the users table |
+| comment_id  | INTEGER                          | the id of the comment                   |
+| user_id     | INTEGER                          | the id of the doctor in the users table |
 | content     | TEXT                             | the text content of the forum post      |
 | created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created               |
 
@@ -198,12 +198,14 @@ List the API endpoints you will need to implement.
 
 ### Back End Routes:
 
-| CRUD | HTTP Verb | Description                      | User Stories |
-| ---- | --------- | -------------------------------- | ------------ |
-| R    | GET       | GET ALL FORUM POSTS FROM FORUM   | 7            |
-| C    | POST      | REGISTER USER                    | 1            |
-| C    | POST      | REGISTER DOCTOR                  | 9            |
-| C    | POST      | LOGIN USER                       | 5            |
-| R    | GET       | GET ALL COMMENTS FROM FORUM POST | 8            |
+| CRUD | HTTP Verb | Description                          | User Stories |
+| ---- | --------- | ------------------------------------ | ------------ |
+| C    | POST      | REGISTER USER                        | 1            |
+| C    | POST      | REGISTER DOCTOR                      | 9            |
+| C    | POST      | LOGIN USER                           | 5            |
+| R    | GET       | GET ALL FORUM POSTS FROM FORUM       | 7            |
+| R    | GET       | GET ALL COMMENTS FROM FORUM POST     | 8            |
+| C    | POST      | POST A USERS POST TO THE POSTS TABLE |              |
+| C    | POST      | POST A COMMENT TO THE COMMENTS TABLE |              |
 
 **_Don't forget to set up your Issues, Milestones, and Project Board!_**
