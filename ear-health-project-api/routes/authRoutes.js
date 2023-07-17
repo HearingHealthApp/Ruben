@@ -56,4 +56,19 @@ router.post("/register/doctor", async (req, res, next) => {
   }
 });
 
+router.post("/me", async (req, res, next) => {
+  try {
+    // console.log("the res.locals.user is ", res.locals.user);
+    if (res.locals.user) {
+      const { email } = res.locals.user;
+
+      const user = await User.fetchUserByEmail(email);
+      // const publicUser = User.makePublicUser(user)
+      return res.status(200).json({ user: user });
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
