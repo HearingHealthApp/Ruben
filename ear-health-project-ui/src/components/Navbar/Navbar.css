@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    background-color: #24252a;
+    list-style-type: none;
+    text-decoration: none;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding:60px;
+    color:white;
+    overflow: hidden;
+}
+
+.logo{
+    cursor: pointer;
+    height: 100px;
+    width: auto;
+    border-radius: 10%;
+    float: left;
+}
+
+.listed-links {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:white;
+    gap: 50px;
+    font-family: "Cardo",sans-serif;
+}
+.listed-links li a{
+    text-decoration: none;
+    list-style-type: none;
+    color:white;
+    margin-left: 200px;
+}
+
+.logged-in{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.login{
+    color: aquamarine;
+    font-family: "Cardo",sans-serif;
+}
+
+.register_button{
+    color: antiquewhite;
+    font-family: "Cardo", sans-serif;
+}
+/* .listed-links li{
+    display: inline-block;
+    padding: 0px 20px;
+
+} */
+
+.listed-links li a{
+    transition: all 0.3s ease 0s;
+}
+
+
+
+/* .logged-out{
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-end;
+    list-style:none;
+    padding: 9px 25px;
+    background-color:rgba(0,136,169,1) ; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.logged-out ul{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.login{
+    border-radius: 30px;
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
+    background-color: white;
+    padding:10px;
+    border-color:grey; 
+}
+
+.register_button{
+    border-radius: 30px;
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
+    background-color: white;
+    padding:10px;
+    border-color:grey;
+}
+
+.logged-out:hover{
+    background-color: rgba(0,136,169,0.8);
+}*/
+ 
+ 
+ 
+ 
+ 
+ 
+ /* .navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    background-color:#C8B6FF;
+    padding:40px;
+    overflow: hidden;
+
+}
+
+.listed-links{
+    float: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:white;
+    text-decoration: none;
+    list-style-type: none;
+    gap: 50px;
+}
+
+
+.logo{
+    height:100px;
+    width: auto;
+    border-color:white;
+    border-radius: 10px;
+    float: right;
+    margin-left: 100px;
+    margin-right: 200px;
+}
+
+.navbar li a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color:#FDF5A6; 
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  font
+}
+
+.navbar li a:hover{
+    color:black;
+}
+
+.logged-out{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    gap:50px;
+}
+
+.login{
+    border-radius: 30px;
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
+    background-color: white;
+    padding:10px;
+    border-color:grey;
+}
+
+.register_button{
+    border-radius: 30px;
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
+    background-color: white;
+    padding:10px;
+    border-color:grey;
+}  */

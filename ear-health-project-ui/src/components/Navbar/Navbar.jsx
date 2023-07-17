@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "./Navbar.css"
 
 const Navbar = 
 ({isLoggedIn,
@@ -7,11 +8,11 @@ const Navbar =
 }) => {
   return (
     <div>
-      <nav>
-        <ul>
+      <nav className='navbar'>
+        <ul className='listed-links'>
           <li>
             <Link to="/">
-              <img src='https://t4.ftcdn.net/jpg/02/61/77/53/360_F_261775338_nEPbSAfDLTAo8JUguMzsxXttBPyNZZqC.jpg' alt='logo'/>
+              <img className='logo' src='https://t4.ftcdn.net/jpg/02/61/77/53/360_F_261775338_nEPbSAfDLTAo8JUguMzsxXttBPyNZZqC.jpg' alt='logo'/>
             </Link>
           </li>
           <li>
@@ -23,11 +24,11 @@ const Navbar =
 
         {isLoggedIn ? 
         (
-          <ul>
+          <ul className='signedout'>
             <button className='signout' onClick={logOutHandler}>Sign Out</button>
           </ul>
         ) : (
-          <ul>
+          <ul className='logged-in'>
             <li>
               <Link to="/login">
               <button className='login'>Login</button>
