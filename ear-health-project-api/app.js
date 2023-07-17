@@ -10,8 +10,10 @@ app.use(express.json());
 
 //import the routes
 const authRoutes = require("./routes/authRoutes")
+const forumRoutes = require("./routes/forumRoutes")
 
 //use the routes
 app.use("/auth", authRoutes)
+app.use("/forum", forumRoutes)
 
 module.exports = app;
