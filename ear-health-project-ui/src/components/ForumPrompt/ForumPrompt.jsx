@@ -12,7 +12,7 @@ const ForumPrompt = () => {
 
     const handleForumPost = (e) => {
         e.preventDefault()
-        console.log(title, category, anonymous, content)
+        console.log({title, category, anonymous, content})
     }
 
   return (
