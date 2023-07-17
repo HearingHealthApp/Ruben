@@ -17,15 +17,15 @@ class User {
       "lastName",
     ];
 
-    //iterate through the required fields and check if one is missing
-    //if so, throw an error
+    // iterate through the required fields and check if one is missing
+    // if so, throw an error
     requiredFields.forEach((field) => {
       if (!credentials.hasOwnProperty(field)) {
         throw new BadRequestError(`Missing ${field} in request body`);
       }
     });
 
-    //lowercase the email so that it is not case sensitive when doing checks
+    // lowercase the email so that it is not case sensitive when doing checks
     const lowercasedEmail = credentials.email.toLowerCase();
 
     if (credentials.email.indexOf("@") <= 0) {
@@ -51,21 +51,21 @@ class User {
       throw new BadRequestError(`Duplicate usernam: ${credentials.username}`);
     }
 
-    //hash the user's password using bcrypt and salt
-    //generate our salt using our work factor
+    // hash the user's password using bcrypt and salt
+    // generate our salt using our work factor
     const salt = await bcrypt.genSalt(BCRYPT_WORK_FACTOR);
 
-    //use salt to hash our pasword
+    // use salt to hash our pasword
     const hashedPassword = await bcrypt.hash(credentials.password, salt);
 
-    //create the user query to post data into the database
+    // create the user query to post data into the database
     const userQuery = `
         INSERT INTO users (username, email, password, first_name, last_name)
         VALUES ($1, $2, $3, $4, $5)
         RETURNING *
         `;
 
-    //values we will assign
+    // values we will assign
     const values = [
       credentials.username,
       lowercasedEmail,
@@ -74,13 +74,13 @@ class User {
       credentials.lastName,
     ];
 
-    //posting to the db
+    // posting to the db
     const result = await db.query(userQuery, values);
 
-    //get the user from the query
+    // get the user from the query
     const user = result.rows[0];
 
-    //return the user
+    // return the user
     return user;
   }
 
@@ -139,8 +139,8 @@ class User {
 
     //create the user query to post data into the database
     const userQuery = `
-        INSERT INTO users (username, email, password, first_name, last_name)
-        VALUES ($1, $2, $3, $4, $5)
+        INSERT INTO users (username, email, password, first_name, last_name, is_doctor)
+        VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING *
         `;
 
@@ -151,6 +151,7 @@ class User {
       hashedPassword,
       credentials.firstName,
       credentials.lastName,
+      true,
     ];
 
     //posting to the db
@@ -189,7 +190,7 @@ class User {
     return user;
   }
 
-  //function that will login the user if the password and email combination match
+  // function that will login the user if the password and email combination match
   static async login(credentials) {
     //required fields are email and password
     const requiredFields = ["email", "password"];
@@ -203,7 +204,7 @@ class User {
     });
 
     //check if the email entered by the user exists in the DB.
-    const user = await User.fetchUserByEmail(credentials.email);
+    let user = await User.fetchUserByEmail(credentials.email);
 
     //if user exists, check if password is valid and return the user if so
 
@@ -213,6 +214,14 @@ class User {
         user.password
       );
       if (isPasswordValid) {
+        if (user.is_doctor) {
+          const doctorData = await User.fetchDoctorById(user.user_id);
+
+          user = {
+            ...user,
+            ...doctorData,
+          };
+        }
         return user;
       }
     }
@@ -221,7 +230,7 @@ class User {
     throw new UnauthorizedError("Invalid password");
   }
 
-  //fetch an existing user based on an email
+  // fetch an existing user based on an email
   static async fetchUserByEmail(email) {
     //throw an error if there is no email
     if (!email) {
@@ -254,6 +263,25 @@ class User {
     const user = result.rows[0];
 
     return user;
+  }
+
+  // fetches data for a doctor from the doctors table based i=on a provided user ID
+  static async fetchDoctorById(userId) {
+    // throw an error if no username is provided
+    if (!userId) {
+      throw new BadRequestError("No user ID provided");
+    }
+
+    // select from the doctors table the data that matches the user ID
+    const query = `SELECT specialties, registration_number, description, verified FROM doctors WHERE user_id = $1`;
+
+    // convert the provided username to all lowercase and use it as the reference
+    // username in the query
+    const result = await db.query(query, [userId]);
+
+    const doctorData = result.rows[0];
+
+    return doctorData;
   }
 }
 
