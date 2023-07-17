@@ -20,9 +20,11 @@ CREATE TABLE IF NOT EXISTS doctors (
 CREATE TABLE IF NOT EXISTS posts (
     post_id                 SERIAL PRIMARY KEY,
     user_id                 INT NOT NULL,
+    username                TEXT,
     title                   TEXT NOT NULL,
     content                 TEXT,
-    category                TEXT [],
+    category                TEXT,
+    is_anonymous            BOOLEAN NOT NULL DEFAULT false,
     created_at              TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
@@ -30,6 +32,7 @@ CREATE TABLE IF NOT EXISTS comments (
     comment_id              SERIAL PRIMARY KEY,
     post_id                 INT,
     user_id                 INT,
+    username                TEXT,
     content                 TEXT NOT NULL,
     created_at              TIMESTAMP NOT NULL DEFAULT NOW()
 
