@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS posts (
     username                TEXT,
     title                   TEXT NOT NULL,
     content                 TEXT,
-    category                TEXT [],
+    category                TEXT,
     is_anonymous            BOOLEAN NOT NULL DEFAULT false,
     created_at              TIMESTAMP NOT NULL DEFAULT NOW()
 );

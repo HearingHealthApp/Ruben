@@ -1,14 +1,12 @@
 //importing necessary dependencies
 const db = require("../db");
-const { post } = require("../routes/authRoutes");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
 
 class Forum {
   //create a post taking in user's information and display it based on
   static async createPost(data) {
     //user inputs from the frontend
-    // TODO require camelcase from front end and missing username and userId
-    const requiredFields = ["title", "content", "is_anonymous", "category"];
+    const requiredFields = ["title", "content", "isAnonymous", "category"];
 
     //check if each field is filled out
     requiredFields.forEach((field) => {
@@ -29,8 +27,8 @@ class Forum {
       data.title,
       data.content,
       data.category,
-      data.is_anonymous,
-      data.user_id,
+      data.isAnonymous,
+      data.userId,
       data.username,
     ];
 
@@ -61,31 +59,24 @@ class Forum {
     return result.rows[0];
   }
 
-  //get all the forums posts by userID, and separate them into pages
-  static async getAllPostsByUserID(userID) {
-
-  }
-
   //get all forum posts and separate them into pages
   static async getAllPosts(offset) {
-
     //the query from the db that will use limit and offset to dynamically load more forum posts
-    const query = `SELECT * FROM posts OFFSET ${offset} LIMIT 5`
-    const result = db.query(query)
+    const query = `SELECT * FROM posts OFFSET ${offset} LIMIT 5`;
+    const result = await db.query(query);
 
     //return the first 5 rows of the query, and dynamically load more as a button is pressed
-    return result.rows
+    return result.rows;
   }
 
-  //get all forum posts pertaining to a userID and separate them into pages
-  static async getAllPosts(offset, userID) {
-
+ //get all forum posts pertaining to a userID and separate them into pages
+  static async getAllPostsByUserID(offset, userID) {
     //the query from the db that will use limit and offset to dynamically load more forum posts
-    const query = `SELECT * FROM posts WHERE user_id = ${userID} OFFSET ${offset} LIMIT 5`
-    const result = db.query(query)
+    const query = `SELECT * FROM posts WHERE user_id = ${userID} OFFSET ${offset} LIMIT 5`;
+    const result = await db.query(query);
 
     //return the first 5 rows of the query, and dynamically load more as a button is pressed
-    return result.rows
+    return result.rows;
   }
 }
 
