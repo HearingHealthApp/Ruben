@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS users (
     password        TEXT NOT NULL,
     first_name      TEXT NOT NULL,
     last_name       TEXT NOT NULL,
-    is_doctor       BOOLEAN DEFAULT false,
+    is_doctor       BOOLEAN  NOT NULL DEFAULT false,
     created_at      TIMESTAMP NOT NULL DEFAULT NOW()
 );
 

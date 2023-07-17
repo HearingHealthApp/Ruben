@@ -98,16 +98,6 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 - Create a post page (popup within the Forum page)
 - Individual Forum post page
 
-### Back End Routes:
-
-| CRUD | HTTP Verb | Description                      | User Stories |
-| ---- | --------- | -------------------------------- | ------------ |
-| R    | GET       | GET ALL FORUM POSTS FROM FORUM   | 7            |
-| C    | POST      | REGISTER USER                    | 1            |
-| C    | POST      | LOGIN USER                       | 5            |
-| R    | GET       | GET ALL COMMENTS FROM FORUM POST | 8            |
-| R    | GET       | GET ALL REPLIES FROM COMMENT     | 8            |
-
 ### Front End Routes:
 
 | Address            | Description           | User Stories | ComponentName          |
@@ -137,57 +127,6 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 | Listener               |                                                                                               |
 | ForumPost              | PostComment                                                                                   |
 | PostComment            |                                                                                               |
-|                        |                                                                                               |
-|                        |                                                                                               |
-
-### Data Tables:
-
-#### Users
-
-| Column Name | Type               | Description                                 |
-| ----------- | ------------------ | ------------------------------------------- |
-| user_id     | SERIAL PRIMARY KEY | a user's unique key                         |
-| username    | string             | a user's unique id                          |
-| created_at  | TIMESTAMP NOT NULL | creation date for the account               |
-| email       |                    | unique email for user                       |
-| password    |                    | the password the user will use to login     |
-| first_name  |                    | the user’s first name                       |
-| last_name   |                    | the users last name                         |
-| is_doctor   | bool               | a boolean that states if a user is a doctor |
-
-#### Doctors
-
-| Column Name           | Type               | Description                                        |
-| --------------------- | ------------------ | -------------------------------------------------- |
-| doctor_id             | SERIAL PRIMARY KEY | the id of the doctor                               |
-| user_id               |                    | the id of the doctor in the users table            |
-| specialties           | array              | an array of all of the docto's specialties         |
-| registrtion_number    |                    | the doctors registartion number (credentials)      |
-| name_of_council       |                    | the doctors name of council (credentials)          |
-| years_of_registartion |                    | the doctor's years of registartion (credentials)   |
-| description           | string             | persobnal description the doctor makes             |
-| verified              | bool               | boolean that indicates if a user has been verified |
-
-#### Forum Post
-
-| Column Name | Type                             | Description                               |
-| ----------- | -------------------------------- | ----------------------------------------- |
-| post_id     | SERIAL PRIMARY KEY               | the id of the post                        |
-| user_id     | uniqueidentifier                 | the id of the doctor in the users table   |
-| content     | text                             | the text content of the forum post        |
-| title       | text                             | the title of the forum post               |
-| category    | text                             | type of forum post (lifestyle or medical) |
-| created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                 |
-
-#### Comments
-
-| Column Name | Type                             | Description                             |
-| ----------- | -------------------------------- | --------------------------------------- |
-| forum_id    | SERIAL PRIMARY KEY               | the id of the post                      |
-| comment_id  | int                              | the id of the comment                   |
-| user_id     | int                              | the id of the doctor in the users table |
-| content     | text                             | the text content of the forum post      |
-| created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created               |
 
 **WIREFRAME**
 
@@ -196,6 +135,53 @@ List all the pages and screens in the app. Include wireframes for at least 3 of 
 ## Data Model
 
 Describe your app's data model using diagrams or tables
+
+### Data Tables:
+
+#### Users
+
+| Column Name | Type               | Description                                 |
+| ----------- | ------------------ | ------------------------------------------- |
+| user_id     | SERIAL PRIMARY KEY | a user's unique key                         |
+| username    | TEXT               | a user's unique id                          |
+| created_at  | TIMESTAMP NOT NULL | creation date for the account               |
+| email       | TEXT               | unique email for user                       |
+| password    | TEXT               | the password the user will use to login     |
+| first_name  | TEXT               | the user’s first name                       |
+| last_name   | TEXT               | the users last name                         |
+| is_doctor   | BOOL DEFAULT FALSE | a boolean that states if a user is a doctor |
+
+#### Doctors
+
+| Column Name        | Type               | Description                                        |
+| ------------------ | ------------------ | -------------------------------------------------- |
+| doctor_id          | SERIAL PRIMARY KEY | the id of the doctor                               |
+| user_id            | INTEGER            | the id of the doctor in the users table            |
+| specialties        | TEXT []            | an array of all of the docto's specialties         |
+| registrtion_number | TEXT               | the doctors registartion number (credentials)      |
+| description        | TEXT               | persobnal description the doctor makes             |
+| verified           | BOOL DEFAULT FALSE | boolean that indicates if a user has been verified |
+
+#### Forum Post
+
+| Column Name | Type                             | Description                               |
+| ----------- | -------------------------------- | ----------------------------------------- |
+| post_id     | SERIAL PRIMARY KEY               | the id of the post                        |
+| user_id     | INTEGER                          | the id of the doctor in the users table   |
+| content     | TEXT                             | the text content of the forum post        |
+| title       | TEXT                             | the title of the forum post               |
+| category    | TEXT                             | type of forum post (lifestyle or medical) |
+| created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                 |
+
+#### Comments
+
+| Column Name | Type                             | Description                             |
+| ----------- | -------------------------------- | --------------------------------------- |
+| forum_id    | SERIAL PRIMARY KEY               | the id of the post                      |
+| comment_id  | INTEGER                          | the id of the comment                   |
+| user_id     | INTEGER                          | the id of the doctor in the users table |
+| content     | TEXT                             | the text content of the forum post      |
+| created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created               |
 
 ## Endpoints
 
@@ -209,5 +195,17 @@ List the API endpoints you will need to implement.
 /forum (frontend/backend)
 /forum/post/:postId (frontend/backend)
 /forum/post/comments (backend)
+
+### Back End Routes:
+
+| CRUD | HTTP Verb | Description                          | User Stories |
+| ---- | --------- | ------------------------------------ | ------------ |
+| C    | POST      | REGISTER USER                        | 1            |
+| C    | POST      | REGISTER DOCTOR                      | 9            |
+| C    | POST      | LOGIN USER                           | 5            |
+| R    | GET       | GET ALL FORUM POSTS FROM FORUM       | 7            |
+| R    | GET       | GET ALL COMMENTS FROM FORUM POST     | 8            |
+| C    | POST      | POST A USERS POST TO THE POSTS TABLE |              |
+| C    | POST      | POST A COMMENT TO THE COMMENTS TABLE |              |
 
 **_Don't forget to set up your Issues, Milestones, and Project Board!_**
