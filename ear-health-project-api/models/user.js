@@ -36,13 +36,15 @@ class User {
     // if one does, throw an error
     const existingEmail = await User.fetchUserByEmail(credentials.email);
 
-     // if user with that email is found, throw an error saying its a duplicate
+    // if user with that email is found, throw an error saying its a duplicate
     if (existingEmail) {
       throw new BadRequestError(`Duplicate email: ${credentials.email}`);
     }
 
     // check if there's a user with the same email
-    const existingUsername = await User.fetchUserByUsername(credentials.username);
+    const existingUsername = await User.fetchUserByUsername(
+      credentials.username
+    );
 
     // if user with that username is found, throw an error saying its a duplicate
     if (existingUsername) {
@@ -91,7 +93,7 @@ class User {
       "password",
       "firstName",
       "lastName",
-      "registrationNumber"
+      "registrationNumber",
     ];
 
     //iterate through the required fields and check if one is missing
@@ -113,13 +115,15 @@ class User {
     // if one does, throw an error
     const existingEmail = await User.fetchUserByEmail(credentials.email);
 
-     // if user with that email is found, throw an error saying its a duplicate
+    // if user with that email is found, throw an error saying its a duplicate
     if (existingEmail) {
       throw new BadRequestError(`Duplicate email: ${credentials.email}`);
     }
 
     // check if there's a user with the same email
-    const existingUsername = await User.fetchUserByUsername(credentials.username);
+    const existingUsername = await User.fetchUserByUsername(
+      credentials.username
+    );
 
     // if user with that username is found, throw an error saying its a duplicate
     if (existingUsername) {
@@ -141,21 +145,47 @@ class User {
         `;
 
     //values we will assign
-    const values = [
+    const userValues = [
       credentials.username,
       lowercasedEmail,
       hashedPassword,
-      credentials.first_name,
-      credentials.last_name,
+      credentials.firstName,
+      credentials.lastName,
     ];
 
     //posting to the db
-    const result = await db.query(userQuery, values);
+    const userResult = await db.query(userQuery, userValues);
 
     //get the user from the query
-    const user = result.rows[0];
+    let user = userResult.rows[0];
 
-    //return the user
+    // get the user id from our query to the user table
+    const userId = user.user_id;
+
+    // create a doctor query that passes the doctor specific data
+    const doctorQuery = `
+    INSERT INTO doctors (user_id, registration_number)
+    VALUES ($1, $2)
+    RETURNING specialties, registration_number, description, verified 
+    `;
+
+    // store the values that we will pass into our doctor table query
+    const doctorValues = [userId, credentials.registrationNumber];
+
+    // now we execte the query and store its result
+
+    const doctorData = await db.query(doctorQuery, doctorValues);
+
+    // get the first result row and store that data
+    const doctor = doctorData.rows[0];
+
+    //update the content of user to include the doctor data
+    user = {
+      ...user,
+      ...doctor,
+    };
+
+    // return the user with the doctor data
     return user;
   }
 
