@@ -20,6 +20,7 @@ const Navbar =
             </Link>
           </li>   
         </ul>
+
         {isLoggedIn ? 
         (
           <ul>
