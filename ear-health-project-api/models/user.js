@@ -3,6 +3,7 @@ const db = require("../db");
 const bcrypt = require("bcrypt");
 const { BCRYPT_WORK_FACTOR } = require("../config");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
+const convertSnakeToCamel = require("../utils/formatters")
 
 class User {
   //function that will register general users based on required inputted credentials
@@ -81,7 +82,7 @@ class User {
     const user = result.rows[0];
 
     // return the user
-    return user;
+    return convertSnakeToCamel(user);
   }
 
   // function to register a doctor
@@ -187,7 +188,7 @@ class User {
     };
 
     // return the user with the doctor data
-    return user;
+    return convertSnakeToCamel(user);
   }
 
   // function that will login the user if the password and email combination match
@@ -222,7 +223,7 @@ class User {
             ...doctorData,
           };
         }
-        return user;
+        return convertSnakeToCamel(user);
       }
     }
 
