@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&display=swap');
+
+.outer-container{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.title{
+    margin-left: 100px;
+}
+
+.title h1{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-family:"Cardo",sans-serif ;
+}
+
+.hero{
+    padding-top: 50px;
+    margin-left: 200px;
+}

@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&display=swap');
 *{
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     margin: 0%;
     padding: 0%;
-    background-color: #24252a;
+    /* background-color: #24252a; */
     list-style-type: none;
     text-decoration: none;
 }
@@ -12,9 +12,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding:60px;
+    padding:20px;
     color:white;
     overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    background-color: #BBD0FF;
 }
 
 .logo{
@@ -23,10 +25,11 @@
     width: auto;
     border-radius: 10%;
     float: left;
+    margin-left: 10px;
 }
 
 .listed-links {
-    float: right;
+    /* float: right; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -35,32 +38,53 @@
     font-family: "Cardo",sans-serif;
 }
 .listed-links li a{
+    display: flex;
     text-decoration: none;
     list-style-type: none;
-    color:white;
-    margin-left: 200px;
+    color:black;
+    margin-left: 100px;
+    font-size: 20px;
+}
+.listed-links a:hover{
+    color: grey;
 }
 
 .logged-in{
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     gap: 50px;
+    float: right;
 }
 
 .login{
-    color: aquamarine;
+    color: black;
     font-family: "Cardo",sans-serif;
+    background: none;
+    border: none;
+    margin: 0%;
+    padding: 0%;
+    cursor: pointer;
+    font-size: 20px;
+    float: right;
+}
+
+.login:hover{
+    color: grey;
 }
 
 .register_button{
-    color: antiquewhite;
+    color: black;
     font-family: "Cardo", sans-serif;
+    background: none;
+    border: none;
+    margin: 0%;
+    padding: 0%;
+    cursor: pointer;
+    font-size: 20px;
 }
-/* .listed-links li{
-    display: inline-block;
-    padding: 0px 20px;
-
-} */
+.register_button:hover{
+    color: grey;
+}
 
 .listed-links li a{
     transition: all 0.3s ease 0s;
@@ -68,124 +92,3 @@
 
 
 
-/* .logged-out{
-    display: flex;
-    flex-direction: row; 
-    justify-content: flex-end;
-    list-style:none;
-    padding: 9px 25px;
-    background-color:rgba(0,136,169,1) ; 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-.logged-out ul{
-    display: flex;
-    justify-content: flex-end;
-
-}
-
-.login{
-    border-radius: 30px;
-    font-size: 20px;
-    font-family:'Courier New', Courier, monospace;
-    background-color: white;
-    padding:10px;
-    border-color:grey; 
-}
-
-.register_button{
-    border-radius: 30px;
-    font-size: 20px;
-    font-family:'Courier New', Courier, monospace;
-    background-color: white;
-    padding:10px;
-    border-color:grey;
-}
-
-.logged-out:hover{
-    background-color: rgba(0,136,169,0.8);
-}*/
- 
- 
- 
- 
- 
- 
- /* .navbar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none;
-    background-color:#C8B6FF;
-    padding:40px;
-    overflow: hidden;
-
-}
-
-.listed-links{
-    float: right;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color:white;
-    text-decoration: none;
-    list-style-type: none;
-    gap: 50px;
-}
-
-
-.logo{
-    height:100px;
-    width: auto;
-    border-color:white;
-    border-radius: 10px;
-    float: right;
-    margin-left: 100px;
-    margin-right: 200px;
-}
-
-.navbar li a {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-decoration: none;
-  color:#FDF5A6; 
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 20px;
-  font
-}
-
-.navbar li a:hover{
-    color:black;
-}
-
-.logged-out{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    list-style-type: none;
-    gap:50px;
-}
-
-.login{
-    border-radius: 30px;
-    font-size: 20px;
-    font-family:'Courier New', Courier, monospace;
-    background-color: white;
-    padding:10px;
-    border-color:grey;
-}
-
-.register_button{
-    border-radius: 30px;
-    font-size: 20px;
-    font-family:'Courier New', Courier, monospace;
-    background-color: white;
-    padding:10px;
-    border-color:grey;
-}  */
