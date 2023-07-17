@@ -164,24 +164,27 @@ Describe your app's data model using diagrams or tables
 
 #### Forum Post
 
-| Column Name | Type                             | Description                               |
-| ----------- | -------------------------------- | ----------------------------------------- |
-| post_id     | SERIAL PRIMARY KEY               | the id of the post                        |
-| user_id     | INTEGER                          | the id of the doctor in the users table   |
-| content     | TEXT                             | the text content of the forum post        |
-| title       | TEXT                             | the title of the forum post               |
-| category    | TEXT                             | type of forum post (lifestyle or medical) |
-| created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                 |
+| Column Name  | Type                             | Description                                         |
+| ------------ | -------------------------------- | --------------------------------------------------- |
+| post_id      | SERIAL PRIMARY KEY               | the id of the post                                  |
+| username     | TEXT                             | the username of the person making the post          |
+| user_id      | INTEGER                          | the id of the doctor in the users table             |
+| content      | TEXT                             | the text content of the forum post                  |
+| title        | TEXT                             | the title of the forum post                         |
+| category     | TEXT                             | type of forum post (lifestyle or medical)           |
+| is_anonymous | BOOL DEFAULT FALSE               | whether or not this post was chosen to be Anonymous |
+| created_at   | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                           |
 
 #### Comments
 
-| Column Name | Type                             | Description                             |
-| ----------- | -------------------------------- | --------------------------------------- |
-| forum_id    | SERIAL PRIMARY KEY               | the id of the post                      |
-| comment_id  | INTEGER                          | the id of the comment                   |
-| user_id     | INTEGER                          | the id of the doctor in the users table |
-| content     | TEXT                             | the text content of the forum post      |
-| created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created               |
+| Column Name | Type                             | Description                                   |
+| ----------- | -------------------------------- | --------------------------------------------- |
+| comment_id  | SERIAL PRIMARY KEY               | the id of the comment                         |
+| post_id     | INTEGER                          | the id of the post                            |
+| user_id     | INTEGER                          | the id of the doctor in the users table       |
+| username    | TEXT                             | the username of the person making the comment |
+| content     | TEXT                             | the text content of the forum post            |
+| created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                     |
 
 ## Endpoints
 
