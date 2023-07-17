@@ -9,11 +9,25 @@ app.use(morgan("tiny"));
 app.use(express.json());
 
 //import the routes
-const authRoutes = require("./routes/authRoutes")
-const forumRoutes = require("./routes/forumRoutes")
+const authRoutes = require("./routes/authRoutes");
+const forumRoutes = require("./routes/forumRoutes");
 
 //use the routes
-app.use("/auth", authRoutes)
-app.use("/forum", forumRoutes)
+app.use("/auth", authRoutes);
+app.use("/forum", forumRoutes);
+
+//error handling next functions
+app.use((req, res, next) => {
+  return next(new NotFoundError());
+});
+
+app.use((err, req, res, next) => {
+  const status = err.status || 500;
+  const message = err.message;
+
+  return res.status(status).json({
+    error: { message, status },
+  });
+});
 
 module.exports = app;
