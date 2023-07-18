@@ -34,7 +34,7 @@ const RegisterDoctor = ({ loginHandler, userUpdater }) => {
     const { data, error } = await ApiClient.registerDoctor(registrationInfo);
 
     if (error) {
-      setRegistrationError(error)
+      setRegistrationError(error);
     }
 
     if (data?.user) {
