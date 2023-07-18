@@ -18,6 +18,8 @@ function App() {
   //useState for the user that is currently logged in
   const [user, setUser] = useState({});
 
+  console.log(user)
+
   useEffect(() => {
     const fetchUser = async () => {
       const { data, error } = await ApiClient.fetchUserFromToken();

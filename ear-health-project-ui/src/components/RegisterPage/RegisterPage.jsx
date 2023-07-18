@@ -16,6 +16,9 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
   //navigation for redirecting once registration
   let navigate = useNavigate();
 
+  const [registrationError, setRegistrationError] = useState(null);
+
+
   //submit handler for the form
   const handleRegistration = async (e) => {
     e.preventDefault();
@@ -31,7 +34,7 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
     const { data, error } = await ApiClient.registerUser(registrationInfo);
 
     if (error) {
-      setRegistrationError(error);
+      setRegistrationError(error)
     }
 
     if (data?.user) {
@@ -99,6 +102,7 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
           .
         </p>
       </form>
+      <p>{registrationError}</p>
     </div>
   );
 };
