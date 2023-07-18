@@ -7,7 +7,7 @@ const ForumPrompt = () => {
     const [title, setTitle] = useState("")
     const [anonymous, setAnonymous] = useState(false)
     const [content, setContent] = useState("")
-
+    
     //handler for the forum post 
 
     const handleForumPost = (e) => {

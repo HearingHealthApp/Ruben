@@ -60,8 +60,9 @@ class Forum {
   }
 
   //get all forum posts and separate them into pages
-  static async getAllPosts(offset) {
+  static async getAllPosts(pageNum) {
     //the query from the db that will use limit and offset to dynamically load more forum posts
+    const offset = pageNum * 5
     const query = `SELECT * FROM posts OFFSET ${offset} LIMIT 5`;
     const result = await db.query(query);
 
