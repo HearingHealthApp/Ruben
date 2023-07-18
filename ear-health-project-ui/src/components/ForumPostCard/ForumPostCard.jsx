@@ -45,7 +45,7 @@ const ForumPostCard = ({ post }) => {
         <p>Posted by {post.username}</p>
       )}
       <p>{formatTimeSincePost(post.created_at)}</p>
-      <p>{post.content}</p>
+      <p className="cutoff-text">{post.content}</p>
     </div>
   );
 };
