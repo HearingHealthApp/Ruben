@@ -56,9 +56,8 @@ router.post("/register/doctor", async (req, res, next) => {
   }
 });
 
-router.post("/me", async (req, res, next) => {
+router.get("/me", async (req, res, next) => {
   try {
-    // console.log("the res.locals.user is ", res.locals.user);
     if (res.locals.user) {
       const { email } = res.locals.user;
 
