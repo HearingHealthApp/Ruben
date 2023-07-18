@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "../Navbar/Navbar.jsx";
 import Home from "../Home/Home.jsx";
@@ -8,6 +8,8 @@ import Footer from "../Footer/Footer";
 import Forum from "../Forum/Forum";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import RegisterDoctor from "../RegisterDoctor/RegisterDoctor";
+import ApiClient from "../../services/apiClient.JS";
+
 
 function App() {
   //useState for login boolean
@@ -15,6 +17,28 @@ function App() {
 
   //useState for the user that is currently logged in
   const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data, error } = await ApiClient.fetchUserFromToken();
+      if (data) {
+        setUser(data.user);
+        setIsLoggedIn(true);
+      }
+
+      if (error){
+        console.log(error)
+      }
+
+    };
+
+    const token = localStorage.getItem("HearingHealthToken");
+
+    if (token) {
+      ApiClient.setToken(token);
+      fetchUser();
+    }
+  }, []);
 
   //loginHandler
   const loginHandler = () => {
@@ -28,6 +52,9 @@ function App() {
 
     // we delete the token in our local storage
     localStorage.setItem("HearingHealthToken", null);
+
+    //we reset what our user state is
+    setUser({})
   };
 
   //function that updates the user state with the user we receive from the backend
