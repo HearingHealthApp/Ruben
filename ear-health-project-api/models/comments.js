@@ -6,7 +6,7 @@ class Comments {
   //function to post a comment under a specific forum post
   static async postComment(data) {
     //required input fields to create a comment
-    const requiredFields = ["content", "isAnonymous"];
+    const requiredFields = ["content", "is_anonymous"];
 
     //check if each field is filled out
     requiredFields.forEach((field) => {
