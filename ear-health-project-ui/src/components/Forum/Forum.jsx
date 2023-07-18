@@ -66,7 +66,7 @@ const Forum = ({ user }) => {
 
       {createPostTrue ? (
         <div>
-          <ForumPrompt user={user} />
+          <ForumPrompt user = {user} />
           <button onClick={cancelButton}>Cancel</button>
         </div>
       ) : (

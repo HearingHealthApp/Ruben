@@ -3,7 +3,7 @@ import apiClient from '../../services/apiClient'
 import axios from 'axios'
 
 const ForumPrompt = ({user}) => {
-
+  console.log(user)
     //useState variables for the input types
     const [category, setCategory] = useState("")
     const [title, setTitle] = useState("")

@@ -92,7 +92,7 @@ function App() {
                 />
               }
             />
-            <Route path="/forum" element={<Forum user={user} />} />
+            <Route path="/forum" element={<Forum user = {user}/>} />
             <Route
               path="/register/doctor"
               element={
