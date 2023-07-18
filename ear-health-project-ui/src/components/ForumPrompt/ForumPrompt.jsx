@@ -2,23 +2,27 @@ import React, {useState} from 'react'
 import apiClient from '../../services/apiClient'
 import axios from 'axios'
 
-const ForumPrompt = ({user}) => {
-  console.log(user)
+const ForumPrompt = ({user, fetchAllPosts}) => {
+  // console.log(user)
+  // console.log(user.user_id)
     //useState variables for the input types
     const [category, setCategory] = useState("")
     const [title, setTitle] = useState("")
     const [isAnonymous, setAnonymous] = useState(false)
     const [content, setContent] = useState("")
 
-    //useState for the post to be added
     
+
+
+    //useState for the post to be added
+    const [newPost, setNewPost] = useState({})
+    console.log(newPost)
     const createForumPost = async (e) => {
       e.preventDefault()
       try {
-        const response = await axios.post("http://localhost:3001/forum/post", 
-          JSON.stringify(user.userId, user.username, title, content, category, isAnonymous)
-        )
-        console.log(JSON.stringify(user.userId, user.username, title, content, category, isAnonymous))
+        setNewPost(JSON.stringify({ userId: user.user_id, username: user.username, title: title, content: content, category: category, isAnonymous: isAnonymous }))
+        const response = await apiClient.postPoster(newPost);
+        fetchAllPosts()
       } catch(err) {
         console.error(err)
       }
