@@ -31,6 +31,22 @@ class Comments {
     return result.rows[0]
 
   }
+
+  static async loadAllForumComments(forumID) {
+
+    //check if the forumID is properly passed
+    if (!forumID) {
+        throw new BadRequestError("No id provided")
+    }
+
+    //select from comments db wher the post id matches the post id given
+    const createUserQuery = `SELECT * FROM comments WHERE post_id = $1`
+
+    const result = await db.query(createUserQuery, [forumID])
+
+    return result.rows
+
+  }
 }
 
 module.exports = Comments;
