@@ -59,6 +59,13 @@ class ApiClient {
     });
   }
 
+  async postsGetter(pageNum) {
+    return await this.request({
+      endpoint: `forum/${pageNum}`,
+      method: "GET",
+    });
+  }
+
   fetchUserFromToken = async () => {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   };
