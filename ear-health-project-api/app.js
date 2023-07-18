@@ -2,11 +2,14 @@ const express = require("express"); // import express
 const app = express(); // create our app
 const morgan = require("morgan");
 const cors = require("cors");
+const { NotFoundError } = require("./utils/errors");
+const security = require("./middleware/security");
 
 // mount the middleware
 app.use(cors());
 app.use(morgan("tiny"));
 app.use(express.json());
+app.use(security.extractUserFromJwt);
 
 //import the routes
 const authRoutes = require("./routes/authRoutes");
