@@ -1,23 +1,32 @@
 import React, {useState} from 'react'
+import apiClient from '../../services/apiClient'
+import axios from 'axios'
 
-const ForumPrompt = () => {
+const ForumPrompt = ({user}) => {
 
     //useState variables for the input types
     const [category, setCategory] = useState("")
     const [title, setTitle] = useState("")
-    const [anonymous, setAnonymous] = useState(false)
+    const [isAnonymous, setAnonymous] = useState(false)
     const [content, setContent] = useState("")
-    
-    //handler for the forum post 
 
-    const handleForumPost = (e) => {
-        e.preventDefault()
-        console.log({title, category, anonymous, content})
+    //useState for the post to be added
+    
+    const createForumPost = async (e) => {
+      e.preventDefault()
+      try {
+        const response = await axios.post("http://localhost:3001/forum/post", 
+          JSON.stringify(user.userId, user.username, title, content, category, isAnonymous)
+        )
+        console.log(JSON.stringify(user.userId, user.username, title, content, category, isAnonymous))
+      } catch(err) {
+        console.error(err)
+      }
     }
 
   return (
     <div>
-    <form onSubmit={handleForumPost}>
+    <form onSubmit={createForumPost}>
         <label>Title: </label>
         <input type = "text" 
         placeholder = 'Enter a title for your post!' 
@@ -38,8 +47,8 @@ const ForumPrompt = () => {
         <br/>
 
         <label>Post as anonymous?</label>
-        <input type = "checkbox" value = {anonymous} onChange={(e) => {
-            if (anonymous === false) {
+        <input type = "checkbox" value = {isAnonymous} onChange={(e) => {
+            if (isAnonymous === false) {
                 setAnonymous(true)
             } else {
                 setAnonymous(false)
