@@ -59,9 +59,9 @@ router.post("/register/doctor", async (req, res, next) => {
 router.get("/me", async (req, res, next) => {
   try {
     if (res.locals.user) {
-      const { email } = res.locals.user;
+      const { email, userId } = res.locals.user;
 
-      const user = await User.fetchUserByEmail(email);
+      const user = await User.fetchUserByEmail(email, userId);
       // const publicUser = User.makePublicUser(user)
       return res.status(200).json({ user: user });
     }
