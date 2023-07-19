@@ -109,9 +109,9 @@ function App() {
             <Route path = "/forum/post/:postId" element = {<ForumPost/>}/>
 
           </Routes>
+          <Footer />
         </BrowserRouter>
 
-        <Footer />
       </div>
     </>
   );
