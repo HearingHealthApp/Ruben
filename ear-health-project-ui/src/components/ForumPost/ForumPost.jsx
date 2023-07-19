@@ -58,7 +58,11 @@ const ForumPost = () => {
     <div>
       <div>
         <h1>{post.title}</h1>
-        <p>{post.username}</p>
+        {post.is_anonymous ? (
+        <p>Posted by Anonymous</p>
+      ) : (
+        <p>Posted by {post.username}</p>
+      )}
         <p>{formatTimeSincePost(post.created_at)}</p>
         <p>{post.category}</p>
         <h2>{post.content}</h2>
@@ -66,7 +70,7 @@ const ForumPost = () => {
 
       <div>
         <h1>Comments: </h1>
-        
+
       </div>
     </div>
   );
