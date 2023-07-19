@@ -9,6 +9,7 @@ import Forum from "../Forum/Forum";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import RegisterDoctor from "../RegisterDoctor/RegisterDoctor";
 import ApiClient from "../../services/apiClient.JS";
+import ForumPost from "../ForumPost/ForumPost"
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
 
   //useState for the user that is currently logged in
   const [user, setUser] = useState({});
+
+  //useState for 
 
   console.log(user)
 
@@ -102,6 +105,9 @@ function App() {
                 />
               }
             />
+
+            <Route path = "/forum/post/:postId" element = {<ForumPost/>}/>
+
           </Routes>
         </BrowserRouter>
 
