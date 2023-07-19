@@ -77,7 +77,7 @@ const Forum = ({ user }) => {
       <div>
         {exisitngPosts.map((post) => (
           <div>
-          <Link className = 'link' to = "/:postId">
+          <Link className = 'link' to = {`/forum/post/${post.post_id}`}>
           <ForumPostCard key={post.post_id} post={post} />
           </Link>
           </div>
