@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS comments (
     user_id                 INT,
     username                TEXT,
     content                 TEXT NOT NULL,
+    is_anonymous            BOOLEAN NOT NULL DEFAULT false,
     created_at              TIMESTAMP NOT NULL DEFAULT NOW()
 
 );

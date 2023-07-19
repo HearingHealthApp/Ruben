@@ -3,7 +3,7 @@ const db = require("../db");
 const bcrypt = require("bcrypt");
 const { BCRYPT_WORK_FACTOR } = require("../config");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
-const convertSnakeToCamel = require("../utils/formatters")
+const convertSnakeToCamel = require("../utils/formatters");
 
 class User {
   //function that will register general users based on required inputted credentials
@@ -128,7 +128,7 @@ class User {
 
     // if user with that username is found, throw an error saying its a duplicate
     if (existingUsername) {
-      throw new BadRequestError(`Duplicate usernam: ${credentials.username}`);
+      throw new BadRequestError(`Duplicate username: ${credentials.username}`);
     }
 
     //hash the user's password using bcrypt and salt
@@ -244,7 +244,7 @@ class User {
 
     const user = result.rows[0];
 
-    return user;
+    return convertSnakeToCamel(user);
   }
 
   // fetch an existing user based on username
@@ -263,7 +263,7 @@ class User {
 
     const user = result.rows[0];
 
-    return user;
+    return convertSnakeToCamel(user);
   }
 
   // fetches data for a doctor from the doctors table based i=on a provided user ID
