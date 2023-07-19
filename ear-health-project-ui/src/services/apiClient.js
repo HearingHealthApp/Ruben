@@ -82,6 +82,13 @@ class ApiClient {
     });
   }
 
+  async indvPostGetter(postId) {
+    return await this.request({
+      endpoint:  `forum/post/${postId}`,
+      method: "GET"
+    })
+  }
+
   fetchUserFromToken = async () => {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   };

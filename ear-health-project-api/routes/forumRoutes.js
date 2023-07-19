@@ -48,4 +48,17 @@ router.get("/:userID", async (req, res, next) => {
   }
 });
 
+//get route to get a specific forum post 
+router.get("/post/:postId", async (req,res,next) => {
+  try {
+  const postId = req.params.postId
+
+  const post = await Forum.getPostByID(postId)
+
+  return res.status(200).json({post})
+  } catch(err) {
+    next(err)
+  }
+})
+
 module.exports = router;
