@@ -20,7 +20,7 @@ const ForumPrompt = ({user, fetchAllPosts}) => {
     const createForumPost = async (e) => {
       e.preventDefault()
       try {
-        setNewPost(JSON.stringify({ userId: user.user_id, username: user.username, title: title, content: content, category: category, isAnonymous: isAnonymous }))
+        setNewPost(JSON.stringify({ userId: user.userId, username: user.username, title: title, content: content, category: category, isAnonymous: isAnonymous }))
         const response = await apiClient.postPoster(newPost);
         fetchAllPosts()
       } catch(err) {
