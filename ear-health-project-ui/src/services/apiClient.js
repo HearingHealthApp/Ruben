@@ -59,6 +59,22 @@ class ApiClient {
     });
   }
 
+  async registerDoctor(credentials) {
+    return await this.request({
+      endpoint: "auth/register/doctor",
+      method: "POST",
+      data: credentials,
+    });
+  }
+
+  async postPoster(data) {
+    return await this.request({
+      endpoint: "forum/post",
+      method: "POST",
+      data: data
+    })
+  }
+
   async postsGetter(pageNum) {
     return await this.request({
       endpoint: `forum/${pageNum}`,
