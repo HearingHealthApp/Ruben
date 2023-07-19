@@ -244,7 +244,7 @@ class User {
 
     const user = result.rows[0];
 
-    return convertSnakeToCamel(user);
+    return user;
   }
 
   // fetch an existing user based on username
@@ -263,7 +263,7 @@ class User {
 
     const user = result.rows[0];
 
-    return convertSnakeToCamel(user);
+    return user;
   }
 
   // fetches data for a doctor from the doctors table based i=on a provided user ID
