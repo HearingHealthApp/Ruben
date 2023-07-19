@@ -11,17 +11,10 @@ const ForumPrompt = ({user, fetchAllPosts}) => {
     const [isAnonymous, setAnonymous] = useState(false)
     const [content, setContent] = useState("")
 
-    
-
-
-    //useState for the post to be added
-    const [newPost, setNewPost] = useState({})
-    console.log(newPost)
     const createForumPost = async (e) => {
       e.preventDefault()
       try {
-        setNewPost(JSON.stringify({ userId: user.user_id, username: user.username, title: title, content: content, category: category, isAnonymous: isAnonymous }))
-        const response = await apiClient.postPoster(newPost);
+        const response = await apiClient.postPoster(JSON.stringify({ userId: user.userId, username: user.username, title: title, content: content, category: category, isAnonymous: isAnonymous }));
         fetchAllPosts()
       } catch(err) {
         console.error(err)

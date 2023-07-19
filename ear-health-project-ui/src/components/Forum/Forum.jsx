@@ -3,6 +3,7 @@ import "./Forum.css";
 import ForumPrompt from "../ForumPrompt/ForumPrompt";
 import ApiClient from "../../services/apiClient";
 import ForumPostCard from "../ForumPostCard/ForumPostCard";
+import {Link} from 'react-router-dom'
 
 const Forum = ({ user }) => {
   //conditionally render the forum post form so to reduce clutter when a user does not want to make a post
@@ -75,7 +76,11 @@ const Forum = ({ user }) => {
 
       <div>
         {exisitngPosts.map((post) => (
+          <div>
+          <Link className = 'link' to = "/:postId">
           <ForumPostCard key={post.post_id} post={post} />
+          </Link>
+          </div>
         ))}
         {dataAttainable ? 
         <button onClick={loadMorePosts}>Load More Posts</button>: <p>No more posts!</p>
