@@ -39,12 +39,12 @@ const LoginPage = ({userUpdater, loginHandler}) => {
 
   return (
     <div>
-      <div className="login-container">
-        <form className="login-form" onSubmit={handleLogin}>
-          <div className="welcome">
+      <div className="split left">
+        <form className="centered" onSubmit={handleLogin}>
+          <div className="login-prompt">
             <p>Login</p> <br></br>
           </div>
-          <div className="login-inputs">
+          {/* <div className="login-inputs"> */}
             <label>Email:</label>
             <input
               type="email"
@@ -66,8 +66,14 @@ const LoginPage = ({userUpdater, loginHandler}) => {
               placeholder="Password"
             />
             <button type="submit">Login</button>
-          </div>
+          {/* </div> */}
         </form>
+      </div>
+      <div className="split right">
+        <div className="centered">
+          <img src="https://www.careerguide.com/career/wp-content/uploads/2021/05/ee84e6c4f71311cac5b0624e31ea9b51.gif" alt="audiologist-waving"/>
+          <p>Welcome Back</p>
+        </div>
       </div>
     </div>
   );
