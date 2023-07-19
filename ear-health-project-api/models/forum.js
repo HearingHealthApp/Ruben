@@ -54,7 +54,7 @@ class Forum {
     const value = [id];
 
     //query the db using the postQuery and its value, and return the post
-    const result = db.query(postQuery, value);
+    const result = await db.query(postQuery, value);
 
     return result.rows[0];
   }
