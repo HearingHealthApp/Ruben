@@ -1,6 +1,7 @@
 //importing necessary dependencies
 const db = require("../db");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
+const convertSnakeToCamel = require("../utils/formatters");
 
 class Forum {
   //create a post taking in user's information and display it based on
@@ -36,7 +37,7 @@ class Forum {
     const result = await db.query(postQuery, values);
 
     //get and return the post the user created
-    const post = result.rows[0];
+    const post = convertSnakeToCamel(result.rows[0]);
 
     return post;
   }
@@ -56,28 +57,43 @@ class Forum {
     //query the db using the postQuery and its value, and return the post
     const result = await db.query(postQuery, value);
 
-    return result.rows[0];
+    //get the post with the particualr ID
+    const post = result.rows[0];
+
+    return convertSnakeToCamel(post);
   }
 
   //get all forum posts and separate them into pages
   static async getAllPosts(pageNum) {
     //the query from the db that will use limit and offset to dynamically load more forum posts
-    const offset = pageNum * 5
+    const offset = pageNum * 5;
     const query = `SELECT * FROM posts ORDER BY created_at DESC OFFSET ${offset} LIMIT 5 `;
     const result = await db.query(query);
 
+    const convertedData = [];
+
+    result.rows.forEach((data) =>
+      convertedData.push(convertSnakeToCamel(data))
+    );
+
     //return the first 5 rows of the query, and dynamically load more as a button is pressed
-    return result.rows;
+    return convertedData;
   }
 
- //get all forum posts pertaining to a userID and separate them into pages
+  //get all forum posts pertaining to a userID and separate them into pages
   static async getAllPostsByUserID(offset, userID) {
     //the query from the db that will use limit and offset to dynamically load more forum posts
     const query = `SELECT * FROM posts WHERE user_id = ${userID} OFFSET ${offset} LIMIT 5`;
     const result = await db.query(query);
 
+    const convertedData = [];
+
+    result.rows.forEach((data) =>
+      convertedData.push(convertSnakeToCamel(data))
+    );
+
     //return the first 5 rows of the query, and dynamically load more as a button is pressed
-    return result.rows;
+    return convertedData;
   }
 }
 

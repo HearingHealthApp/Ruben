@@ -1,12 +1,14 @@
 //importing necessary dependencies
 const db = require("../db");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
+const convertSnakeToCamel = require("../utils/formatters");
+
 
 class Comments {
   //function to post a comment under a specific forum post
   static async postComment(data) {
     //required input fields to create a comment
-    const requiredFields = ["content", "is_anonymous"];
+    const requiredFields = ["content", "isAnonymous"];
 
     //check if each field is filled out
     requiredFields.forEach((field) => {
@@ -23,12 +25,15 @@ class Comments {
     `
 
     //values that we will put into the query 
-    const values = [data.post_id, data.user_id, data.username, data.content, data.is_anonymous]
+    const values = [data.postId, data.userId, data.username, data.content, data.isAnonymous]
 
     //insert the actual comment into the db and return
     const result = await db.query(commentQuery,values)
 
-    return result.rows[0]
+    //get the posted comment and convert it to camelCase
+    const comment = convertSnakeToCamel(result.rows[0])
+    
+    return comment
 
   }
 

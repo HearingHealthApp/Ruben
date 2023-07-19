@@ -58,12 +58,12 @@ const ForumPost = () => {
     <div>
       <div>
         <h1>{post.title}</h1>
-        {post.is_anonymous ? (
+        {post.isAnonymous ? (
         <p>Posted by Anonymous</p>
       ) : (
         <p>Posted by {post.username}</p>
       )}
-        <p>{formatTimeSincePost(post.created_at)}</p>
+        <p>{formatTimeSincePost(post.createdAt)}</p>
         <p>{post.category}</p>
         <h2>{post.content}</h2>
       </div>
