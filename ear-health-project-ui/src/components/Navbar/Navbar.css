@@ -1,0 +1,93 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Gruppo&display=swap');
+*{
+    /* box-sizing: border-box; */
+    margin: 0%;
+    padding: 0%;
+    /* background-color: #24252a; */
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding:20px;
+    color:white;
+    overflow: hidden;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    background-color: #BBD0FF;
+}
+
+.logo{
+    cursor: pointer;
+    height: 100px;
+    width: auto;
+    border-radius: 10%;
+    float: left;
+    margin-left: 10px;
+}
+
+.listed-links {
+    /* float: right; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:white;
+    gap: 50px;
+    font-family: "Gruppo",sans-serif;
+}
+.listed-links li a{
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    color:black;
+    margin-left: 100px;
+    font-size: 30px;
+}
+.listed-links a:hover{
+    color: grey;
+}
+
+.logged-in{
+    display: flex;
+    /* flex-direction: row; */
+    gap: 50px;
+    float: right;
+}
+
+.login{
+    color: black;
+    font-family: "Gruppo",sans-serif;
+    background: none;
+    border: none;
+    margin: 0%;
+    padding: 0%;
+    cursor: pointer;
+    font-size: 30px;
+    float: right;
+}
+
+.login:hover{
+    color: grey;
+}
+
+.register_button{
+    color: black;
+    font-family: "Gruppo",sans-serif;
+    background: none;
+    border: none;
+    margin: 0%;
+    padding: 0%;
+    cursor: pointer;
+    font-size: 30px;
+}
+.register_button:hover{
+    color: grey;
+}
+
+.listed-links li a{
+    transition: all 0.3s ease 0s;
+}
