@@ -39,23 +39,35 @@ const LoginPage = ({userUpdater, loginHandler}) => {
 
   return (
     <div>
-      <div className="split left">
-        <form className="centered" onSubmit={handleLogin}>
-          <div className="login-prompt">
-            <p>Login</p> <br></br>
-          </div>
-          {/* <div className="login-inputs"> */}
-            <label>Email:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              required
-              placeholder="Email"
-            />
-            <label>Password</label>
+      <div className="split-screen">
+        <div className="left">
+          <section className="copy">
+            <h1>Explore your options here at Earie</h1>
+            <p>Licensed professionals are here for all you hearing needs</p>
+          </section>
+
+        </div>
+        <div className="right">
+          <form>
+            <section className="copy">
+              <h2>Sign In</h2>
+              <img src="https://static.vecteezy.com/system/resources/thumbnails/007/033/146/small/profile-icon-login-head-icon-vector.jpg" alt="login icon"/>
+              <div className="login-container">
+              </div>
+            </section>
+            <div className="input-container name">
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                required
+                placeholder="Email"
+              />
+            </div>
+            <div className="input-container password">
             <input
               type="password"
               value={password}
@@ -65,16 +77,13 @@ const LoginPage = ({userUpdater, loginHandler}) => {
               required
               placeholder="Password"
             />
-            <button type="submit">Login</button>
-          {/* </div> */}
-        </form>
-      </div>
-      <div className="split right">
-        <div className="centered">
-          <img src="https://www.careerguide.com/career/wp-content/uploads/2021/05/ee84e6c4f71311cac5b0624e31ea9b51.gif" alt="audiologist-waving"/>
-          <p>Welcome Back</p>
+            </div>
+            <button className="login-bttn" type="submit">Login</button>
+          </form>
+
         </div>
       </div>
+
     </div>
   );
 };
