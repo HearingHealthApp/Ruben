@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiClient from "../../services/apiClient";
+import CommentCard from "../CommentCard/CommentCard";
 
-const ForumPost = () => {
+const ForumPost = ({user}) => {
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour
@@ -42,16 +43,36 @@ const ForumPost = () => {
 
   //useState for the actual post
   const [post, setPost] = useState({});
+  //useState for the actual comment
+  const [comments, setComments] = useState([]);
+  //useState for anonymity
+  const [isAnonymous, setAnonymous] = useState(false);
+  //useState for contentn
+  const [content, setContent] = useState("")
+
   const getPost = async () => {
     const { data } = await apiClient.indvPostGetter(postId);
 
     setPost(data.post);
-    console.log(post);
+  };
+
+  //fetch the comments
+  const getComments = async () => {
+    const { data } = await apiClient.getComments(postId);
+    setComments(data);
+  };
+
+  //add comments
+  const addComment = async (e) => {
+    e.preventDefault()
+    const { data } = await apiClient.postComment(JSON.stringify({postId: postId, userId: user.userId, content: content, isAnonymous: isAnonymous, username: user.username}))
+    getComments();
   };
 
   //call the fetch on page load
   useEffect(() => {
     getPost();
+    getComments();
   }, []);
 
   return (
@@ -59,10 +80,10 @@ const ForumPost = () => {
       <div>
         <h1>{post.title}</h1>
         {post.isAnonymous ? (
-        <p>Posted by Anonymous</p>
-      ) : (
-        <p>Posted by {post.username}</p>
-      )}
+          <p>Posted by Anonymous</p>
+        ) : (
+          <p>Posted by {post.username}</p>
+        )}
         <p>{formatTimeSincePost(post.createdAt)}</p>
         <p>{post.category}</p>
         <h2>{post.content}</h2>
@@ -71,6 +92,32 @@ const ForumPost = () => {
       <div>
         <h1>Comments: </h1>
 
+        <form onSubmit={addComment}>
+        <textarea
+          rows="8"
+          columns="8"
+          placeholder="Enter your post content"
+          onChange={(e) => setContent(e.target.value)}
+          required
+        />
+          <label>Post as anonymous?</label>
+          <input
+            type="checkbox"
+            value={isAnonymous}
+            onChange={(e) => {
+              if (isAnonymous === false) {
+                setAnonymous(true);
+              } else {
+                setAnonymous(false);
+              }
+            }}
+          />
+          <button type = "submit">Submit comment</button>
+        </form>
+
+        {comments.map((comment) => (
+          <CommentCard comment={comment} />
+        ))}
       </div>
     </div>
   );
