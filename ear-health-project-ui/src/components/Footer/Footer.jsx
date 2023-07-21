@@ -32,9 +32,9 @@ const Footer = () => {
             <div className='footer-col'>
               <h4>Socials</h4>
               <ul>
-                <li><a href='#'>Here</a></li>
-                <li><a href='#'>Hello</a></li>
-                <li><a href='#'>Yes</a></li>
+                <li><a href='#'>Jessica</a></li>
+                <li><a href='#'>Gustavo</a></li>
+                <li><a href='#'>Gerardo</a></li>
               </ul>
             </div>
 
