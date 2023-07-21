@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import apiClient from "../../services/apiClient";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ForumPrompt = ({ user, fetchAllPosts }) => {
   //useState variables for the input types
@@ -8,6 +8,8 @@ const ForumPrompt = ({ user, fetchAllPosts }) => {
   const [title, setTitle] = useState("");
   const [isAnonymous, setAnonymous] = useState(false);
   const [content, setContent] = useState("");
+
+  let navigate = useNavigate();
 
   const createForumPost = async (e) => {
     e.preventDefault();
@@ -22,7 +24,15 @@ const ForumPrompt = ({ user, fetchAllPosts }) => {
           isAnonymous: isAnonymous,
         })
       );
-      fetchAllPosts();
+
+      const {data, error} = response
+
+      if (data){
+        navigate(`/forum/post/${data.post.postId}`)
+        console.log(data)
+      }
+      
+
     } catch (err) {
       console.error(err);
     }
