@@ -1,6 +1,7 @@
 import React from 'react'
 
 const CommentCard = ({comment}) => {
+  console.log(comment)
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour
@@ -37,7 +38,7 @@ const CommentCard = ({comment}) => {
 
   return (
     <div>
-      {comment.isAnonymous ? (
+      {comment.is_anonymous ? (
         <p> Anonymous</p>
       ) : (
         <p>{comment.username}</p>
