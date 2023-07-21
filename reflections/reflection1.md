@@ -6,7 +6,7 @@ Pod Members: Gustavo Grijalba, Jessica Flores Olmos, Gerardo A. Perez
 
 - Name at least one successful thing this week.
 
-  We implemented posts in the front end, posts in the back end, comments in the front end, comments in the backend, forum in the front end, forum in the back end, css for landing page, About Me component, and so much more.
+ We implemented posts in the front end, posts in the back end, comments in the front end, comments in the backend, forum in the front end, forum in the back end, css for landing page, About Me component, and so much more.
 
 - What were some challenges you and/or your group faced this week?
 
