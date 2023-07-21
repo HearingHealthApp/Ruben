@@ -12,7 +12,7 @@ const Home = ({}) => {
           </h1>
         </div>
         <div className='blurb'>
-        <p className='welcome-blurb'>Welcome to our website Earie, where your hearing comes first.</p>  
+        <p className='welcome-blurb'>Welcome to our website Ruben, where your hearing comes first.</p>  
         </div>
         <div className='notloggedin'> 
           Already a user?
