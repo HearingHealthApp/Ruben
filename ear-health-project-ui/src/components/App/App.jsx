@@ -106,7 +106,7 @@ function App() {
               }
             />
 
-            <Route path = "/forum/post/:postId" element = {<ForumPost/>}/>
+            <Route path = "/forum/post/:postId" element = {<ForumPost user = {user}/>}/>
 
           </Routes>
           <Footer />
