@@ -8,7 +8,7 @@ const Home = ({}) => {
       <div className='title'>
         <div className='earie-header'>
           <h1>
-            Earie
+            Ruben
           </h1>
         </div>
         <div className='blurb'>
@@ -52,7 +52,7 @@ const Home = ({}) => {
           <h2>About Us</h2>
         </div>
         <div className='about-ps'>
-          <p className='abrparagraphs'>Established in June of 2023, here at Earie we value the health of your ears through our tight-knit community and some of the best audiologists to answer your questions.</p><br></br>
+          <p className='abrparagraphs'>Established in June of 2023, here at Ruben we value the health of your ears through our tight-knit community and some of the best audiologists to answer your questions.</p><br></br>
           <p>We value confidentiality, trust, equality, and honesty and strive to implement these values throughout our services provided to our users.</p><br></br>
           <p>Dont fEAR, we are hEAR!</p>
         </div>
