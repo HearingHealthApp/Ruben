@@ -4,10 +4,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiClient from "../../services/apiClient.JS";
 
-const LoginPage = ({userUpdater, loginHandler}) => {
+const LoginPage = ({ userUpdater, loginHandler }) => {
   // establish states that track form changes
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
 
   //navigation for redirecting once registration
   let navigate = useNavigate();
@@ -25,12 +26,12 @@ const LoginPage = ({userUpdater, loginHandler}) => {
     const { data, error } = await ApiClient.loginUser(loginInfo);
 
     if (error) {
-      setRegistrationError(error);
+      setLoginError(error);
     }
 
     if (data?.user) {
       userUpdater(data.user);
-      console.log("user received token is ", data.token)
+      console.log("user received token is ", data.token);
       ApiClient.setToken(data.token);
       loginHandler();
       navigate("/");
@@ -45,15 +46,16 @@ const LoginPage = ({userUpdater, loginHandler}) => {
             <h1>Explore your options here at Earie</h1>
             <p>Licensed professionals are here for all you hearing needs</p>
           </section>
-
         </div>
         <div className="right">
-          <form>
+          <form onSubmit={handleLogin}>
             <section className="copy">
               <h2>Sign In</h2>
-              <img src="https://static.vecteezy.com/system/resources/thumbnails/007/033/146/small/profile-icon-login-head-icon-vector.jpg" alt="login icon"/>
-              <div className="login-container">
-              </div>
+              <img
+                src="https://static.vecteezy.com/system/resources/thumbnails/007/033/146/small/profile-icon-login-head-icon-vector.jpg"
+                alt="login icon"
+              />
+              <div className="login-container"></div>
             </section>
             <div className="input-container name">
               <input
@@ -68,22 +70,26 @@ const LoginPage = ({userUpdater, loginHandler}) => {
               />
             </div>
             <div className="input-container password">
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              required
-              placeholder="Password"
-            />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                required
+                placeholder="Password"
+              />
             </div>
-            <button className="login-bttn" type="submit">Login</button>
+            <button className="login-bttn" type="submit">
+              Login
+            </button>
+            <p>{loginError}</p>
           </form>
-
+          
         </div>
+        
       </div>
-
+      
     </div>
   );
 };

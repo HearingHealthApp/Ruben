@@ -89,6 +89,21 @@ class ApiClient {
     })
   }
 
+  async getComments(postId) {
+    return await this.request({
+      endpoint: `comments/${postId}`,
+      method: "GET"
+    })
+  }
+
+  async postComment(data) {
+    return await this.request({
+      endpoint: "comments/add",
+      method: "POST",
+      data: data
+    })
+  }
+
   fetchUserFromToken = async () => {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   };

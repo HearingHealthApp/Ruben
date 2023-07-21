@@ -49,7 +49,7 @@ class User {
 
     // if user with that username is found, throw an error saying its a duplicate
     if (existingUsername) {
-      throw new BadRequestError(`Duplicate usernam: ${credentials.username}`);
+      throw new BadRequestError(`Duplicate username: ${credentials.username}`);
     }
 
     // hash the user's password using bcrypt and salt
