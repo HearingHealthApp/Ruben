@@ -38,3 +38,15 @@ CREATE TABLE IF NOT EXISTS comments (
     created_at              TIMESTAMP NOT NULL DEFAULT NOW()
 
 );
+
+CREATE TABLE IF NOT EXISTS notifications (
+    notification_id         SERIAL PRIMARY KEY,
+    user_id                 INT NOT NULL,
+    post_id                 INT,
+    comment_id              INT,
+    parent                  TEXT NOT NULL,
+    action                  TEXT NOT NULL,
+    username                TEXT NOT NULL,
+    view_status             BOOLEAN DEFAULT FALSE NOT NULL,
+    created_at              TIMESTAMP NOT NULL DEFAULT NOW()
+)
