@@ -15,11 +15,13 @@ app.use(security.extractUserFromJwt);
 const authRoutes = require("./routes/authRoutes");
 const forumRoutes = require("./routes/forumRoutes");
 const commentsRoutes = require("./routes/commentsRoutes")
+const profileRoutes = require("./routes/profileRoutes")
 
 //use the routes
 app.use("/auth", authRoutes);
 app.use("/forum", forumRoutes);
 app.use("/comments", commentsRoutes)
+app.use("/profile", profileRoutes)
 
 //error handling next functions
 app.use((req, res, next) => {
