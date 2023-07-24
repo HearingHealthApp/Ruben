@@ -16,4 +16,12 @@ const convertSnakeToCamel = (snakeObj) => {
   return null;
 };
 
-module.exports = convertSnakeToCamel;
+const arrayConvertSnakeToCamel = (snakeArray) => {
+  const convertedData = [];
+
+  snakeArray.forEach((data) => convertedData.push(convertSnakeToCamel(data)));
+
+  return convertedData;
+};
+
+module.exports = { convertSnakeToCamel, arrayConvertSnakeToCamel };

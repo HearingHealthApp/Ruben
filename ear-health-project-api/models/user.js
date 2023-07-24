@@ -3,7 +3,7 @@ const db = require("../db");
 const bcrypt = require("bcrypt");
 const { BCRYPT_WORK_FACTOR } = require("../config");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
-const convertSnakeToCamel = require("../utils/formatters");
+const { convertSnakeToCamel } = require("../utils/formatters");
 
 class User {
   //function that will register general users based on required inputted credentials
@@ -30,7 +30,7 @@ class User {
     const lowercasedEmail = credentials.email.toLowerCase();
 
     if (credentials.email.indexOf("@") <= 0) {
-      throw new BadRequestError("Invalid email.");
+      throw new BadRequestError("Invalid email");
     }
 
     // make sure no user already exists in the system with the email
