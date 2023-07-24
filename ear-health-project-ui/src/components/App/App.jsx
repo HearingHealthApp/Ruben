@@ -109,7 +109,7 @@ function App() {
 
             <Route path = "/forum/post/:postId" element = {<ForumPost user = {user}/>}/>
 
-            <Route path = "/profile/:userId" element = {<Profile/>}/>
+            <Route path = "/profile/:userId" element = {<Profile user = {user}/>}/>
 
           </Routes>
           <Footer />

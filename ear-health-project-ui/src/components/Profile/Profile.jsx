@@ -5,7 +5,9 @@ import ForumPostCard from "../ForumPostCard/ForumPostCard";
 import { Link } from "react-router-dom";
 import CommentCard from "../CommentCard/CommentCard";
 
-const Profile = () => {
+const Profile = ({user}) => {
+
+    console.log(user)
   //get the userId from the link
   const { userId } =  useParams();
 
@@ -22,8 +24,6 @@ const Profile = () => {
   const [conditionalRender, setConditonalRender] = useState("Posts")
 
   const getUserInfo = async () => {
-    console.log("here1")
-    console.log(userId)
     const {data}  = await apiClient.getUserData(userId)
     console.log(data.userComments)
     setUserData(data.user)
@@ -54,7 +54,6 @@ const Profile = () => {
         <CommentCard comment={comment} />
       ))
       }
-
     </div>
   );
 };
