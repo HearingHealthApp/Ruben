@@ -95,6 +95,22 @@ class Forum {
     //return the first 5 rows of the query, and dynamically load more as a button is pressed
     return convertedData;
   }
+
+  static async getAllPost() {
+    //the query from the db that will use limit and offset to dynamically load more forum posts
+    const query = `SELECT * FROM posts ORDER BY created_at DESC `;
+    const result = await db.query(query);
+
+    const convertedData = [];
+
+    result.rows.forEach((data) =>
+      convertedData.push(convertSnakeToCamel(data))
+    );
+
+    //return the first 5 rows of the query, and dynamically load more as a button is pressed
+    return convertedData;
+  }
+
 }
 
 module.exports = Forum;

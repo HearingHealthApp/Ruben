@@ -7,6 +7,18 @@ const Forum = require("../models/forum");
 // setting up the router
 const router = express.Router();
 
+router.get("/", async (req, res, next) => {
+  try {
+
+    const posts = await Forum.getAllPost();
+    
+    return res.status(200).json({ posts });
+    
+  } catch (err) {
+    next(err);
+  }
+});
+
 //post route for creating a post
 router.post("/post", async (req, res, next) => {
   try {
@@ -59,6 +71,7 @@ router.get("/post/:postId", async (req,res,next) => {
   } catch(err) {
     next(err)
   }
+
 })
 
 module.exports = router;
