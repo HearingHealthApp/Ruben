@@ -1,7 +1,7 @@
 //importing necessary dependencies
 const db = require("../db");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
-const convertSnakeToCamel = require("../utils/formatters");
+const {convertSnakeToCamel} = require("../utils/formatters");
 
 
 class Comments {
