@@ -186,6 +186,19 @@ Describe your app's data model using diagrams or tables
 | content     | TEXT                             | the text content of the forum post            |
 | created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                     |
 
+#### Notifications
+
+| Column Name     | Type               | Description                                             |
+| --------------- | ------------------ | ------------------------------------------------------- |
+| notification_id | SERIAL PRIMARY KEY | the id of the notification                              |
+| user_id         | INT                | the id of the person getting notified                   |
+| post_id         | INT                | the id of the post the notification is linked to        |
+| comment_id      | INT                | the id of the comment the user is being notified about  |
+| parent          | STRING             | the item that was interacted with                       |
+| action          | STRING             | the action that the user did                            |
+| username        | STRING             | the username of the individual who performed the action |
+| view_status     | BOOL DEFAULT FALSE | the viewed status of the notification                   |
+
 ## Endpoints
 
 List the API endpoints you will need to implement.
