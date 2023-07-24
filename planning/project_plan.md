@@ -194,9 +194,9 @@ Describe your app's data model using diagrams or tables
 | user_id         | INT NOT NULL                     | the id of the person getting notified                   |
 | post_id         | INT NOT NULL                     | the id of the post the notification is linked to        |
 | comment_id      | INT NOT NULL                     | the id of the comment the user is being notified about  |
-| parent          | STRING NOT NULL                  | the item that was interacted with                       |
-| action          | STRING NOT NULL                  | the action that the user did                            |
-| username        | STRING NOT NULL                  | the username of the individual who performed the action |
+| parent          | TEXT NOT NULL                    | the item that was interacted with                       |
+| action          | TEXT NOT NULL                    | the action that the user did                            |
+| username        | TEXT NOT NULL                    | the username of the individual who performed the action |
 | view_status     | BOOL DEFAULT FALSE NOT NULL      | the viewed status of the notification                   |
 | created_at      | TIMESTAMP NOT NULL DEFAULT NOW() | when the notification was created                       |
 
