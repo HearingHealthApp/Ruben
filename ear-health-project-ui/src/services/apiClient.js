@@ -111,6 +111,13 @@ class ApiClient {
     });
   }
 
+  async getPosts() {
+    return await this.request({
+      endpoint: 'forum/',
+      method: "GET",
+    });
+  }
+
   fetchUserFromToken = async () => {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   };
