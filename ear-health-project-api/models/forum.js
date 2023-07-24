@@ -1,7 +1,7 @@
 //importing necessary dependencies
 const db = require("../db");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
-const {convertSnakeToCamel} = require("../utils/formatters");
+const convertSnakeToCamel = require("../utils/formatters");
 
 class Forum {
   //create a post taking in user's information and display it based on
