@@ -57,8 +57,9 @@ const LoginPage = ({ userUpdater, loginHandler }) => {
               />
               <div className="login-container"></div>
             </section>
-            <div className="input-container name">
+            <div className="input-container-name">
               <input
+                className="form-input"
                 id="email"
                 type="email"
                 value={email}
@@ -69,8 +70,9 @@ const LoginPage = ({ userUpdater, loginHandler }) => {
                 placeholder="Email"
               />
             </div>
-            <div className="input-container password">
+            <div className="input-container-password">
               <input
+              className="form-input"
                 type="password"
                 value={password}
                 onChange={(e) => {

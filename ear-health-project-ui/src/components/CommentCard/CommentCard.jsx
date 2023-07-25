@@ -1,4 +1,5 @@
 import React from 'react'
+import "./CommentCard.css"
 
 const CommentCard = ({comment}) => {
   console.log(comment)
@@ -37,13 +38,15 @@ const CommentCard = ({comment}) => {
   };
 
   return (
-    <div>
+    <div className='commenting-box'>
+      <div className='comment-info'>
       {comment.is_anonymous ? (
         <p> Anonymous</p>
       ) : (
         <p>{comment.username}</p>
       )}
       <p>{formatTimeSincePost(comment.created_at)}</p>
+      </div>
       <p>{comment.content}</p>
     </div>
   )
