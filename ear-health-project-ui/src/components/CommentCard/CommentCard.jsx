@@ -38,12 +38,12 @@ const CommentCard = ({comment}) => {
 
   return (
     <div>
-      {comment.is_anonymous ? (
+      {comment.isAnonymous ? (
         <p> Anonymous</p>
       ) : (
         <p>{comment.username}</p>
       )}
-      <p>{formatTimeSincePost(comment.created_at)}</p>
+      <p>{formatTimeSincePost(comment.createdAt)}</p>
       <p>{comment.content}</p>
     </div>
   )
