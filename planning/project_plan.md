@@ -140,65 +140,67 @@ Describe your app's data model using diagrams or tables
 
 #### Users
 
-| Column Name | Type               | Description                                 |
-| ----------- | ------------------ | ------------------------------------------- |
-| user_id     | SERIAL PRIMARY KEY | a user's unique key                         |
-| username    | TEXT               | a user's unique id                          |
-| created_at  | TIMESTAMP NOT NULL | creation date for the account               |
-| email       | TEXT               | unique email for user                       |
-| password    | TEXT               | the password the user will use to login     |
-| first_name  | TEXT               | the user’s first name                       |
-| last_name   | TEXT               | the users last name                         |
-| is_doctor   | BOOL DEFAULT FALSE | a boolean that states if a user is a doctor |
+| Column Name | Type                  | Description                                 |
+| ----------- | --------------------- | ------------------------------------------- |
+| user_id     | SERIAL PRIMARY KEY    | a user's unique key                         |
+| username    | TEXT                  | a user's unique id                          |
+| created_at  | TIMESTAMP NOT NULL    | creation date for the account               |
+| email       | TEXT                  | unique email for user                       |
+| password    | TEXT                  | the password the user will use to login     |
+| first_name  | TEXT                  | the user’s first name                       |
+| last_name   | TEXT                  | the users last name                         |
+| description | TEXT                  | the users description                       |
+| conditions  | TEXT []               | the users conditions                        |
+| is_doctor   | BOOLEAN DEFAULT FALSE | a boolean that states if a user is a doctor |
 
 #### Doctors
 
-| Column Name        | Type               | Description                                        |
-| ------------------ | ------------------ | -------------------------------------------------- |
-| doctor_id          | SERIAL PRIMARY KEY | the id of the doctor                               |
-| user_id            | INTEGER            | the id of the doctor in the users table            |
-| specialties        | TEXT []            | an array of all of the docto's specialties         |
-| registrtion_number | TEXT               | the doctors registartion number (credentials)      |
-| description        | TEXT               | persobnal description the doctor makes             |
-| verified           | BOOL DEFAULT FALSE | boolean that indicates if a user has been verified |
+| Column Name        | Type                  | Description                                        |
+| ------------------ | --------------------- | -------------------------------------------------- |
+| doctor_id          | SERIAL PRIMARY KEY    | the id of the doctor                               |
+| user_id            | INTEGER               | the id of the doctor in the users table            |
+| specialties        | TEXT []               | an array of all of the docto's specialties         |
+| registrtion_number | TEXT                  | the doctors registartion number (credentials)      |
+| description        | TEXT                  | persobnal description the doctor makes             |
+| verified           | BOOLEAN DEFAULT FALSE | boolean that indicates if a user has been verified |
 
 #### Forum Post
 
-| Column Name  | Type                             | Description                                         |
-| ------------ | -------------------------------- | --------------------------------------------------- |
-| post_id      | SERIAL PRIMARY KEY               | the id of the post                                  |
-| username     | TEXT                             | the username of the person making the post          |
-| user_id      | INTEGER                          | the id of the doctor in the users table             |
-| content      | TEXT                             | the text content of the forum post                  |
-| title        | TEXT                             | the title of the forum post                         |
-| category     | TEXT                             | type of forum post (lifestyle or medical)           |
-| is_anonymous | BOOL DEFAULT FALSE               | whether or not this post was chosen to be Anonymous |
-| created_at   | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                           |
+| Column Name  | Type                             | Description                                              |
+| ------------ | -------------------------------- | -------------------------------------------------------- |
+| post_id      | SERIAL PRIMARY KEY               | the id of the post                                       |
+| username     | TEXT                             | the username of the person making the post               |
+| user_id      | INTEGER                          | the id of the doctor in the users table                  |
+| content      | TEXT                             | the text content of the forum post                       |
+| title        | TEXT                             | the title of the forum post                              |
+| category     | TEXT                             | type of forum post (lifestyle or medical)                |
+| is_anonymous | BOOLEAN DEFAULT FALSE            | whether or not this post was chosen to be Anonymous      |
+| from_doctor  | BOOLEAN DEFAULT FALSE NOT NULL   | boolean that determines if the post was made by a doctor |
+| created_at   | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                                |
 
 #### Comments
 
-| Column Name | Type                             | Description                                   |
-| ----------- | -------------------------------- | --------------------------------------------- |
-| comment_id  | SERIAL PRIMARY KEY               | the id of the comment                         |
-| post_id     | INTEGER                          | the id of the post                            |
-| user_id     | INTEGER                          | the id of the doctor in the users table       |
-| username    | TEXT                             | the username of the person making the comment |
-| content     | TEXT                             | the text content of the forum post            |
-| created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                     |
+| Column Name | Type                             | Description                                              |
+| ----------- | -------------------------------- | -------------------------------------------------------- |
+| comment_id  | SERIAL PRIMARY KEY               | the id of the comment                                    |
+| post_id     | INTEGER                          | the id of the post                                       |
+| user_id     | INTEGER                          | the id of the doctor in the users table                  |
+| username    | TEXT                             | the username of the person making the comment            |
+| content     | TEXT                             | the text content of the forum post                       |
+| from_doctor | BOOLEAN DEFAULT FALSE NOT NULL   | boolean that determines if the post was made by a doctor |
+| created_at  | TIMESTAMP NOT NULL DEFAULT NOW() | when the post was created                                |
 
 #### Notifications
 
-| Column Name     | Type                             | Description                                             |
-| --------------- | -------------------------------- | ------------------------------------------------------- |
-| notification_id | SERIAL PRIMARY KEY               | the id of the notification                              |
-| user_id         | INT NOT NULL                     | the id of the person getting notified                   |
-| post_id         | INT NOT NULL                     | the id of the post the notification is linked to        |
-| comment_id      | INT NOT NULL                     | the id of the comment the user is being notified about  |
-| parent          | TEXT NOT NULL                    | the item that was interacted with                       |
-| action          | TEXT NOT NULL                    | the action that the user did                            |
-| username        | TEXT NOT NULL                    | the username of the individual who performed the action |
-| view_status     | BOOL DEFAULT FALSE NOT NULL      | the viewed status of the notification                   |
-| created_at      | TIMESTAMP NOT NULL DEFAULT NOW() | when the notification was created                       |
+| Column Name     | Type                             | Description                                                 |
+| --------------- | -------------------------------- | ----------------------------------------------------------- |
+| notification_id | SERIAL PRIMARY KEY               | the id of the notification                                  |
+| user_id         | INT NOT NULL                     | the id of the person getting notified                       |
+| post_id         | INT NOT NULL                     | the id of the post the notification is linked to            |
+| comment_id      | INT NOT NULL                     | the id of the comment the user is being notified about      |
+| message         | TEXT NOT NULL                    | the message that the notification is going to give the user |
+| view_status     | BOOLEAN DEFAULT FALSE NOT NULL   | the viewed status of the notification                       |
+| created_at      | TIMESTAMP NOT NULL DEFAULT NOW() | when the notification was created                           |
 
 ## Endpoints
 
