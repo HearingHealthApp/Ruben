@@ -10,6 +10,15 @@ class Comments {
     //required input fields to create a comment
     const requiredFields = ["content", "isAnonymous"];
 
+    const equiredFields = [
+      "userId",
+      "postId",
+      "commentId",
+      "parent",
+      "action",
+      "username",
+    ];
+
     //check if each field is filled out
     requiredFields.forEach((field) => {
       if (!data.hasOwnProperty(field)) {
