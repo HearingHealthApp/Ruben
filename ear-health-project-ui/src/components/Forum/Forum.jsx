@@ -6,7 +6,7 @@ import ForumPostCard from "../ForumPostCard/ForumPostCard";
 import { Link } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 
-const Forum = ({ user }) => {
+const Forum = ({ user, isLoggedIn }) => {
   //conditionally render the forum post form so to reduce clutter when a user does not want to make a post
   const [createPostTrue, setCreatePostTrue] = useState(false);
 
@@ -31,6 +31,7 @@ const Forum = ({ user }) => {
   //useState for every post (not limited )
   const [allPosts, setAllPosts] = useState([]);
 
+  //will fetch all posts with an offset and a delimiter that is based on pageNum
   const fetchAllPosts = async () => {
     const { data, error } = await ApiClient.postsGetter(pageNum);
 
@@ -47,7 +48,7 @@ const Forum = ({ user }) => {
     }
   };
 
-  //call the fetch on page load
+  //call the fetches on page load
   useEffect(() => {
     fetchAllPosts();
     getAllPosts();
@@ -66,6 +67,7 @@ const Forum = ({ user }) => {
     fetchAllPosts();
   };
 
+  //will set a boolean to true which will determine whether to show the delimiter view or the search view
   const handleSearchItem = (event) => {
     setSearchBool(true);
 
@@ -75,12 +77,36 @@ const Forum = ({ user }) => {
     setSearchItem(event.target.value);
   };
 
+  //gets all the posts without the use of a delimiter
   const getAllPosts = async () => {
     const { data } = await apiClient.getPosts();
 
     const posts = data.posts;
     setAllPosts(posts);
   };
+
+  //for the purpose of filtering through the forums based on category
+  // we will do so by getting the value of the buttons and filtering through the posts through that value
+  let [activeCategory, setActiveCategory] = useState("")
+  const [categoryBool, setCategoryBool] = useState(false)
+
+  const handleUpdateCategory = (event) => {
+    let activeCategory = event.target.id
+    if (activeCategory === "") {
+      setCategoryBool(false)
+    } else {
+      setCategoryBool(true)
+    }
+    setActiveCategory(activeCategory)
+  }
+
+  let filteredData = allPosts.filter(post => post.category.includes(activeCategory))
+
+  console.log("active category",activeCategory)
+
+  console.log(filteredData)
+
+
   return (
     <div>
       <input
@@ -91,8 +117,9 @@ const Forum = ({ user }) => {
       <br />
 
       <div>
-        <button>Medical</button>
-        <button>Lifestyle</button>
+        <button id = "" onClick={handleUpdateCategory}>All</button>
+        <button id = "Medical" onClick={handleUpdateCategory}>Medical</button>
+        <button id = "Lifestyle" onClick={handleUpdateCategory}>Lifestyle</button>
       </div>
 
       {createPostTrue ? (
@@ -101,12 +128,17 @@ const Forum = ({ user }) => {
           <button onClick={cancelButton}>Cancel</button>
         </div>
       ) : (
-        <button onClick={clickButton}>Create a Post</button>
+        <div>
+        {isLoggedIn ? 
+          <button onClick={clickButton}>Create a Post</button> :
+          null
+        }
+        </div>
       )}
 
       <div>
-        {searchBool
-          ? allPosts
+        {searchBool || categoryBool
+          ? filteredData
               .filter((post) =>
                 post.title.toLowerCase().includes(searchItem.toLowerCase())
               )
@@ -125,7 +157,7 @@ const Forum = ({ user }) => {
               </div>
             ))}
 
-        {dataAttainable & !searchBool ? (
+        {dataAttainable & !searchBool & !categoryBool ? (
           <button onClick={loadMorePosts}>Load More Posts</button>
         ) : (
           <p>No posts!</p>
