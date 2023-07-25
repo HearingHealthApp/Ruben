@@ -113,8 +113,22 @@ class ApiClient {
 
   async getPosts() {
     return await this.request({
-      endpoint: 'forum/',
+      endpoint: "forum/",
       method: "GET",
+    });
+  }
+
+  async getUserNotifications(userId) {
+    return await this.request({
+      endpoint: `notification/${userId}`,
+      method: "GET",
+    });
+  }
+
+  async notificationUpdater(notificationId) {
+    return await this.request({
+      endpoint: `notification/${notificationId}`,
+      method: "PUT",
     });
   }
 

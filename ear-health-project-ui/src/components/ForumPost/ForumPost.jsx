@@ -68,6 +68,11 @@ const ForumPost = ({ user }) => {
   //add comments
   const addComment = async (e) => {
     e.preventDefault();
+
+    let doctor = false
+    if (user.isDoctor & user.verified){
+      doctor = true
+    }
     const { data } = await apiClient.postComment(
       JSON.stringify({
         userToNotify: post.userId,
@@ -77,7 +82,7 @@ const ForumPost = ({ user }) => {
         isAnonymous: isAnonymous,
         commentorUsername: user.username,
         postTitle: post.title,
-        commentorIsDoctor: user.isDoctor
+        commentorIsDoctor: doctor
       })
     );
     getComments();

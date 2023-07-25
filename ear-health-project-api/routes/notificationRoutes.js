@@ -7,19 +7,6 @@ const Notification = require("../models/notifications");
 // setting up the router
 const router = express.Router();
 
-// post route for registering
-router.post("/", async (req, res, next) => {
-  try {
-    // post the notification
-    const notification = await Notification.createNotification(req.body);
-
-    // return the user and the token as a json object
-    return res.status(201).json({ notification: notification });
-  } catch (err) {
-    next(err);
-  }
-});
-
 router.put("/:notificationId", async (req, res, next) => {
   try {
     // get the notificationId
