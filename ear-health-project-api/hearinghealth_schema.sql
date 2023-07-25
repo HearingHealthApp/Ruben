@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS posts (
     content                 TEXT,
     category                TEXT,
     is_anonymous            BOOLEAN NOT NULL DEFAULT false,
-    from_doctor             BOOLEAN DEFAULT FALSE NOT NULL
+    from_doctor             BOOLEAN DEFAULT FALSE NOT NULL,
     created_at              TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS comments (
     username                TEXT,
     content                 TEXT NOT NULL,
     is_anonymous            BOOLEAN NOT NULL DEFAULT false,
-    from_doctor             BOOLEAN DEFAULT FALSE NOT NULL
+    from_doctor             BOOLEAN DEFAULT FALSE NOT NULL,
     created_at              TIMESTAMP NOT NULL DEFAULT NOW()
 
 );
