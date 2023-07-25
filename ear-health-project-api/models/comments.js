@@ -86,8 +86,10 @@ class Comments {
     //select from comments db wher the post id matches the post id given
     const createUserQuery = `SELECT * FROM comments WHERE post_id = $1 ORDER BY from_doctor DESC, created_at DESC`;
 
+    // execute the query
     const result = await db.query(createUserQuery, [forumID]);
 
+    // use the converter to adjust the syntax of the database return
     const comments = arrayConvertSnakeToCamel(result.rows);
 
     return comments;

@@ -14,8 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS doctors (
     user_id                 INTEGER,
     specialties             TEXT [],
-    registration_number     TEXT NOT NULL,
-    description             TEXT,
+    registration_number     TEXT NOT NULL UNIQUE,
     verified                BOOLEAN DEFAULT false
     );
 
