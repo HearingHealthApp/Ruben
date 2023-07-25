@@ -9,6 +9,11 @@
     font-size: 1.8rem;
     font-family: "Lora", serif;
 }
+.small{
+    font-size: 80%;
+    text-align: center;
+}
+
 
 a{
     text-decoration: none;
@@ -23,3 +28,76 @@ a:hover{
     display: flex;
     flex-direction: column;
 }
+
+.left-side{
+    height: 200px;
+}
+
+.left-side .right-side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-side{
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5)), url('https://media.istockphoto.com/id/1356660353/vector/female-audiologist-doctor-checks-boy-ears-with-otoscope-hearing-exam-for-kids.jpg?s=612x612&w=0&k=20&c=BAZiBBH2KjGrymzRDuFaAc4bQCngs8TFTwQ35v5HsqM=');
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 100px;
+}
+
+.left-side .copy-reg{
+    color:black;
+    text-align: center;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+.left-side p{
+    font-weight: 400;
+    font-family: "Lora",serif;
+}
+
+.right-side .copy-reg{
+    color: black;
+    text-align: center;
+}
+
+.right-side .copy-reg p{
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+}
+
+.right-side form{
+    width: 328px;
+}
+
+.register-inputs{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #c4c4c4 ;
+    padding: 1em;
+    margin-bottom: 1.25rem;
+    font-size:17px;
+    font-weight: 400; 
+    font-family: "Lora", serif;
+}
+
+
+
+@media screen and (min-width:900px){
+    .screen-split{
+        flex-direction: row;
+        height: 100vh;
+    }
+
+    .left-side ,
+    .right-side{
+        display: flex;
+        width: 500%;
+        height: auto;
+    }
+
+    }
