@@ -84,7 +84,7 @@ class Comments {
     }
 
     //select from comments db wher the post id matches the post id given
-    const createUserQuery = `SELECT * FROM comments WHERE post_id = $1`;
+    const createUserQuery = `SELECT * FROM comments WHERE post_id = $1 ORDER BY from_doctor DESC, created_at DESC`;
 
     const result = await db.query(createUserQuery, [forumID]);
 
