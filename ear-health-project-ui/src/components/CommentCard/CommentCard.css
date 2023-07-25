@@ -1,0 +1,14 @@
+.commenting-box{
+    border-style: solid;
+    border-color: rgb(201, 76, 76);
+    background-color:beige;
+    border-radius: 5%;
+    margin-bottom: 10px;
+}
+
+.comment-info{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+}
