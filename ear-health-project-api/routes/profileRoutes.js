@@ -24,4 +24,19 @@ router.get("/:userId", async (req, res, next) => {
   }
 });
 
+//put route to update the user's description 
+router.put("/description/:userId", async (req,res,next) => {
+  try {
+    //what we need from the request
+    const {userId} = req.params
+    const description = req.body.description
+
+    const updatedDesc = await Profile.updateUserDescription(description, userId)
+
+    return res.status(200).json(updatedDesc)
+
+  } catch (err){
+    next(err)
+  }
+})
 module.exports = router;
