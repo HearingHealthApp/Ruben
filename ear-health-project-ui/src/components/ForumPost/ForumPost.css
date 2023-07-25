@@ -1,0 +1,98 @@
+.post-container{
+    border-style: solid;
+    border-color: rgb(201, 76, 76);
+    background-color:beige;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* display: grid;
+    place-items: center; */
+    /* everything will be at the center of the page */
+    padding: 30px;
+}
+
+.post-container1{
+    display: grid;
+    place-items: center;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 50px;
+    border-style: solid;
+    border-color: rgb(201, 76, 76);
+    margin: 50px;
+    width: 90%;
+    border-radius: 5%;    
+}
+
+.post-details{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* float: left; */
+    gap: 20px;
+    /* margin-left: 50px; */
+    font-size:20px;
+}
+
+.user-details{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.actual-post{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.username{
+    font-weight: 900;
+
+}
+
+.post-title{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.post-contents{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    justify-content: center;
+    /* margin-left: 50px; */
+}
+
+.post-title{
+    font-size: 25px;
+}
+
+.post-cat{
+    margin-top: 5px;
+    display: grid;
+    place-content: center;
+    border-radius: 11px;
+    background: #73AD21;
+    padding: 15px; 
+    width: 100px;
+    height: 3px;
+}
+
+.comments{
+    /* display: flex;
+    display: grid;
+    place-items: center; */
+    border-style: solid;
+    border-color: rgb(201, 76, 76);
+    background-color:beige;
+    padding: 30px;
+    border-radius: 10%;
+
+
+}

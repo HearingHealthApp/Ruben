@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 import CommentCard from "../CommentCard/CommentCard";
+import "./ForumPost.css"
 
 const ForumPost = ({user}) => {
   const formatTimeSincePost = (timestamp) => {
@@ -76,17 +77,28 @@ const ForumPost = ({user}) => {
   }, []);
 
   return (
-    <div>
-      <div>
-        <h1>{post.title}</h1>
-        {post.isAnonymous ? (
-          <p>Posted by Anonymous</p>
+    <div className="post-container1">
+      <div className="post-container">
+      <div className="post-details">
+      {post.isAnonymous ? (
+          <div className="user-details">
+          <p className="username">Posted by Anonymous</p>
+          </div>
         ) : (
+          <div className="user-details">
+          <p className="username">{post.username} </p>
           <p>Posted by {post.username}</p>
+          </div>
         )}
         <p>{formatTimeSincePost(post.createdAt)}</p>
-        <p>{post.category}</p>
-        <h2>{post.content}</h2>
+        </div>
+        <div className="post-contents">
+        <h1 className="post-title">{post.title}</h1>
+        <div className="category-container">
+        <p className="post-cat">{post.category}</p>
+        </div>
+        <p className="actual-post">{post.content}</p>
+        </div>
       </div>
 
       <div>
@@ -94,6 +106,7 @@ const ForumPost = ({user}) => {
 
         <form onSubmit={addComment}>
         <textarea
+          className="textbox"
           rows="8"
           columns="8"
           placeholder="Enter your post content"
@@ -114,10 +127,11 @@ const ForumPost = ({user}) => {
           />
           <button type = "submit">Submit comment</button>
         </form>
-
+        <div className="comments">
         {comments.map((comment) => (
           <CommentCard comment={comment} />
         ))}
+        </div>
       </div>
     </div>
   );
