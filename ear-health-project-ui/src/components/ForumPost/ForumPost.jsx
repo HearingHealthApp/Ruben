@@ -76,6 +76,7 @@ const ForumPost = ({ user }) => {
         content: content,
         isAnonymous: isAnonymous,
         commentorUsername: user.username,
+        postTitle: post.title
       })
     );
     getComments();

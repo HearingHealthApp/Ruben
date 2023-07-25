@@ -41,9 +41,7 @@ class Notification {
       notificationData.userId,
       notificationData.postId,
       notificationData.commentId,
-      notificationData.parent,
-      notificationData.action,
-      notificationData.username,
+      notificationData.message
     ];
 
     // posting to the db
