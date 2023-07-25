@@ -45,6 +45,7 @@ const CommentCard = ({comment}) => {
       ) : (
         <p>{comment.username}</p>
       )}
+      {comment.fromDoctor && <p>Verified Doctor</p>}
       <p>{formatTimeSincePost(comment.createdAt)}</p>
       </div>
       <div className='comment-content'>

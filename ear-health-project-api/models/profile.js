@@ -1,7 +1,7 @@
 //importing necessary dependencies
 const db = require("../db");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
-const {convertSnakeToCamel} = require("../utils/formatters");
+const { convertSnakeToCamel } = require("../utils/formatters");
 
 class Profile {
   //get the comments of a particular user
@@ -41,7 +41,7 @@ class Profile {
     const value = [userId];
 
     //execute the query
-    const result = await db.query(postsQuery, value)
+    const result = await db.query(postsQuery, value);
 
     //convert data to camelcase
     const convertedData = [];
@@ -69,6 +69,19 @@ class Profile {
     const result = await db.query(userQuery, value);
 
     return convertSnakeToCamel(result.rows[0]);
+  }
+
+  static async updateUserDescription(description, userId) {
+
+    //create the query to update the column corresponding to that user_id
+
+    const updateUserQuery = `UPDATE users SET description = $1 WHERE user_id = $2 RETURNING *`;
+
+    const values = [description, userId];
+
+    const result = await db.query(updateUserQuery, values)
+
+    return convertSnakeToCamel(result.rows[0])
   }
 }
 
