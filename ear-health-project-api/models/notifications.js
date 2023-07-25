@@ -8,61 +8,22 @@ const {
 
 // create class that holds all the functions pertaining to notifications
 class Notification {
-  // create function that adds notification to notification table
-  static async createNotification(notificationData) {
-    // create an array that holds the keys of the values we expect from
-    // the front end
-    const requiredFields = [
-      "userId",
-      "postId",
-      "commentId",
-      "parent",
-      "action",
-      "username",
-    ];
-
-    // iterate through the required fields and check if one is missing
-    // if so, throw an error
-    requiredFields.forEach((field) => {
-      if (!notificationData.hasOwnProperty(field)) {
-        throw new BadRequestError(`Missing ${field} in request body`);
-      }
-    });
-
-    //create our query
-    const notificationQuery = `
-        INSERT INTO notifications (user_id, post_id, comment_id, parent, action, username)
-        VALUES ($1, $2, $3, $4, $5, $6)
-        RETURNING *
-        `;
-
-    //values we will be assigning to our query
-    const values = [
-      notificationData.userId,
-      notificationData.postId,
-      notificationData.commentId,
-      notificationData.message
-    ];
-
-    // posting to the db
-    const result = await db.query(notificationQuery, values);
-
-    // converting the returned data to camel case
-    const notification = convertSnakeToCamel(result.rows[0]);
-
-    return notification;
-  }
-
+  // function that updates a notification to seen
   static async notificationUpdater(notificationId) {
+
+    // update the respective notification to viewed
     const notificationQuery = `UPDATE notifications
     SET view_status = true
     WHERE notification_id = ${notificationId}; `;
 
+    // await the query's execution
     const result = await db.query(notificationQuery);
 
+    // return a successful status
     return "notification updated successfully";
   }
 
+  // funtion that gets notifications based on the user ID provided
   static async getNotificationsById(userId) {
     // throw an error if no username is provided
     if (!userId) {

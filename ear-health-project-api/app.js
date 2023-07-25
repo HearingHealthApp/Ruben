@@ -23,7 +23,7 @@ app.use("/auth", authRoutes);
 app.use("/forum", forumRoutes);
 app.use("/comments", commentsRoutes)
 app.use("/profile", profileRoutes)
-app.use("/notifications", notificationRoutes)
+app.use("/notification", notificationRoutes)
 
 //error handling next functions
 app.use((req, res, next) => {
