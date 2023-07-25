@@ -1,7 +1,7 @@
 //importing necessary dependencies
 const db = require("../db");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
-const convertSnakeToCamel = require("../utils/formatters");
+const { convertSnakeToCamel } = require("../utils/formatters");
 
 class Forum {
   //create a post taking in user's information and display it based on
@@ -95,6 +95,22 @@ class Forum {
     //return the first 5 rows of the query, and dynamically load more as a button is pressed
     return convertedData;
   }
+
+  static async getAllPost() {
+    //the query from the db that will use limit and offset to dynamically load more forum posts
+    const query = `SELECT * FROM posts ORDER BY created_at DESC `;
+    const result = await db.query(query);
+
+    const convertedData = [];
+
+    result.rows.forEach((data) =>
+      convertedData.push(convertSnakeToCamel(data))
+    );
+
+    //return the first 5 rows of the query, and dynamically load more as a button is pressed
+    return convertedData;
+  }
+
 }
 
 module.exports = Forum;

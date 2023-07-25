@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import RegisterDoctor from "../RegisterDoctor/RegisterDoctor";
 import ApiClient from "../../services/apiClient.JS";
 import ForumPost from "../ForumPost/ForumPost"
+import Profile from "../Profile/Profile";
 
 
 function App() {
@@ -107,6 +108,8 @@ function App() {
             />
 
             <Route path = "/forum/post/:postId" element = {<ForumPost user = {user}/>}/>
+
+            <Route path = "/profile/:userId" element = {<Profile user = {user}/>}/>
 
           </Routes>
           <Footer />

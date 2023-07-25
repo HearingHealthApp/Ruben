@@ -47,6 +47,7 @@ const CommentCard = ({comment}) => {
       )}
       <p>{formatTimeSincePost(comment.created_at)}</p>
       </div>
+
       <p>{comment.content}</p>
     </div>
   )

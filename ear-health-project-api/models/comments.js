@@ -1,7 +1,7 @@
 //importing necessary dependencies
 const db = require("../db");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
-const convertSnakeToCamel = require("../utils/formatters");
+const {convertSnakeToCamel, arrayConvertSnakeToCamel} = require("../utils/formatters");
 
 
 class Comments {
@@ -25,7 +25,7 @@ class Comments {
     `
 
     //values that we will put into the query 
-    const values = [data.postId, data.userId, data.username, data.content, data.isAnonymous]
+    const values = [data.postId, data.commentorId, data.commentorUsername, data.content, data.isAnonymous]
 
     //insert the actual comment into the db and return
     const result = await db.query(commentQuery,values)
@@ -49,7 +49,9 @@ class Comments {
 
     const result = await db.query(createUserQuery, [forumID])
 
-    return result.rows
+    const comments = arrayConvertSnakeToCamel(result.rows)
+
+    return comments
 
   }
 }

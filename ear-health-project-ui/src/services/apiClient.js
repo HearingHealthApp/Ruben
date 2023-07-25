@@ -71,8 +71,8 @@ class ApiClient {
     return await this.request({
       endpoint: "forum/post",
       method: "POST",
-      data: data
-    })
+      data: data,
+    });
   }
 
   async postsGetter(pageNum) {
@@ -84,24 +84,38 @@ class ApiClient {
 
   async indvPostGetter(postId) {
     return await this.request({
-      endpoint:  `forum/post/${postId}`,
-      method: "GET"
-    })
+      endpoint: `forum/post/${postId}`,
+      method: "GET",
+    });
   }
 
   async getComments(postId) {
     return await this.request({
       endpoint: `comments/${postId}`,
-      method: "GET"
-    })
+      method: "GET",
+    });
   }
 
   async postComment(data) {
     return await this.request({
       endpoint: "comments/add",
       method: "POST",
-      data: data
-    })
+      data: data,
+    });
+  }
+
+  async getUserData(userId) {
+    return await this.request({
+      endpoint: `profile/${userId}`,
+      method: "GET",
+    });
+  }
+
+  async getPosts() {
+    return await this.request({
+      endpoint: 'forum/',
+      method: "GET",
+    });
   }
 
   fetchUserFromToken = async () => {

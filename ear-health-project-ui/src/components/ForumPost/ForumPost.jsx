@@ -66,7 +66,7 @@ const ForumPost = ({user}) => {
   //add comments
   const addComment = async (e) => {
     e.preventDefault()
-    const { data } = await apiClient.postComment(JSON.stringify({postId: postId, userId: user.userId, content: content, isAnonymous: isAnonymous, username: user.username}))
+    const { data } = await apiClient.postComment(JSON.stringify({postId: postId, commentorId: user.userId, content: content, isAnonymous: isAnonymous, commentorUsername: user.username}))
     getComments();
   };
 
