@@ -132,6 +132,14 @@ class ApiClient {
     });
   }
 
+  async updateDescription(description, userId) {
+    return await this.request({
+      endpoint: `profile/description/${userId}`,
+      method: "PUT",
+      data: {description},
+    });
+  }
+
   fetchUserFromToken = async () => {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   };

@@ -32,8 +32,6 @@ const Profile = ({ user }) => {
     getUserInfo();
   }, []);
 
-  
-
   //useState for button, as well as handleClick function
 
   const [clicked, setClicked] = useState(false);
@@ -45,6 +43,24 @@ const Profile = ({ user }) => {
       setClicked(false);
     }
   };
+
+  //updating description useStates and other necessary items
+
+  const [description, setDescription] = useState("")
+
+  //query the db from the frontend and update the description
+  const updateDescription = async (e) => {
+    e.preventDefault()
+    const { data } = await apiClient.updateDescription(description, userId)
+    window.location.reload()
+
+  }
+
+  //update the description based on the input
+  const inputUpdater = (e) => {
+    setDescription(e.target.value)
+    console.log(description)
+  }
 
   return (
     <div>
@@ -58,9 +74,11 @@ const Profile = ({ user }) => {
 
         {clicked ? (
           <div>
-            <input />
-            <button>Submit</button>
+            <form onSubmit={updateDescription}>
+            <input onChange={inputUpdater}/>
+            <button type = "submit">Submit</button>
             <button onClick={handleClick}>Cancel</button>
+            </form>
           </div>
         ) : (
           <div>
