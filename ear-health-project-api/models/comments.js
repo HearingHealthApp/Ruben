@@ -25,7 +25,7 @@ class Comments {
     `
 
     //values that we will put into the query 
-    const values = [data.postId, data.userId, data.username, data.content, data.isAnonymous]
+    const values = [data.postId, data.commentorId, data.commentorUsername, data.content, data.isAnonymous]
 
     //insert the actual comment into the db and return
     const result = await db.query(commentQuery,values)
