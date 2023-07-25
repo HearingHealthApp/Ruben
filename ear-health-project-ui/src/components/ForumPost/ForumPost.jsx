@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 import CommentCard from "../CommentCard/CommentCard";
-import "./ForumPost.css"
+import "./ForumPost.css";
 
-const ForumPost = ({user}) => {
+const ForumPost = ({ user }) => {
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour
@@ -49,10 +49,12 @@ const ForumPost = ({user}) => {
   //useState for anonymity
   const [isAnonymous, setAnonymous] = useState(false);
   //useState for contentn
-  const [content, setContent] = useState("")
+  const [content, setContent] = useState("");
 
   const getPost = async () => {
     const { data } = await apiClient.indvPostGetter(postId);
+
+    console.log(data);
 
     setPost(data.post);
   };
@@ -65,8 +67,18 @@ const ForumPost = ({user}) => {
 
   //add comments
   const addComment = async (e) => {
-    e.preventDefault()
-    const { data } = await apiClient.postComment(JSON.stringify({postId: postId, commentorId: user.userId, content: content, isAnonymous: isAnonymous, commentorUsername: user.username}))
+    e.preventDefault();
+    const { data } = await apiClient.postComment(
+      JSON.stringify({
+        userToNotify: post.userId,
+        postId: postId,
+        commentorId: user.userId,
+        content: content,
+        isAnonymous: isAnonymous,
+        commentorUsername: user.username,
+        postTitle: post.title
+      })
+    );
     getComments();
   };
 
@@ -79,25 +91,25 @@ const ForumPost = ({user}) => {
   return (
     <div className="post-container1">
       <div className="post-container">
-      <div className="post-details">
-      {post.isAnonymous ? (
-          <div className="user-details">
-          <p className="username">Posted by Anonymous</p>
-          </div>
-        ) : (
-          <div className="user-details">
-          <p className="username">{post.username} </p>
-          <p>Posted by {post.username}</p>
-          </div>
-        )}
-        <p>{formatTimeSincePost(post.createdAt)}</p>
+        <div className="post-details">
+          {post.isAnonymous ? (
+            <div className="user-details">
+              <p className="username">Posted by Anonymous</p>
+            </div>
+          ) : (
+            <div className="user-details">
+              <p className="username">{post.username} </p>
+              <p>Posted by {post.username}</p>
+            </div>
+          )}
+          <p>{formatTimeSincePost(post.createdAt)}</p>
         </div>
         <div className="post-contents">
-        <h1 className="post-title">{post.title}</h1>
-        <div className="category-container">
-        <p className="post-cat">{post.category}</p>
-        </div>
-        <p className="actual-post">{post.content}</p>
+          <h1 className="post-title">{post.title}</h1>
+          <div className="category-container">
+            <p className="post-cat">{post.category}</p>
+          </div>
+          <p className="actual-post">{post.content}</p>
         </div>
       </div>
 
@@ -105,14 +117,14 @@ const ForumPost = ({user}) => {
         <h1>Comments: </h1>
 
         <form onSubmit={addComment}>
-        <textarea
-          className="textbox"
-          rows="8"
-          columns="8"
-          placeholder="Enter your post content"
-          onChange={(e) => setContent(e.target.value)}
-          required
-        />
+          <textarea
+            className="textbox"
+            rows="8"
+            columns="8"
+            placeholder="Enter your post content"
+            onChange={(e) => setContent(e.target.value)}
+            required
+          />
           <label>Post as anonymous?</label>
           <input
             type="checkbox"
@@ -125,12 +137,12 @@ const ForumPost = ({user}) => {
               }
             }}
           />
-          <button type = "submit">Submit comment</button>
+          <button type="submit">Submit comment</button>
         </form>
         <div className="comments">
-        {comments.map((comment) => (
-          <CommentCard comment={comment} />
-        ))}
+          {comments.map((comment) => (
+            <CommentCard comment={comment} />
+          ))}
         </div>
       </div>
     </div>

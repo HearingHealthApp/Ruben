@@ -10,6 +10,12 @@ class Comments {
     //required input fields to create a comment
     const requiredFields = ["content", "isAnonymous"];
 
+    const equiredFields = [
+      "userId",
+      "postId",
+      "commentId"
+    ];
+
     //check if each field is filled out
     requiredFields.forEach((field) => {
       if (!data.hasOwnProperty(field)) {
@@ -23,7 +29,6 @@ class Comments {
     VALUES ($1, $2, $3, $4, $5)
     RETURNING *
     `
-
     //values that we will put into the query 
     const values = [data.postId, data.commentorId, data.commentorUsername, data.content, data.isAnonymous]
 
@@ -32,7 +37,37 @@ class Comments {
 
     //get the posted comment and convert it to camelCase
     const comment = convertSnakeToCamel(result.rows[0])
+
+    let message = ""
     
+    if (data.isAnonymous){
+      message = `A user commented on your post titled \"${data.postTitle}\"`
+    } else{
+      message= `${data.commentorUsername} commented on your post titled \"${data.postTitle}\"`
+    }
+
+    const notificationQuery = `
+        INSERT INTO notifications (user_id, post_id, comment_id, message)
+        VALUES ($1, $2, $3, $4)
+        RETURNING *
+        `;
+
+    //values we will be assigning to our query
+    const notificationValues = [
+      data.userToNotify,
+      data.postId,
+      comment.commentId,
+      message
+    ];
+
+    console.log(comment)
+    console.log(notificationValues)
+
+    // posting to the db
+    const notificationResult = await db.query(notificationQuery, notificationValues);
+
+
+    console.log(message)
     return comment
 
   }
