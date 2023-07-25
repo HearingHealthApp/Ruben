@@ -37,7 +37,7 @@
     align-items: center;
     color:white;
     gap: 50px;
-    font-family: "Gruppo",sans-serif;
+    font-family: "Lora", serif;
 }
 .listed-links li a{
     display: flex;
@@ -60,7 +60,7 @@
 
 .login{
     color: black;
-    font-family: "Gruppo",sans-serif;
+    font-family: "Lora", serif; 
     background: none;
     border: none;
     margin: 0%;
@@ -76,7 +76,7 @@
 
 .register_button{
     color: black;
-    font-family: "Gruppo",sans-serif;
+    font-family: "Lora", serif;
     background: none;
     border: none;
     margin: 0%;
