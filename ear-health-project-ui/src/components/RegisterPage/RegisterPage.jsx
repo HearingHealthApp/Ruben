@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import ApiClient from "../../services/apiClient.JS";
-
 import "./RegisterPage.css";
 
 const RegisterPage = ({ loginHandler, userUpdater }) => {
@@ -47,10 +46,23 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
 
   return (
     <div>
-      <h1>Register</h1>
-
+      <div className="screen-split">
+        <div className="left-side">
+            <section className="copy-reg">
+              <h1 className="header-reg">Enjoy our services without cost</h1>
+              <p>Licensed professionals are here for all you hearing needs</p>
+            </section>
+        </div>
+      <div className="right-side">
       <form onSubmit={handleRegistration}>
-        <label>Email: </label>
+        <section className="copy">
+                <h2 className="register-header">Sign In</h2>
+                <img
+                  src="https://static.vecteezy.com/system/resources/thumbnails/007/033/146/small/profile-icon-login-head-icon-vector.jpg"
+                  alt="login icon"
+                />
+                <div className="login-container"></div>
+        </section>
         <input
           type="email"
           value={email}
@@ -59,15 +71,12 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
         />
 
         <div>
-          <label>First Name: </label>
           <input
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
           />
-
-          <label>Last Name: </label>
           <input
             type="text"
             value={lastName}
@@ -75,16 +84,12 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
             required
           />
         </div>
-
-        <label>Username: </label>
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-
-        <label>Password: </label>
         <input
           type="password"
           value={password}
@@ -97,13 +102,15 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
         <p>
           Are you a doctor?{" "}
           <Link to="/register/doctor">
-            Register <span>here</span>
+           Register <span>here</span>
           </Link>
-          .
+          
         </p>
+        <p>{registrationError}</p>
       </form>
-      <p>{registrationError}</p>
+      </div>
     </div>
+  </div>
   );
 };
 

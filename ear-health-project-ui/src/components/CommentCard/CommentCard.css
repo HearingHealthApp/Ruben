@@ -4,11 +4,30 @@
     background-color:beige;
     border-radius: 5%;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
 }
 
 .comment-info{
     display: flex;
     flex-direction: row;
     gap: 10px;
-    padding: 10px;
+    margin-left: 20px;
+    font-family: "Lora",serif;
+    font-size: 19px;
+    margin-top: 10px;
+
+
 }
+
+.comment-content{
+    margin-left: 20px;
+    font-family: "Lora",serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+
+
+}
+
