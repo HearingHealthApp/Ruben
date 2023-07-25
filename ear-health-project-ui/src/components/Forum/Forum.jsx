@@ -91,16 +91,18 @@ const Forum = ({ user, isLoggedIn }) => {
   const [categoryBool, setCategoryBool] = useState(false)
 
   const handleUpdateCategory = (event) => {
-    activeCategory = event.target.id
+    let activeCategory = event.target.id
     if (activeCategory === "") {
       setCategoryBool(false)
     } else {
       setCategoryBool(true)
     }
-    setActiveCategory(...activeCategory)
+    setActiveCategory(activeCategory)
   }
 
   let filteredData = allPosts.filter(post => post.category.includes(activeCategory))
+
+  console.log("active category",activeCategory)
 
   console.log(filteredData)
 
