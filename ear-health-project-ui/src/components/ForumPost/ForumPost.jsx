@@ -96,6 +96,7 @@ const ForumPost = ({ user }) => {
 
   return (
     <div className="post-container1">
+      <div className="post-container-small">
       <div className="post-container">
         <div className="post-details">
           {post.isAnonymous ? (
@@ -117,10 +118,12 @@ const ForumPost = ({ user }) => {
           <p className="actual-post">{post.content}</p>
         </div>
       </div>
+      </div>
+      
 
       <div>
         <h1>Comments: </h1>
-
+    
         <form onSubmit={addComment}>
           <textarea
             className="textbox"

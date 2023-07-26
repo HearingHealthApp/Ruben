@@ -5,26 +5,27 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    /* display: grid;
-    place-items: center; */
-    /* everything will be at the center of the page */
+    max-width: 80%;
+
     padding: 30px;
+    width: 80%; 
 }
 
 .post-container1{
-    display: grid;
-    position: relative;
-    place-items: center;
     background-color: antiquewhite;
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 50px;
     border-style: solid;
     border-color: rgb(201, 76, 76);
-    margin: 50px 0px;
-    width: 100%;
+    width: 70%;
     border-radius: 20px;    
+}
+
+.post-container-small {
+    display: flex;
+    justify-content: center;
 }
 
 .post-details{
@@ -84,15 +85,21 @@
     height: 3px;
 }
 
+form textarea{
+    height: 80%;
+    width:100%; 
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .comments{
-    /* display: flex;
-    display: grid;
-    place-items: center; */
     border-style: solid;
     border-color: rgb(201, 76, 76);
     background-color:beige;
     padding: 30px;
-    border-radius: 10%;
+    border-radius: 10px;
+}
 
-
+.textbox-div {
+    max-width: 80%
 }
