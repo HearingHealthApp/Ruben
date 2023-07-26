@@ -11,6 +11,8 @@ import RegisterDoctor from "../RegisterDoctor/RegisterDoctor";
 import ApiClient from "../../services/apiClient.JS";
 import ForumPost from "../ForumPost/ForumPost"
 import Profile from "../Profile/Profile";
+import NotFound from "../NotFound/NotFound";
+import NotificationView from "../NotificationView/NotificationView";
 
 
 function App() {
@@ -110,6 +112,10 @@ function App() {
             <Route path = "/forum/post/:postId" element = {<ForumPost user = {user}/>}/>
 
             <Route path = "/profile/:userId" element = {<Profile user = {user}/>}/>
+
+            <Route path = "/notifications" element = {<NotificationView user = {user} isLoggedIn = {isLoggedIn}/>}/>
+
+            <Route path = "*" element = {<NotFound/>}/>
 
           </Routes>
           <Footer />
