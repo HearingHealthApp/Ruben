@@ -1,0 +1,13 @@
+.not-found {
+  text-align: center;
+  margin: 10rem 0vw;
+  background-color: rgb(244, 190, 90);
+}
+
+.error-code {
+  font-size: 4rem;
+}
+
+.error-message {
+  font-size: 1.5rem;
+}
