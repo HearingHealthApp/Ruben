@@ -140,6 +140,14 @@ class ApiClient {
     });
   }
 
+  async updateConditions(condition, userId) {
+    return await this.request({
+      endpoint:  `profile/conditions/${userId}`,
+      method: "PUT",
+      data: {condition}
+    })
+  }
+
   fetchUserFromToken = async () => {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   };

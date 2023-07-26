@@ -39,4 +39,18 @@ router.put("/description/:userId", async (req,res,next) => {
     next(err)
   }
 })
+
+//put route to update the user's array of conditions 
+router.put("/conditions/:userId", async (req,res,next) => {
+  try {
+    const {userId} = req.params
+    const condition = req.body.condition
+
+    const updatedConditionsArray = await Profile.addCondition(condition, userId)
+
+    return res.status(200).json(updatedConditionsArray)
+  } catch(err) {
+    next(err)
+  }
+})
 module.exports = router;

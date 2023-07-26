@@ -83,6 +83,19 @@ class Profile {
 
     return convertSnakeToCamel(result.rows[0])
   }
+
+  static async addCondition(condition, userId) {
+
+    //will check over the db and append a condition to the array
+    const updateUserCondition = `UPDATE users SET conditions = array_append(conditions, $1) WHERE user_id = $2 RETURNING *`
+
+    const values = [condition, userId]
+
+    const result = await db.query(updateUserCondition, values)
+
+    return convertSnakeToCamel(result.rows[0])
+
+  }
 }
 
 module.exports = Profile;
