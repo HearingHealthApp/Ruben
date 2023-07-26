@@ -1,6 +1,7 @@
 const fs = require('fs')
 const S3 = require("aws-sdk/clients/s3")
 
+//these values belong to the bucket, they are in quarantine because uploaded to github, will be in a .gitignore
 const bucketName = "hearinghealth"
 const region = "us-west-1"
 const accessKeyId = "AKIAUYZVEIOYC3EBUOS2"
@@ -27,6 +28,6 @@ const uploadFile = (file) => {
 
 module.exports = {
     uploadFile,
-    
+
 }
 
