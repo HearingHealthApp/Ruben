@@ -55,50 +55,61 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
         </div>
       <div className="right-side">
       <form onSubmit={handleRegistration}>
-        <section className="copy">
+        <section className="copy-reg">
                 <h2 className="register-header">Sign In</h2>
                 <img
                   src="https://static.vecteezy.com/system/resources/thumbnails/007/033/146/small/profile-icon-login-head-icon-vector.jpg"
                   alt="login icon"
                 />
-                <div className="login-container"></div>
         </section>
+        <div className="reg-email">
         <input
+          className="register-inputs"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          placeholder="Email"
         />
+        </div>
 
-        <div>
+        <div className="reg-name">
           <input
+            className="register-inputs"
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
+            placeholder="First Name"
           />
           <input
+            className="register-inputs"
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             required
+            placeholder="Last name"
           />
         </div>
+        <div className="reg-user-pass">
         <input
+          className="register-inputs"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          placeholder="Username"
         />
         <input
+          className="register-inputs"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          placeholder="Password"
         />
-
+        </div>
         <button type="submit">Submit</button>
-
         <p>
           Are you a doctor?{" "}
           <Link to="/register/doctor">

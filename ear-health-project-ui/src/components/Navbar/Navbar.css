@@ -27,7 +27,7 @@
     width: auto;
     border-radius: 10%;
     float: left;
-    margin-left: 10px;
+    
 }
 
 .listed-links {
@@ -38,13 +38,15 @@
     color:white;
     gap: 50px;
     font-family: "Lora", serif;
+    float: left;
+
 }
 .listed-links li a{
     display: flex;
     text-decoration: none;
     list-style-type: none;
     color:black;
-    margin-left: 100px;
+    /* margin-left: 100px; */
     font-size: 30px;
 }
 .listed-links a:hover{
