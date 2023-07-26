@@ -72,29 +72,26 @@ class Profile {
   }
 
   static async updateUserDescription(description, userId) {
-
     //create the query to update the column corresponding to that user_id
 
     const updateUserQuery = `UPDATE users SET description = $1 WHERE user_id = $2 RETURNING *`;
 
     const values = [description, userId];
 
-    const result = await db.query(updateUserQuery, values)
+    const result = await db.query(updateUserQuery, values);
 
-    return convertSnakeToCamel(result.rows[0])
+    return convertSnakeToCamel(result.rows[0]);
   }
 
   static async addCondition(condition, userId) {
-
     //will check over the db and append a condition to the array
-    const updateUserCondition = `UPDATE users SET conditions = array_append(conditions, $1) WHERE user_id = $2 RETURNING *`
+    const updateUserCondition = `UPDATE users SET conditions = array_append(conditions, $1) WHERE user_id = $2 RETURNING *`;
 
-    const values = [condition, userId]
+    const values = [condition, userId];
 
-    const result = await db.query(updateUserCondition, values)
+    const result = await db.query(updateUserCondition, values);
 
-    return convertSnakeToCamel(result.rows[0])
-
+    return convertSnakeToCamel(result.rows[0]);
   }
 }
 

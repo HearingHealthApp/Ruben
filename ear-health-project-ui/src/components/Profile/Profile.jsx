@@ -20,17 +20,17 @@ const Profile = ({ user }) => {
   //useState for conditionally rendering comments and posts
   const [conditionalRender, setConditonalRender] = useState("Posts");
 
-   //for updating the user's conditons 
-   const [condition, setCondition] = useState("")
-   const [existingConditions, setexistingConditions] = useState("")
+  //for updating the user's conditons
+  const [condition, setCondition] = useState("");
+  const [existingConditions, setexistingConditions] = useState("");
 
   const getUserInfo = async () => {
     const { data } = await apiClient.getUserData(userId);
     setUserData(data.user);
     setUserComments(data.userComments);
     setUserPosts(data.userPosts);
-    setexistingConditions(data.user.conditions)
-    setExistingDescription(data.user.description)
+    setexistingConditions(data.user.conditions);
+    setExistingDescription(data.user.description);
   };
 
   //call the fetch on page load
@@ -52,47 +52,45 @@ const Profile = ({ user }) => {
 
   //updating description useStates and other necessary items
 
-  const [description, setDescription] = useState("")
-  const [existingDescription, setExistingDescription] = useState("")
+  const [description, setDescription] = useState("");
+  const [existingDescription, setExistingDescription] = useState("");
 
   //query the db from the frontend and update the description
   const updateDescription = async (e) => {
-    e.preventDefault()
-    const { data } = await apiClient.updateDescription(description, userId)
-    setExistingDescription(data.description)
-
-  }
+    e.preventDefault();
+    const { data } = await apiClient.updateDescription(description, userId);
+    setExistingDescription(data.description);
+  };
 
   //update the description based on the input
   const inputUpdater = (e) => {
-    setDescription(e.target.value)
-    console.log(description)
-  }
+    setDescription(e.target.value);
+    console.log(description);
+  };
 
   //input updater for the user's conditions
 
   const conditionUpdater = (e) => {
-    setCondition(e.target.value)
-  }
+    setCondition(e.target.value);
+  };
 
   //query the db from the frontend and update the conditions array
   const updateConditions = async (e) => {
-    e.preventDefault()
-    const { data } = await apiClient.updateConditions(condition, userId)
-    console.log(data)
-    setexistingConditions(data.conditions)
-  }
+    e.preventDefault();
+    const { data } = await apiClient.updateConditions(condition, userId);
+    console.log(data);
+    setexistingConditions(data.conditions);
+  };
   //for the button to update conditions
-  const [conditionClick, setConditionClicked] = useState(false)
+  const [conditionClick, setConditionClicked] = useState(false);
 
   const handleConditionClick = () => {
     if (conditionClick == true) {
-      setConditionClicked(false)
+      setConditionClicked(false);
     } else {
-      setConditionClicked(true)
+      setConditionClicked(true);
     }
-
-  }
+  };
 
   return (
     <div>
@@ -101,24 +99,24 @@ const Profile = ({ user }) => {
 
         {existingConditions}
 
-        <br/>
+        <br />
 
-        {conditionClick ?
-        <div>
-        <form onSubmit={updateConditions}>
-        <input onChange={conditionUpdater}/>
-        <button type = "submit">Add Condition</button>
-        <button onClick={handleConditionClick}>Cancel</button>
-        </form>
-        </div>
-        : <div>
-          {user.userId == userId ?
-          <button onClick={handleConditionClick}>Add a Condition</button>: null
-          }
-        
-        </div>}
+        {conditionClick ? (
+          <div>
+            <form onSubmit={updateConditions}>
+              <input onChange={conditionUpdater} />
+              <button type="submit">Add Condition</button>
+              <button onClick={handleConditionClick}>Cancel</button>
+            </form>
+          </div>
+        ) : (
+          <div>
+            {user.userId == userId ? (
+              <button onClick={handleConditionClick}>Add a Condition</button>
+            ) : null}
+          </div>
+        )}
 
-      
         {existingDescription == null ? (
           <p>No description yet!</p>
         ) : (
@@ -128,9 +126,9 @@ const Profile = ({ user }) => {
         {clicked ? (
           <div>
             <form onSubmit={updateDescription}>
-            <input onChange={inputUpdater}/>
-            <button type = "submit">Submit</button>
-            <button onClick={handleClick}>Cancel</button>
+              <input onChange={inputUpdater} />
+              <button type="submit">Submit</button>
+              <button onClick={handleClick}>Cancel</button>
             </form>
           </div>
         ) : (
@@ -142,7 +140,7 @@ const Profile = ({ user }) => {
         )}
       </div>
 
-      <br/>
+      <br />
 
       <div>
         <button onClick={() => setConditonalRender("Posts")}>Posts</button>
