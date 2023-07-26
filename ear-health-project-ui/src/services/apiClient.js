@@ -136,7 +136,15 @@ class ApiClient {
     return await this.request({
       endpoint: `profile/description/${userId}`,
       method: "PUT",
-      data: {description},
+      data: { description },
+    });
+  }
+
+  async updateConditions(condition, userId) {
+    return await this.request({
+      endpoint: `profile/conditions/${userId}`,
+      method: "PUT",
+      data: { condition },
     });
   }
 
