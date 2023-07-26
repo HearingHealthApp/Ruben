@@ -78,6 +78,7 @@ function App() {
             isLoggedIn={isLoggedIn}
             logOutHandler={logOutHandler}
           ></Navbar>
+          <div className="primary-container">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
@@ -118,6 +119,7 @@ function App() {
             <Route path = "*" element = {<NotFound/>}/>
 
           </Routes>
+          </div>
           <Footer />
         </BrowserRouter>
 
