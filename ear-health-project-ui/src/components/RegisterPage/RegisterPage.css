@@ -1,13 +1,11 @@
 .header-regular{
     font-size: 1.8rem;
     font-weight: 800;
-    font-family: "Lora", serif;
 }
 
 .register-header{
     margin-bottom: 50px;
     font-size: 1.8rem;
-    font-family: "Lora", serif;
 }
 .small{
     font-size: 80%;
@@ -55,7 +53,6 @@ a:hover{
 
 .left-side p{
     font-weight: 400;
-    font-family: "Lora",serif;
 }
 
 .right-side .copy-reg{
@@ -82,7 +79,6 @@ a:hover{
     margin-bottom: 1.25rem;
     font-size:17px;
     font-weight: 400; 
-    font-family: "Lora", serif;
 }
 
 
