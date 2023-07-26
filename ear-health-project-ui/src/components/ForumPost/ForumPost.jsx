@@ -23,20 +23,20 @@ const ForumPost = ({ user }) => {
     // Check if less than an hour
     if (timeDifference < ONE_HOUR) {
       const minutesAgo = Math.floor(timeDifference / ONE_MINUTE);
-      return `Posted ${minutesAgo} minute${minutesAgo !== 1 ? "s" : ""} ago`;
+      return `${minutesAgo} minute${minutesAgo !== 1 ? "s" : ""} ago`;
     }
 
     // Check if less than a day
     if (timeDifference < ONE_DAY) {
       const hoursAgo = Math.floor(timeDifference / ONE_HOUR);
-      return `Posted ${hoursAgo} hour${hoursAgo !== 1 ? "s" : ""} ago`;
+      return `${hoursAgo} hour${hoursAgo !== 1 ? "s" : ""} ago`;
     }
 
     // For longer durations, you can use libraries like Moment.js for more advanced formatting
     // or implement custom logic to display "posted x days ago" or specific date format
 
     // Default case
-    return `Posted on ${postTime.toLocaleDateString()}`;
+    return `${postTime.toLocaleDateString()}`;
   };
   //get the params of the link
   const { postId } = useParams();
@@ -105,7 +105,6 @@ const ForumPost = ({ user }) => {
           ) : (
             <div className="user-details">
               <p className="username">{post.username} </p>
-              <p>Posted by {post.username}</p>
             </div>
           )}
           <p>{formatTimeSincePost(post.createdAt)}</p>
@@ -131,6 +130,7 @@ const ForumPost = ({ user }) => {
             onChange={(e) => setContent(e.target.value)}
             required
           />
+          <br/>
           <label>Post as anonymous?</label>
           <input
             type="checkbox"
@@ -142,7 +142,7 @@ const ForumPost = ({ user }) => {
                 setAnonymous(false);
               }
             }}
-          />
+          /><br/>
           <button type="submit">Submit comment</button>
         </form>
         <div className="comments">
