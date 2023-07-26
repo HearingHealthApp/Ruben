@@ -13,3 +13,5 @@ DROP TABLE comments;
 
 
 \i hearinghealth_schema.sql
+
+--\i hearinghealthdata.sql
