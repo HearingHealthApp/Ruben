@@ -21,5 +21,12 @@ const uploadFile = (file) => {
         Body: fileStream,
         Key: file.name
     }
+    return s3.upload(uploadParams).promise()
+}
+
+
+module.exports = {
+    uploadFile,
+    
 }
 
