@@ -14,7 +14,6 @@
     margin-top: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
-    font-family:"Gruppo",sans-serif ;
     font-size: 70px;
     text-align: center;
     background-color: #BBD0FF;
@@ -22,7 +21,6 @@
 }
 
 .title p{
-    font-family:"Gruppo",sans-serif;
     margin-top: 50px;
     font-size: 40px;
     padding-top:100px;
@@ -35,7 +33,6 @@
 
 .notloggedin{
     font-size: 20px;
-    font-family: "Gruppo",sans-serif;
     text-align: center;
 }
 
@@ -59,7 +56,6 @@
 }
 .aboutblurb{
     font-size: 20px;
-    font-family:"Gruppo",sans-serif;
     margin-left: 30px;
 }
 
@@ -76,7 +72,6 @@
     margin-top: 70px;
     text-align: center;
     font-size: 50px;
-    font-family:"Gruppo",sans-serif;
 }
 
 .about-ps{
@@ -100,8 +95,8 @@
     width: 400px;
     border-radius: 5%;
     text-align: center;
-    font-family:"Gruppo",sans-serif;
     font-size: 25px;
+    background-color: aliceblue;
 
 }
 
@@ -118,7 +113,6 @@
     height: 300px;
     border-radius: 5%;
     text-align: center;
-    font-family:"Gruppo",sans-serif;
     font-size: 25px;
 }
 

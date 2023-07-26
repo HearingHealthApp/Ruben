@@ -14,8 +14,8 @@ const Navbar =
           <ul className='listed-links'>
             <li>
               <Link to="/">
-                <img className='logo' src='https://i.ibb.co/LpW6810/download.png' alt='logo'/>
-              </Link>
+                <p className='logo-name'>RUBEN</p>              
+                </Link>
             </li>
             <li>
               <Link to="/forum">

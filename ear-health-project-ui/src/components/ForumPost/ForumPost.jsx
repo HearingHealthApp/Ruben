@@ -69,9 +69,9 @@ const ForumPost = ({ user }) => {
   const addComment = async (e) => {
     e.preventDefault();
 
-    let doctor = false
-    if (user.isDoctor & user.verified){
-      doctor = true
+    let doctor = false;
+    if (user.isDoctor & user.verified) {
+      doctor = true;
     }
     const { data } = await apiClient.postComment(
       JSON.stringify({
@@ -82,7 +82,7 @@ const ForumPost = ({ user }) => {
         isAnonymous: isAnonymous,
         commentorUsername: user.username,
         postTitle: post.title,
-        commentorIsDoctor: doctor
+        commentorIsDoctor: doctor,
       })
     );
     getComments();
@@ -95,63 +95,65 @@ const ForumPost = ({ user }) => {
   }, []);
 
   return (
-    <div className="post-container1">
-      <div className="post-container-small">
-      <div className="post-container">
-        <div className="post-details">
-          {post.isAnonymous ? (
-            <div className="user-details">
-              <p className="username">Posted by Anonymous</p>
+    <div className="big-container">
+      <div className="post-container1">
+        <div className="post-container-small">
+          <div className="post-container">
+            <div className="post-details">
+              {post.isAnonymous ? (
+                <div className="user-details">
+                  <p className="username">Posted by Anonymous</p>
+                </div>
+              ) : (
+                <div className="user-details">
+                  <p className="username">{post.username} </p>
+                </div>
+              )}
+              <p>{formatTimeSincePost(post.createdAt)}</p>
             </div>
-          ) : (
-            <div className="user-details">
-              <p className="username">{post.username} </p>
+            <div className="post-contents">
+              <h1 className="post-title">{post.title}</h1>
+              <div className="category-container">
+                <p className="post-cat">{post.category}</p>
+              </div>
+              <p className="actual-post">{post.content}</p>
             </div>
-          )}
-          <p>{formatTimeSincePost(post.createdAt)}</p>
-        </div>
-        <div className="post-contents">
-          <h1 className="post-title">{post.title}</h1>
-          <div className="category-container">
-            <p className="post-cat">{post.category}</p>
           </div>
-          <p className="actual-post">{post.content}</p>
         </div>
-      </div>
-      </div>
-      
 
-      <div>
-        <h1>Comments: </h1>
-    
-        <form onSubmit={addComment}>
-          <textarea
-            className="textbox"
-            rows="8"
-            columns="8"
-            placeholder="Enter your post content"
-            onChange={(e) => setContent(e.target.value)}
-            required
-          />
-          <br/>
-          <label>Post as anonymous?</label>
-          <input
-            type="checkbox"
-            value={isAnonymous}
-            onChange={(e) => {
-              if (isAnonymous === false) {
-                setAnonymous(true);
-              } else {
-                setAnonymous(false);
-              }
-            }}
-          /><br/>
-          <button type="submit">Submit comment</button>
-        </form>
-        <div className="comments">
-          {comments.map((comment) => (
-            <CommentCard comment={comment} />
-          ))}
+        <div>
+          <h1>Comments: </h1>
+
+          <form onSubmit={addComment}>
+            <textarea
+              className="textbox"
+              rows="8"
+              columns="8"
+              placeholder="Enter your post content"
+              onChange={(e) => setContent(e.target.value)}
+              required
+            />
+            <br />
+            <label>Post as anonymous?</label>
+            <input
+              type="checkbox"
+              value={isAnonymous}
+              onChange={(e) => {
+                if (isAnonymous === false) {
+                  setAnonymous(true);
+                } else {
+                  setAnonymous(false);
+                }
+              }}
+            />
+            <br />
+            <button type="submit">Submit comment</button>
+          </form>
+          <div className="comments">
+            {comments.map((comment) => (
+              <CommentCard comment={comment} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

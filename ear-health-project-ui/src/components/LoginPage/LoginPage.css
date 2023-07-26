@@ -10,7 +10,6 @@
 body{
     padding: 0;
     margin: 0%;
-    font-family: "Lora",serif;
     font-weight: 500;
 }
 
@@ -18,13 +17,11 @@ body{
 h1{
     font-size: 1.8rem;
     font-weight: 800;
-    font-family: "Lora", serif;
 }
 
 h2{
     margin-bottom: 50px;
     font-size: 40px;
-    font-family: "Lora", serif;
 }
 
 a{
@@ -74,7 +71,6 @@ a:hover{
 
 .left p{
     font-weight: 400;
-    font-family: "Lora",serif;
 }
 
 .right .copy{
@@ -88,12 +84,17 @@ a:hover{
 }
 
 .right form{
-    width: 328px;
+    width: 500px;
+    background-color: aliceblue;
+    padding: 90px 0px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    border-radius: 25px;
+    
 }
-
 .form-input{
     display: block;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
     box-sizing: border-box;
     border-radius: 8px;
     border: 1px solid #c4c4c4 ;
@@ -101,7 +102,6 @@ a:hover{
     margin-bottom: 1.25rem;
     font-size:17px;
     font-weight: 400; 
-    font-family: "Lora", serif;
 }
 
 .input-container.password{
@@ -110,22 +110,21 @@ a:hover{
 
 .login-bttn{
     display: block;
-    width: 100%;
+    width: 80%;
     background: var(--primary-blue);
     color: white;
     font-weight:700 ;
     border: none;
-    padding: 1rem;
+    padding: 1rem 1rem;
     border-radius: 8px;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    font-family: "Lora", serif;
+    margin-left: 10%;
 }
 
-#email.form-input{
-    font-family: "Lora",serif;
-}
+/* #email.form-input{
+} */
 
 .login-bttn:hover{
     background-color: #2c4893;
