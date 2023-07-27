@@ -4,6 +4,7 @@ import apiClient from "../../services/apiClient";
 import ForumPostCard from "../ForumPostCard/ForumPostCard";
 import { Link } from "react-router-dom";
 import CommentCard from "../CommentCard/CommentCard";
+import UploadImage from "../UploadImage/UploadImage";
 
 const Profile = ({ user }) => {
   //get the userId from the link
@@ -95,6 +96,7 @@ const Profile = ({ user }) => {
   return (
     <div>
       <div>
+        <UploadImage userId = {userId}/>
         <h1>{userData.username}</h1>
 
         {existingConditions}

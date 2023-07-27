@@ -151,6 +151,14 @@ class ApiClient {
   fetchUserFromToken = async () => {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   };
+
+  async updateProfilePicture(file,userId) {
+    return await this.request({
+      endpoint: `s3/upload/${userId}`,
+      method: "POST",
+      data: {file}
+    })
+  }
 }
 
 export default new ApiClient("http://localhost:3001");
