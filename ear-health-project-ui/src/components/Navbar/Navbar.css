@@ -98,3 +98,9 @@
 .listed-links li a{
     transition: all 0.3s ease 0s;
 }
+
+.notification-icon{
+    width: 30px;
+    padding-top: 2px;
+    margin-right: 10px;
+}
