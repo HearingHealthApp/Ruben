@@ -26,6 +26,9 @@ const Profile = ({ user }) => {
   const [condition, setCondition] = useState("");
   const [existingConditions, setexistingConditions] = useState("");
 
+  //imageKey
+  const [imageKey, setImageKey] = useState("")
+
   const getUserInfo = async () => {
     const { data } = await apiClient.getUserData(userId);
     setUserData(data.user);
@@ -33,6 +36,7 @@ const Profile = ({ user }) => {
     setUserPosts(data.userPosts);
     setexistingConditions(data.user.conditions);
     setExistingDescription(data.user.description);
+    setImageKey(data.user.image)
   };
 
   //call the fetch on page load
@@ -94,15 +98,19 @@ const Profile = ({ user }) => {
     }
   };
 
-  const imageLink = `http://localhost:3001/s3/image/${user.image}`
+  console.log(user)
+  console.log(userId)
 
+  const imageLink = `http://localhost:3001/s3/image/${imageKey}`
   return (
     <div>
       <div>
-        {/* <UploadImage userId = {userId}/> */}
         
         <h1>{userData.username}</h1>
         <img src = {imageLink}/>
+        {user.userId == userId ?
+        <UploadImage userId = {userId} setImageKey={setImageKey}/>: null
+        }
 
         {existingConditions}
 
