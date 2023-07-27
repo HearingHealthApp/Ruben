@@ -56,10 +56,10 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
       <div className="right-side">
       <form onSubmit={handleRegistration}>
         <section className="copy-reg">
-                <h2 className="register-header">Sign In</h2>
+                <h2 className="register-header">Sign Up</h2>
                 <img
                   src="https://static.vecteezy.com/system/resources/thumbnails/007/033/146/small/profile-icon-login-head-icon-vector.jpg"
-                  alt="login icon"
+                  alt="register icon"
                 />
         </section>
         <div className="reg-email">
@@ -109,7 +109,7 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
           placeholder="Password"
         />
         </div>
-        <button type="submit">Submit</button>
+        <button className="register-bttn" type="submit">Sign Up</button>
         <p>
           Are you a doctor?{" "}
           <Link to="/register/doctor">

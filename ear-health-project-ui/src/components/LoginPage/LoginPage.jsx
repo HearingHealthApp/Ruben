@@ -55,7 +55,7 @@ const LoginPage = ({ userUpdater, loginHandler }) => {
                 src="https://static.vecteezy.com/system/resources/thumbnails/007/033/146/small/profile-icon-login-head-icon-vector.jpg"
                 alt="login icon"
               />
-              <div className="login-container"></div>
+              {/* <div className="login-container"></div> */}
             </section>
             <div className="input-container-name">
               <input

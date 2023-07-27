@@ -1,99 +1,136 @@
-.header-regular{
-    font-size: 1.8rem;
-    font-weight: 800;
+.header-regular {
+  font-size: 1.8rem;
+  font-weight: 800;
 }
 
-.register-header{
-    margin-bottom: 50px;
-    font-size: 1.8rem;
+.register-header {
+  margin-bottom: 50px;
+  font-size: 1.8rem;
 }
-.small{
-    font-size: 80%;
-    text-align: center;
-}
-
-
-a{
-    text-decoration: none;
-    color: var(--primary-blue);
+.small {
+  font-size: 80%;
+  text-align: center;
 }
 
-a:hover{
-    text-decoration: underline;
+a {
+  text-decoration: none;
+  color: var(--primary-blue);
 }
 
-.screen-split{
+a:hover {
+  text-decoration: underline;
+}
+
+.screen-split {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-side {
+  height: 200px;
+}
+
+.left-side,
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left-side {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+    url("../../assets/man-listening-music-3289865-2745434_waifu2x_art_noise1_scale.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 100px;
+}
+
+.left-side .copy-reg {
+  color: black;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.left-side p {
+  font-weight: 400;
+}
+
+.right-side .copy-reg {
+  color: black;
+  text-align: center;
+}
+
+.right-side .copy-reg p {
+  margin: 1.5em 0;
+  font-size: 0.875rem;
+}
+
+.right-side form {
+  width: 500px;
+  background-color: aliceblue;
+  padding: 90px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+}
+
+.register-inputs {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+  padding: 1em;
+  margin-bottom: 1.25rem;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.reg-name {
+  position: relative;
+}
+
+.register-bttn {
+  display: block;
+  width: 80%;
+  background: var(--primary-blue);
+  color: white;
+  font-weight: 700;
+  border: none;
+  padding: 1rem 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 10%;
+}
+
+.register-bttn:hover {
+  background-color: #2c4893;
+  cursor: pointer;
+}
+
+.copy-reg p {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-top: 50px;
+}
+
+.copy-reg img {
+  height: 100px;
+  width: auto;
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 900px) {
+  .screen-split {
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  .left-side,
+  .right-side {
     display: flex;
-    flex-direction: column;
+    width: 500%;
+    height: auto;
+  }
 }
-
-.left-side{
-    height: 200px;
-}
-
-.left-side .right-side{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.left-side{
-    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5)), url('https://media.istockphoto.com/id/1356660353/vector/female-audiologist-doctor-checks-boy-ears-with-otoscope-hearing-exam-for-kids.jpg?s=612x612&w=0&k=20&c=BAZiBBH2KjGrymzRDuFaAc4bQCngs8TFTwQ35v5HsqM=');
-    /* background-size: cover; */
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-top: 100px;
-}
-
-.left-side .copy-reg{
-    color:black;
-    text-align: center;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-}
-
-.left-side p{
-    font-weight: 400;
-}
-
-.right-side .copy-reg{
-    color: black;
-    text-align: center;
-}
-
-.right-side .copy-reg p{
-    margin: 1.5em 0;
-    font-size: 0.875rem;
-}
-
-.right-side form{
-    width: 328px;
-}
-
-.register-inputs{
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 8px;
-    border: 1px solid #c4c4c4 ;
-    padding: 1em;
-    margin-bottom: 1.25rem;
-    font-size:17px;
-    font-weight: 400; 
-}
-
-
-
-@media screen and (min-width:900px){
-    .screen-split{
-        flex-direction: row;
-        height: 100vh;
-    }
-
-    .left-side ,
-    .right-side{
-        display: flex;
-        width: 500%;
-        height: auto;
-    }
-
-    }
