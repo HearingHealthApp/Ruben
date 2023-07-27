@@ -66,9 +66,9 @@ a:hover {
 }
 
 .right-side form {
-  width: 500px;
+  width: 800px;
   background-color: aliceblue;
-  padding: 90px;
+  padding: 90px 0px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   border-radius: 25px;
 }
