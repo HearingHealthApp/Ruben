@@ -8,6 +8,11 @@ const upload = multer({ dest: "uploads/" });
 
 const { uploadFile, sendImageKey, getFileStream } = require("../s3");
 
+const fs = require('fs')
+const util = require('util')
+const unlinkFile = util.promisify(fs.unlink)
+
+
 //setup router for posting an image to the s3 bucket
 router.post("/upload/:userId", upload.single("image"), async (req, res, next) => {
   try {
@@ -18,8 +23,8 @@ router.post("/upload/:userId", upload.single("image"), async (req, res, next) =>
     const result = await uploadFile(file);
 
    const dbResult = await sendImageKey(result.Key, userId)
-
     res.status(200).json({result, dbResult})
+    await unlinkFile(file.path)
   } catch (err) {
     next(err);
   }
