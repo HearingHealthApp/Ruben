@@ -23,7 +23,7 @@ const uploadFile = (file) => {
     const uploadParams = {
         Bucket: bucketName,
         Body: fileStream,
-        Key: file.name
+        Key: file.originalname
     }
 
     return s3.upload(uploadParams).promise()
@@ -43,19 +43,20 @@ const sendImageKey = async (imageKey, userId) => {
 
 }
 
-//downloads a file from s3 and sends the image key to the db
-const getFileStream = (fileKey) => {
+//downloads a file from s3
+function getFileStream(fileKey) {
     const downloadParams = {
-        Key: fileKey,
-        Bucket: bucketName
+      Key: fileKey,
+      Bucket: bucketName
     }
-
+  
     return s3.getObject(downloadParams).createReadStream()
-}
+  }
 
 
 module.exports = {
     uploadFile,
     sendImageKey,
+    getFileStream
 }
 

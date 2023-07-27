@@ -7,6 +7,7 @@ import CommentCard from "../CommentCard/CommentCard";
 import UploadImage from "../UploadImage/UploadImage";
 
 const Profile = ({ user }) => {
+  console.log(user)
   //get the userId from the link
   const { userId } = useParams();
   //get userData using a fetcher
@@ -93,11 +94,15 @@ const Profile = ({ user }) => {
     }
   };
 
+  const imageLink = `http://localhost:3001/s3/image/${user.image}`
+
   return (
     <div>
       <div>
-        <UploadImage userId = {userId}/>
+        {/* <UploadImage userId = {userId}/> */}
+        
         <h1>{userData.username}</h1>
+        <img src = {imageLink}/>
 
         {existingConditions}
 

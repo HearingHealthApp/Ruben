@@ -6,7 +6,7 @@ const router = express.Router();
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 
-const { uploadFile, sendImageKey } = require("../s3");
+const { uploadFile, sendImageKey, getFileStream } = require("../s3");
 
 //setup router for posting an image to the s3 bucket
 router.post("/upload/:userId", upload.single("image"), async (req, res, next) => {
@@ -25,6 +25,18 @@ router.post("/upload/:userId", upload.single("image"), async (req, res, next) =>
   }
 });
 
+//get the actual image to display
+router.get("/image/:key", (req, res, next) => {
+  try {
+    const {key} = req.params
+
+    const readStream = getFileStream(key)
+
+    readStream.pipe(res)
+  } catch(err) {
+    next(err)
+  }
+})
 
 
 module.exports = router;
