@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
     last_name       TEXT NOT NULL,
     description     TEXT,
     conditions      TEXT [],
+    image           TEXT,
     is_doctor       BOOLEAN  NOT NULL DEFAULT false,
     created_at      TIMESTAMP NOT NULL DEFAULT NOW()
 );

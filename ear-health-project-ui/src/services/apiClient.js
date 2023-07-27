@@ -148,9 +148,20 @@ class ApiClient {
     });
   }
 
+  async updateProfilePicture({file}, userId) {
+    return await this.request({
+      endpoint: `s3/upload/${userId}`,
+      method: "POST",
+      data: { file },
+      headers: {"Content-Type": "multipart/form-data"}
+    });
+  }
+
   fetchUserFromToken = async () => {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   };
+
+
 }
 
 export default new ApiClient("http://localhost:3001");

@@ -4,8 +4,10 @@ import apiClient from "../../services/apiClient";
 import ForumPostCard from "../ForumPostCard/ForumPostCard";
 import { Link } from "react-router-dom";
 import CommentCard from "../CommentCard/CommentCard";
+import UploadImage from "../UploadImage/UploadImage";
 
 const Profile = ({ user }) => {
+  console.log(user)
   //get the userId from the link
   const { userId } = useParams();
   //get userData using a fetcher
@@ -24,6 +26,9 @@ const Profile = ({ user }) => {
   const [condition, setCondition] = useState("");
   const [existingConditions, setexistingConditions] = useState("");
 
+  //imageKey
+  const [imageKey, setImageKey] = useState("")
+
   const getUserInfo = async () => {
     const { data } = await apiClient.getUserData(userId);
     setUserData(data.user);
@@ -31,6 +36,7 @@ const Profile = ({ user }) => {
     setUserPosts(data.userPosts);
     setexistingConditions(data.user.conditions);
     setExistingDescription(data.user.description);
+    setImageKey(data.user.image)
   };
 
   //call the fetch on page load
@@ -92,10 +98,19 @@ const Profile = ({ user }) => {
     }
   };
 
+  console.log(user)
+  console.log(userId)
+
+  const imageLink = `http://localhost:3001/s3/image/${imageKey}`
   return (
     <div>
       <div>
+        
         <h1>{userData.username}</h1>
+        <img src = {imageLink}/>
+        {user.userId == userId ?
+        <UploadImage userId = {userId} setImageKey={setImageKey}/>: null
+        }
 
         {existingConditions}
 
