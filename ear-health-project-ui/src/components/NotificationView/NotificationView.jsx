@@ -7,27 +7,28 @@ function NotificationView({ user, isLoggedIn }) {
   const [userNotifications, setUserNotifications] = useState([]);
 
   const notificationGetter = async () => {
-    if (user?.userId){
-    const { data, error } = await ApiClient.getUserNotifications(user.userId);
+    if (user?.userId) {
+      const { data, error } = await ApiClient.getUserNotifications(user.userId);
 
-    setUserNotifications(data.notifications);
+      setUserNotifications(data.notifications);
     }
-    
   };
-  
+
   useEffect(() => {
     notificationGetter();
   }, [user]);
 
   return (
-    <div className="notification-container">
-      {isLoggedIn ? (
-        userNotifications.map((notificationData) => (
-          <NotificationCard notificationData={notificationData} />
-        ))
-      ) : (
-        <p>Please Sign in to display notifications</p>
-      )}
+    <div className="big-container">
+      <div className="notification-container">
+        {isLoggedIn ? (
+          userNotifications.map((notificationData) => (
+            <NotificationCard notificationData={notificationData} />
+          ))
+        ) : (
+          <p>Please Sign in to display notifications</p>
+        )}
+      </div>
     </div>
   );
 }

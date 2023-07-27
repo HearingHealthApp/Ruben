@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import "./Navbar.css"
 
 const Navbar = 
@@ -27,6 +26,7 @@ const Navbar =
           {isLoggedIn ? 
           (
             <ul className='signedout'>
+              <Link to = {`/notifications`} ><img  className='notification-icon' src = "https://cdn-icons-png.flaticon.com/512/565/565422.png"/></Link>
               <button className='login' onClick={logOutHandler}>Sign Out</button>
             </ul>
           ) : (
