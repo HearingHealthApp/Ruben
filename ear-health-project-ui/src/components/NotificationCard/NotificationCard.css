@@ -1,3 +1,42 @@
-.notification-card:hover{
-    cursor: pointer;
+.notification-card-true:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 18px 0 rgba(0, 0, 0, 0.2);
+}
+.notification-card-false:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 18px 0 rgba(0, 0, 0, 0.2);
+}
+.notification-card-true {
+  opacity: 70%;
+  background-color: aliceblue;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: left;
+  border: 3px lightblue;
+  border-style: solid;
+}
+
+.notification-card-false {
+  background-color: aliceblue;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: left;
+  border: 3px lightblue;
+  border-style: solid;
+}
+
+.notification-title-card {
+  margin-bottom: 20px;
+}
+
+.notification-holder{
+    background-color: grey;
+    padding: 10px 10px;
+    height: 600px;
+    overflow-y: auto;
+    border-radius: 10px;
 }

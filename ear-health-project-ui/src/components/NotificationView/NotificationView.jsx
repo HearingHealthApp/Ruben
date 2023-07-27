@@ -18,16 +18,43 @@ function NotificationView({ user, isLoggedIn }) {
     notificationGetter();
   }, [user]);
 
+  if (isLoggedIn) {
+    return (
+      <div className="notifications-big-container">
+        <div className="notification-container">
+          <div className="big-notifications">
+            <h3 className="notification-title-card">New Notifications</h3>
+            <div className="notification-holder">
+              {userNotifications
+                .filter(
+                  (notificationData) => notificationData.viewStatus === false
+                )
+                .map((notificationData) => (
+                  <NotificationCard notificationData={notificationData} />
+                ))}
+            </div>
+          </div>
+          <div className="big-notifications">
+            <h3 className="notification-title-card">Previous Notifications</h3>
+            <div className="notification-holder">
+              {userNotifications
+                .filter(
+                  (notificationData) => notificationData.viewStatus === true
+                )
+                .map((notificationData) => (
+                  <NotificationCard notificationData={notificationData} />
+                ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="big-container">
       <div className="notification-container">
-        {isLoggedIn ? (
-          userNotifications.map((notificationData) => (
-            <NotificationCard notificationData={notificationData} />
-          ))
-        ) : (
-          <p>Please Sign in to display notifications</p>
-        )}
+        <p>Please Sign in to display notifications</p>
       </div>
     </div>
   );

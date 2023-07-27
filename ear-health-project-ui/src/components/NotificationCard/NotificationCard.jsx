@@ -14,7 +14,7 @@ function NotificationCard({ notificationData }) {
   
   };
   return (
-    <div className="notification-card">
+    <div className={`notification-card-${notificationData.viewStatus}`}>
       <p onClick={notificationNavigator}>{notificationData.message}</p>
     </div>
   );
