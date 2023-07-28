@@ -5,9 +5,10 @@ import ForumPostCard from "../ForumPostCard/ForumPostCard";
 import { Link } from "react-router-dom";
 import CommentCard from "../CommentCard/CommentCard";
 import UploadImage from "../UploadImage/UploadImage";
+import "./Profile.css";
 
 const Profile = ({ user }) => {
-  console.log(user)
+  console.log(user);
   //get the userId from the link
   const { userId } = useParams();
   //get userData using a fetcher
@@ -27,7 +28,7 @@ const Profile = ({ user }) => {
   const [existingConditions, setexistingConditions] = useState("");
 
   //imageKey
-  const [imageKey, setImageKey] = useState("")
+  const [imageKey, setImageKey] = useState("");
 
   const getUserInfo = async () => {
     const { data } = await apiClient.getUserData(userId);
@@ -36,7 +37,7 @@ const Profile = ({ user }) => {
     setUserPosts(data.userPosts);
     setexistingConditions(data.user.conditions);
     setExistingDescription(data.user.description);
-    setImageKey(data.user.image)
+    setImageKey(data.user.image);
   };
 
   //call the fetch on page load
@@ -98,25 +99,52 @@ const Profile = ({ user }) => {
     }
   };
 
-  console.log(user)
-  console.log(userId)
+  console.log(user);
+  console.log(userId);
 
-  const imageLink = `http://localhost:3001/s3/image/${imageKey}`
+  //useState boolean for when editing the profile picture
+  const [imageClick, setImageClick] = useState(false);
+
+  const handleImageClick = () => {
+    if (imageClick == true) {
+      setImageClick(false);
+    } else {
+      setImageClick(true);
+    }
+  };
+
+  const imageLink = `http://localhost:3001/s3/image/${imageKey}`;
   return (
     <div>
       <div>
-        
         <h1>{userData.username}</h1>
-        <img src = {imageLink}/>
-        {user.userId == userId ?
-        <UploadImage userId = {userId} setImageKey={setImageKey}/>: null
+        {user.userId == userId ? 
+        <div class="avatar-container">
+        {userData.image != null ?
+        <img
+        src={imageLink}
+        className="avatar-image"
+        onClick={handleImageClick}
+      />: null
         }
+      </div> : <div> 
+        <img src = {imageLink} className = "avatar-image"/>
+      </div>
+      }
+        
+        {imageClick && user.userId == userId  ? (
+          <UploadImage userId={userId} setImageKey={setImageKey} />
+        ) : null}
+
+        
+
+        <br/>
 
         {existingConditions}
 
         <br />
 
-        {conditionClick ? (
+        {conditionClick && userData.isDoctor ? (
           <div>
             <form onSubmit={updateConditions}>
               <input onChange={conditionUpdater} />

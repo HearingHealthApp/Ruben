@@ -11,7 +11,7 @@ class Profile {
     }
 
     //create the user query
-    const commentsQuery = `SELECT * FROM comments WHERE user_id = $1`;
+    const commentsQuery = `SELECT * FROM comments WHERE user_id = $1 ORDER BY created_at DESC`;
 
     //give the value of userId
     const value = [userId];
@@ -35,7 +35,7 @@ class Profile {
     }
 
     //create the user query
-    const postsQuery = `SELECT * FROM posts WHERE user_id = $1`;
+    const postsQuery = `SELECT * FROM posts WHERE user_id = $1 ORDER BY created_at DESC`;
 
     //give the value of userId
     const value = [userId];
