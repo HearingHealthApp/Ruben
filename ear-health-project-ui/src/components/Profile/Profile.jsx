@@ -114,7 +114,11 @@ const Profile = ({ user }) => {
   };
 
   const imageLink = `http://localhost:3001/s3/image/${imageKey}`;
-  console.log(existingConditions);
+  console.log(typeof existingConditions);
+
+  const conditions = Object.values(existingConditions)
+
+  console.log(conditions)
   return (
     <div>
       <div className="profile-card">
@@ -137,15 +141,19 @@ const Profile = ({ user }) => {
           <UploadImage userId={userId} setImageKey={setImageKey} />
         ) : null}
 
-        <h1>{userData.username}</h1>
+        <h1 className="username">{userData.username}</h1>
 
         
 
         <br />
 
-        {existingConditions}
+        <div className = "conditions">
+        {conditions.map(conditionMpa=> (
+          <p className="condition">{conditionMpa}</p>
+        ))}
 
         <br />
+        </div>
 
         {conditionClick ? (
           <div>
@@ -194,7 +202,7 @@ const Profile = ({ user }) => {
           Commments
         </button>
       </div>
-
+      <div>
       {conditionalRender === "Posts"
         ? userPosts.filter((post) => !post.isAnonymous).map((post) => (
             <div>
@@ -211,6 +219,7 @@ const Profile = ({ user }) => {
               </Link>
             </div>
           ))}
+          </div>
     </div>
   );
 };

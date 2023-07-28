@@ -1,6 +1,6 @@
 .avatar-image {
-  width: 260px;
-  height: 260px;
+  width: 350px;
+  height: 350px;
   display: block;
   border-radius: 50%;
   cursor: pointer;
@@ -37,5 +37,25 @@
 
 
 .profile-card {
-  margin-top: var(--base-size-32, 32px)
+  margin-top: 30px;
+  width: 50%;
+}
+
+.username {
+  font-size: 60px;
+}
+
+.conditions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.condition {
+  display: inline-block;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: purple;
+  margin: 5px;
+  font-weight: bold;
 }
