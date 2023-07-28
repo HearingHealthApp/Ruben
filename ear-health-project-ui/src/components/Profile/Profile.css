@@ -34,3 +34,8 @@
 .avatar-container:hover::after {
   opacity: 0.5;
 }
+
+
+.profile-card {
+  margin-top: var(--base-size-32, 32px)
+}

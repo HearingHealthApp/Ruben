@@ -114,38 +114,40 @@ const Profile = ({ user }) => {
   };
 
   const imageLink = `http://localhost:3001/s3/image/${imageKey}`;
-  console.log(existingConditions)
+  console.log(existingConditions);
   return (
     <div>
-      <div>
-        <h1>{userData.username}</h1>
-        {user.userId == userId ? 
-        <div class="avatar-container">
-        {userData.image != null ?
-        <img
-        src={imageLink}
-        className="avatar-image"
-        onClick={handleImageClick}
-      />: null
-        }
-      </div> : <div> 
-        <img src = {imageLink} className = "avatar-image"/>
-      </div>
-      }
-        
-        {imageClick && user.userId == userId  ? (
+      <div className="profile-card">
+        {user.userId == userId ? (
+          <div class="avatar-container">
+            {userData.image != null ? (
+              <img
+                src={imageLink}
+                className="avatar-image"
+                onClick={handleImageClick}
+              />
+            ) : null}
+          </div>
+        ) : (
+          <div>
+            <img src={imageLink} className="avatar-image" />
+          </div>
+        )}
+        {imageClick && user.userId == userId ? (
           <UploadImage userId={userId} setImageKey={setImageKey} />
         ) : null}
 
+        <h1>{userData.username}</h1>
+
         
 
-        <br/>
+        <br />
 
         {existingConditions}
 
         <br />
 
-        {conditionClick  ? (
+        {conditionClick ? (
           <div>
             <form onSubmit={updateConditions}>
               <input onChange={conditionUpdater} />
@@ -194,7 +196,7 @@ const Profile = ({ user }) => {
       </div>
 
       {conditionalRender === "Posts"
-        ? userPosts.map((post) => (
+        ? userPosts.filter((post) => !post.isAnonymous).map((post) => (
             <div>
               <Link className="link" to={`/forum/post/${post.postId}`}>
                 <ForumPostCard key={post.postId} post={post} />
@@ -202,7 +204,7 @@ const Profile = ({ user }) => {
             </div>
           ))
         : conditionalRender === "Comments" &&
-          userComments.map((comment) => (
+          userComments.filter((comment) => ! comment.isAnonymous).map((comment) => (
             <div>
               <Link className="link" to={`/forum/post/${comment.postId}`}>
                 <CommentCard comment={comment} />
