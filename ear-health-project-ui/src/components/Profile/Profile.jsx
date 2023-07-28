@@ -158,7 +158,7 @@ const Profile = ({ user }) => {
         <br />
         </div>
 
-        {conditionClick ? (
+        {conditionClick  ? (
           <div>
             <form onSubmit={updateConditions}>
               <input onChange={conditionUpdater} />
@@ -168,7 +168,7 @@ const Profile = ({ user }) => {
           </div>
         ) : (
           <div>
-            {user.userId == userId ? (
+            {user.userId == userId && conditions.length < 5 ? (
               <button onClick={handleConditionClick}>Add a Condition</button>
             ) : null}
           </div>
