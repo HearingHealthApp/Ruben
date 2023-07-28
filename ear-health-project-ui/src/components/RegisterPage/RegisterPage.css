@@ -66,14 +66,14 @@ a:hover {
 }
 
 .right-side form {
-  width: 500px;
+  width: 800px;
   background-color: aliceblue;
-  padding: 90px;
+  padding: 90px 0px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   border-radius: 25px;
 }
 
-.register-inputs {
+.form-input {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -119,6 +119,15 @@ a:hover {
   height: 100px;
   width: auto;
   margin-bottom: 50px;
+}
+
+.login-bottom{
+  margin: 20px;
+  text-align: center;
+}
+
+#error-display{
+  color: red;
 }
 
 @media screen and (min-width: 900px) {
