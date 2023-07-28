@@ -87,81 +87,98 @@ const Forum = ({ user, isLoggedIn }) => {
 
   //for the purpose of filtering through the forums based on category
   // we will do so by getting the value of the buttons and filtering through the posts through that value
-  let [activeCategory, setActiveCategory] = useState("")
-  const [categoryBool, setCategoryBool] = useState(false)
+  let [activeCategory, setActiveCategory] = useState("");
+  const [categoryBool, setCategoryBool] = useState(false);
 
   const handleUpdateCategory = (event) => {
-    let activeCategory = event.target.id
+    let activeCategory = event.target.id;
     if (activeCategory === "") {
-      setCategoryBool(false)
+      setCategoryBool(false);
     } else {
-      setCategoryBool(true)
+      setCategoryBool(true);
     }
-    setActiveCategory(activeCategory)
-  }
+    setActiveCategory(activeCategory);
+  };
 
-  let filteredData = allPosts.filter(post => post.category.includes(activeCategory))
+  let filteredData = allPosts.filter((post) =>
+    post.category.includes(activeCategory)
+  );
 
-  console.log("active category",activeCategory)
+  console.log("active category", activeCategory);
 
-  console.log(filteredData)
-
+  console.log(filteredData);
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search for a post"
-        onChange={handleSearchItem}
-      />
-      <br />
-
-      <div>
-        <button id = "" onClick={handleUpdateCategory}>All</button>
-        <button id = "Medical" onClick={handleUpdateCategory}>Medical</button>
-        <button id = "Lifestyle" onClick={handleUpdateCategory}>Lifestyle</button>
-      </div>
-
-      {createPostTrue ? (
-        <div>
-          <ForumPrompt user={user} fetchAllPosts={fetchAllPosts} />
-          <button onClick={cancelButton}>Cancel</button>
+    <div className="forum-outer-container">
+      <div className="forum-container">
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search for a post"
+            onChange={handleSearchItem}
+            id="forum-search-bar"
+          />
         </div>
-      ) : (
-        <div>
-        {isLoggedIn ? 
-          <button onClick={clickButton}>Create a Post</button> :
-          null
-        }
-        </div>
-      )}
 
-      <div>
-        {searchBool || categoryBool
-          ? filteredData
-              .filter((post) =>
-                post.title.toLowerCase().includes(searchItem.toLowerCase())
-              )
-              .map((post) => (
+        <div className="category-selector">
+          <div>
+            <button id="" onClick={handleUpdateCategory}>
+              All
+            </button>
+            <button id="Medical" onClick={handleUpdateCategory}>
+              Medical
+            </button>
+            <button id="Lifestyle" onClick={handleUpdateCategory}>
+              Lifestyle
+            </button>
+          </div>
+        </div>
+        <div className="forum-prompt">
+          {createPostTrue ? (
+            <ForumPrompt
+              user={user}
+              fetchAllPosts={fetchAllPosts}
+              cancelButton={cancelButton}
+            />
+          ) : (
+            <div className="create-a-post">
+              {isLoggedIn && (
+                <button className="create-post-button" onClick={clickButton}>
+                  Create a Post
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+
+        <div className="forum-i-think">
+          {searchBool || categoryBool
+            ? filteredData
+                .filter((post) =>
+                  post.title.toLowerCase().includes(searchItem.toLowerCase())
+                )
+                .map((post) => (
+                  <div>
+                    <Link className="link" to={`/forum/post/${post.postId}`}>
+                      <ForumPostCard key={post.postId} post={post} />
+                    </Link>
+                  </div>
+                ))
+            : exisitngPosts.map((post) => (
                 <div>
                   <Link className="link" to={`/forum/post/${post.postId}`}>
                     <ForumPostCard key={post.postId} post={post} />
                   </Link>
                 </div>
-              ))
-          : exisitngPosts.map((post) => (
-              <div>
-                <Link className="link" to={`/forum/post/${post.postId}`}>
-                  <ForumPostCard key={post.postId} post={post} />
-                </Link>
-              </div>
-            ))}
-
-        {dataAttainable & !searchBool & !categoryBool ? (
-          <button onClick={loadMorePosts}>Load More Posts</button>
-        ) : (
-          <p>No posts!</p>
-        )}
+              ))}
+          <div className="forum-post-handler">
+            {dataAttainable & !searchBool & !categoryBool ? (
+              <button onClick={loadMorePosts}>Load More Posts</button>
+            ) : (
+              <p>No posts!</p>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

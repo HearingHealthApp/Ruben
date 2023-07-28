@@ -149,11 +149,11 @@ const ForumPost = ({ user }) => {
             <br />
             <button type="submit">Submit comment</button>
           </form>
-          <div className="comments">
+          {comments.length===0 ? <p>No comments yet</p> : <div className="comments">
             {comments.map((comment) => (
               <CommentCard comment={comment} />
             ))}
-          </div>
+          </div>}
         </div>
       </div>
     </div>

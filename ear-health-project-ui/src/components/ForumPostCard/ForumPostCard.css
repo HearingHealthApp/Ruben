@@ -1,18 +1,76 @@
 .cutoff-text {
-    --max-lines: 5;
-    --line-height: 1.4;
-    overflow: hidden;
-    max-height: calc(var(--max-lines) * 1em * var(--line-height));
-    line-height: var(--line-height);
-    position: relative;
+  --max-lines: 5;
+  --line-height: 1.4;
+  overflow: hidden;
+  max-height: calc(var(--max-lines) * 1em * var(--line-height));
+  line-height: var(--line-height);
+  position: relative;
 }
 
 .cutoff-text::before {
-    content: "";
-    position: absolute;
-    height: calc(1em * var(--line-height));
-    width: 100%;
-    bottom: 0;
-    pointer-events: none;
-    background: linear-gradient(to bottom, transparent, white);
+  content: "";
+  position: absolute;
+  height: calc(1em * var(--line-height));
+  width: 100%;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, aliceblue);
+}
+
+.forum-post-container {
+  background-color: aliceblue;
+  margin: 10px 0px;
+  border-radius: 10px;
+  padding: 10px 10px;
+  text-decoration: none;
+  width: 80%;
+  font-size: 90%;
+}
+
+.forum-post-title {
+  font-size: 200%;
+}
+
+.Lifestyle {
+  background-color: lightgreen;
+  width: fit-content;
+  padding: 0.5% 1%;
+  border-radius: 10px;
+}
+
+.Medical {
+  background-color: lightblue;
+  width: fit-content;
+  padding: 0.5% 1%;
+  border-radius: 10px;
+}
+
+.General{
+    background-color: orange;
+    width: fit-content;
+    padding: 0.5% 1%;
+    border-radius: 10px;
+}
+
+.forum-post-handler {
+  display: flex;
+  justify-content: center;
+}
+
+.forum-post-handler > button {
+  background: white;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: black;
+  font-size: 100%;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 0.5% 1%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  word-break: break-word;
+  border: 0;
 }
