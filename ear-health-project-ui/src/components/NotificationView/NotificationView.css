@@ -10,14 +10,7 @@
   flex-wrap: wrap;
 }
 
-.big-notifications {
-  padding: 20px 30px;
-  background-color: aliceblue;
-  text-align: center;
-  margin: 20px 40px;
-  border-radius: 20px;
-  height: 700px;
-}
+
 
 .big-notifications {
   padding: 20px 30px;
@@ -26,6 +19,7 @@
   border-radius: 20px;
   height: 700px;
   background-color: aliceblue;
+  box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
 }
 
 ::-webkit-scrollbar {

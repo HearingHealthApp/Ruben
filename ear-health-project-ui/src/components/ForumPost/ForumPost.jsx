@@ -70,7 +70,7 @@ const ForumPost = ({ user }) => {
     e.preventDefault();
 
     let doctor = false;
-    if (user.isDoctor & user.verified) {
+    if (user.isDoctor) {
       doctor = true;
     }
     const { data } = await apiClient.postComment(
@@ -112,9 +112,9 @@ const ForumPost = ({ user }) => {
               <p>{formatTimeSincePost(post.createdAt)}</p>
             </div>
             <div className="post-contents">
-              <h1 className="post-title">{post.title}</h1>
+              <h1 id className="post-title">{post.title}</h1>
               <div className="category-container">
-                <p className="post-cat">{post.category}</p>
+                <p className={`${post.category}-post`}>{post.category}</p>
               </div>
               <p className="actual-post">{post.content}</p>
             </div>
@@ -149,11 +149,15 @@ const ForumPost = ({ user }) => {
             <br />
             <button type="submit">Submit comment</button>
           </form>
-          {comments.length===0 ? <p>No comments yet</p> : <div className="comments">
-            {comments.map((comment) => (
-              <CommentCard comment={comment} />
-            ))}
-          </div>}
+          {comments.length === 0 ? (
+            <p>No comments yet</p>
+          ) : (
+            <div className="comments">
+              {comments.map((comment) => (
+                <CommentCard comment={comment} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

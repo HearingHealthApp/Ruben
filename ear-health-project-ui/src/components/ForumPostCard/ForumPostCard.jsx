@@ -43,7 +43,7 @@ const ForumPostCard = ({ post }) => {
         <p className={`${post.category}`}>{post.category}</p>
 
         {post.isAnonymous ? (
-          <p className="posted-by">Posted by Anonymous</p>
+          <p className="posted-by">Posted by Anonymous {formatTimeSincePost(post.createdAt)}</p>
         ) : (
           <p className="posted-by">
             Posted by {post.username} {formatTimeSincePost(post.createdAt)}
