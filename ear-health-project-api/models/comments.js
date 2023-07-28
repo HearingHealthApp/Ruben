@@ -32,7 +32,7 @@ class Comments {
       data.commentorUsername,
       data.content,
       data.isAnonymous,
-      data.commentorIsDoctor
+      data.commentorIsDoctor,
     ];
 
     //insert the actual comment into the db and return
@@ -52,26 +52,32 @@ class Comments {
       message = `${data.commentorUsername} commented on your post titled \"${data.postTitle}\"`;
     }
 
-    // we create a query that cerates a notification row based on the comment just made
-    const notificationQuery = `
-        INSERT INTO notifications (user_id, post_id, comment_id, message)
-        VALUES ($1, $2, $3, $4)
-        RETURNING *
-        `;
+    // check if the user commenting is not the user themselves
+    if (data.commentorId !== data.userToNotify) {
+      // if they are not the creators of the post, we want to
+      // create a notification fr the creator of the post
 
-    //values we will be assigning to our notification query
-    const notificationValues = [
-      data.userToNotify,
-      data.postId,
-      comment.commentId,
-      message,
-    ];
+      // we create a query that cerates a notification row based on the comment just made
+      const notificationQuery = `
+    INSERT INTO notifications (user_id, post_id, comment_id, message)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *
+    `;
 
-    // posting to the notification table in the db
-    const notificationResult = await db.query(
-      notificationQuery,
-      notificationValues
-    );
+      //values we will be assigning to our notification query
+      const notificationValues = [
+        data.userToNotify,
+        data.postId,
+        comment.commentId,
+        message,
+      ];
+
+      // posting to the notification table in the db
+      const notificationResult = await db.query(
+        notificationQuery,
+        notificationValues
+      );
+    }
 
     // return the comment we made
     return comment;
