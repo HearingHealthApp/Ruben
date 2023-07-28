@@ -114,11 +114,13 @@ const Profile = ({ user }) => {
   };
 
   const imageLink = `http://localhost:3001/s3/image/${imageKey}`;
-  console.log(typeof existingConditions);
+  
 
-  const conditions = Object.values(existingConditions)
+  
+  const conditions = Object.values(existingConditions || {}) || [];
+  
 
-  console.log(conditions)
+  // console.log(conditions)
   return (
     <div>
       <div className="profile-card">
@@ -148,9 +150,10 @@ const Profile = ({ user }) => {
         <br />
 
         <div className = "conditions">
-        {conditions.map(conditionMpa=> (
+        {conditions != null ?
+        conditions.map(conditionMpa=> (
           <p className="condition">{conditionMpa}</p>
-        ))}
+        )): null}
 
         <br />
         </div>
