@@ -114,6 +114,7 @@ const Profile = ({ user }) => {
   };
 
   const imageLink = `http://localhost:3001/s3/image/${imageKey}`;
+  console.log(existingConditions)
   return (
     <div>
       <div>
@@ -144,7 +145,7 @@ const Profile = ({ user }) => {
 
         <br />
 
-        {conditionClick && userData.isDoctor ? (
+        {conditionClick  ? (
           <div>
             <form onSubmit={updateConditions}>
               <input onChange={conditionUpdater} />

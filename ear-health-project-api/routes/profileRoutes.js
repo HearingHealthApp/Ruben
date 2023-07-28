@@ -17,6 +17,7 @@ router.get("/:userId", async (req, res, next) => {
     const userComments = await Profile.getUserComments(userId);
     //get their posts
     const userPosts = await Profile.getUserPosts(userId);
+    
 
     return res.status(200).json({ user, userComments, userPosts });
   } catch (err) {
