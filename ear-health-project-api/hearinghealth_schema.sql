@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS users (
     first_name      TEXT NOT NULL,
     last_name       TEXT NOT NULL,
     description     TEXT,
-    conditions      TEXT [],
-    image           TEXT,
+    conditions      TEXT [] CHECK(cardinality(conditions) <= 5),
+    image           TEXT DEFAULT 'default.jpeg',
     is_doctor       BOOLEAN  NOT NULL DEFAULT false,
     created_at      TIMESTAMP NOT NULL DEFAULT NOW()
 );
