@@ -25,6 +25,15 @@
   text-decoration: none;
   width: 80%;
   font-size: 90%;
+  box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
+  word-break: auto;
+}
+
+.forum-post-container:hover {
+  box-shadow: 0 6px 9px 0 rgba(0,0,0,.5);
+  cursor: pointer;
+  transform: scale(1.005);
+
 }
 
 .forum-post-title {
@@ -43,6 +52,7 @@
   width: fit-content;
   padding: 0.5% 1%;
   border-radius: 10px;
+  
 }
 
 .General{
@@ -50,6 +60,7 @@
     width: fit-content;
     padding: 0.5% 1%;
     border-radius: 10px;
+    
 }
 
 .forum-post-handler {

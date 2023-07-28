@@ -168,7 +168,7 @@ class User {
     const doctorQuery = `
     INSERT INTO doctors (user_id, registration_number)
     VALUES ($1, $2)
-    RETURNING specialties, registration_number, description, verified 
+    RETURNING specialties, registration_number, verified 
     `;
 
     // store the values that we will pass into our doctor table query
@@ -228,7 +228,7 @@ class User {
     }
 
     //send error message if password isn't valid
-    throw new UnauthorizedError("Invalid password");
+    throw new UnauthorizedError("Invalid email/password combination");
   }
 
   // fetch an existing user based on an email
