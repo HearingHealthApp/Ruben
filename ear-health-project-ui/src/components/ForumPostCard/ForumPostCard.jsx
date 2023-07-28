@@ -14,38 +14,44 @@ const ForumPostCard = ({ post }) => {
 
     // Check if less than a minute
     if (timeDifference < ONE_MINUTE) {
-      return "Posted just now";
+      return "just now";
     }
 
     // Check if less than an hour
     if (timeDifference < ONE_HOUR) {
       const minutesAgo = Math.floor(timeDifference / ONE_MINUTE);
-      return `Posted ${minutesAgo} minute${minutesAgo !== 1 ? "s" : ""} ago`;
+      return `${minutesAgo} minute${minutesAgo !== 1 ? "s" : ""} ago`;
     }
 
     // Check if less than a day
     if (timeDifference < ONE_DAY) {
       const hoursAgo = Math.floor(timeDifference / ONE_HOUR);
-      return `Posted ${hoursAgo} hour${hoursAgo !== 1 ? "s" : ""} ago`;
+      return `${hoursAgo} hour${hoursAgo !== 1 ? "s" : ""} ago`;
     }
 
     // For longer durations, you can use libraries like Moment.js for more advanced formatting
     // or implement custom logic to display "posted x days ago" or specific date format
 
     // Default case
-    return `Posted on ${postTime.toLocaleDateString()}`;
+    return ` on ${postTime.toLocaleDateString()}`;
   };
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      {post.isAnonymous ? (
-        <p>Posted by Anonymous</p>
-      ) : (
-        <p>Posted by {post.username}</p>
-      )}
-      <p>{formatTimeSincePost(post.createdAt)}</p>
-      <p className="cutoff-text">{post.content}</p>
+    <div className="forum-post-handler">
+      <div className="forum-post-container">
+        <h1 className="forum-post-title">{post.title}</h1>
+        <p className={`${post.category}`}>{post.category}</p>
+
+        {post.isAnonymous ? (
+          <p className="posted-by">Posted by Anonymous</p>
+        ) : (
+          <p className="posted-by">
+            Posted by {post.username} {formatTimeSincePost(post.createdAt)}
+          </p>
+        )}
+
+        <p className="cutoff-text">{post.content}</p>
+      </div>
     </div>
   );
 };

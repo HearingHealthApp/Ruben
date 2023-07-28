@@ -80,7 +80,7 @@ function App() {
           ></Navbar>
           <div className="primary-container">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home isLoggedIn={isLoggedIn}/>} />
             <Route
               path="/register"
               element={
