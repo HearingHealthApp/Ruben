@@ -121,6 +121,15 @@ a:hover {
   margin-bottom: 50px;
 }
 
+.login-bottom{
+  margin: 20px;
+  text-align: center;
+}
+
+#error-display{
+  color: red;
+}
+
 @media screen and (min-width: 900px) {
   .screen-split {
     flex-direction: row;

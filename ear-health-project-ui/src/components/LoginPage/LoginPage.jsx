@@ -85,7 +85,7 @@ const LoginPage = ({ userUpdater, loginHandler }) => {
             <button className="login-bttn" type="submit">
               Login
             </button>
-            <p>{loginError}</p>
+            <p id="login-error">{loginError}</p>
           </form>
           
         </div>

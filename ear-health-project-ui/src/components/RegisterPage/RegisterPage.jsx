@@ -107,18 +107,19 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
                 required
                 placeholder="Password"
               />
-              <p>{registrationError}</p>
             </div>
             <button className="register-bttn" type="submit">
               Sign Up
             </button>
+            <div className="login-bottom">
             <p>
               Are you a doctor?{" "}
               <Link to="/register/doctor">
                 Register <span>here</span>
               </Link>
             </p>
-            {/* <p>{registrationError}</p> */}
+            <p id="error-display">{registrationError}</p>
+            </div>
           </form>
         </div>
       </div>
