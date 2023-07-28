@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Gruppo&family=Lora&family=Nunito+Sans&family=Raleway&family=Rubik:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Gruppo&family=Lora&family=Nunito+Sans&family=Raleway&family=Rubik:wght@300;400&display=swap");
 
 /* #root {
   max-width: 1280px;
@@ -43,8 +43,7 @@
   color: #888;
 } */
 
-body{
+body {
   font-family: "Nunito Sans", sans-serif;
-    background-color: #BBD0FF;
-
+  background-color: #bbd0ff;
 }
