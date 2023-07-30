@@ -284,6 +284,23 @@ class User {
 
     return doctorData;
   }
+
+  static async getUserImage(userId) {
+    // throw an error if no username is provided
+    if (!userId) {
+      throw new BadRequestError("No user ID provided");
+    }
+
+    //select the user's image key
+    const query = `SELECT image FROM users WHERE user_id = $1`
+
+    //the actual value taht we will use to get the image key
+    const value = [userId]
+
+    const result = await db.query(query, value)
+
+    return result.rows[0];
+  }
 }
 
 module.exports = User;

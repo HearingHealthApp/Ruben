@@ -119,7 +119,8 @@ const Profile = ({ user }) => {
 
   // console.log(conditions)
   return (
-    <div>
+    <div className = "row1">
+      <div>
       <div className="profile-card">
         {user.userId == userId ? (
           <div class="avatar-container">
@@ -201,6 +202,7 @@ const Profile = ({ user }) => {
           Commments
         </button>
       </div>
+
       <div>
         {conditionalRender === "Posts"
           ? userPosts
@@ -222,6 +224,7 @@ const Profile = ({ user }) => {
                   </Link>
                 </div>
               ))}
+      </div>
       </div>
     </div>
   );

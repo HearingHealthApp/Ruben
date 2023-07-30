@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 import CommentCard from "../CommentCard/CommentCard";
 import "./ForumPost.css";
+import axios from "axios";
 
 const ForumPost = ({ user }) => {
   const formatTimeSincePost = (timestamp) => {
@@ -50,6 +51,8 @@ const ForumPost = ({ user }) => {
   const [isAnonymous, setAnonymous] = useState(false);
   //useState for contentn
   const [content, setContent] = useState("");
+  //useState for the user's image
+  const [userImg, setUserImg] = useState("")
 
   const getPost = async () => {
     const { data } = await apiClient.indvPostGetter(postId);
@@ -57,6 +60,7 @@ const ForumPost = ({ user }) => {
     console.log(data);
 
     setPost(data.post);
+    setUserImg(data.userImage)
   };
 
   //fetch the comments
@@ -90,9 +94,14 @@ const ForumPost = ({ user }) => {
 
   //call the fetch on page load
   useEffect(() => {
+    
     getPost();
     getComments();
+    
+    
   }, []);
+
+
 
   return (
     <div className="big-container">
@@ -106,6 +115,7 @@ const ForumPost = ({ user }) => {
                 </div>
               ) : (
                 <div className="user-details">
+                  {/* <img src = {userImg} className="user-img"/> */}
                   <p className="username-forum-post">{post.username} </p>
                 </div>
               )}
