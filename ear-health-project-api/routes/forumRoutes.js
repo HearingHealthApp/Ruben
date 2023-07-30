@@ -3,6 +3,7 @@ const express = require("express");
 
 //model import
 const Forum = require("../models/forum");
+const User = require("../models/user");
 
 // setting up the router
 const router = express.Router();
@@ -67,7 +68,9 @@ router.get("/post/:postId", async (req,res,next) => {
 
   const post = await Forum.getPostByID(postId)
 
-  return res.status(200).json({post})
+  const userImage = await User.getUserImage(post.userId)
+
+  return res.status(200).json({post, userImage})
   } catch(err) {
     next(err)
   }

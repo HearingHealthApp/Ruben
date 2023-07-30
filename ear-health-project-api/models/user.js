@@ -299,7 +299,7 @@ class User {
 
     const result = await db.query(query, value)
 
-    return result;
+    return result.rows[0];
   }
 }
 
