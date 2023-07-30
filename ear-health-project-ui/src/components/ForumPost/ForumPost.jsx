@@ -102,11 +102,11 @@ const ForumPost = ({ user }) => {
             <div className="post-details">
               {post.isAnonymous ? (
                 <div className="user-details">
-                  <p className="username">Posted by Anonymous</p>
+                  <p className="username-forum-post">Posted by Anonymous</p>
                 </div>
               ) : (
                 <div className="user-details">
-                  <p className="username">{post.username} </p>
+                  <p className="username-forum-post">{post.username} </p>
                 </div>
               )}
               <p>{formatTimeSincePost(post.createdAt)}</p>
