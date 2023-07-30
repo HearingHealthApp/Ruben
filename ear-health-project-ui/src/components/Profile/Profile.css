@@ -59,10 +59,10 @@
   font-weight: bold;
 }
 
-/* .row1 {
+.row1 {
   display: inline-block;
   flex-wrap: wrap;
   margin: 10px;
   background-color: red;
   color: green;
-} */
+}
