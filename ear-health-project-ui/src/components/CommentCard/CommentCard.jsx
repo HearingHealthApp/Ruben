@@ -51,7 +51,7 @@ const CommentCard = ({comment}) => {
 
   useEffect(() => {
     getUserFromComment();
-  }, []);
+  }, [comment]);
 
   console.log(imageKey)
 
