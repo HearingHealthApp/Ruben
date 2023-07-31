@@ -137,7 +137,7 @@ INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VA
 INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VALUES ('What are some best practices for going to concerts? ', 'Im going to a concert this weekend and am not sure what the best practices that minimize or prevent hearing damage. Any advice would be great.', 'Lifestyle', false, 2, 'JohnCaneer');
 
 --sample post --postId:3
-INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VALUES ('Should I be concerned about my commute?', 'I have to commute evryday to work. I take the subway from Oakland to San Fransisco. Every time we into the tunnel everything becomes super loud. Should i take precautionary measures to try to prevent hearing loss in such a scenario?', 'Lifestyle', false, 7, 'UnderDog');
+INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VALUES ('Should I be concerned about my commute?', 'I have to commute evryday to work. I take the BART from Oakland to San Fransisco. Every time we into the tunnel everything becomes super loud. Should i take precautionary measures to try to prevent hearing loss in such a scenario?', 'Lifestyle', false, 7, 'UnderDog');
 
 --sample post --postId:4
 INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VALUES ('Where should I got to get my hearing checked?', '', 'Medical', false, 3, 'JaneCanteer');
