@@ -143,7 +143,7 @@ INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VA
 INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VALUES ('Where should I got to get my hearing checked?', '', 'Medical', false, 3, 'JaneCanteer');
 
 --sample post --postId:5
-INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VALUES ('What is the best way to teach my kinds about being considerate of their hearing?', '', 'Lifestyle', false, 8, 'MissSupper');
+INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VALUES ('What is the best way to teach my kids about being considerate of their hearing?', '', 'Lifestyle', false, 8, 'MissSupper');
 
 --sample post --postId:6
 INSERT INTO posts (title, content, category, is_anonymous, user_id, username) VALUES ('How do I access my notifications?', '', 'General', false, 1, 'TheMainMan');

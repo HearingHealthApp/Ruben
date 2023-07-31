@@ -3,15 +3,17 @@
   --line-height: 1.4;
   overflow: hidden;
   max-height: calc(var(--max-lines) * 1em * var(--line-height));
+  min-height: 2em;
   line-height: var(--line-height);
   position: relative;
+  font-size: 130%;
 }
 
 .cutoff-text::before {
   content: "";
   position: absolute;
   height: calc(1em * var(--line-height));
-  width: 100%;
+  width:100%;
   bottom: 0;
   pointer-events: none;
   background: linear-gradient(to bottom, transparent, aliceblue);
@@ -23,7 +25,7 @@
   border-radius: 10px;
   padding: 10px 10px;
   text-decoration: none;
-  width: 80%;
+  width: 100%;
   font-size: 90%;
   box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
   word-break: auto;

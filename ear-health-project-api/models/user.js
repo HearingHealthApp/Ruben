@@ -131,6 +131,14 @@ class User {
       throw new BadRequestError(`Duplicate username: ${credentials.username}`);
     }
 
+    const existingRegistrationNumber = await User.getDoctorByRegistrationNumber(
+      credentials.registrationNumber
+    );
+
+    if (existingRegistrationNumber){
+      throw new BadRequestError(`Duplicate registration number: ${credentials.registrationNumber}`);
+    }
+
     //hash the user's password using bcrypt and salt
     //generate our salt using our work factor
     const salt = await bcrypt.genSalt(BCRYPT_WORK_FACTOR);
@@ -214,9 +222,10 @@ class User {
         credentials.password,
         user.password
       );
+
       if (isPasswordValid) {
-        if (user.is_doctor) {
-          const doctorData = await User.fetchDoctorById(user.user_id);
+        if (user.isDoctor) {
+          const doctorData = await User.fetchDoctorById(user.userId);
 
           user = {
             ...user,
@@ -274,7 +283,7 @@ class User {
     }
 
     // select from the doctors table the data that matches the user ID
-    const query = `SELECT specialties, registration_number, description, verified FROM doctors WHERE user_id = $1`;
+    const query = `SELECT specialties, registration_number, verified FROM doctors WHERE user_id = $1`;
 
     // convert the provided username to all lowercase and use it as the reference
     // username in the query
@@ -282,7 +291,7 @@ class User {
 
     const doctorData = result.rows[0];
 
-    return doctorData;
+    return convertSnakeToCamel(doctorData);
   }
 
   static async getUserImage(userId) {
@@ -292,12 +301,30 @@ class User {
     }
 
     //select the user's image key
-    const query = `SELECT image FROM users WHERE user_id = $1`
+    const query = `SELECT image FROM users WHERE user_id = $1`;
 
     //the actual value taht we will use to get the image key
-    const value = [userId]
+    const value = [userId];
 
-    const result = await db.query(query, value)
+    const result = await db.query(query, value);
+
+    return result.rows[0];
+  }
+
+  static async getDoctorByRegistrationNumber(registrationNumber) {
+    // throw an error if no username is provided
+    if (!registrationNumber) {
+      throw new BadRequestError("No registration number provided");
+    }
+
+    //select the user's registartion number
+    const query = `SELECT * FROM doctors WHERE registration_number = $1`;
+
+    //the actual value that we will use to get the doctor
+    const value = [registrationNumber];
+
+    const result = await db.query(query, value);
+
 
     return result.rows[0];
   }
