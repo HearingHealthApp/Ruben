@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Listener = () => {
   return (
     <div>
-        <h1>SoundSense</h1>
+      <h1>SoundSense</h1>
       <p>
         Experience the power of "SoundSense" - our listening tool that
         transforms the way you engage with sound. With SoundSense, you gain

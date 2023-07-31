@@ -61,7 +61,16 @@ router.get("/me", async (req, res, next) => {
     if (res.locals.user) {
       const { email, userId } = res.locals.user;
 
-      const user = await User.fetchUserByEmail(email, userId);
+      let user = await User.fetchUserByEmail(email, userId);
+
+      if (user.isDoctor){
+        const doctorData = await User.fetchDoctorById(user.userId);
+
+          user = {
+            ...user,
+            ...doctorData,
+          };
+      }
       // const publicUser = User.makePublicUser(user)
       return res.status(200).json({ user: user });
     }

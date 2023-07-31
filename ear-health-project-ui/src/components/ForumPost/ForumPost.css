@@ -63,10 +63,7 @@
   font-weight: 900;
   font-size: 1vw;
   text-decoration: none;
-}
-
-.username-forum-post:hover{
-  text-decoration: none;
+  color: black;
 }
 
 .post-contents {
