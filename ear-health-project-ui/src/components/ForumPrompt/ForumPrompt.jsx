@@ -15,6 +15,10 @@ const ForumPrompt = ({ user, fetchAllPosts, cancelButton }) => {
   const createForumPost = async (e) => {
     e.preventDefault();
     try {
+      let doctor = false;
+    if (user.isDoctor) {
+      doctor = true;
+    }
       const response = await apiClient.postPoster(
         JSON.stringify({
           userId: user.userId,
@@ -23,6 +27,7 @@ const ForumPrompt = ({ user, fetchAllPosts, cancelButton }) => {
           content: content,
           category: category,
           isAnonymous: isAnonymous,
+          isDoctor: doctor,
         })
       );
 
