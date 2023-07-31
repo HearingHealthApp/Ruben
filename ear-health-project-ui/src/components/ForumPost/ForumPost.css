@@ -143,3 +143,17 @@ form textarea {
   display: flex;
   flex-direction: wrap;
 }
+
+.reply-symbol{
+  width: 3%;
+  text-align: right;
+}
+
+.reply-symbol:hover{
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.interaction-buttons{
+  text-align: right;
+}

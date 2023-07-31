@@ -111,7 +111,7 @@ function App() {
               }
             />
 
-            <Route path = "/forum/post/:postId" element = {<ForumPost user = {user}/>}/>
+            <Route path = "/forum/post/:postId" element = {<ForumPost user = {user} isLoggedIn = {isLoggedIn}/>}/>
 
             <Route path = "/profile/:userId" element = {<Profile user = {user}/>}/>
 
