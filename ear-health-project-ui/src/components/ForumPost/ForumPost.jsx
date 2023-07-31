@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 import CommentCard from "../CommentCard/CommentCard";
 import "./ForumPost.css";
@@ -123,7 +123,7 @@ const ForumPost = ({ user }) => {
                   ) : (
                     <img src={userImage} className="user-img" />
                   )}
-                  <p className="username-forum-post">{post.username} </p>
+                  <Link to = {`/profile/${post.userId}`}><p className="username-forum-post">{post.username} </p></Link>
                 </div>
               )}
               <p>{formatTimeSincePost(post.createdAt)}</p>
