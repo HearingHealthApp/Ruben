@@ -23,7 +23,8 @@ function App() {
   //useState for the user that is currently logged in
   const [user, setUser] = useState({});
 
-  //useState for 
+  //useState for the user's image
+  const [profileImageKey, setProfileImageKey] = useState("")
 
   console.log(user)
 
@@ -78,6 +79,8 @@ function App() {
           <Navbar
             isLoggedIn={isLoggedIn}
             logOutHandler={logOutHandler}
+            user = {user}
+            profileImageKey = {profileImageKey}
           ></Navbar>
           <div className="primary-container">
           <Routes>
@@ -113,7 +116,7 @@ function App() {
 
             <Route path = "/forum/post/:postId" element = {<ForumPost user = {user} isLoggedIn = {isLoggedIn}/>}/>
 
-            <Route path = "/profile/:userId" element = {<Profile user = {user}/>}/>
+            <Route path = "/profile/:userId" element = {<Profile user = {user} setProfileImageKey={setProfileImageKey} profileImageKey={profileImageKey}/>}/>
 
             <Route path = "/notifications" element = {<NotificationView user = {user} isLoggedIn = {isLoggedIn}/>}/>
 

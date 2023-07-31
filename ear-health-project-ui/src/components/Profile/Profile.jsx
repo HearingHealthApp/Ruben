@@ -7,7 +7,7 @@ import CommentCard from "../CommentCard/CommentCard";
 import UploadImage from "../UploadImage/UploadImage";
 import "./Profile.css";
 
-const Profile = ({ user }) => {
+const Profile = ({ user,setProfileImageKey, profileImageKey }) => {
   console.log(user);
   //get the userId from the link
   const { userId } = useParams();
@@ -38,6 +38,7 @@ const Profile = ({ user }) => {
     setexistingConditions(data.user.conditions);
     setExistingDescription(data.user.description);
     setImageKey(data.user.image);
+    setProfileImageKey(data.user.image)
   };
 
   //call the fetch on page load
@@ -138,7 +139,7 @@ const Profile = ({ user }) => {
           </div>
         )}
         {imageClick && user.userId == userId ? (
-          <UploadImage userId={userId} setImageKey={setImageKey} />
+          <UploadImage userId={userId} setImageKey={setImageKey} setProfileImageKey={setProfileImageKey} />
         ) : null}
 
         <h1 className="username">{userData.username}</h1>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 
 
-const UploadImage = ({userId, setImageKey}) => {
+const UploadImage = ({userId, setImageKey, setProfileImageKey}) => {
     //useState for the input file 
     const [file, setFile] = useState(null)
 
@@ -26,6 +26,7 @@ const UploadImage = ({userId, setImageKey}) => {
         const result = await postImage({image: file}, userId)
         console.log(result.dbResult.image)
         setImageKey(result.dbResult.image)
+        setProfileImageKey(result.dbResult.image)
     }
 
     const fileSelected = (e) => {
