@@ -18,8 +18,8 @@ class Forum {
 
     //create our query
     const postQuery = `
-        INSERT INTO posts (title, content, category, is_anonymous, user_id, username)
-        VALUES ($1, $2, $3, $4, $5, $6)
+        INSERT INTO posts (title, content, category, is_anonymous, user_id, username, from_doctor)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
         RETURNING *
         `;
 
@@ -31,6 +31,7 @@ class Forum {
       data.isAnonymous,
       data.userId,
       data.username,
+      data.isDoctor
     ];
 
     //query the database
