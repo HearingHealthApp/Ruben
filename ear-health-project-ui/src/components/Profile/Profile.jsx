@@ -146,11 +146,17 @@ const Profile = ({ user }) => {
         <br />
 
         <div className="conditions">
-          {conditions != null
-            ? conditions.map((conditionMpa) => (
-                <p className="condition">{conditionMpa}</p>
-              ))
-            : null}
+          {user.isDoctor ? 
+        <p>im a doctor</p> :
+        <div>
+        {conditions != null
+          ? conditions.map((conditionMpa) => (
+              <p className="condition">{conditionMpa}</p>
+            ))
+          : null}
+          </div>
+        }
+          
 
           <br />
         </div>

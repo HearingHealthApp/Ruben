@@ -52,7 +52,7 @@ const ForumPost = ({ user }) => {
   //useState for contentn
   const [content, setContent] = useState("");
   //useState for the user's image
-  const [userImg, setUserImg] = useState("")
+  const [userImg, setUserImg] = useState("");
 
   const getPost = async () => {
     const { data } = await apiClient.indvPostGetter(postId);
@@ -60,7 +60,7 @@ const ForumPost = ({ user }) => {
     console.log(data);
 
     setPost(data.post);
-    setUserImg(data.userImage)
+    setUserImg(data.userImage);
   };
 
   //fetch the comments
@@ -94,14 +94,17 @@ const ForumPost = ({ user }) => {
 
   //call the fetch on page load
   useEffect(() => {
-    
     getPost();
     getComments();
-    
-    
   }, []);
 
+  console.log(userImg.image)
+  let key = userImg.image
+  let userImage = `http://localhost:3001/s3/image/${key}`
 
+  console.log(userImage)
+
+  console.log(post)
 
   return (
     <div className="big-container">
@@ -115,16 +118,25 @@ const ForumPost = ({ user }) => {
                 </div>
               ) : (
                 <div className="user-details">
-                  {/* <img src = {userImg} className="user-img"/> */}
+                  {userImg == "" ? (
+                    <img src="" />
+                  ) : (
+                    <img src={userImage} className="user-img" />
+                  )}
                   <p className="username-forum-post">{post.username} </p>
                 </div>
               )}
               <p>{formatTimeSincePost(post.createdAt)}</p>
             </div>
             <div className="post-contents">
-              <h1 id className="post-title">{post.title}</h1>
+              <h1 id className="post-title">
+                {post.title}
+              </h1>
               <div className="category-container">
                 <p className={`${post.category}-post`}>{post.category}</p>
+                {post.fromDoctor ? 
+              <p>Verified Doctor</p>  : null
+              }
               </div>
               <p className="actual-post">{post.content}</p>
             </div>

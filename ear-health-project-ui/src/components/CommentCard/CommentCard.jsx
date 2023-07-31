@@ -37,6 +37,10 @@ const CommentCard = ({comment}) => {
     return `Posted on ${postTime.toLocaleDateString()}`;
   };
 
+  const getCommentImage = () => {
+    //should get the user's image an attach it to the comment
+  }
+
   return (
     <div className='commenting-box'>
       <div className='comment-info'>
