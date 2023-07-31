@@ -128,4 +128,3 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
 };
 
 export default RegisterPage;
-//yurrrrrrrrr@mail.com
