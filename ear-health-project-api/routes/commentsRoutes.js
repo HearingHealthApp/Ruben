@@ -33,4 +33,16 @@ router.get("/:postID", async (req, res, next) => {
   }
 });
 
-module.exports = router
+router.get("/comment/:userId", async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+
+    const user = await Comments.getUserFromComment(userId);
+
+    return res.status(200).json(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
+module.exports = router;

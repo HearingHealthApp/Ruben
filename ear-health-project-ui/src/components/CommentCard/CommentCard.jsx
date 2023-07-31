@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./CommentCard.css"
+import axios from 'axios'
 
 const CommentCard = ({comment}) => {
   console.log(comment)
@@ -37,9 +38,26 @@ const CommentCard = ({comment}) => {
     return `Posted on ${postTime.toLocaleDateString()}`;
   };
 
-  const getCommentImage = () => {
+  //useState for the user's image key
+  const [imageKey, setImageKey] = useState("")
+
+  //getter for the user
+  const getUserFromComment = async () => {
     //should get the user's image an attach it to the comment
+    const {data} = await axios.get(`http://localhost:3001/comments/comment/${comment.userId}`)
+    console.log(data)
+    setImageKey(data.image)
   }
+
+  useEffect(() => {
+    getUserFromComment();
+  }, []);
+
+  console.log(imageKey)
+
+  const imageUrl = `http://localhost:3001/s3/image/${imageKey}`
+
+  console.log(imageUrl)
 
   return (
     <div className='commenting-box'>
@@ -47,7 +65,14 @@ const CommentCard = ({comment}) => {
       {comment.isAnonymous ? (
         <p> Anonymous</p>
       ) : (
+        <div>
+        {imageKey == "" ? (
+          <img src="" />
+        ) : (
+          <img src={imageUrl} className="user-img" />
+        )}
         <p>{comment.username}</p>
+        </div>
       )}
       {comment.fromDoctor && <p className='Medical'>Verified Doctor</p>}
       <p>{formatTimeSincePost(comment.createdAt)}</p>

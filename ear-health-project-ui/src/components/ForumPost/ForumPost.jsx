@@ -176,7 +176,7 @@ const ForumPost = ({ user }) => {
           ) : (
             <div className="comments">
               {comments.map((comment) => (
-                <CommentCard comment={comment} />
+                <CommentCard comment={comment}/>
               ))}
             </div>
           )}

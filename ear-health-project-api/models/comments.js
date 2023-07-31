@@ -100,6 +100,21 @@ class Comments {
 
     return comments;
   }
+
+  static async getUserFromComment(commentUserId) {
+    if (!commentUserId) {
+      throw new BadRequestError("No id provided");
+    }
+
+    const createUserQuery = `SELECT * FROM users WHERE user_id = $1`;
+
+    const value = [commentUserId]
+
+    const result = await db.query(createUserQuery, value)
+
+    return convertSnakeToCamel(result.rows[0])
+
+  }
 }
 
 module.exports = Comments;
