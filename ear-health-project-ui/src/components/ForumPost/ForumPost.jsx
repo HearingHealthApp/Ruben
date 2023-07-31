@@ -135,7 +135,7 @@ const ForumPost = ({ user }) => {
               <div className="category-container">
                 <p className={`${post.category}-post`}>{post.category}</p>
                 {post.fromDoctor ? 
-              <p>Verified Doctor</p>  : null
+              <p className="Medical">Verified Doctor</p>  : null
               }
               </div>
               <p className="actual-post">{post.content}</p>
