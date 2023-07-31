@@ -1,106 +1,162 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Delius+Unicase:wght@700&family=Gruppo&family=Lora&family=Nunito+Sans:opsz,wght@6..12,800&family=Raleway&family=Rubik:wght@300;400&display=swap');
-*{
-    /* box-sizing: border-box; */
-    margin: 0%;
-    padding: 0%;
-    /* background-color: #24252a; */
-    list-style-type: none;
-    text-decoration: none;
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Delius+Unicase:wght@700&family=Gruppo&family=Lora&family=Nunito+Sans:opsz,wght@6..12,800&family=Raleway&family=Rubik:wght@300;400&display=swap");
+* {
+  /* box-sizing: border-box; */
+  margin: 0%;
+  padding: 0%;
+  /* background-color: #24252a; */
+  list-style-type: none;
+  text-decoration: none;
 }
 
-.navbar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    color:white;
-    overflow: hidden;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-    background-color:aliceblue;
-    margin: 0px 150px;
-    margin-top: 40px;
-    border-radius: 25px;
-    padding: 25px 40px;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: aliceblue;
+  margin: 0px 150px;
+  margin-top: 40px;
+  border-radius: 25px;
+  padding: 25px 40px;
 }
 
-.logo{
-    cursor: pointer;
-    height: 100px;
-    width: auto;
-    border-radius: 10%;
-    float: left;   
+.logo {
+  cursor: pointer;
+  height: 100px;
+  width: auto;
+  border-radius: 10%;
+  float: left;
 }
 
-.logo-name{
-    font-weight: 900;
-    font-size: 30px;
+.logo-name {
+  font-weight: 900;
+  font-size: 30px;
 }
-
 
 .listed-links {
-    /* float: right; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color:white;
-    gap: 50px;
-    float: left;
-
+  /* float: right; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+  gap: 50px;
+  float: left;
 }
-.listed-links li a{
-    display: flex;
-    text-decoration: none;
-    list-style-type: none;
-    color:black;
-    /* margin-left: 100px; */
-    font-size: 30px;
+.listed-links li a {
+  display: flex;
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+  /* margin-left: 100px; */
+  font-size: 30px;
 }
-.listed-links a:hover{
-    color: grey;
-}
-
-.logged-in{
-    display: flex;
-    /* flex-direction: row; */
-    gap: 50px;
-    float: right;
+.listed-links a:hover {
+  color: grey;
 }
 
-.login{
+.logged-in {
+  display: flex;
+  /* flex-direction: row; */
+  gap: 50px;
+  float: right;
+}
+
+.login {
+  color: black;
+  background: none;
+  border: none;
+  margin: 0%;
+  padding: 0%;
+  cursor: pointer;
+  font-size: 30px;
+  float: right;
+}
+
+.login:hover {
+  color: grey;
+}
+
+.register_button {
+  color: black;
+  background: none;
+  border: none;
+  margin: 0%;
+  padding: 0%;
+  cursor: pointer;
+  font-size: 30px;
+}
+.register_button:hover {
+  color: grey;
+}
+
+.listed-links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.notification-icon {
+  width: 45px;
+  margin-right: 10px;
+  padding-top: 5px;
+  padding-right: 10px;
+}
+
+.user-img-navbar {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  border-radius: 50%;
+}
+
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropdown-logout {
     color: black;
-    background: none;
-    border: none;
-    margin: 0%;
-    padding: 0%;
     cursor: pointer;
-    font-size: 30px;
-    float: right;
-}
-
-.login:hover{
-    color: grey;
-}
-
-.register_button{
-    color: black;
-    background: none;
-    border: none;
-    margin: 0%;
-    padding: 0%;
-    cursor: pointer;
-    font-size: 30px;
-}
-.register_button:hover{
-    color: grey;
-}
-
-.listed-links li a{
-    transition: all 0.3s ease 0s;
-}
-
-.notification-icon{
-    width: 30px;
-    padding-top: 2px;
-    margin-right: 10px;
 }
