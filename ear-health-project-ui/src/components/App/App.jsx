@@ -13,6 +13,7 @@ import ForumPost from "../ForumPost/ForumPost"
 import Profile from "../Profile/Profile";
 import NotFound from "../NotFound/NotFound";
 import NotificationView from "../NotificationView/NotificationView";
+import Listener from "../Listener/Listener";
 
 
 function App() {
@@ -115,6 +116,8 @@ function App() {
             <Route path = "/profile/:userId" element = {<Profile user = {user}/>}/>
 
             <Route path = "/notifications" element = {<NotificationView user = {user} isLoggedIn = {isLoggedIn}/>}/>
+
+            <Route path = "/listener" element = {<Listener/>}/>
 
             <Route path = "*" element = {<NotFound/>}/>
 
