@@ -131,7 +131,9 @@ const ForumPost = ({ user, isLoggedIn}) => {
                   {userImg == "" ? (
                     <img src="" />
                   ) : (
+                    <Link to={`/profile/${post.userId}`}>
                     <img src={userImage} className="user-img" />
+                    </Link>
                   )}
                   <Link to={`/profile/${post.userId}`}>
                     <p className="username-forum-post">{post.username} </p>

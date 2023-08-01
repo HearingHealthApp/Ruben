@@ -8,7 +8,7 @@ const Home = ({isLoggedIn}) => {
       <div className='title'>
         <div className='earie-header'>
           <h1>
-            Ruben
+            RUBEN
           </h1>
         </div>
         <div className='blurb'>

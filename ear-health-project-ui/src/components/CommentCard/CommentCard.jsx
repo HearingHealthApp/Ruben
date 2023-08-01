@@ -65,7 +65,7 @@ const CommentCard = ({comment}) => {
       {comment.isAnonymous ? (
         <p> Anonymous</p>
       ) : (
-        <div>
+        <div className="user-details">
         {imageKey == "" ? (
           <img src="" />
         ) : (
