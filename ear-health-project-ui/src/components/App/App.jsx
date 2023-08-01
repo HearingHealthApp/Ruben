@@ -6,6 +6,7 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import LoginPage from "../LoginPage/LoginPage";
 import Footer from "../Footer/Footer";
 import Forum from "../Forum/Forum";
+import History from "../History/History";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import RegisterDoctor from "../RegisterDoctor/RegisterDoctor";
 import ApiClient from "../../services/apiClient.JS";
@@ -148,6 +149,8 @@ function App() {
               />
 
               <Route path="/listener" element={<Listener />} />
+
+              <Route path="/history" element={<History />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -1,0 +1,30 @@
+#wrapper {
+	display: flex;
+	justify-content: center;
+    margin-top: 5%;
+}
+#parent {
+    width: 550px;
+    height: 343px;
+    background-image: url("../../assets/Ruben.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+
+}
+
+#child {
+    position: relative;
+    /* top: 50%; */
+    right: 36%;
+    font-size: 40px;
+    color: white;
+}
+  
+  
+  
+  
+  
+  
+  
+  
