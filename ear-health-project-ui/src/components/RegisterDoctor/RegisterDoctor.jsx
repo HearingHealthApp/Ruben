@@ -139,6 +139,7 @@ const RegisterDoctor = ({ loginHandler, userUpdater }) => {
                 </div>
               </div>
             </div>
+            {/*  */}
             <div className="login-bottom">
               <button className="register-bttn" type="submit">
                 Register
@@ -146,6 +147,7 @@ const RegisterDoctor = ({ loginHandler, userUpdater }) => {
               <p id="error-display-doctor">{registrationError}</p>
             </div>
           </form>
+          {/*  */}
         </div>
       </div>
     </div>
