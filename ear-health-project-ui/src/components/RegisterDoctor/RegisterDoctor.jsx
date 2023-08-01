@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ApiClient from "../../services/apiClient.JS";
 import "./RegisterDoctor.css";
 
-const RegisterDoctor = ({ loginHandler, userUpdater }) => {
+const RegisterDoctor = ({ loginHandler, userUpdater , setProfileImageKey}) => {
   //useState variables for the individual input types
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -40,6 +40,7 @@ const RegisterDoctor = ({ loginHandler, userUpdater }) => {
 
     if (data?.user) {
       userUpdater(data.user);
+      setProfileImageKey(data.user.image)
       ApiClient.setToken(data.token);
       loginHandler();
       navigate("/");

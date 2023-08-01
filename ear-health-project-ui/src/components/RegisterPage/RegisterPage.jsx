@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import ApiClient from "../../services/apiClient.JS";
 import "./RegisterPage.css";
 
-const RegisterPage = ({ loginHandler, userUpdater }) => {
+const RegisterPage = ({ loginHandler, userUpdater, setProfileImageKey}) => {
   //useState variables for the individual input types
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -38,6 +38,7 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
     if (data?.user) {
       userUpdater(data.user);
       ApiClient.setToken(data.token);
+      setProfileImageKey(data.user.image)
       loginHandler();
       navigate("/");
     }
