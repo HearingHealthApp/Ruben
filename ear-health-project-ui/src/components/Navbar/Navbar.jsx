@@ -30,6 +30,11 @@ const Navbar = ({ isLoggedIn, logOutHandler, user, profileImageKey}) => {
                 <p>Forum</p>
               </Link>
             </li>
+            <li>
+            <Link to = "/listener">
+                <p>Listener</p>
+              </Link>
+            </li>
           </ul>
 
           {isLoggedIn ? (
