@@ -1,36 +1,39 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const Listener = () => {
-  const [decibels, setDecibels] = useState([]);
+  const [decibels, setDecibels] = useState([0]);
   const [isGenerating, setIsGenerating] = useState(false);
-  const [lastGeneratedNumber, setLastGeneratedNumber] = useState(null)
-  const [average, setAverage] = useState(null)
+  const [lastGeneratedNumber, setLastGeneratedNumber] = useState(null);
+  const [average, setAverage] = useState(0);
 
   const generateRandomNumber = () => {
-    return Math.floor((Math.random() * 100) + 60);
+    return Math.floor(Math.random() * 100 + 60);
   };
 
   const generatorButtonClicked = () => {
-    setDecibels([]); // Set the recorded decibels array to an empty array each time the button is clicked
+    // Set the recorded decibels array to an empty array each time the button is clicked
     setIsGenerating(true);
-    setAverage(null)
+    setAverage(0);
 
     const interval = setInterval(() => {
-      const randomNumber = generateRandomNumber()
+      const randomNumber = generateRandomNumber();
       setDecibels((prevNums) => [...prevNums, randomNumber]);
       setLastGeneratedNumber(randomNumber);
     }, 500); // Generate every second (1000 milliseconds)
 
     setTimeout(() => {
       setIsGenerating(false);
-      setAverage(decibels.reduce((sum, num) => sum + num, 0) / decibels.length)
+      setDecibels([0])
       clearInterval(interval); // Clear the interval after 10 seconds
     }, 10000); // Stop after 10 seconds
   };
 
-  console.log(decibels);
-  console.log(average)
-  console.log(isGenerating);
+  useEffect(() => {
+    setAverage(decibels.reduce((sum, num) => sum + num, 0) / decibels.length)
+  }, [decibels]);
+
+  console.log(decibels)
+
 
   return (
     <div>
@@ -58,10 +61,10 @@ const Listener = () => {
         <p>Listening....</p>
       )}
 
-{lastGeneratedNumber !== null && <h1>Current Decibel : {lastGeneratedNumber}</h1>}
-{average !== null && <h1>Average : {average}</h1>}
-   
-
+      {lastGeneratedNumber !== null && (
+        <h1>Current Decibel : {lastGeneratedNumber}</h1>
+      )}
+      {average !== 0 && <h1>Average : {average}</h1>}
     </div>
   );
 };
