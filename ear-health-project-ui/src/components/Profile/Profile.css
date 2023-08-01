@@ -37,7 +37,7 @@
 
 .profile-card {
   margin-top: 30px;
-  width: 50%;
+  width: 33%;
 }
 
 .username {
@@ -60,9 +60,48 @@
 }
 
 .row1 {
-  display: inline-block;
+  display: flex;
   flex-wrap: wrap;
   margin: 10px;
   background-color: red;
   color: green;
+  width: 80%;
+}
+
+.user-outer-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.user-interactions-container{
+  background-color: blanchedalmond;
+  width: 67%;
+}
+
+.interaction-filter-buttons{
+  background-color: black;
+  height: fit-content;
+  width: fit-content;
+}
+
+.interaction-filter-buttons-container{
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding:20px 0px
+}
+
+.user-interactions{
+  background-color: blue;
+  width: 80%;
+}
+
+.user-interaction-container{
+  display: flex;
+  justify-content: center;
 }
