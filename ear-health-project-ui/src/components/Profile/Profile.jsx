@@ -13,16 +13,12 @@ const Profile = ({ user, setProfileImageKey }) => {
   const { userId } = useParams();
   //get userData using a fetcher
   const [userData, setUserData] = useState({});
-
   //for getting the comments
   const [userComments, setUserComments] = useState([]);
-
   //for getting the posts
   const [userPosts, setUserPosts] = useState([]);
-
   //useState for conditionally rendering comments and posts
   const [conditionalRender, setConditonalRender] = useState("Posts");
-
   //for updating the user's conditons
   const [condition, setCondition] = useState("");
   const [existingConditions, setexistingConditions] = useState("");
@@ -123,7 +119,7 @@ const Profile = ({ user, setProfileImageKey }) => {
       <div className="row1">
         <div className="profile-card">
           {user.userId == userId ? (
-            <div class="avatar-container">
+            <div className="avatar-container">
               {userData.image != null ? (
                 <img
                   src={imageLink}
@@ -133,7 +129,7 @@ const Profile = ({ user, setProfileImageKey }) => {
               ) : null}
             </div>
           ) : (
-            <div>
+            <div className="image-container">
               <img src={imageLink} className="avatar-image" />
             </div>
           )}
@@ -147,55 +143,75 @@ const Profile = ({ user, setProfileImageKey }) => {
 
           <h1 className="username">{userData.username}</h1>
 
-          <div className="conditions">
+          <div className="conditions-container">
             {user.isDoctor ? (
               <p>im a doctor</p>
             ) : (
-              <div className="conditions">
-                <p>Conditions</p>
-                {conditions != null
-                  ? conditions.map((conditionMap) => (
-                      <p className="condition">{conditionMap}</p>
-                    ))
-                  : null}
-              </div>
+              <>
+                <h3 className="profile-label">Conditions</h3>
+                <div className="conditions">
+                  {conditions != null
+                    ? conditions.map((conditionMap) => (
+                        <p className="condition">{conditionMap}</p>
+                      ))
+                    : null}
+                </div>
+              </>
             )}
           </div>
 
           {conditionClick ? (
-            <div>
+            <div className="condition-form">
               <form onSubmit={updateConditions}>
-                <input type="text" onChange={conditionUpdater} maxLength={17} />
-                <button type="submit">Add Condition</button>
+                <input
+                  type="text"
+                  onChange={conditionUpdater}
+                  maxLength={17}
+                  minLength={5}
+                />
+                <br />
+                <button className="interaction-filter-buttons" type="submit">
+                  Add Condition
+                </button>
                 <button onClick={handleConditionClick}>Cancel</button>
               </form>
             </div>
           ) : (
             <div>
               {user.userId == userId && conditions.length < 5 ? (
-                <button onClick={handleConditionClick}>Add a Condition</button>
+                <button
+                  className="condition-adder"
+                  onClick={handleConditionClick}
+                >
+                  Add a Condition
+                </button>
               ) : null}
             </div>
           )}
 
-          {existingDescription == null ? (
-            <p>No description yet!</p>
-          ) : (
-            <p>{existingDescription}</p>
-          )}
+          <h3 className="profile-label">Description</h3>
+          <div className="description-box">
+            {existingDescription == null ? (
+              <p>No description yet!</p>
+            ) : (
+              <p>{existingDescription}</p>
+            )}
+          </div>
 
           {clicked ? (
             <div>
               <form onSubmit={updateDescription}>
-                <input onChange={inputUpdater} />
-                <button type="submit">Submit</button>
-                <button onClick={handleClick}>Cancel</button>
+                <textarea className= "description-input-box" onChange={inputUpdater} /> <br/>
+                <button className="description-buttons" type="submit">Submit</button>
+                <button  className="description-buttons" onClick={handleClick}>Cancel</button>
               </form>
             </div>
           ) : (
             <div>
               {user.userId == userId ? (
-                <button onClick={handleClick}>Add a description</button>
+                <button className="description-buttons" onClick={handleClick}>
+                  Add a description
+                </button>
               ) : null}
             </div>
           )}

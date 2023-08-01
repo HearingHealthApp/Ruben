@@ -131,6 +131,9 @@ const Forum = ({ user, isLoggedIn }) => {
             <button id="Lifestyle" onClick={handleUpdateCategory}>
               Lifestyle
             </button>
+            <button id="General" onClick={handleUpdateCategory}>
+              General
+            </button>
           </div>
         </div>
         <div className="forum-prompt">

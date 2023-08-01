@@ -8,11 +8,11 @@
 }
 
 .avatar-container {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
 }
 
-.avatar-container::after {
+/* .avatar-container::after {
   content: "";
   position: absolute;
   top: 0;
@@ -26,9 +26,15 @@
   pointer-events: none;
   transition: opacity 0.3s;
 }
+*/
 
-.avatar-container:hover .avatar-image {
-  opacity: 0.8;
+.avatar-image:hover {
+  opacity: 0.7;
+}
+
+.image-container{
+  display: flex;
+  justify-content: center;
 }
 
 .avatar-container:hover::after {
@@ -38,7 +44,6 @@
 .profile-card {
   margin-top: 30px;
   width: 33%;
-  background-color: aliceblue;
 }
 
 .username {
@@ -48,6 +53,7 @@
 .conditions {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 1%;
 }
 
 .condition {
@@ -117,4 +123,96 @@
 .user-interaction-container {
   display: flex;
   justify-content: center;
+}
+
+.profile-label{
+  margin-left: 5px;
+}
+
+.condition-form{
+  margin: 5px 5px;
+}
+
+.condition-form > form > button{
+  background: #2c4893;
+  color: aliceblue;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: 600;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 1% 1%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width:fit-content;
+  word-break: break-word;
+  border: 0;
+  margin-right: 10px;
+}
+
+.condition-form > form > input{
+  width: 40%;
+  font-size: 100%;
+  margin: 10px 0px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.condition-adder{
+  background: #2c4893;
+  color: aliceblue;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: 600;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 1% 1%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width:fit-content;
+  word-break: break-word;
+  border: 0;
+  margin: 5px 5px;
+}
+
+.description-box{
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.description-buttons{
+  background: #2c4893;
+  color: aliceblue;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: 600;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 1% 1%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width:fit-content;
+  word-break: break-word;
+  border: 0;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.description-input-box{
+  width: 60%;
+  font-size: 100%;
+  height: 60px;
+  line-height: 20px;
+  margin: 10px 0px;
+  padding: 5px;
+  border-radius: 10px;
 }
