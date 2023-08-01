@@ -154,8 +154,8 @@ const Profile = ({ user, setProfileImageKey }) => {
               <div className="conditions">
                 <p>Conditions</p>
                 {conditions != null
-                  ? conditions.map((conditionMpa) => (
-                      <p className="condition">{conditionMpa}</p>
+                  ? conditions.map((conditionMap) => (
+                      <p className="condition">{conditionMap}</p>
                     ))
                   : null}
               </div>
