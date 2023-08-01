@@ -38,7 +38,6 @@ const Profile = ({ user,setProfileImageKey, profileImageKey }) => {
     setexistingConditions(data.user.conditions);
     setExistingDescription(data.user.description);
     setImageKey(data.user.image);
-    setProfileImageKey(data.user.image)
   };
 
   //call the fetch on page load

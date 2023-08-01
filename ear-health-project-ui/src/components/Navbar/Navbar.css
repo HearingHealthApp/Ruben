@@ -9,19 +9,32 @@
   text-decoration: none;
 }
 
+.navbar-container{
+  display: flex;
+  justify-content: center;
+  background-color: azure;
+  width: 100%;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  background-color: azure;
+  width: 100%;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: white;
   overflow: hidden;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   background-color: aliceblue;
-  margin: 0px 150px;
-  margin-top: 40px;
-  border-radius: 25px;
+  margin-top: 2%;
+  border-radius: 15px;
   padding: 25px 40px;
+  width: 80%;
 }
 
 .logo {

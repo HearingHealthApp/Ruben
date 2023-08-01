@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiClient from "../../services/apiClient.JS";
 
-const LoginPage = ({ userUpdater, loginHandler }) => {
+const LoginPage = ({ userUpdater, loginHandler, setProfileImageKey}) => {
   // establish states that track form changes
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +32,7 @@ const LoginPage = ({ userUpdater, loginHandler }) => {
     if (data?.user) {
       userUpdater(data.user);
       console.log("user received token is ", data.token);
+      setProfileImageKey(data.user.image)
       ApiClient.setToken(data.token);
       loginHandler();
       navigate("/");
