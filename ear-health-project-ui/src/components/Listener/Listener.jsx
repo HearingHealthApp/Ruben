@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 
 const Listener = () => {
   const [decibels, setDecibels] = useState([0]);
@@ -14,7 +15,9 @@ const Listener = () => {
     // Set the recorded decibels array to an empty array each time the button is clicked
     setIsGenerating(true);
     setAverage(0);
-    setDecibels([0])
+    setDecibels([0]);
+    setAverageData([{ time: 0, value: 0 }])
+    setDecibelsData([{ time: 0, value: 0 }])
 
     const interval = setInterval(() => {
       const randomNumber = generateRandomNumber();
@@ -32,6 +35,20 @@ const Listener = () => {
   useEffect(() => {
     setAverage(decibels.reduce((sum, num) => sum + num, 0) / decibels.length)
   }, [decibels]);
+
+  // Add two state variables to store data for the charts
+  const [decibelsData, setDecibelsData] = useState([{ time: 0, value: 0 }]);
+  const [averageData, setAverageData] = useState([{ time: 0, value: 0 }]);
+
+  useEffect(() => {
+    // Update the data for the decibels chart whenever the decibels state changes
+    setDecibelsData((prevData) => [...prevData, { time: Date.now(), value: decibels[decibels.length - 1] }]);
+  }, [decibels]);
+
+  useEffect(() => {
+    // Update the data for the average chart whenever the average state changes
+    setAverageData((prevData) => [...prevData, { time: Date.now(), value: average }]);
+  }, [average]);
 
   console.log(decibels)
   console.log(average)
@@ -66,6 +83,23 @@ const Listener = () => {
         <h1>Current Decibel : {lastGeneratedNumber}</h1>
       )}
       {average !== 0 && <h1>Average : {average}</h1>}
+
+      <LineChart width={800} height={300} data={decibelsData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <YAxis dataKey="value" />
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="value" name="Current Decibel" stroke="blue" />
+      </LineChart>
+
+      <LineChart width={800} height={300} data={averageData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <YAxis dataKey="value" />
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="value" name="Average" stroke="green" />
+      </LineChart>
+
     </div>
   );
 };
