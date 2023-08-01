@@ -14,6 +14,7 @@ const Listener = () => {
     // Set the recorded decibels array to an empty array each time the button is clicked
     setIsGenerating(true);
     setAverage(0);
+    setDecibels([0])
 
     const interval = setInterval(() => {
       const randomNumber = generateRandomNumber();
@@ -23,7 +24,7 @@ const Listener = () => {
 
     setTimeout(() => {
       setIsGenerating(false);
-      setDecibels([0])
+      setAverage(decibels.reduce((sum, num) => sum + num, 0) / decibels.length)
       clearInterval(interval); // Clear the interval after 10 seconds
     }, 10000); // Stop after 10 seconds
   };
@@ -33,7 +34,7 @@ const Listener = () => {
   }, [decibels]);
 
   console.log(decibels)
-
+  console.log(average)
 
   return (
     <div>
