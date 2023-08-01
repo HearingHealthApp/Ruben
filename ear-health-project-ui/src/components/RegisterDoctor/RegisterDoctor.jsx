@@ -91,7 +91,7 @@ const RegisterDoctor = ({ loginHandler, userUpdater }) => {
                 </div>
               </div>
 
-              <div className="reg-user-pass">
+              <div className="audio-reg-user-pass">
                 <div className="audio-inputs-special">
                   <input
                     className="form-input1"

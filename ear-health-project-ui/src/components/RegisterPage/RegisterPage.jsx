@@ -72,6 +72,8 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
               />
             </div>
 
+            {/* <div className="audio-reg-user-pass">
+              <div className="audio-inputs-special"> */}
             <div className="reg-name">
               <input
                 className="form-input"
@@ -89,6 +91,7 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
                 required
                 placeholder="Last name"
               />
+              {/* </div> */}
             </div>
             <div className="reg-user-pass">
               <input
@@ -112,13 +115,13 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
               Sign Up
             </button>
             <div className="login-bottom">
-            <p>
-              Are you a doctor?{" "}
-              <Link to="/register/doctor">
-                Register <span>here</span>
-              </Link>
-            </p>
-            <p id="error-display">{registrationError}</p>
+              <p>
+                Are you a doctor?{" "}
+                <Link to="/register/doctor">
+                  Register <span>here</span>
+                </Link>
+              </p>
+              <p id="error-display">{registrationError}</p>
             </div>
           </form>
         </div>
@@ -128,3 +131,4 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
 };
 
 export default RegisterPage;
+//yurrrrrrrrr@mail.com
