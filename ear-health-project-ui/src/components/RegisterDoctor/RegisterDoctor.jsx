@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ApiClient from "../../services/apiClient.JS";
 import "./RegisterDoctor.css";
 
-const RegisterDoctor = ({ loginHandler, userUpdater }) => {
+const RegisterDoctor = ({ loginHandler, userUpdater , setProfileImageKey}) => {
   //useState variables for the individual input types
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -40,6 +40,7 @@ const RegisterDoctor = ({ loginHandler, userUpdater }) => {
 
     if (data?.user) {
       userUpdater(data.user);
+      setProfileImageKey(data.user.image)
       ApiClient.setToken(data.token);
       loginHandler();
       navigate("/");
@@ -65,78 +66,90 @@ const RegisterDoctor = ({ loginHandler, userUpdater }) => {
               />
             </section>
             <div className="all-inputs">
-            <div className="reg-name">
-              <div className="audio-inputs">
-                <input
-                  className="form-input1"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  placeholder="Email"
-                />
+              <div className="reg-user-pass">
+                <div className="audio-inputs">
+                  <input
+                    className="form-input1"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
 
-                <input
-                  className="form-input1"
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                  placeholder="Username"
-                />
+              <div className="reg-user-pass">
+                <div className="audio-inputs">
+                  <input
+                    className="form-input1"
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    placeholder="Username"
+                  />
+                </div>
+              </div>
+
+              <div className="audio-reg-user-pass">
+                <div className="audio-inputs-special">
+                  <input
+                    className="form-input1"
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                    placeholder="First Name"
+                  />
+
+                  <input
+                    className="form-input1"
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                    placeholder="Last Name"
+                  />
+                </div>
+              </div>
+
+              <div className="reg-user-pass">
+                <div className="audio-inputs">
+                  <input
+                    className="form-input1"
+                    type="text"
+                    value={registrationNumber}
+                    onChange={(e) => setRegistrationNumber(e.target.value)}
+                    required
+                    placeholder="Registration Number"
+                  />
+                </div>
+              </div>
+
+              <div className="reg-user-pass">
+                <div className="audio-inputs">
+                  <input
+                    className="form-input1"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    placeholder="Password"
+                  />
+                </div>
               </div>
             </div>
-
-            <div className="reg-user-pass">
-              <div className="audio-inputs">
-                <input
-                  className="form-input1"
-                  type="text"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  required
-                  placeholder="First Name"
-                />
-
-                <input
-                  className="form-input1"
-                  type="text"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required
-                  placeholder="Last Name"
-                />
-              </div>
+            {/*  */}
+            <div className="login-bottom">
+              <button className="register-bttn" type="submit">
+                Register
+              </button>
+              <p id="error-display-doctor">{registrationError}</p>
             </div>
-
-            <div className="reg-user-pass">
-              <div className="audio-inputs">
-                <input
-                  className="form-input1"
-                  type="text"
-                  value={registrationNumber}
-                  onChange={(e) => setRegistrationNumber(e.target.value)}
-                  required
-                  placeholder="Registration Number"
-                />
-
-                <input
-                  className="form-input1"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  placeholder="Password"
-                />
-              </div>
-            </div>
-            </div>
-            {/* above div place */}
-
-            <button className="register-bttn" type="submit">Register</button>
           </form>
+          {/*  */}
         </div>
-        <p>{registrationError}</p>
       </div>
     </div>
   );
