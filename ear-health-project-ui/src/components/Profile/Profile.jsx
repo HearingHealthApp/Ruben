@@ -43,7 +43,7 @@ const Profile = ({ user, setProfileImageKey }) => {
   //call the fetch on page load
   useEffect(() => {
     getUserInfo();
-  }, []);
+  }, [userId]);
 
   //useState for button, as well as handleClick function
 
