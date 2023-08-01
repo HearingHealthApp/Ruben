@@ -3,9 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 import CommentCard from "../CommentCard/CommentCard";
 import "./ForumPost.css";
-import axios from "axios";
 
-const ForumPost = ({ user }) => {
+const ForumPost = ({ user, isLoggedIn}) => {
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour
@@ -53,6 +52,8 @@ const ForumPost = ({ user }) => {
   const [content, setContent] = useState("");
   //useState for the user's image
   const [userImg, setUserImg] = useState("");
+  //useState that determines the visibility of the comment form
+  const[isCommenting, setIsCommenting] = useState(false) 
 
   const getPost = async () => {
     const { data } = await apiClient.indvPostGetter(postId);
@@ -98,13 +99,22 @@ const ForumPost = ({ user }) => {
     getComments();
   }, []);
 
-  console.log(userImg.image)
-  let key = userImg.image
-  let userImage = `http://localhost:3001/s3/image/${key}`
+  console.log(userImg.image);
+  let key = userImg.image;
+  let userImage = `http://localhost:3001/s3/image/${key}`;
 
-  console.log(userImage)
+  console.log(userImage);
 
-  console.log(post)
+  console.log(post);
+
+  const setCommenting = () => {
+    if (isCommenting){
+      setIsCommenting(false)
+    }
+    else{
+      setIsCommenting(true)
+    }
+  }
 
   return (
     <div className="big-container">
@@ -123,7 +133,9 @@ const ForumPost = ({ user }) => {
                   ) : (
                     <img src={userImage} className="user-img" />
                   )}
-                  <Link to = {`/profile/${post.userId}`}><p className="username-forum-post">{post.username} </p></Link>
+                  <Link to={`/profile/${post.userId}`}>
+                    <p className="username-forum-post">{post.username} </p>
+                  </Link>
                 </div>
               )}
               <p>{formatTimeSincePost(post.createdAt)}</p>
@@ -134,11 +146,19 @@ const ForumPost = ({ user }) => {
               </h1>
               <div className="category-container">
                 <p className={`${post.category}-post`}>{post.category}</p>
-                {post.fromDoctor ? 
-              <p className="Medical">Verified Doctor</p>  : null
-              }
+                {post.fromDoctor ? (
+                  <p className="Medical">Verified Doctor</p>
+                ) : null}
               </div>
               <p className="actual-post">{post.content}</p>
+            </div>
+            <div className="interaction-buttons">
+              {isLoggedIn && <img
+              onClick={setCommenting}
+                className="reply-symbol"
+                src="https://cdn.iconscout.com/icon/free/png-256/free-reply-1438244-1216205.png?f=webp"
+                alt="reply symbol"
+              />}
             </div>
           </div>
         </div>
@@ -146,7 +166,7 @@ const ForumPost = ({ user }) => {
         <div>
           <h1>Comments: </h1>
 
-          <form onSubmit={addComment}>
+          {isCommenting && <form onSubmit={addComment}>
             <textarea
               className="textbox"
               rows="8"
@@ -170,13 +190,13 @@ const ForumPost = ({ user }) => {
             />
             <br />
             <button type="submit">Submit comment</button>
-          </form>
+          </form>}
           {comments.length === 0 ? (
             <p>No comments yet</p>
           ) : (
             <div className="comments">
               {comments.map((comment) => (
-                <CommentCard comment={comment}/>
+                <CommentCard comment={comment} />
               ))}
             </div>
           )}
