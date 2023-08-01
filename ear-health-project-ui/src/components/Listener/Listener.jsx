@@ -23,31 +23,46 @@ const Listener = () => {
       const randomNumber = generateRandomNumber();
       setDecibels((prevNums) => [...prevNums, randomNumber]);
       setLastGeneratedNumber(randomNumber);
-    }, 500); // Generate every second (1000 milliseconds)
+    }, 500);
 
     setTimeout(() => {
       setIsGenerating(false);
-      setAverage(decibels.reduce((sum, num) => sum + num, 0) / decibels.length)
+      setAverage(Math.ceil(decibels.reduce((sum, num) => sum + num, 0) / decibels.length))
       clearInterval(interval); // Clear the interval after 10 seconds
     }, 10000); // Stop after 10 seconds
   };
 
   useEffect(() => {
-    setAverage(decibels.reduce((sum, num) => sum + num, 0) / decibels.length)
+    setAverage(Math.ceil(decibels.reduce((sum, num) => sum + num, 0) / decibels.length))
   }, [decibels]);
 
   // Add two state variables to store data for the charts
   const [decibelsData, setDecibelsData] = useState([{ time: 0, value: 0 }]);
   const [averageData, setAverageData] = useState([{ time: 0, value: 0 }]);
 
+  // Add state variables to keep track of timestamp and time interval
+  const [timestamp, setTimestamp] = useState(Date.now());
+  const interval = 500; 
+
+  useEffect(() => {
+    // To update the chart at intervals of 0.5 seconds
+    const updateInterval = setInterval(() => {
+      setTimestamp(Date.now());
+    }, interval);
+
+    // Clear the interval on component unmount
+    return () => clearInterval(updateInterval);
+  }, []);
+
+
   useEffect(() => {
     // Update the data for the decibels chart whenever the decibels state changes
-    setDecibelsData((prevData) => [...prevData, { time: Date.now(), value: decibels[decibels.length - 1] }]);
+    setDecibelsData((prevData) => [...prevData, { time: new Date(timestamp).toLocaleString(), value: decibels[decibels.length - 1] }]);
   }, [decibels]);
 
   useEffect(() => {
     // Update the data for the average chart whenever the average state changes
-    setAverageData((prevData) => [...prevData, { time: Date.now(), value: average }]);
+    setAverageData((prevData) => [...prevData, { time: new Date(timestamp).toLocaleString(), value: average }]);
   }, [average]);
 
   console.log(decibels)
@@ -71,6 +86,7 @@ const Listener = () => {
         listening tool and take control of your auditory experience with
         SoundSense!
       </p>
+      {/* conditionally rendering the button */}
       {!isGenerating ? (
         <button onClick={generatorButtonClicked}>
           Start SoundSense Session
@@ -79,26 +95,32 @@ const Listener = () => {
         <p>Listening....</p>
       )}
 
+     
+      
+      <div>
       {lastGeneratedNumber !== null && (
         <h1>Current Decibel : {lastGeneratedNumber}</h1>
       )}
-      {average !== 0 && <h1>Average : {average}</h1>}
-
       <LineChart width={800} height={300} data={decibelsData}>
         <CartesianGrid strokeDasharray="3 3" />
-        <YAxis dataKey="value" />
+        <YAxis label={{ value: "Current Decibel", angle: -90, position: "insideLeft" }}  />
+        <XAxis dataKey="time" />
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="value" name="Current Decibel" stroke="blue" />
       </LineChart>
 
+      {average !== 0 && <h1>Average : {average}</h1>}
       <LineChart width={800} height={300} data={averageData}>
         <CartesianGrid strokeDasharray="3 3" />
-        <YAxis dataKey="value" />
+        <YAxis label={{ value: "Average", angle: -90, position: "insideLeft" }}  />
+        <XAxis dataKey="time" />
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="value" name="Average" stroke="green" />
       </LineChart>
+
+      </div>
 
     </div>
   );
