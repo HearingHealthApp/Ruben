@@ -32,15 +32,6 @@ const Listener = () => {
   console.log(average)
   console.log(isGenerating);
 
-  const calculateAverage = () => {
-    if (decibels.length > 0) {
-      const total = decibels.reduce((sum, num) => sum + num, 0);
-      const avg = total / decibels.length;
-      return avg.toFixed(2);
-    }
-    return 0;
-  };
-
   return (
     <div>
       <h1>SoundSense</h1>
