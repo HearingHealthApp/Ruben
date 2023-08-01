@@ -7,7 +7,7 @@ import CommentCard from "../CommentCard/CommentCard";
 import UploadImage from "../UploadImage/UploadImage";
 import "./Profile.css";
 
-const Profile = ({ user,setProfileImageKey, profileImageKey }) => {
+const Profile = ({ user, setProfileImageKey }) => {
   console.log(user);
   //get the userId from the link
   const { userId } = useParams();
@@ -43,7 +43,7 @@ const Profile = ({ user,setProfileImageKey, profileImageKey }) => {
   //call the fetch on page load
   useEffect(() => {
     getUserInfo();
-  }, []);
+  }, [userId]);
 
   //useState for button, as well as handleClick function
 
@@ -119,118 +119,131 @@ const Profile = ({ user,setProfileImageKey, profileImageKey }) => {
 
   // console.log(conditions)
   return (
-    <div className = "row1">
-      <div>
-      <div className="profile-card">
-        {user.userId == userId ? (
-          <div class="avatar-container">
-            {userData.image != null ? (
-              <img
-                src={imageLink}
-                className="avatar-image"
-                onClick={handleImageClick}
-              />
-            ) : null}
+    <div className="user-outer-container">
+      <div className="row1">
+        <div className="profile-card">
+          {user.userId == userId ? (
+            <div class="avatar-container">
+              {userData.image != null ? (
+                <img
+                  src={imageLink}
+                  className="avatar-image"
+                  onClick={handleImageClick}
+                />
+              ) : null}
+            </div>
+          ) : (
+            <div>
+              <img src={imageLink} className="avatar-image" />
+            </div>
+          )}
+          {imageClick && user.userId == userId ? (
+            <UploadImage
+              userId={userId}
+              setImageKey={setImageKey}
+              setProfileImageKey={setProfileImageKey}
+            />
+          ) : null}
+
+          <h1 className="username">{userData.username}</h1>
+
+          <div className="conditions">
+            {user.isDoctor ? (
+              <p>im a doctor</p>
+            ) : (
+              <div className="conditions">
+                <p>Conditions</p>
+                {conditions != null
+                  ? conditions.map((conditionMap) => (
+                      <p className="condition">{conditionMap}</p>
+                    ))
+                  : null}
+              </div>
+            )}
           </div>
-        ) : (
-          <div>
-            <img src={imageLink} className="avatar-image" />
-          </div>
-        )}
-        {imageClick && user.userId == userId ? (
-          <UploadImage userId={userId} setImageKey={setImageKey} setProfileImageKey={setProfileImageKey} />
-        ) : null}
 
-        <h1 className="username">{userData.username}</h1>
+          {conditionClick ? (
+            <div>
+              <form onSubmit={updateConditions}>
+                <input type="text" onChange={conditionUpdater} maxLength={17} />
+                <button type="submit">Add Condition</button>
+                <button onClick={handleConditionClick}>Cancel</button>
+              </form>
+            </div>
+          ) : (
+            <div>
+              {user.userId == userId && conditions.length < 5 ? (
+                <button onClick={handleConditionClick}>Add a Condition</button>
+              ) : null}
+            </div>
+          )}
 
-        <br />
+          {existingDescription == null ? (
+            <p>No description yet!</p>
+          ) : (
+            <p>{existingDescription}</p>
+          )}
 
-        <div className="conditions">
-          {user.isDoctor ? 
-        <p>im a doctor</p> :
-        <div>
-        {conditions != null
-          ? conditions.map((conditionMpa) => (
-              <p className="condition">{conditionMpa}</p>
-            ))
-          : null}
-          </div>
-        }
-          
-
-          <br />
+          {clicked ? (
+            <div>
+              <form onSubmit={updateDescription}>
+                <input onChange={inputUpdater} />
+                <button type="submit">Submit</button>
+                <button onClick={handleClick}>Cancel</button>
+              </form>
+            </div>
+          ) : (
+            <div>
+              {user.userId == userId ? (
+                <button onClick={handleClick}>Add a description</button>
+              ) : null}
+            </div>
+          )}
         </div>
 
-        {conditionClick ? (
-          <div>
-            <form onSubmit={updateConditions}>
-              <input onChange={conditionUpdater} />
-              <button type="submit">Add Condition</button>
-              <button onClick={handleConditionClick}>Cancel</button>
-            </form>
+        <div className="user-interactions-container">
+          <div className="interaction-filter-buttons-container">
+            <div className="interaction-filter-buttons">
+              <button onClick={() => setConditonalRender("Posts")}>
+                Posts
+              </button>
+              <button onClick={() => setConditonalRender("Comments")}>
+                Commments
+              </button>
+            </div>
           </div>
-        ) : (
-          <div>
-            {user.userId == userId && conditions.length < 5 ? (
-              <button onClick={handleConditionClick}>Add a Condition</button>
-            ) : null}
+
+          <div className="user-interaction-container">
+            <div className="user-interactions">
+              {conditionalRender === "Posts"
+                ? userPosts
+                    .filter((post) => !post.isAnonymous)
+                    .map((post) => (
+                      <div>
+                        <Link
+                          className="link"
+                          to={`/forum/post/${post.postId}`}
+                        >
+                          <ForumPostCard key={post.postId} post={post} />
+                        </Link>
+                      </div>
+                    ))
+                : conditionalRender === "Comments" &&
+                  userComments
+                    .filter((comment) => !comment.isAnonymous)
+                    .map((comment) => (
+                      <div>
+                        <Link
+                          className="link"
+                          to={`/forum/post/${comment.postId}`}
+                        >
+                          <CommentCard comment={comment} />
+                        </Link>
+                      </div>
+                    ))}
+            </div>
           </div>
-        )}
-
-        {existingDescription == null ? (
-          <p>No description yet!</p>
-        ) : (
-          <p>{existingDescription}</p>
-        )}
-
-        {clicked ? (
-          <div>
-            <form onSubmit={updateDescription}>
-              <input onChange={inputUpdater} />
-              <button type="submit">Submit</button>
-              <button onClick={handleClick}>Cancel</button>
-            </form>
-          </div>
-        ) : (
-          <div>
-            {user.userId == userId ? (
-              <button onClick={handleClick}>Add a description</button>
-            ) : null}
-          </div>
-        )}
-      </div>
-
-      <br />
-
-      <div>
-        <button onClick={() => setConditonalRender("Posts")}>Posts</button>
-        <button onClick={() => setConditonalRender("Comments")}>
-          Commments
-        </button>
-      </div>
-
-      <div>
-        {conditionalRender === "Posts"
-          ? userPosts
-              .filter((post) => !post.isAnonymous)
-              .map((post) => (
-                <div>
-                  <Link className="link" to={`/forum/post/${post.postId}`}>
-                    <ForumPostCard key={post.postId} post={post} />
-                  </Link>
-                </div>
-              ))
-          : conditionalRender === "Comments" &&
-            userComments
-              .filter((comment) => !comment.isAnonymous)
-              .map((comment) => (
-                <div>
-                  <Link className="link" to={`/forum/post/${comment.postId}`}>
-                    <CommentCard comment={comment} />
-                  </Link>
-                </div>
-              ))}
-      </div>
+        </div>
       </div>
     </div>
   );
