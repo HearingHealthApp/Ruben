@@ -53,7 +53,7 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
           </section>
         </div>
         <div className="right-side">
-          <form onSubmit={handleRegistration}>
+          <form className="general-reg" onSubmit={handleRegistration}>
             <section className="copy-reg">
               <h2 className="register-header">Sign Up</h2>
               <img
@@ -61,20 +61,24 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
                 alt="register icon"
               />
             </section>
-            <div className="reg-email">
+            <div className="all-inputs">
+            <div className="reg-user-pass">
+            <div className="audio-inputs">
               <input
-                className="form-input"
+                className="form-input1"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="Email"
               />
+              </div>
             </div>
 
-            <div className="reg-name">
+            <div className="audio-reg-user-pass">
+            <div className="audio-inputs-special">
               <input
-                className="form-input"
+                className="form-input1"
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
@@ -82,45 +86,56 @@ const RegisterPage = ({ loginHandler, userUpdater }) => {
                 placeholder="First Name"
               />
               <input
-                className="form-input"
+                className="form-input1"
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 required
                 placeholder="Last name"
               />
+              {/* </div> */}
             </div>
+            </div>
+
             <div className="reg-user-pass">
+              <div className="audio-inputs">
               <input
-                className="form-input"
+                className="form-input1"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
                 placeholder="Username"
               />
+            </div>
+            </div>
+            <div className="reg-user-pass">
+              <div className="audio-inputs">
               <input
-                className="form-input"
+                className="form-input1"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="Password"
               />
+              </div>
+            </div>
             </div>
             <button className="register-bttn" type="submit">
               Sign Up
             </button>
             <div className="login-bottom">
-            <p>
-              Are you a doctor?{" "}
-              <Link to="/register/doctor">
-                Register <span>here</span>
-              </Link>
-            </p>
-            <p id="error-display">{registrationError}</p>
+              <p>
+                Are you a doctor?{" "}
+                <Link to="/register/doctor">
+                  Register <span>here</span>
+                </Link>
+              </p>
+              <p id="error-display">{registrationError}</p>
             </div>
           </form>
+          {/*  */}
         </div>
       </div>
     </div>
