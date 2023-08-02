@@ -22,9 +22,16 @@ const Profile = ({ user, setProfileImageKey }) => {
   //for updating the user's conditons
   const [condition, setCondition] = useState("");
   const [existingConditions, setexistingConditions] = useState("");
-
   //imageKey
   const [imageKey, setImageKey] = useState("");
+  //useState for button, as well as handleClick function
+  const [clicked, setClicked] = useState(false);
+  //useState boolean for when editing the profile picture
+  const [imageClick, setImageClick] = useState(false);
+  //updating description useStates and other necessary items
+  const [existingDescription, setExistingDescription] = useState("");
+  const [description, setDescription] = useState("");
+  
 
   const getUserInfo = async () => {
     const { data } = await apiClient.getUserData(userId);
@@ -34,6 +41,7 @@ const Profile = ({ user, setProfileImageKey }) => {
     setexistingConditions(data.user.conditions);
     setExistingDescription(data.user.description);
     setImageKey(data.user.image);
+    setDescription(data.user.description)
   };
 
   //call the fetch on page load
@@ -41,9 +49,7 @@ const Profile = ({ user, setProfileImageKey }) => {
     getUserInfo();
   }, [userId]);
 
-  //useState for button, as well as handleClick function
-
-  const [clicked, setClicked] = useState(false);
+  
 
   const handleClick = () => {
     if (clicked == false) {
@@ -53,27 +59,23 @@ const Profile = ({ user, setProfileImageKey }) => {
     }
   };
 
-  //updating description useStates and other necessary items
-
-  const [description, setDescription] = useState("");
-  const [existingDescription, setExistingDescription] = useState("");
-
   //query the db from the frontend and update the description
   const updateDescription = async (e) => {
     e.preventDefault();
     const { data } = await apiClient.updateDescription(description, userId);
     setExistingDescription(data.description);
+    handleClick();
   };
 
   //update the description based on the input
   const inputUpdater = (e) => {
     setDescription(e.target.value);
-    console.log(description);
   };
 
   //input updater for the user's conditions
 
   const conditionUpdater = (e) => {
+    console.log(e.target.value);
     setCondition(e.target.value);
   };
 
@@ -94,12 +96,6 @@ const Profile = ({ user, setProfileImageKey }) => {
       setConditionClicked(true);
     }
   };
-
-  console.log(user);
-  console.log(userId);
-
-  //useState boolean for when editing the profile picture
-  const [imageClick, setImageClick] = useState(false);
 
   const handleImageClick = () => {
     if (imageClick == true) {
@@ -141,7 +137,9 @@ const Profile = ({ user, setProfileImageKey }) => {
             />
           ) : null}
 
-          <h1 className="username">{userData.username}</h1>
+          <div className="username-box">
+            <h1 className="username">{userData.username}</h1>
+          </div>
 
           <div className="conditions-container">
             {user.isDoctor ? (
@@ -167,7 +165,7 @@ const Profile = ({ user, setProfileImageKey }) => {
                   type="text"
                   onChange={conditionUpdater}
                   maxLength={17}
-                  minLength={5}
+                  minLength={1}
                 />
                 <br />
                 <button className="interaction-filter-buttons" type="submit">
@@ -201,16 +199,25 @@ const Profile = ({ user, setProfileImageKey }) => {
           {clicked ? (
             <div>
               <form onSubmit={updateDescription}>
-                <textarea className= "description-input-box" onChange={inputUpdater} /> <br/>
-                <button className="description-buttons" type="submit">Submit</button>
-                <button  className="description-buttons" onClick={handleClick}>Cancel</button>
+                <textarea
+                  className="description-input-box"
+                  onChange={inputUpdater}
+                  value={description}
+                />{" "}
+                <br />
+                <button className="description-buttons" type="submit">
+                  Submit
+                </button>
+                <button className="description-buttons" onClick={handleClick}>
+                  Cancel
+                </button>
               </form>
             </div>
           ) : (
             <div>
               {user.userId == userId ? (
                 <button className="description-buttons" onClick={handleClick}>
-                  Add a description
+                  Edit description
                 </button>
               ) : null}
             </div>
