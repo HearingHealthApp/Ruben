@@ -5,11 +5,14 @@
   border-radius: 50%;
   cursor: pointer;
   transition: opacity 0.3s;
+  background-color: #2c4893;
+
 }
 
 .avatar-container {
   display: flex;
   justify-content: center;
+
 }
 
 /* .avatar-container::after {
