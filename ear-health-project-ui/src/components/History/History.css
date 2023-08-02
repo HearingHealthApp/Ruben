@@ -1,30 +1,60 @@
 #wrapper {
-	display: flex;
-	justify-content: center;
-    margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  overflow-x: hidden;
 }
+
 #parent {
-    width: 550px;
-    height: 343px;
-    background-image: url("../../assets/Ruben.jpeg");
-    background-size: contain;
-    background-repeat: no-repeat;
-
-
+  width: 100vw;
+  height: 50vh;
+  background-image: url("../../assets/Ruben.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #child {
-    position: relative;
-    /* top: 50%; */
-    right: 36%;
-    font-size: 40px;
-    color: white;
+  position: relative;
+  bottom: 0%;
+  left: 0%;
+  font-size: 6vh;
+  color: white;
+  opacity: 0;
+  transition: opacity 2s, transform 2s;
 }
-  
-  
-  
-  
-  
-  
-  
-  
+
+#parent.loaded #child {
+  opacity: 1;
+  transform: translate(15%, 1%);
+}
+
+#childp {
+  position: relative;
+  font-size: 2vh;
+  color: white;
+  opacity: 0;
+  transition: opacity 3s;
+}
+
+#undertext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1%;
+  flex-grow: 1;
+  width: 75vw;
+  margin-bottom: 2%;
+}
+
+#undertext.loaded #childp {
+  opacity: 1;
+}
+
+#title {
+  font-weight: bold;
+  font-size: 5vw;
+  color: white;
+}
