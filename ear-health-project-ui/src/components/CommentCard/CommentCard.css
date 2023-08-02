@@ -35,28 +35,40 @@
 }
 
 .commenting-form {
-  background-color: azure;
   display: flex;
   justify-content: center;
 }
 
-.commenting-form > form > textarea {
-  width: 600px;
-  font-size: 100%;
-  height: 120px;
-  line-height: 15px;
-  margin: 10px 0px;
+.commenting-form > form {
+  background-color: aliceblue;
+  padding: 1vw 1vw;
   border-radius: 10px;
-  font-family: "Nunito Sans", sans-serif;
-  padding: 10px;
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.4);
+  margin: 15px 0px;
+  width: 50%;
 }
 
-.commenting-form > form > button{
+.commenting-form > form > textarea {
+  width: 96%;
+  font-size: .7vw;
+  height: 120px;
+  line-height: 15px;
+  border-radius: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  padding: 2%;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.4);
+  margin-bottom: 10px;
+}
+
+.commenting-form > form > label {
+  font-size: .9vw;
+}
+
+.commenting-form > form > button {
   background: white;
   border-radius: 10px;
   box-sizing: border-box;
-  font-size: 100%;
+  font-size: 17px;
   font-weight: 700;
   line-height: 24px;
   opacity: 1;
@@ -66,7 +78,13 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: fit-content;
-  word-break: break-word;
+  word-break: auto;
   border: 0;
-  box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.commenting-form > form > label{
+  padding-right: 10px;
 }

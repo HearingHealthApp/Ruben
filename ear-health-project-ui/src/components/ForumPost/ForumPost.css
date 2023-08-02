@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   max-width: 90%;
-
+  margin-bottom: 15px;
   padding: 30px;
   width: 90%;
 }
@@ -21,6 +21,7 @@
   border-color: rgb(201, 76, 76);
   width: 70%;
   border-radius: 20px;
+  margin-bottom: 15px;
 }
 
 .post-container-small {
@@ -127,6 +128,7 @@ form textarea {
   background-color: beige;
   padding: 30px;
   border-radius: 10px;
+  margin-top: 15px;
 }
 
 .textbox-div {

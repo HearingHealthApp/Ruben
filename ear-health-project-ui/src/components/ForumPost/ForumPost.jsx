@@ -90,6 +90,9 @@ const ForumPost = ({ user, isLoggedIn }) => {
         commentorIsDoctor: doctor,
       })
     );
+
+    setCommenting();
+
     getComments();
   };
 
@@ -167,16 +170,15 @@ const ForumPost = ({ user, isLoggedIn }) => {
         </div>
 
         <div>
-          <h1>Comments: </h1>
-
           {isCommenting && (
             <div className="commenting-form">
               <form onSubmit={addComment}>
+                <label>New Comment</label>
                 <textarea
                   className="textbox"
                   rows="8"
                   columns="8"
-                  placeholder="Enter your post content"
+                  placeholder="Enter your comment content"
                   onChange={(e) => setContent(e.target.value)}
                   required
                 />
@@ -195,9 +197,11 @@ const ForumPost = ({ user, isLoggedIn }) => {
                 />
                 <br />
                 <button type="submit">Submit comment</button>
+                <button onClick={setCommenting}>Cancel</button>
               </form>{" "}
             </div>
           )}
+          <h1>Comments: </h1>
           {comments.length === 0 ? (
             <p>No comments yet</p>
           ) : (
