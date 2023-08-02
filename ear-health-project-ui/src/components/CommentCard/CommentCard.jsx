@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import "./CommentCard.css"
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./CommentCard.css";
+import axios from "axios";
 
-const CommentCard = ({comment}) => {
-  console.log(comment)
+const CommentCard = ({ comment }) => {
+  console.log(comment.userId);
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour
@@ -39,49 +40,55 @@ const CommentCard = ({comment}) => {
   };
 
   //useState for the user's image key
-  const [imageKey, setImageKey] = useState("")
+  const [imageKey, setImageKey] = useState("");
 
   //getter for the user
   const getUserFromComment = async () => {
     //should get the user's image an attach it to the comment
-    const {data} = await axios.get(`http://localhost:3001/comments/comment/${comment.userId}`)
-    console.log(data)
-    setImageKey(data.image)
-  }
+    const { data } = await axios.get(
+      `http://localhost:3001/comments/comment/${comment.userId}`
+    );
+    console.log(data);
+    setImageKey(data.image);
+  };
 
   useEffect(() => {
     getUserFromComment();
   }, [comment]);
 
-  console.log(imageKey)
+  console.log(imageKey);
 
-  const imageUrl = `http://localhost:3001/s3/image/${imageKey}`
+  const imageUrl = `http://localhost:3001/s3/image/${imageKey}`;
 
-  console.log(imageUrl)
+  console.log(imageUrl);
 
   return (
-    <div className='commenting-box'>
-      <div className='comment-info'>
-      {comment.isAnonymous ? (
-        <p> Anonymous</p>
-      ) : (
-        <div className="user-details">
-        {imageKey == "" ? (
-          <img src="" />
+    <div className="commenting-box">
+      <div className="comment-info">
+        {comment.isAnonymous ? (
+          <p> Anonymous</p>
         ) : (
-          <img src={imageUrl} className="user-img" />
+          <div className="user-details">
+            {imageKey == "" ? (
+              <img src="" />
+            ) : (
+              <Link to={`/profile/${comment.userId}`}>
+                <img src={imageUrl} className="user-img" />
+              </Link>
+            )}
+            <Link to={`/profile/${comment.userId}`}>
+              <p className="comment-username">{comment.username}</p>
+            </Link>
+          </div>
         )}
-        <p>{comment.username}</p>
-        </div>
-      )}
-      {comment.fromDoctor && <p className='Medical'>Verified Doctor</p>}
-      <p>{formatTimeSincePost(comment.createdAt)}</p>
+        {comment.fromDoctor && <p className="Medical">Verified Doctor</p>}
+        <p>{formatTimeSincePost(comment.createdAt)}</p>
       </div>
-      <div className='comment-content'>
-       <p id='text'>{comment.content}</p>
-       </div>
+      <div className="comment-content">
+        <p id="text">{comment.content}</p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default CommentCard
+export default CommentCard;
