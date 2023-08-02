@@ -4,7 +4,7 @@ import apiClient from "../../services/apiClient";
 import CommentCard from "../CommentCard/CommentCard";
 import "./ForumPost.css";
 
-const ForumPost = ({ user, isLoggedIn}) => {
+const ForumPost = ({ user, isLoggedIn }) => {
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour
@@ -53,7 +53,7 @@ const ForumPost = ({ user, isLoggedIn}) => {
   //useState for the user's image
   const [userImg, setUserImg] = useState("");
   //useState that determines the visibility of the comment form
-  const[isCommenting, setIsCommenting] = useState(false) 
+  const [isCommenting, setIsCommenting] = useState(false);
 
   const getPost = async () => {
     const { data } = await apiClient.indvPostGetter(postId);
@@ -108,13 +108,12 @@ const ForumPost = ({ user, isLoggedIn}) => {
   console.log(post);
 
   const setCommenting = () => {
-    if (isCommenting){
-      setIsCommenting(false)
+    if (isCommenting) {
+      setIsCommenting(false);
+    } else {
+      setIsCommenting(true);
     }
-    else{
-      setIsCommenting(true)
-    }
-  }
+  };
 
   return (
     <div className="big-container">
@@ -132,7 +131,7 @@ const ForumPost = ({ user, isLoggedIn}) => {
                     <img src="" />
                   ) : (
                     <Link to={`/profile/${post.userId}`}>
-                    <img src={userImage} className="user-img" />
+                      <img src={userImage} className="user-img" />
                     </Link>
                   )}
                   <Link to={`/profile/${post.userId}`}>
@@ -155,12 +154,14 @@ const ForumPost = ({ user, isLoggedIn}) => {
               <p className="actual-post">{post.content}</p>
             </div>
             <div className="interaction-buttons">
-              {isLoggedIn && <img
-              onClick={setCommenting}
-                className="reply-symbol"
-                src="https://cdn.iconscout.com/icon/free/png-256/free-reply-1438244-1216205.png?f=webp"
-                alt="reply symbol"
-              />}
+              {isLoggedIn && (
+                <img
+                  onClick={setCommenting}
+                  className="reply-symbol"
+                  src="https://cdn.iconscout.com/icon/free/png-256/free-reply-1438244-1216205.png?f=webp"
+                  alt="reply symbol"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -168,31 +169,35 @@ const ForumPost = ({ user, isLoggedIn}) => {
         <div>
           <h1>Comments: </h1>
 
-          {isCommenting && <form onSubmit={addComment}>
-            <textarea
-              className="textbox"
-              rows="8"
-              columns="8"
-              placeholder="Enter your post content"
-              onChange={(e) => setContent(e.target.value)}
-              required
-            />
-            <br />
-            <label>Post as anonymous?</label>
-            <input
-              type="checkbox"
-              value={isAnonymous}
-              onChange={(e) => {
-                if (isAnonymous === false) {
-                  setAnonymous(true);
-                } else {
-                  setAnonymous(false);
-                }
-              }}
-            />
-            <br />
-            <button type="submit">Submit comment</button>
-          </form>}
+          {isCommenting && (
+            <div className="commenting-form">
+              <form onSubmit={addComment}>
+                <textarea
+                  className="textbox"
+                  rows="8"
+                  columns="8"
+                  placeholder="Enter your post content"
+                  onChange={(e) => setContent(e.target.value)}
+                  required
+                />
+                <br />
+                <label>Post as anonymous?</label>
+                <input
+                  type="checkbox"
+                  value={isAnonymous}
+                  onChange={(e) => {
+                    if (isAnonymous === false) {
+                      setAnonymous(true);
+                    } else {
+                      setAnonymous(false);
+                    }
+                  }}
+                />
+                <br />
+                <button type="submit">Submit comment</button>
+              </form>{" "}
+            </div>
+          )}
           {comments.length === 0 ? (
             <p>No comments yet</p>
           ) : (
