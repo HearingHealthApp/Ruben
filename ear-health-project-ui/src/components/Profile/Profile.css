@@ -137,9 +137,10 @@
   background-color: white;
   border-radius: 10px;
   height: 800px;
-  padding: 20px 0px;
+  padding: 40px 0px;
   margin: 0px 100px;
   box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
+  overflow-y: auto;
 
 }
 
