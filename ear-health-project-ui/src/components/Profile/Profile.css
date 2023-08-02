@@ -1,18 +1,21 @@
 .avatar-image {
-  width: 350px;
-  height: 350px;
+  width: 15vw;
+  height: 15vw;
   display: block;
   border-radius: 50%;
   cursor: pointer;
   transition: opacity 0.3s;
+  background-color: #2c4893;
+
 }
 
 .avatar-container {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+
 }
 
-.avatar-container::after {
+/* .avatar-container::after {
   content: "";
   position: absolute;
   top: 0;
@@ -26,9 +29,15 @@
   pointer-events: none;
   transition: opacity 0.3s;
 }
+*/
 
-.avatar-container:hover .avatar-image {
-  opacity: 0.8;
+.avatar-image:hover {
+  opacity: 0.7;
+}
+
+.image-container{
+  display: flex;
+  justify-content: center;
 }
 
 .avatar-container:hover::after {
@@ -36,35 +45,42 @@
 }
 
 .profile-card {
-  margin-top: 30px;
   width: 33%;
+  box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
   background-color: aliceblue;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 10px;
 }
 
 .username {
-  font-size: 60px;
+  font-size: 3vw;
+  margin: 0px 5%;
 }
 
 .conditions {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 1%;
+  margin-left: 30px;
 }
 
 .condition {
   display: inline-block;
   flex-direction: column;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #2c4893;
   color: white;
-  margin: 5px;
+  margin-right: 5px;
   font-weight: bold;
+  box-shadow: 0 4px 7px 0 rgba(0,0,0,.2);
+
 }
 
 .row1 {
   display: flex;
   flex-wrap: wrap;
-  margin: 10px;
   width: 80%;
 }
 
@@ -101,6 +117,7 @@
   word-break: break-word;
   border: 0;
   margin: 0px 10px;
+  box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
 }
 
 .interaction-filter-buttons-container {
@@ -117,4 +134,112 @@
 .user-interaction-container {
   display: flex;
   justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  height: 800px;
+  padding: 20px 0px;
+  margin: 0px 100px;
+  box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
+
+}
+
+.profile-label{
+  margin-left: 30px;
+  font-size: 1vw;
+}
+
+.condition-form{
+  margin: 5px 30px;
+}
+
+.condition-form > form > button{
+  background: #2c4893;
+  color: aliceblue;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: 600;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 1% 1%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width:fit-content;
+  word-break: break-word;
+  border: 0;
+  margin-right: 10px;
+}
+
+.condition-form > form > input{
+  width: 40%;
+  font-size: .8vw;
+  margin: 10px 0px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.condition-adder{
+  background: #2c4893;
+  color: aliceblue;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: 600;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 1% 1%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width:fit-content;
+  word-break: break-word;
+  border: 0;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
+}
+
+.description-box{
+  padding-left: 30px;
+  margin: 20px 0px;
+}
+.description-buttons{
+  background: #2c4893;
+  color: aliceblue;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: 600;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 1% 1%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width:fit-content;
+  word-break: break-word;
+  border: 0;
+  margin-right: 10px;
+  margin-left: 30px;
+  box-shadow: 0 4px 7px 0 rgba(0,0,0,.4);
+
+}
+
+.description-input-box{
+  width: 60%;
+  font-size: 100%;
+  height: 120px;
+  line-height: 15px;
+  margin: 10px 0px;
+  border-radius: 10px;
+  font-family: "Nunito Sans", sans-serif;;
+  padding: 10px;
+  margin-left: 30px;
+  box-shadow: 0 4px 7px 0 rgba(0,0,0,.4);
+
 }
