@@ -146,6 +146,7 @@
 
 .profile-label{
   margin-left: 30px;
+  margin-top: 10px;
   font-size: 1vw;
 }
 
@@ -199,8 +200,6 @@
   word-break: break-word;
   border: 0;
   margin-left: 30px;
-  margin-top: 20px;
-  margin-bottom: 20px;
   box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
 }
 
@@ -210,7 +209,7 @@
   margin: 20px 0px;
   word-break: break-all;
   word-wrap: auto;
-  font-size: 17px;
+  font-size: 1vw;
 }
 .description-buttons{
   background: #2c4893;
@@ -235,10 +234,10 @@
 }
 
 .description-input-box{
-  width: 70%;
-  font-size: 17px;
-  height: 120px;
-  line-height: 25px;
+  width: 85%;
+  font-size: 1vw;
+  height: 7.2vw;
+  line-height: 1.2vw;
   margin: 10px 0px;
   border-radius: 10px;
   font-family: "Nunito Sans", sans-serif;;
@@ -246,4 +245,22 @@
   margin-left: 30px;
   box-shadow: 0 4px 7px 0 rgba(0,0,0,.4);
 
+}
+
+.npi-container > p{
+  padding-left: 30px;
+  font-size: 1vw;
+}
+
+.specialty{
+  display: inline-block;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #688ef6;
+  color: white;
+  margin-right: 5px;
+  font-weight: bold;
+  box-shadow: 0 4px 7px 0 rgba(0,0,0,.2);
+  margin-bottom: 10px;
 }
