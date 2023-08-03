@@ -18,6 +18,7 @@ const commentsRoutes = require("./routes/commentsRoutes")
 const profileRoutes = require("./routes/profileRoutes")
 const notificationRoutes = require("./routes/notificationRoutes")
 const s3Routes = require ("./routes/s3Routes")
+const aiRoutes = require("./routes/aiRoutes")
 
 //use the routes
 app.use("/auth", authRoutes);
@@ -26,6 +27,7 @@ app.use("/comments", commentsRoutes)
 app.use("/profile", profileRoutes)
 app.use("/notification", notificationRoutes)
 app.use("/s3", s3Routes)
+app.use("/ai", aiRoutes)
 
 //error handling next functions
 app.use((req, res, next) => {
