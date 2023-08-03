@@ -35,6 +35,7 @@ const Profile = ({ user, setProfileImageKey }) => {
 
   const getUserInfo = async () => {
     const { data } = await apiClient.getUserData(userId);
+    console.log(data)
     setUserData(data.user);
     setUserComments(data.userComments);
     setUserPosts(data.userPosts);
@@ -56,6 +57,8 @@ const Profile = ({ user, setProfileImageKey }) => {
       setClicked(true);
     } else {
       setClicked(false);
+      setDescription(existingDescription)
+
     }
   };
 
@@ -142,7 +145,7 @@ const Profile = ({ user, setProfileImageKey }) => {
           </div>
 
           <div className="conditions-container">
-            {user.isDoctor ? (
+            {userData.isDoctor ? (
               <p>im a doctor</p>
             ) : (
               <>

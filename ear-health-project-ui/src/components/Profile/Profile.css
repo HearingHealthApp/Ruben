@@ -206,7 +206,11 @@
 
 .description-box{
   padding-left: 30px;
+  padding-right: 30px;
   margin: 20px 0px;
+  word-break: break-all;
+  word-wrap: auto;
+  font-size: 17px;
 }
 .description-buttons{
   background: #2c4893;
@@ -228,14 +232,13 @@
   margin-right: 10px;
   margin-left: 30px;
   box-shadow: 0 4px 7px 0 rgba(0,0,0,.4);
-
 }
 
 .description-input-box{
-  width: 60%;
-  font-size: 100%;
+  width: 70%;
+  font-size: 17px;
   height: 120px;
-  line-height: 15px;
+  line-height: 25px;
   margin: 10px 0px;
   border-radius: 10px;
   font-family: "Nunito Sans", sans-serif;;
