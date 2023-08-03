@@ -22,7 +22,7 @@ const Listener = () => {
   const getAIData = async () => {
     const { data } = await apiClient.getAIResponse(average);
     console.log(data);
-    setAIData(data);
+    setAIData(data.response);
     console.log(aiData)
   };
 
@@ -78,13 +78,7 @@ const Listener = () => {
   // Add state variables to keep track of timestamp and time interval
   const [timestamp, setTimestamp] = useState(Date.now());
 
-  // useEffect(() => {
-  //   // Update the data for the decibels chart whenever the decibels state changes
-  // }, [decibels]);
-
-  // useEffect(() => {
-  //   // Update the data for the average chart whenever the average state changes
-  // }, [average]);
+  // console.log(aiData[0].analysis)
 
   return (
     <div className="whole-container">
@@ -92,8 +86,8 @@ const Listener = () => {
         <div className="soundsense-blurb-bigger-container">
           <div className="soundsense-all-text">
             <h1 id="soundsense-text">SoundSense</h1>
-            {/* {aiData.response.length > 1 ? 
-          <h1>{aiData.response.analysis}</h1>  : null
+            {/* {aiData.length >= 1 ? 
+          <h1>{aiData[0].analysis}</h1>  : null
           } */}
             <p id="soundsense-paragraph">
               Experience the power of "SoundSense" - our listening tool that
