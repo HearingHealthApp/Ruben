@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import {
+  ResponsiveContainer,
   LineChart,
   Line,
   XAxis,
@@ -127,12 +128,13 @@ const Listener = () => {
         </div>
         <div className="graphs-parent">
           
-
           <div className="graphs">
+            <h1 className="graphs-title">Decibel Statistics</h1>
             {lastGeneratedNumber !== null && (
-              <h1>Current Decibel : {lastGeneratedNumber}</h1>
+              <h2>Current Decibel : {lastGeneratedNumber} dB</h2>
             )}
-            <LineChart width={800} height={300} data={decibelsData}>
+            <ResponsiveContainer width={800} height={300} >
+            <LineChart data={decibelsData}>
               <CartesianGrid strokeDasharray="3 3" />
               <YAxis
                 label={{
@@ -141,7 +143,7 @@ const Listener = () => {
                   position: "insideLeft",
                 }}
               />
-              <XAxis dataKey="time" />
+              <XAxis dataKey="time" stroke="white"/>
               <Tooltip />
               <Legend />
               <Line
@@ -152,10 +154,15 @@ const Listener = () => {
               />
             </LineChart>
 
-            {average !== 0 && <h1>Average : {average}</h1>}
-            <LineChart width={800} height={300} data={averageData}>
+            </ResponsiveContainer>
+
+            {average !== 0 && <h2>Average decibel : {average} dB</h2>}
+            <ResponsiveContainer width={800} height={300} aspect={'auto'} >
+
+            <LineChart data={averageData} stroke="white">
               <CartesianGrid strokeDasharray="3 3" />
               <YAxis
+                
                 label={{ value: "Average", angle: -90, position: "insideLeft" }}
               />
               <XAxis dataKey="time" />
@@ -168,6 +175,7 @@ const Listener = () => {
                 stroke="green"
               />
             </LineChart>
+            </ResponsiveContainer>
           </div>
         </div>
       </div>
