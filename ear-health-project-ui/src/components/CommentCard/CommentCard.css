@@ -78,7 +78,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: fit-content;
-  word-break: auto;
+  word-break: break-all;
   border: 0;
   box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.2);
   margin-top: 10px;

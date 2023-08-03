@@ -9,6 +9,7 @@
   margin-bottom: 15px;
   padding: 30px;
   width: 90%;
+  word-break: break-all;
 }
 
 .post-container1 {
@@ -90,6 +91,13 @@
   padding: 15px;
   width: 100px;
   height: 3px;
+}
+
+.medical-comment{
+  background: lightblue;
+  height: fit-content;
+  padding: 2px 10px;
+  border-radius: 5px;
 }
 
 .General-post {

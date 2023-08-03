@@ -21,15 +21,15 @@ INSERT INTO users (username, email, password, first_name, last_name) VALUES ('Su
 INSERT INTO users (username, email, password, first_name, last_name) VALUES ('Batman', 'user10@test.com', '$2b$10$uu8xM9X2soPuBr0ArpI9FOOly9NaN1xPhv2tYoAj.6Il4UaMpAi3W', 'test', 'user');
 
 -- sample doctor --userId: 11
-INSERT INTO users (username, email, password, first_name, last_name) VALUES ('Dr.Chavez', 'doctor1@test.com', '$2b$10$uu8xM9X2soPuBr0ArpI9FOOly9NaN1xPhv2tYoAj.6Il4UaMpAi3W', 'test', 'user');
+INSERT INTO users (username, email, password, first_name, last_name, is_doctor) VALUES ('Dr.Chavez', 'doctor1@test.com', '$2b$10$uu8xM9X2soPuBr0ArpI9FOOly9NaN1xPhv2tYoAj.6Il4UaMpAi3W', 'test', 'user', true);
 INSERT INTO doctors (user_id, registration_number) VALUES (11, '12345');
 
 -- sample doctor --userId: 12
-INSERT INTO users (username, email, password, first_name, last_name) VALUES ('Dr.Stuart', 'doctor2@test.com', '$2b$10$uu8xM9X2soPuBr0ArpI9FOOly9NaN1xPhv2tYoAj.6Il4UaMpAi3W', 'test', 'user');
+INSERT INTO users (username, email, password, first_name, last_name, is_doctor) VALUES ('Dr.Stuart', 'doctor2@test.com', '$2b$10$uu8xM9X2soPuBr0ArpI9FOOly9NaN1xPhv2tYoAj.6Il4UaMpAi3W', 'test', 'user', true);
 INSERT INTO doctors (user_id, registration_number) VALUES (12, '12345');
 
 -- sample doctor --userId: 13
-INSERT INTO users (username, email, password, first_name, last_name) VALUES ('Dr.Ganiyu', 'doctor3@test.com', '$2b$10$uu8xM9X2soPuBr0ArpI9FOOly9NaN1xPhv2tYoAj.6Il4UaMpAi3W', 'test', 'user');
+INSERT INTO users (username, email, password, first_name, last_name, is_doctor) VALUES ('Dr.Ganiyu', 'doctor3@test.com', '$2b$10$uu8xM9X2soPuBr0ArpI9FOOly9NaN1xPhv2tYoAj.6Il4UaMpAi3W', 'test', 'user', true);
 INSERT INTO doctors (user_id, registration_number) VALUES (13, '12345');
 
 

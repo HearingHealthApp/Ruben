@@ -81,7 +81,7 @@ const CommentCard = ({ comment }) => {
             </Link>
           </div>
         )}
-        {comment.fromDoctor && <p className="Medical">Verified Doctor</p>}
+        {comment.fromDoctor && <p className="medical-comment">Verified Doctor</p>}
         <p>{formatTimeSincePost(comment.createdAt)}</p>
       </div>
       <div className="comment-content">
