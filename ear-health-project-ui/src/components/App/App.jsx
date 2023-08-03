@@ -88,6 +88,12 @@ function App() {
 
     //we reset the image key
     setProfileImageKey("");
+
+    //reset the temp user
+    setTempUserId("")
+
+    //reset the navNotifs 
+    setNavNotifs([])
   };
 
   //function that updates the user state with the user we receive from the backend
