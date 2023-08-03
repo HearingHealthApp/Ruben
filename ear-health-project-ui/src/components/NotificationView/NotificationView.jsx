@@ -3,7 +3,7 @@ import "./NotificationView.css";
 import ApiClient from "../../services/apiClient";
 import NotificationCard from "../NotificationCard/NotificationCard";
 
-function NotificationView({ user, isLoggedIn }) {
+function NotificationView({ user, isLoggedIn, setNavNotifs, navNotifs }) {
   const [userNotifications, setUserNotifications] = useState([]);
 
   const notificationGetter = async () => {
@@ -11,6 +11,7 @@ function NotificationView({ user, isLoggedIn }) {
       const { data, error } = await ApiClient.getUserNotifications(user.userId);
 
       setUserNotifications(data.notifications);
+      setNavNotifs(data.notifications)
     }
   };
 

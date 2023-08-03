@@ -26,7 +26,20 @@ function App() {
   //useState for the user's image
   const [profileImageKey, setProfileImageKey] = useState("");
 
-  console.log(user);
+  // console.log(user);
+
+  //useState for the user's notifications to conditionally display on the navbar
+  const [navNotifs, setNavNotifs] = useState([])
+
+  //useState for dependency
+  const [tempuserId, setTempUserId] = useState('')
+
+  const fetchNavNotifs = async () => {
+    const {data} = await ApiClient.getUserNotifications(tempuserId)
+    console.log(data)
+    setNavNotifs(data.notifications)
+  }
+
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -35,8 +48,10 @@ function App() {
       // if the fetch user gets a user,
       if (data) {
         setUser(data.user);
+        setTempUserId(user.userId)
         setIsLoggedIn(true);
         setProfileImageKey(data.user.image);
+        fetchNavNotifs();
       }
 
       if (error) {
@@ -49,12 +64,15 @@ function App() {
     if (token) {
       ApiClient.setToken(token);
       fetchUser();
+      fetchNavNotifs();
     }
-  }, []);
+    
+  }, [tempuserId]);
 
   //loginHandler
   const loginHandler = () => {
     setIsLoggedIn(true);
+    fetchNavNotifs();
   };
 
   //setup a logout handler
@@ -70,6 +88,12 @@ function App() {
 
     //we reset the image key
     setProfileImageKey("");
+
+    //reset the temp user
+    setTempUserId("")
+
+    //reset the navNotifs 
+    setNavNotifs([])
   };
 
   //function that updates the user state with the user we receive from the backend
@@ -86,6 +110,7 @@ function App() {
             logOutHandler={logOutHandler}
             user={user}
             profileImageKey={profileImageKey}
+            navNotifs = {navNotifs}
           ></Navbar>
           <div className="primary-container">
             <Routes>
@@ -144,7 +169,7 @@ function App() {
               <Route
                 path="/notifications"
                 element={
-                  <NotificationView user={user} isLoggedIn={isLoggedIn} />
+                  <NotificationView user={user} isLoggedIn={isLoggedIn} setNavNotifs = {setNavNotifs} navNotifs={navNotifs}/>
                 }
               />
 
