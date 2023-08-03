@@ -5,33 +5,18 @@ body {
   
 }
 
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
 
-.container {
-  /* max-width: 1170px; */
-  /* background-color: red; */
-  margin: auto;
-  
-}
 
 ul {
   list-style: none;
 }
 .footer {
-  /* position: fixed; */
-  background-color: #24262b;
-  padding: 100px 0;
-  /* display: grid;
-    place-items: center;  */
-  /* two properties above will center */
-  position: relative; 
-  left:0;
-  bottom:0;
-  right:0;
+  /* position:absolute; */
+  left:0px;
+  bottom:0px;
+  height:fit-content;
+  width:100%;
+  background:#999;
 }
 
 .row {
