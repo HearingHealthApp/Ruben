@@ -10,12 +10,21 @@ import {
   Legend,
 } from "recharts";
 import "./Listener.css";
+import apiClient from "../../services/apiClient";
 
 const Listener = () => {
   const [decibels, setDecibels] = useState([0]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [lastGeneratedNumber, setLastGeneratedNumber] = useState(null);
   const [average, setAverage] = useState(0);
+  const [aiData, setAIData] = useState([]);
+
+  const getAIData = async () => {
+    const { data } = await apiClient.getAIResponse(average);
+    console.log(data);
+    setAIData(data.response);
+    console.log(aiData)
+  };
 
   const generateRandomNumber = () => {
     return Math.floor(Math.random() * 100 + 60);
@@ -41,6 +50,7 @@ const Listener = () => {
         Math.ceil(decibels.reduce((sum, num) => sum + num, 0) / decibels.length)
       );
       clearInterval(interval); // Clear the interval after 10 seconds
+      getAIData();
     }, 10000); // Stop after 10 seconds
   };
 
@@ -48,28 +58,6 @@ const Listener = () => {
     setAverage(
       Math.ceil(decibels.reduce((sum, num) => sum + num, 0) / decibels.length)
     );
-  }, [decibels]);
-
-  // Add two state variables to store data for the charts
-  const [decibelsData, setDecibelsData] = useState([{ time: 0, value: 0 }]);
-  const [averageData, setAverageData] = useState([{ time: 0, value: 0 }]);
-
-  // Add state variables to keep track of timestamp and time interval
-  const [timestamp, setTimestamp] = useState(Date.now());
-  const interval = 500;
-
-  useEffect(() => {
-    // To update the chart at intervals of 0.5 seconds
-    const updateInterval = setInterval(() => {
-      setTimestamp(Date.now());
-    }, interval);
-
-    // Clear the interval on component unmount
-    return () => clearInterval(updateInterval);
-  }, []);
-
-  useEffect(() => {
-    // Update the data for the decibels chart whenever the decibels state changes
     setDecibelsData((prevData) => [
       ...prevData,
       {
@@ -77,18 +65,20 @@ const Listener = () => {
         value: decibels[decibels.length - 1],
       },
     ]);
-  }, [decibels]);
-
-  useEffect(() => {
-    // Update the data for the average chart whenever the average state changes
     setAverageData((prevData) => [
       ...prevData,
       { time: new Date(timestamp).toLocaleString(), value: average },
     ]);
-  }, [average]);
+  }, [decibels, average]);
 
-  console.log(decibels);
-  console.log(average);
+  // Add two state variables to store data for the charts
+  const [decibelsData, setDecibelsData] = useState([{ time: 0, value: 0 }]);
+  const [averageData, setAverageData] = useState([{ time: 0, value: 0 }]);
+
+  // Add state variables to keep track of timestamp and time interval
+  const [timestamp, setTimestamp] = useState(Date.now());
+
+  // console.log(aiData[0].analysis)
 
   return (
     <div className="whole-container">
@@ -96,6 +86,9 @@ const Listener = () => {
         <div className="soundsense-blurb-bigger-container">
           <div className="soundsense-all-text">
             <h1 id="soundsense-text">SoundSense</h1>
+            {/* {aiData.length >= 1 ? 
+          <h1>{aiData[0].analysis}</h1>  : null
+          } */}
             <p id="soundsense-paragraph">
               Experience the power of "SoundSense" - our listening tool that
               transforms the way you engage with sound. With SoundSense, you
@@ -127,14 +120,13 @@ const Listener = () => {
           </div>
         </div>
         <div className="graphs-parent">
-          
           <div className="graphs">
             <h1 className="graphs-title">Decibel Statistics</h1>
             {lastGeneratedNumber !== null && (
               <h2>Current Decibel : {lastGeneratedNumber} dB</h2>
             )}
-            <ResponsiveContainer width={800} height={300} >
-            <LineChart data={decibelsData}>
+
+            <LineChart data={decibelsData} width={800} height={300}>
               <CartesianGrid strokeDasharray="3 3" />
               <YAxis
                 label={{
@@ -143,7 +135,7 @@ const Listener = () => {
                   position: "insideLeft",
                 }}
               />
-              <XAxis dataKey="time" stroke="white"/>
+              <XAxis dataKey="time" stroke="white" />
               <Tooltip />
               <Legend />
               <Line
@@ -154,15 +146,16 @@ const Listener = () => {
               />
             </LineChart>
 
-            </ResponsiveContainer>
-
             {average !== 0 && <h2>Average decibel : {average} dB</h2>}
-            <ResponsiveContainer width={800} height={300} aspect={'auto'} >
 
-            <LineChart data={averageData} stroke="white">
+            <LineChart
+              data={averageData}
+              width={800}
+              height={300}
+              stroke="white"
+            >
               <CartesianGrid strokeDasharray="3 3" />
               <YAxis
-                
                 label={{ value: "Average", angle: -90, position: "insideLeft" }}
               />
               <XAxis dataKey="time" />
@@ -175,7 +168,6 @@ const Listener = () => {
                 stroke="green"
               />
             </LineChart>
-            </ResponsiveContainer>
           </div>
         </div>
       </div>

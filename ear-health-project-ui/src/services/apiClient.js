@@ -157,6 +157,14 @@ class ApiClient {
     });
   }
 
+  async getAIResponse(average) {
+    return await this.request({
+      endpoint: `ai/response`,
+      method: "GET",
+      data: average,
+    })
+  }
+
   fetchUserFromToken = async () => {
     return await this.request({ endpoint: "auth/me", method: "GET" });
   };
