@@ -16,9 +16,9 @@ const ForumPrompt = ({ user, fetchAllPosts, cancelButton }) => {
     e.preventDefault();
     try {
       let doctor = false;
-    if (user.isDoctor) {
-      doctor = true;
-    }
+      if (user.isDoctor) {
+        doctor = true;
+      }
       const response = await apiClient.postPoster(
         JSON.stringify({
           userId: user.userId,
@@ -47,46 +47,49 @@ const ForumPrompt = ({ user, fetchAllPosts, cancelButton }) => {
         <form onSubmit={createForumPost}>
           <label>Title: </label>
           <input
+          className="title-input"
             type="text"
             placeholder="Enter a title for your post!"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
+          />{" "}
+          <br />
+          <label>Category:</label>
+          <select  className="category-form" onChange={(e) => setCategory(e.target.value)} required>
+            <option value="">Select a Category</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Medical">Medical</option>
+            <option value="General">General</option>
+          </select>
+          <br />
+          <label>Post as anonymous?</label>
+          <input
+            type="checkbox"
+            value={isAnonymous}
+            onChange={(e) => {
+              if (isAnonymous === false) {
+                setAnonymous(true);
+              } else {
+                setAnonymous(false);
+              }
+            }}
           />
-
-          <div>
-            <label>Category:</label>
-            <select onChange={(e) => setCategory(e.target.value)} required>
-              <option value="">Select a Category</option>
-              <option value="Lifestyle">Lifestyle</option>
-              <option value="Medical">Medical</option>
-              <option value="General">General</option>
-            </select>
-            <br />
-
-            <label>Post as anonymous?</label>
-            <input
-              type="checkbox"
-              value={isAnonymous}
-              onChange={(e) => {
-                if (isAnonymous === false) {
-                  setAnonymous(true);
-                } else {
-                  setAnonymous(false);
-                }
-              }}
-            />
-            <br />
-          </div>
-
+          <br />
           <textarea
             rows="8"
             columns="8"
             placeholder="Enter your post content"
             onChange={(e) => setContent(e.target.value)}
           />
-          <button className="prompt-button" type="submit">Submit</button>
-          <button className="prompt-button" id="create-post-button" onClick={cancelButton}>
+          <button className="prompt-button" type="submit">
+            Submit
+          </button>
+          <button
+            className="prompt-button"
+            id="create-post-button"
+            onClick={cancelButton}
+          >
             Cancel
           </button>
         </form>

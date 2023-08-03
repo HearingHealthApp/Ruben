@@ -7,18 +7,34 @@
   background-color: aliceblue;
   margin: 10px 0px;
   border-radius: 10px;
-  padding: 10px 10px;
   text-decoration: none;
   width: 80%;
   font-size: 90%;
 }
+
+.prompt > form{
+  padding: 2%;
+}
+
+.prompt > form > textarea {
+  width: 96%;
+  font-size: .75vw;
+  height:6.4vw;
+  line-height: .8vw;
+  border-radius: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  padding: 10px;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.4);
+  margin: 10px 0px;
+}
+
 
 .prompt-button {
   background: white;
   border-radius: 10px;
   box-sizing: border-box;
   color: black;
-  font-size: 100%;
+  font-size: .75vw;
   font-weight: 700;
   line-height: 24px;
   opacity: 1;
@@ -30,4 +46,27 @@
   touch-action: manipulation;
   word-break: break-word;
   border: 0;
+}
+
+.prompt > form > label{
+ padding-right: 5px;
+ font-size: .8vw;
+}
+
+.title-input{
+  width: 30%;
+  font-size: .75vw;
+  margin: 4px 0px;
+  padding: 3px 5px;
+  border-radius: 10px;
+}
+
+.category-form{
+  font-family: "Nunito Sans", sans-serif;
+  width: 25%;
+  background-color: white;
+  font-size: .75vw;
+  padding: 2px 5px;
+  border-radius: 10px;
+  margin: 5px 0px;
 }
