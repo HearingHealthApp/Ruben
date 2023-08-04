@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ApiClient from "../../services/apiClient";
 
 
-function NotificationCard({ notificationData }) {
+function NotificationCard({ notificationData, fetchNavNotifs, user}) {
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour
@@ -41,9 +41,11 @@ function NotificationCard({ notificationData }) {
 
   let navigate = useNavigate();
 
-  const notificationNavigator = () => {
-    navigate(`/forum/post/${notificationData.postId}`)
+  const notificationNavigator =  async () => {
     ApiClient.notificationUpdater(notificationData.notificationId)
+    const { data, error } = await ApiClient.getUserNotifications(user.userId)
+    fetchNavNotifs(data.notifications)
+    navigate(`/forum/post/${notificationData.postId}`)
   
   };
   return (

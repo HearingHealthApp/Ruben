@@ -4,7 +4,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiClient from "../../services/apiClient.JS";
 
-const LoginPage = ({ userUpdater, loginHandler, setProfileImageKey}) => {
+const LoginPage = ({
+  userUpdater,
+  loginHandler,
+  setProfileImageKey,
+  fetchNavNotifs,
+}) => {
   // establish states that track form changes
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,16 +30,18 @@ const LoginPage = ({ userUpdater, loginHandler, setProfileImageKey}) => {
 
     const { data, error } = await ApiClient.loginUser(loginInfo);
 
+    const notificationData = await ApiClient.getUserNotifications(data.user.userId)
+
     if (error) {
       setLoginError(error);
     }
 
     if (data?.user) {
       userUpdater(data.user);
-      console.log("user received token is ", data.token);
-      setProfileImageKey(data.user.image)
+      setProfileImageKey(data.user.image);
       ApiClient.setToken(data.token);
       loginHandler();
+      fetchNavNotifs(notificationData.data.notifications);
       navigate("/");
     }
   };
@@ -73,7 +80,7 @@ const LoginPage = ({ userUpdater, loginHandler, setProfileImageKey}) => {
             </div>
             <div className="input-container-password">
               <input
-              className="form-input"
+                className="form-input"
                 type="password"
                 value={password}
                 onChange={(e) => {
@@ -88,11 +95,8 @@ const LoginPage = ({ userUpdater, loginHandler, setProfileImageKey}) => {
             </button>
             <p id="login-error">{loginError}</p>
           </form>
-          
         </div>
-        
       </div>
-      
     </div>
   );
 };

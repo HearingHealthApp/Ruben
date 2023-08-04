@@ -3,14 +3,12 @@ import "./NotificationView.css";
 import ApiClient from "../../services/apiClient";
 import NotificationCard from "../NotificationCard/NotificationCard";
 
-function NotificationView({ user, isLoggedIn, setNavNotifs, navNotifs }) {
-  const [userNotifications, setUserNotifications] = useState([]);
+function NotificationView({ user, isLoggedIn, setNavNotifs, fetchNavNotifs, navNotifs}) {
 
   const notificationGetter = async () => {
     if (user?.userId) {
       const { data, error } = await ApiClient.getUserNotifications(user.userId);
 
-      setUserNotifications(data.notifications);
       setNavNotifs(data.notifications)
     }
   };
@@ -26,24 +24,24 @@ function NotificationView({ user, isLoggedIn, setNavNotifs, navNotifs }) {
           <div className="big-notifications">
             <h3 className="notification-title-card">New Notifications</h3>
             <div className="notification-holder">
-              {userNotifications
+              {navNotifs
                 .filter(
                   (notificationData) => notificationData.viewStatus === false
                 )
                 .map((notificationData) => (
-                  <NotificationCard notificationData={notificationData} />
+                <NotificationCard notificationData={notificationData} fetchNavNotifs = {fetchNavNotifs} user = {user}/>
                 ))}
             </div>
           </div>
           <div className="big-notifications">
             <h3 className="notification-title-card">Previous Notifications</h3>
             <div className="notification-holder">
-              {userNotifications
+              {navNotifs
                 .filter(
                   (notificationData) => notificationData.viewStatus === true
                 )
                 .map((notificationData) => (
-                  <NotificationCard notificationData={notificationData} />
+                  <NotificationCard notificationData={notificationData} fetchNavNotifs = {fetchNavNotifs}  user = {user}/>
                 ))}
             </div>
           </div>
