@@ -2,6 +2,7 @@
 const db = require("../db");
 const { BadRequestError, UnauthorizedError } = require("../utils/errors");
 const { convertSnakeToCamel } = require("../utils/formatters");
+const User = require("./user");
 
 class Profile {
   //get the comments of a particular user
@@ -68,7 +69,22 @@ class Profile {
     //execute the query
     const result = await db.query(userQuery, value);
 
-    return convertSnakeToCamel(result.rows[0]);
+    let user = convertSnakeToCamel(result.rows[0]);
+
+    console.log(user);
+
+    if (user.isDoctor) {
+      console.log("user ID is", user.userId);
+      const doctorData = await User.fetchDoctorById(user.userId);
+
+      console.log("Doctor data is", doctorData);
+      user = {
+        ...user,
+        ...doctorData,
+      };
+    }
+
+    return user;
   }
 
   static async updateUserDescription(description, userId) {

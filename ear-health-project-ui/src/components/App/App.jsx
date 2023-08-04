@@ -29,29 +29,27 @@ function App() {
   // console.log(user);
 
   //useState for the user's notifications to conditionally display on the navbar
-  const [navNotifs, setNavNotifs] = useState([])
+  const [navNotifs, setNavNotifs] = useState([]);
 
-  //useState for dependency
-  const [tempuserId, setTempUserId] = useState('')
-
-  const fetchNavNotifs = async () => {
-    const {data} = await ApiClient.getUserNotifications(tempuserId)
-    console.log(data)
-    setNavNotifs(data.notifications)
-  }
-
+  const fetchNavNotifs = async (data) => {
+    setNavNotifs(data);
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data, error } = await ApiClient.fetchUserFromToken();
 
+      const notificationData = await ApiClient.getUserNotifications(
+        data.user.userId
+      );
+
       // if the fetch user gets a user,
       if (data) {
         setUser(data.user);
-        setTempUserId(user.userId)
+        setTempUserId(user.userId);
         setIsLoggedIn(true);
         setProfileImageKey(data.user.image);
-        fetchNavNotifs();
+        setNavNotifs(notificationData.data.notifications);
       }
 
       if (error) {
@@ -64,15 +62,20 @@ function App() {
     if (token) {
       ApiClient.setToken(token);
       fetchUser();
-      fetchNavNotifs();
     }
-    
-  }, [tempuserId]);
+  }, []);
+
+  //notification getter that runs every 15 minnutes
+  let timer = setInterval(async function () {
+    if (user?.userId) {
+      const { data } = await ApiClient.getUserNotifications(user.userId);
+      setNavNotifs(data.notifications);
+    }
+  }, 900000);
 
   //loginHandler
   const loginHandler = () => {
     setIsLoggedIn(true);
-    fetchNavNotifs();
   };
 
   //setup a logout handler
@@ -90,10 +93,10 @@ function App() {
     setProfileImageKey("");
 
     //reset the temp user
-    setTempUserId("")
+    setTempUserId("");
 
-    //reset the navNotifs 
-    setNavNotifs([])
+    //reset the navNotifs
+    setNavNotifs([]);
   };
 
   //function that updates the user state with the user we receive from the backend
@@ -110,7 +113,7 @@ function App() {
             logOutHandler={logOutHandler}
             user={user}
             profileImageKey={profileImageKey}
-            navNotifs = {navNotifs}
+            navNotifs={navNotifs}
           ></Navbar>
           <div className="primary-container">
             <Routes>
@@ -132,6 +135,7 @@ function App() {
                     loginHandler={loginHandler}
                     userUpdater={userUpdater}
                     setProfileImageKey={setProfileImageKey}
+                    fetchNavNotifs={fetchNavNotifs}
                   />
                 }
               />
@@ -169,7 +173,13 @@ function App() {
               <Route
                 path="/notifications"
                 element={
-                  <NotificationView user={user} isLoggedIn={isLoggedIn} setNavNotifs = {setNavNotifs} navNotifs={navNotifs}/>
+                  <NotificationView
+                    user={user}
+                    isLoggedIn={isLoggedIn}
+                    setNavNotifs={setNavNotifs}
+                    navNotifs={navNotifs}
+                    fetchNavNotifs={fetchNavNotifs}
+                  />
                 }
               />
 

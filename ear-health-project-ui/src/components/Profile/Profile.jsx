@@ -31,18 +31,16 @@ const Profile = ({ user, setProfileImageKey }) => {
   //updating description useStates and other necessary items
   const [existingDescription, setExistingDescription] = useState("");
   const [description, setDescription] = useState("");
-  
 
   const getUserInfo = async () => {
     const { data } = await apiClient.getUserData(userId);
-    console.log(data)
     setUserData(data.user);
     setUserComments(data.userComments);
     setUserPosts(data.userPosts);
     setexistingConditions(data.user.conditions);
     setExistingDescription(data.user.description);
     setImageKey(data.user.image);
-    setDescription(data.user.description)
+    setDescription(data.user.description);
   };
 
   //call the fetch on page load
@@ -50,15 +48,12 @@ const Profile = ({ user, setProfileImageKey }) => {
     getUserInfo();
   }, [userId]);
 
-  
-
   const handleClick = () => {
     if (clicked == false) {
       setClicked(true);
+      setDescription(existingDescription);
     } else {
       setClicked(false);
-      setDescription(existingDescription)
-
     }
   };
 
@@ -78,7 +73,6 @@ const Profile = ({ user, setProfileImageKey }) => {
   //input updater for the user's conditions
 
   const conditionUpdater = (e) => {
-    console.log(e.target.value);
     setCondition(e.target.value);
   };
 
@@ -86,7 +80,6 @@ const Profile = ({ user, setProfileImageKey }) => {
   const updateConditions = async (e) => {
     e.preventDefault();
     const { data } = await apiClient.updateConditions(condition, userId);
-    console.log(data);
     setexistingConditions(data.conditions);
   };
   //for the button to update conditions
@@ -112,7 +105,6 @@ const Profile = ({ user, setProfileImageKey }) => {
 
   const conditions = Object.values(existingConditions || {}) || [];
 
-  // console.log(conditions)
   return (
     <div className="user-outer-container">
       <div className="row1">
@@ -144,9 +136,27 @@ const Profile = ({ user, setProfileImageKey }) => {
             <h1 className="username">{userData.username}</h1>
           </div>
 
+          {userData.isDoctor && (
+            <div className="npi-container">
+              <h3 className="profile-label">
+                National Provider Identifier Number:
+              </h3>
+              <p>{userData.registrationNumber}</p>
+            </div>
+          )}
+
           <div className="conditions-container">
             {userData.isDoctor ? (
-              <p>im a doctor</p>
+              <>
+                <h3 className="profile-label">Specialties</h3>
+                <div className="conditions">
+                  {conditions != null
+                    ? conditions.map((conditionMap) => (
+                        <p className="specialty">{conditionMap}</p>
+                      ))
+                    : null}
+                </div>
+              </>
             ) : (
               <>
                 <h3 className="profile-label">Conditions</h3>
@@ -161,7 +171,7 @@ const Profile = ({ user, setProfileImageKey }) => {
             )}
           </div>
 
-          {conditionClick ? (
+          {conditionClick & (conditions.length < 5) ? (
             <div className="condition-form">
               <form onSubmit={updateConditions}>
                 <input
@@ -172,21 +182,21 @@ const Profile = ({ user, setProfileImageKey }) => {
                 />
                 <br />
                 <button className="interaction-filter-buttons" type="submit">
-                  Add Condition
+                { userData.isDoctor ? 'Add Specialty' : 'Add Condition' }
                 </button>
                 <button onClick={handleConditionClick}>Cancel</button>
               </form>
             </div>
           ) : (
             <div>
-              {user.userId == userId && conditions.length < 5 ? (
+              {user.userId == userId && conditions.length < 5 && (
                 <button
                   className="condition-adder"
                   onClick={handleConditionClick}
                 >
-                  Add a Condition
+                  { userData.isDoctor ? 'Add a Specialty' : 'Add a Condition' }
                 </button>
-              ) : null}
+              )}
             </div>
           )}
 
