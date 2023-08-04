@@ -21,7 +21,7 @@ const History = () => {
       </div>
       
       <div id = 'undertext' className={isLoaded ? 'loaded' : ''}>
-        <p id = "childp">
+        <p  className="firstp" id = "childp">
         You know, man, it's been a real rollercoaster, like seriously, wild
         stuff. Losing my hearing was a total curveball, and I was like, "Nah,
         this can't be happening," trying everything to get back what I had. But
@@ -33,8 +33,10 @@ const History = () => {
         during those dark days that I stumbled upon this awesome online
         community, a place where folks were facing similar struggles. They had
         been through what I was going through, and they reached out like a
-        lifeline. I found solace in their stories, man. It's like we were
-        speaking the same language, even if our ears couldn't hear it. They
+        lifeline. I found solace in their stories, man. 
+        </p>
+        <br></br>
+        <p id="childp">It's like we were speaking the same language, even if our ears couldn't hear it. They
         showed me that I wasn't alone, and that, bro, that was a game-changer.
         These people became my virtual family, you know? We shared our
         frustrations, our triumphs, and everything in between. They understood

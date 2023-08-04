@@ -5,6 +5,8 @@
   align-items: center;
   margin-top: 5%;
   overflow-x: hidden;
+  background-color: black;
+  margin: 5%;
 }
 
 #parent {
@@ -14,6 +16,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: blue;
 }
 
 #child {
@@ -26,6 +29,7 @@
   transition: opacity 2s, transform 2s;
 }
 
+
 #parent.loaded #child {
   opacity: 1;
   transform: translate(15%, 1%);
@@ -37,24 +41,54 @@
   color: white;
   opacity: 0;
   transition: opacity 3s;
+  /* margin-top: 20px; */
+  display: flex;
+  flex-direction: row;
+}
+
+.childp::first-letter {
+  font-size: 200%;
+  color: #8A2BE2;
 }
 
 #undertext {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  margin-top: 1%;
+  /* margin-top: 3%; */
   flex-grow: 1;
   width: 75vw;
-  margin-bottom: 2%;
+  color: white;
+  font-size: 2vh;
+  justify-content: space-between;
+  gap: 30px;
 }
+
 
 #undertext.loaded #childp {
   opacity: 1;
 }
 
+
 #title {
   font-weight: bold;
   font-size: 5vw;
   color: white;
+}
+
+#hello {
+  padding-right:20%;
+  background-color: aliceblue;
+}
+
+#undertext.loaded {
+  margin: 20px;
+  padding: 20px;
+}
+
+.first-letter {
+  font-size: 200%;
+  color: #8A2BE2;
+  vertical-align: top; /* Aligns the first letter with the top of the paragraph */
+  line-height: 0.75;
 }
