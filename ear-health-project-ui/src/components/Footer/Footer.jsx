@@ -34,7 +34,7 @@ const Footer = () => {
               <ul>
                 <li><a href='#'>Jessica</a></li>
                 <li><a href='#'>Gustavo</a></li>
-                <li><a href='#'>Gera</a></li>
+                <li><a href='#'>Gerardo</a></li>
               </ul>
             </div>
 

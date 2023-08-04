@@ -23,7 +23,7 @@ const Listener = () => {
     const { data } = await apiClient.getAIResponse(average);
     console.log(data);
     setAIData(data.response);
-    console.log(aiData)
+    console.log(aiData);
   };
 
   const generateRandomNumber = () => {
@@ -82,92 +82,99 @@ const Listener = () => {
 
   return (
     <div className="whole-container">
-      <div className="inner-container">
-        <div className="soundsense-blurb-bigger-container">
-          <div className="soundsense-all-text">
-            <h1 id="soundsense-text">SoundSense</h1>
-            {/* {aiData.length >= 1 ? 
-          <h1>{aiData[0].analysis}</h1>  : null
-          } */}
-            <p id="soundsense-paragraph">
-              Experience the power of "SoundSense" - our listening tool that
-              transforms the way you engage with sound. With SoundSense, you
-              gain real-time insights into the decibel levels surrounding you.
-              By utilizing your device's microphone, SoundSense captures live
-              data on sound intensity and presents it through a dynamic gauge
-              for instant feedback. Stay informed with our 10-second averaging
-              feature, providing accurate assessments of the overall noise
-              level. The user-friendly interface offers color-coded indicators
-              for easy visual alerts, ensuring you're always in the know about
-              your acoustic environment. Enjoy personalized settings, access to
-              data history, and the assurance of complete privacy, as SoundSense
-              operates solely on your device. Embrace the power of our listening
-              tool and take control of your auditory experience with SoundSense!
-            </p>
+      <div>
+        <div className="inner-container">
+          <div className="soundsense-blurb-bigger-container">
+            <div className="soundsense-all-text">
+              <h1 id="soundsense-text">SoundSense</h1>
+              {/* {aiData.length >= 1 ? 
+        <h1>{aiData[0].analysis}</h1>  : null
+        } */}
+              <p id="soundsense-paragraph">
+                Experience the power of "SoundSense" - our listening tool that
+                transforms the way you engage with sound. With SoundSense, you
+                gain real-time insights into the decibel levels surrounding you.
+                By utilizing your device's microphone, SoundSense captures live
+                data on sound intensity and presents it through a dynamic gauge
+                for instant feedback. Stay informed with our 10-second averaging
+                feature, providing accurate assessments of the overall noise
+                level. The user-friendly interface offers color-coded indicators
+                for easy visual alerts, ensuring you're always in the know about
+                your acoustic environment. Enjoy personalized settings, access
+                to data history, and the assurance of complete privacy, as
+                SoundSense operates solely on your device. Embrace the power of
+                our listening tool and take control of your auditory experience
+                with SoundSense!
+              </p>
+            </div>
+            <div className="decibel-button">
+              {/* conditionally rendering the button */}
+              {!isGenerating ? (
+                <button
+                  className="listener-button"
+                  onClick={generatorButtonClicked}
+                >
+                  Start SoundSense Session
+                </button>
+              ) : (
+                <p className="listening-loading">Listening...</p>
+              )}
+            </div>
           </div>
-          <div className="decibel-button">
-            {/* conditionally rendering the button */}
-            {!isGenerating ? (
-              <button
-                className="listener-button"
-                onClick={generatorButtonClicked}
+          <div className="graphs-parent">
+            <div className="graphs">
+              <h1 className="graphs-title">Decibel Statistics</h1>
+              {lastGeneratedNumber !== null && (
+                <h2>Current Decibel : {lastGeneratedNumber} dB</h2>
+              )}
+
+              <LineChart data={decibelsData} width={800} height={300}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <YAxis
+                  label={{
+                    value: "Current Decibel",
+                    angle: -90,
+                    position: "insideLeft",
+                  }}
+                />
+                <XAxis dataKey="time" stroke="white" />
+                <Tooltip />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="value"
+                  name="Current Decibel"
+                  stroke="blue"
+                />
+              </LineChart>
+
+              {average !== 0 && <h2>Average decibel : {average} dB</h2>}
+
+              <LineChart
+                data={averageData}
+                width={800}
+                height={300}
+                stroke="white"
               >
-                Start SoundSense Session
-              </button>
-            ) : (
-              <p className="listening-loading">Listening...</p>
-            )}
-          </div>
-        </div>
-        <div className="graphs-parent">
-          <div className="graphs">
-            <h1 className="graphs-title">Decibel Statistics</h1>
-            {lastGeneratedNumber !== null && (
-              <h2>Current Decibel : {lastGeneratedNumber} dB</h2>
-            )}
-
-            <LineChart data={decibelsData} width={800} height={300}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <YAxis
-                label={{
-                  value: "Current Decibel",
-                  angle: -90,
-                  position: "insideLeft",
-                }}
-              />
-              <XAxis dataKey="time" stroke="white" />
-              <Tooltip />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="value"
-                name="Current Decibel"
-                stroke="blue"
-              />
-            </LineChart>
-
-            {average !== 0 && <h2>Average decibel : {average} dB</h2>}
-
-            <LineChart
-              data={averageData}
-              width={800}
-              height={300}
-              stroke="white"
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <YAxis
-                label={{ value: "Average", angle: -90, position: "insideLeft" }}
-              />
-              <XAxis dataKey="time" />
-              <Tooltip />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="value"
-                name="Average"
-                stroke="green"
-              />
-            </LineChart>
+                <CartesianGrid strokeDasharray="3 3" />
+                <YAxis
+                  label={{
+                    value: "Average",
+                    angle: -90,
+                    position: "insideLeft",
+                  }}
+                />
+                <XAxis dataKey="time" />
+                <Tooltip />
+                <Legend />
+                <Line
+                  type="monotone"
+                  dataKey="value"
+                  name="Average"
+                  stroke="green"
+                />
+              </LineChart>
+            </div>
           </div>
         </div>
       </div>

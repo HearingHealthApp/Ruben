@@ -1,9 +1,13 @@
-.whole-container {
+.whole-container > div {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
   display: flex;
   justify-content: center;
   margin: 80px 0px;
+}
+
+.whole-container{
+  height: 90vh;
 }
 
 .inner-container {

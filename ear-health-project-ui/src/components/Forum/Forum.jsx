@@ -111,49 +111,53 @@ const Forum = ({ user, isLoggedIn }) => {
   return (
     <div className="forum-outer-container">
       <div className="forum-container">
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search for a post"
-            onChange={handleSearchItem}
-            id="forum-search-bar"
-          />
-        </div>
+        <div className="search-and-buttons">
+          <div className="first-top-container">
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search for a post"
+              onChange={handleSearchItem}
+              id="forum-search-bar"
+            />
+          </div>
 
-        <div className="category-selector">
-          <div>
-            <button id="" onClick={handleUpdateCategory}>
-              All
-            </button>
-            <button id="Medical" onClick={handleUpdateCategory}>
-              Medical
-            </button>
-            <button id="Lifestyle" onClick={handleUpdateCategory}>
-              Lifestyle
-            </button>
-            <button id="General" onClick={handleUpdateCategory}>
-              General
-            </button>
+          <div className="category-selector">
+            <div>
+              <button id="" onClick={handleUpdateCategory}>
+                All
+              </button>
+              <button id="Medical" onClick={handleUpdateCategory}>
+                Medical
+              </button>
+              <button id="Lifestyle" onClick={handleUpdateCategory}>
+                Lifestyle
+              </button>
+              <button id="General" onClick={handleUpdateCategory}>
+                General
+              </button>
+            </div>
+          </div>
+
           </div>
         </div>
-        <div className="forum-prompt">
-          {createPostTrue ? (
-            <ForumPrompt
-              user={user}
-              fetchAllPosts={fetchAllPosts}
-              cancelButton={cancelButton}
-            />
-          ) : (
-            <div className="create-a-post">
-              {isLoggedIn && (
-                <button className="create-post-button" onClick={clickButton}>
-                  Create a Post
-                </button>
-              )}
-            </div>
-          )}
-        </div>
-
+          <div className="forum-prompt">
+            {createPostTrue ? (
+              <ForumPrompt
+                user={user}
+                fetchAllPosts={fetchAllPosts}
+                cancelButton={cancelButton}
+              />
+            ) : (
+              <div className="create-a-post">
+                {isLoggedIn && (
+                  <button className="create-post-button" onClick={clickButton}>
+                    Create a Post
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
         <div className="forum-i-think">
           {searchBool || categoryBool
             ? filteredData

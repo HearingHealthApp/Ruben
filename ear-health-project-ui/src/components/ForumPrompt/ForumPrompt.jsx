@@ -47,7 +47,9 @@ const ForumPrompt = ({ user, fetchAllPosts, cancelButton }) => {
         <form onSubmit={createForumPost}>
           <label>Title: </label>
           <input
-          className="title-input"
+            maxLength={100}
+            minLength={2}
+            className="title-input"
             type="text"
             placeholder="Enter a title for your post!"
             value={title}
@@ -56,7 +58,11 @@ const ForumPrompt = ({ user, fetchAllPosts, cancelButton }) => {
           />{" "}
           <br />
           <label>Category:</label>
-          <select  className="category-form" onChange={(e) => setCategory(e.target.value)} required>
+          <select
+            className="category-form"
+            onChange={(e) => setCategory(e.target.value)}
+            required
+          >
             <option value="">Select a Category</option>
             <option value="Lifestyle">Lifestyle</option>
             <option value="Medical">Medical</option>
