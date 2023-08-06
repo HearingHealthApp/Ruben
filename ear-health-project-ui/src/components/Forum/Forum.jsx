@@ -22,7 +22,6 @@ const Forum = ({ user, isLoggedIn }) => {
 
   // current page number
   const [pageNum, setPageNum] = useState(0);
-  console.log("page is mounted and pageNum is set to ", pageNum);
 
   //useState for the searchItem
   const [searchItem, setSearchItem] = useState("");
@@ -103,10 +102,6 @@ const Forum = ({ user, isLoggedIn }) => {
   let filteredData = allPosts.filter((post) =>
     post.category.includes(activeCategory)
   );
-
-  console.log("active category", activeCategory);
-
-  console.log(filteredData);
 
   return (
     <div className="forum-outer-container">

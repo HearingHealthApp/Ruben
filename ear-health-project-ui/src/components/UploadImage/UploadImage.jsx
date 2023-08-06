@@ -27,7 +27,6 @@ const UploadImage = ({ userId, setImageKey, setProfileImageKey }) => {
     // const result = await apiClient
 
     const result = await postImage({ image: file }, userId);
-    console.log(result.dbResult.image);
     setImageKey(result.dbResult.image);
     setProfileImageKey(result.dbResult.image);
   };
@@ -35,7 +34,6 @@ const UploadImage = ({ userId, setImageKey, setProfileImageKey }) => {
   const fileSelected = (e) => {
     const file = e.target.files[0];
     setFile(file);
-    console.log(file);
   };
 
   return (

@@ -71,13 +71,9 @@ class Profile {
 
     let user = convertSnakeToCamel(result.rows[0]);
 
-    console.log(user);
-
     if (user.isDoctor) {
-      console.log("user ID is", user.userId);
       const doctorData = await User.fetchDoctorById(user.userId);
 
-      console.log("Doctor data is", doctorData);
       user = {
         ...user,
         ...doctorData,

@@ -15,6 +15,7 @@ import Profile from "../Profile/Profile";
 import NotFound from "../NotFound/NotFound";
 import NotificationView from "../NotificationView/NotificationView";
 import Listener from "../Listener/Listener";
+import Loading from "../Loading/Loading";
 
 function App() {
   //useState for login boolean
@@ -26,10 +27,15 @@ function App() {
   //useState for the user's image
   const [profileImageKey, setProfileImageKey] = useState("");
 
-  // console.log(user);
-
   //useState for the user's notifications to conditionally display on the navbar
   const [navNotifs, setNavNotifs] = useState([]);
+
+  //useState for when we are waiting for data(loading)
+  const [isLoading, setIsLoading] = useState(false);
+
+  const loadingSetter = (value) => {
+    setIsLoading(value);
+  };
 
   const fetchNavNotifs = async (data) => {
     setNavNotifs(data);
@@ -37,6 +43,8 @@ function App() {
 
   useEffect(() => {
     const fetchUser = async () => {
+      setIsLoading(true);
+
       const { data, error } = await ApiClient.fetchUserFromToken();
 
       const notificationData = await ApiClient.getUserNotifications(
@@ -46,7 +54,6 @@ function App() {
       // if the fetch user gets a user,
       if (data) {
         setUser(data.user);
-        setTempUserId(user.userId);
         setIsLoggedIn(true);
         setProfileImageKey(data.user.image);
         setNavNotifs(notificationData.data.notifications);
@@ -55,6 +62,8 @@ function App() {
       if (error) {
         console.log(error);
       }
+
+      setIsLoading(false)
     };
 
     const token = localStorage.getItem("HearingHealthToken");
@@ -92,9 +101,6 @@ function App() {
     //we reset the image key
     setProfileImageKey("");
 
-    //reset the temp user
-    setTempUserId("");
-
     //reset the navNotifs
     setNavNotifs([]);
   };
@@ -103,6 +109,14 @@ function App() {
   const userUpdater = (userData) => {
     setUser(userData);
   };
+
+  if (isLoading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -114,10 +128,16 @@ function App() {
             user={user}
             profileImageKey={profileImageKey}
             navNotifs={navNotifs}
+            loadingSetter={loadingSetter}
           ></Navbar>
           <div className="primary-container">
             <Routes>
-              <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
+              <Route
+                path="/"
+                element={
+                  <Home isLoggedIn={isLoggedIn} loadingSetter={loadingSetter} />
+                }
+              />
               <Route
                 path="/register"
                 element={
@@ -125,6 +145,7 @@ function App() {
                     loginHandler={loginHandler}
                     userUpdater={userUpdater}
                     setProfileImageKey={setProfileImageKey}
+                    loadingSetter={loadingSetter}
                   />
                 }
               />
@@ -136,12 +157,19 @@ function App() {
                     userUpdater={userUpdater}
                     setProfileImageKey={setProfileImageKey}
                     fetchNavNotifs={fetchNavNotifs}
+                    loadingSetter={loadingSetter}
                   />
                 }
               />
               <Route
                 path="/forum"
-                element={<Forum user={user} isLoggedIn={isLoggedIn} />}
+                element={
+                  <Forum
+                    user={user}
+                    isLoggedIn={isLoggedIn}
+                    loadingSetter={loadingSetter}
+                  />
+                }
               />
               <Route
                 path="/register/doctor"
@@ -150,13 +178,20 @@ function App() {
                     loginHandler={loginHandler}
                     userUpdater={userUpdater}
                     setProfileImageKey={setProfileImageKey}
+                    loadingSetter={loadingSetter}
                   />
                 }
               />
 
               <Route
                 path="/forum/post/:postId"
-                element={<ForumPost user={user} isLoggedIn={isLoggedIn} />}
+                element={
+                  <ForumPost
+                    user={user}
+                    isLoggedIn={isLoggedIn}
+                    loadingSetter={loadingSetter}
+                  />
+                }
               />
 
               <Route
@@ -166,6 +201,7 @@ function App() {
                     user={user}
                     setProfileImageKey={setProfileImageKey}
                     profileImageKey={profileImageKey}
+                    loadingSetter={loadingSetter}
                   />
                 }
               />
@@ -179,15 +215,25 @@ function App() {
                     setNavNotifs={setNavNotifs}
                     navNotifs={navNotifs}
                     fetchNavNotifs={fetchNavNotifs}
+                    loadingSetter={loadingSetter}
                   />
                 }
               />
 
-              <Route path="/listener" element={<Listener />} />
+              <Route
+                path="/listener"
+                element={<Listener loadingSetter={loadingSetter} />}
+              />
 
-              <Route path="/history" element={<History />} />
+              <Route
+                path="/history"
+                element={<History loadingSetter={loadingSetter} />}
+              />
 
-              <Route path="*" element={<NotFound />} />
+              <Route
+                path="*"
+                element={<NotFound loadingSetter={loadingSetter} />}
+              />
             </Routes>
           </div>
           <Footer />

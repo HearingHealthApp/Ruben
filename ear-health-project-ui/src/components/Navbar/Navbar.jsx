@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
@@ -9,22 +9,9 @@ const Navbar = ({
   profileImageKey,
   navNotifs,
 }) => {
-  console.log("from navbar", user);
-
   let imageLink = `http://localhost:3001/s3/image/${profileImageKey}`;
 
-  useEffect(() => {
-    // This effect will run every time the profileImage prop changes
-    imageLink = `http://localhost:3001/s3/image/${profileImageKey}`;
-    console.log();
-    console.log("Navbar profileImage changed:", profileImageKey);
-  }, [imageLink]);
-
-  console.log("from navbar NOTIFS", navNotifs);
-
   const onlyNewNotifs = navNotifs.filter((notif) => notif.viewStatus == false);
-
-  console.log(onlyNewNotifs);
 
   return (
     <div className="navbar-container">
@@ -63,12 +50,9 @@ const Navbar = ({
                       src="https://cdn-icons-png.flaticon.com/512/565/565422.png"
                     />
                   </Link>
-                  {/* <button className="login" onClick={logOutHandler}>
-                Sign Out
-              </button> */}
                   <div className="dropdown">
                     <img src={imageLink} className="user-img-navbar" />
-                    <div class="dropdown-content">
+                    <div className="dropdown-content">
                       <Link to={`/profile/${user.userId}`}>
                         <p>Profile</p>
                       </Link>
@@ -86,12 +70,9 @@ const Navbar = ({
                       src="../../src/assets/565422.png"
                     />
                   </Link>
-                  {/* <button className="login" onClick={logOutHandler}>
-                Sign Out
-              </button> */}
                   <div className="dropdown">
                     <img src={imageLink} className="user-img-navbar" />
-                    <div class="dropdown-content">
+                    <div className="dropdown-content">
                       <Link to={`/profile/${user.userId}`}>
                         <p>Profile</p>
                       </Link>

@@ -4,7 +4,6 @@ import "./CommentCard.css";
 import axios from "axios";
 
 const CommentCard = ({ comment }) => {
-  console.log(comment.userId);
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour
@@ -48,7 +47,6 @@ const CommentCard = ({ comment }) => {
     const { data } = await axios.get(
       `http://localhost:3001/comments/comment/${comment.userId}`
     );
-    console.log(data);
     setImageKey(data.image);
   };
 
@@ -56,11 +54,7 @@ const CommentCard = ({ comment }) => {
     getUserFromComment();
   }, [comment]);
 
-  console.log(imageKey);
-
   const imageUrl = `http://localhost:3001/s3/image/${imageKey}`;
-
-  console.log(imageUrl);
 
   return (
     <div className="commenting-box">

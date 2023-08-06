@@ -58,8 +58,6 @@ const ForumPost = ({ user, isLoggedIn }) => {
   const getPost = async () => {
     const { data } = await apiClient.indvPostGetter(postId);
 
-    console.log(data);
-
     setPost(data.post);
     setUserImg(data.userImage);
   };
@@ -102,13 +100,8 @@ const ForumPost = ({ user, isLoggedIn }) => {
     getComments();
   }, []);
 
-  console.log(userImg.image);
   let key = userImg.image;
   let userImage = `http://localhost:3001/s3/image/${key}`;
-
-  console.log(userImage);
-
-  console.log(post);
 
   const setCommenting = () => {
     if (isCommenting) {
