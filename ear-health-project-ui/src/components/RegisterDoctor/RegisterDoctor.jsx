@@ -123,6 +123,8 @@ const RegisterDoctor = ({ loginHandler, userUpdater , setProfileImageKey}) => {
                     onChange={(e) => setRegistrationNumber(e.target.value)}
                     required
                     placeholder="Registration Number"
+                    minLength={10}
+                    maxLength={10}
                   />
                 </div>
               </div>
