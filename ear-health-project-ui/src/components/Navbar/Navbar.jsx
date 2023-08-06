@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
@@ -10,11 +10,6 @@ const Navbar = ({
   navNotifs,
 }) => {
   let imageLink = `http://localhost:3001/s3/image/${profileImageKey}`;
-
-  useEffect(() => {
-    // This effect will run every time the profileImage prop changes
-    imageLink = `http://localhost:3001/s3/image/${profileImageKey}`;
-  }, [imageLink]);
 
   const onlyNewNotifs = navNotifs.filter((notif) => notif.viewStatus == false);
 
@@ -55,9 +50,6 @@ const Navbar = ({
                       src="https://cdn-icons-png.flaticon.com/512/565/565422.png"
                     />
                   </Link>
-                  {/* <button className="login" onClick={logOutHandler}>
-                Sign Out
-              </button> */}
                   <div className="dropdown">
                     <img src={imageLink} className="user-img-navbar" />
                     <div className="dropdown-content">
@@ -78,9 +70,6 @@ const Navbar = ({
                       src="../../src/assets/565422.png"
                     />
                   </Link>
-                  {/* <button className="login" onClick={logOutHandler}>
-                Sign Out
-              </button> */}
                   <div className="dropdown">
                     <img src={imageLink} className="user-img-navbar" />
                     <div className="dropdown-content">
