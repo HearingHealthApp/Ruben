@@ -44,7 +44,6 @@ function App() {
       // if the fetch user gets a user,
       if (data) {
         setUser(data.user);
-        setTempUserId(user.userId);
         setIsLoggedIn(true);
         setProfileImageKey(data.user.image);
         setNavNotifs(notificationData.data.notifications);
@@ -89,9 +88,6 @@ function App() {
 
     //we reset the image key
     setProfileImageKey("");
-
-    //reset the temp user
-    setTempUserId("");
 
     //reset the navNotifs
     setNavNotifs([]);
