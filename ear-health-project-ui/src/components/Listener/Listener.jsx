@@ -21,9 +21,8 @@ const Listener = () => {
 
   const getAIData = async () => {
     const { data } = await apiClient.getAIResponse(average);
-    console.log(data);
+
     setAIData(data.response);
-    console.log(aiData);
   };
 
   const generateRandomNumber = () => {
@@ -77,8 +76,6 @@ const Listener = () => {
 
   // Add state variables to keep track of timestamp and time interval
   const [timestamp, setTimestamp] = useState(Date.now());
-
-  // console.log(aiData[0].analysis)
 
   return (
     <div className="whole-container">

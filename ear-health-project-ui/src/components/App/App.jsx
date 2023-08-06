@@ -26,8 +26,6 @@ function App() {
   //useState for the user's image
   const [profileImageKey, setProfileImageKey] = useState("");
 
-  // console.log(user);
-
   //useState for the user's notifications to conditionally display on the navbar
   const [navNotifs, setNavNotifs] = useState([]);
 

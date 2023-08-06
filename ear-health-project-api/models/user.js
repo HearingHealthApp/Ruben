@@ -282,16 +282,12 @@ class User {
       throw new BadRequestError("No user ID provided");
     }
 
-    console.log("this function is running")
-
     // select from the doctors table the data that matches the user ID
     const query = `SELECT specialties, registration_number, verified FROM doctors WHERE user_id = $1`;
 
     // convert the provided username to all lowercase and use it as the reference
     // username in the query
     const result = await db.query(query, [userId]);
-
-    console.log("The result of the function run is", result)
 
     const doctorData = result.rows[0];
 
