@@ -307,17 +307,26 @@ const Profile = ({ user, setProfileImageKey }) => {
                   </div>
                 )
               )}
-            </div>
-            {userPosts.length == 0 && conditionalRender == "Posts" ? 
-            <div className="center">
-              <img id = "nothingimg" src = "https://cdn.dribbble.com/users/745861/screenshots/7889509/nothing_here_yet.png"/>
-          <p>nothing to show</p>
-          </div>: null
-          }
 
-          {userComments.length == 0 && conditionalRender == "Comments" && 
-          
-          <p>no comments to show</p>}
+              {userPosts.length == 0 && conditionalRender == "Posts" ? (
+                <div className="center">
+                  <img
+                    id="nothingimg"
+                    src="https://cdn.dribbble.com/users/745861/screenshots/7889509/nothing_here_yet.png"
+                  />
+                  <p>nothing to show</p>
+                </div>
+              ) : null}
+              {userComments.length == 0 && conditionalRender == "Comments" && (
+                <div className="center">
+                  <img
+                    id="nothingimg"
+                    src="https://cdn.dribbble.com/users/745861/screenshots/7889509/nothing_here_yet.png"
+                  />
+                  <p>no comments to show</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

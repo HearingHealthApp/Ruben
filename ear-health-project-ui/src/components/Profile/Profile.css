@@ -68,11 +68,12 @@
   flex-direction: column;
   padding: 10px;
   border-radius: 10px;
-  background-color: #2c4893;
-  color: white;
+  background-color: beige;
+  color: rgb(0, 0, 0);
   margin-right: 5px;
   font-weight: bold;
   box-shadow: 0 4px 7px 0 rgba(0,0,0,.2);
+  margin-bottom: 10px;
 
 }
 
@@ -266,4 +267,10 @@
 #nothingimg {
   width: 100%;
   height: 100%;
+}
+
+.center{
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
