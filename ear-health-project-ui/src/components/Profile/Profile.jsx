@@ -8,7 +8,6 @@ import UploadImage from "../UploadImage/UploadImage";
 import "./Profile.css";
 
 const Profile = ({ user, setProfileImageKey }) => {
-  console.log(user);
   //get the userId from the link
   const { userId } = useParams();
   //get userData using a fetcher
