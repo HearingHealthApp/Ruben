@@ -45,7 +45,7 @@ const CommentCard = ({ comment }) => {
   const getUserFromComment = async () => {
     //should get the user's image an attach it to the comment
     const { data } = await axios.get(
-      `http://localhost:3001/comments/comment/${comment.userId}`
+      `https://ruben-api.onrender.com${comment.userId}`
     );
     setImageKey(data.image);
   };
