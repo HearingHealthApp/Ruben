@@ -6,7 +6,7 @@ const { NotFoundError } = require("./utils/errors");
 const security = require("./middleware/security");
 
 // mount the middleware
-app.use(cors("https://ruben-api.onrender.com/"));
+app.use(cors("https://ruben-ui.onrender.com/"));
 app.use(morgan("tiny"));
 app.use(express.json());
 app.use(security.extractUserFromJwt);
