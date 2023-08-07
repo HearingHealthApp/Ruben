@@ -12,8 +12,12 @@ router.get("/", async (req, res, next) => {
   try {
 
     const posts = await Forum.getAllPost();
-    
-    return res.status(200).json({ posts });
+
+    if (posts.length == 0) {
+      return 'testing route'
+    } else {
+      return res.status(200).json({ posts });
+    }
     
   } catch (err) {
     next(err);
