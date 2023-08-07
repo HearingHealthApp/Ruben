@@ -30,7 +30,7 @@ const Navbar = ({
             </li>
             <li>
               <Link to="/listener">
-                <p>Listener</p>
+                <p>SoundSense</p>
               </Link>
             </li>
             <li>
