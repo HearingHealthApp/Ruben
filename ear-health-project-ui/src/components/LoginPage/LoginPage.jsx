@@ -2,7 +2,7 @@ import React from "react";
 import "./LoginPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import apiClient from "../../services/apiClient.JS";
+import apiClient from "../../services/apiClient.js";
 
 const LoginPage = ({
   userUpdater,

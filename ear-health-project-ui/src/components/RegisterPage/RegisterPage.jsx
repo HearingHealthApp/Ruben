@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import apiClient from "../../services/apiClient.JS";
+import apiClient from "../../services/apiClient.js";
 import "./RegisterPage.css";
 
 const RegisterPage = ({ loginHandler, userUpdater, setProfileImageKey}) => {
