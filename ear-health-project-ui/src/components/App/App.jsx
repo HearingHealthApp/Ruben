@@ -7,7 +7,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import Footer from "../Footer/Footer";
 import Forum from "../Forum/Forum";
 import History from "../History/History";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import RegisterDoctor from "../RegisterDoctor/RegisterDoctor";
 import apiClient from "../../services/apiClient.js";
 import ForumPost from "../ForumPost/ForumPost";
@@ -121,7 +121,7 @@ function App() {
   return (
     <>
       <div>
-        <BrowserRouter>
+        <HashRouter>
           <Navbar
             isLoggedIn={isLoggedIn}
             logOutHandler={logOutHandler}
@@ -237,7 +237,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </>
   );

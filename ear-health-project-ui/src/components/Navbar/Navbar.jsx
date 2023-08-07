@@ -9,7 +9,7 @@ const Navbar = ({
   profileImageKey,
   navNotifs,
 }) => {
-  let imageLink = `http://localhost:3001/s3/image/${profileImageKey}`;
+  let imageLink = `https://ruben-api.onrender.com/s3/image/${profileImageKey}`;
 
   const onlyNewNotifs = navNotifs.filter((notif) => notif.viewStatus == false);
 
