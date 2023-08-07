@@ -56,9 +56,11 @@ const Navbar = ({
                       <Link to={`/profile/${user.userId}`}>
                         <p>Profile</p>
                       </Link>
-                      <a onClick={logOutHandler} className="dropdown-logout">
+                      <Link to = "/">
+                      <p onClick={logOutHandler} className="dropdown-logout">
                         Logout
-                      </a>
+                      </p>
+                      </Link>
                     </div>
                   </div>
                 </ul>
