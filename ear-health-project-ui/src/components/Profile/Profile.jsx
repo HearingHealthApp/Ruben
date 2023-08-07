@@ -252,7 +252,19 @@ const Profile = ({ user, setProfileImageKey }) => {
           <div className="user-interaction-container">
             <div className="user-interactions">
               {conditionalRender === "Posts"
-                ? userPosts
+                ? 
+                <div>{ user.userId == userId ? 
+                  userPosts
+                    .map((post) => (
+                      <div>
+                        <Link
+                          className="link"
+                          to={`/forum/post/${post.postId}`}
+                        >
+                          <ForumPostCard key={post.postId} post={post} />
+                        </Link>
+                      </div>
+                    )): userPosts
                     .filter((post) => !post.isAnonymous)
                     .map((post) => (
                       <div>
@@ -264,19 +276,33 @@ const Profile = ({ user, setProfileImageKey }) => {
                         </Link>
                       </div>
                     ))
+                  } </div>
                 : conditionalRender === "Comments" &&
+                <div>{user.userId == userId ? 
                   userComments
-                    .filter((comment) => !comment.isAnonymous)
-                    .map((comment) => (
-                      <div>
-                        <Link
-                          className="link"
-                          to={`/forum/post/${comment.postId}`}
-                        >
-                          <CommentCard comment={comment} />
-                        </Link>
-                      </div>
-                    ))}
+                  .map((comment) => (
+                    <div>
+                      <Link
+                        className="link"
+                        to={`/forum/post/${comment.postId}`}
+                      >
+                        <CommentCard comment={comment} />
+                      </Link>
+                    </div>
+                  )): userComments
+                  .filter((comment) => !comment.isAnonymous)
+                  .map((comment) => (
+                    <div>
+                      <Link
+                        className="link"
+                        to={`/forum/post/${comment.postId}`}
+                      >
+                        <CommentCard comment={comment} />
+                      </Link>
+                    </div>
+                  ))
+                }</div>
+                  }
             </div>
           </div>
         </div>
