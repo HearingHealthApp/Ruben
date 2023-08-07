@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./NotificationView.css";
-import ApiClient from "../../services/apiClient";
+import apiClient from "../../services/apiClient";
 import NotificationCard from "../NotificationCard/NotificationCard";
 
 function NotificationView({ user, isLoggedIn, setNavNotifs, fetchNavNotifs, navNotifs}) {
 
   const notificationGetter = async () => {
     if (user?.userId) {
-      const { data, error } = await ApiClient.getUserNotifications(user.userId);
+      const { data, error } = await apiClient.getUserNotifications(user.userId);
 
       setNavNotifs(data.notifications)
     }

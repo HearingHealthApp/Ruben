@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import ApiClient from "../../services/apiClient.JS";
+import apiClient from "../../services/apiClient.JS";
 import "./RegisterPage.css";
 
 const RegisterPage = ({ loginHandler, userUpdater, setProfileImageKey}) => {
@@ -29,7 +29,7 @@ const RegisterPage = ({ loginHandler, userUpdater, setProfileImageKey}) => {
       password,
     });
 
-    const { data, error } = await ApiClient.registerUser(registrationInfo);
+    const { data, error } = await apiClient.registerUser(registrationInfo);
 
     if (error) {
       setRegistrationError(error);
@@ -37,7 +37,7 @@ const RegisterPage = ({ loginHandler, userUpdater, setProfileImageKey}) => {
 
     if (data?.user) {
       userUpdater(data.user);
-      ApiClient.setToken(data.token);
+      apiClient.setToken(data.token);
       setProfileImageKey(data.user.image)
       loginHandler();
       navigate("/");

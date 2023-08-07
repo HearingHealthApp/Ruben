@@ -9,7 +9,7 @@ import Forum from "../Forum/Forum";
 import History from "../History/History";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import RegisterDoctor from "../RegisterDoctor/RegisterDoctor";
-import ApiClient from "../../services/apiClient.JS";
+import apiClient from "../../services/apiClient.JS";
 import ForumPost from "../ForumPost/ForumPost";
 import Profile from "../Profile/Profile";
 import NotFound from "../NotFound/NotFound";
@@ -45,9 +45,9 @@ function App() {
     const fetchUser = async () => {
       // setIsLoading(true);
 
-      const { data, error } = await ApiClient.fetchUserFromToken();
+      const { data, error } = await apiClient.fetchUserFromToken();
 
-      const notificationData = await ApiClient.getUserNotifications(
+      const notificationData = await apiClient.getUserNotifications(
         data.user.userId
       );
 
@@ -63,13 +63,13 @@ function App() {
         console.log(error);
       }
 
-      setIsLoading(false)
+      setIsLoading(false);
     };
 
     const token = localStorage.getItem("HearingHealthToken");
 
     if (token) {
-      ApiClient.setToken(token);
+      apiClient.setToken(token);
       fetchUser();
     }
   }, []);
@@ -77,7 +77,7 @@ function App() {
   //notification getter that runs every 15 minnutes
   let timer = setInterval(async function () {
     if (user?.userId) {
-      const { data } = await ApiClient.getUserNotifications(user.userId);
+      const { data } = await apiClient.getUserNotifications(user.userId);
       setNavNotifs(data.notifications);
     }
   }, 900000);

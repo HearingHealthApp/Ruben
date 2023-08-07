@@ -2,7 +2,7 @@ import React from "react";
 import "./LoginPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ApiClient from "../../services/apiClient.JS";
+import apiClient from "../../services/apiClient.JS";
 
 const LoginPage = ({
   userUpdater,
@@ -28,9 +28,9 @@ const LoginPage = ({
       password,
     });
 
-    const { data, error } = await ApiClient.loginUser(loginInfo);
+    const { data, error } = await apiClient.loginUser(loginInfo);
 
-    const notificationData = await ApiClient.getUserNotifications(data.user.userId)
+    const notificationData = await apiClient.getUserNotifications(data.user.userId)
 
     if (error) {
       setLoginError(error);
@@ -39,7 +39,7 @@ const LoginPage = ({
     if (data?.user) {
       userUpdater(data.user);
       setProfileImageKey(data.user.image);
-      ApiClient.setToken(data.token);
+      apiClient.setToken(data.token);
       loginHandler();
       fetchNavNotifs(notificationData.data.notifications);
       navigate("/");

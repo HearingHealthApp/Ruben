@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Forum.css";
 import ForumPrompt from "../ForumPrompt/ForumPrompt";
-import ApiClient from "../../services/apiClient";
 import ForumPostCard from "../ForumPostCard/ForumPostCard";
 import { Link } from "react-router-dom";
 import apiClient from "../../services/apiClient";
@@ -32,7 +31,7 @@ const Forum = ({ user, isLoggedIn }) => {
 
   //will fetch all posts with an offset and a delimiter that is based on pageNum
   const fetchAllPosts = async () => {
-    const { data, error } = await ApiClient.postsGetter(pageNum);
+    const { data, error } = await apiClient.postsGetter(pageNum);
 
     if (error) {
       setFetchError(error);

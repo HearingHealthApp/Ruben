@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ApiClient from "../../services/apiClient.JS";
+import apiClient from "../../services/apiClient.JS";
 import "./RegisterDoctor.css";
 
 const RegisterDoctor = ({ loginHandler, userUpdater , setProfileImageKey}) => {
@@ -32,7 +32,7 @@ const RegisterDoctor = ({ loginHandler, userUpdater , setProfileImageKey}) => {
       password,
     });
 
-    const { data, error } = await ApiClient.registerDoctor(registrationInfo);
+    const { data, error } = await apiClient.registerDoctor(registrationInfo);
 
     if (error) {
       setRegistrationError(error);
@@ -41,7 +41,7 @@ const RegisterDoctor = ({ loginHandler, userUpdater , setProfileImageKey}) => {
     if (data?.user) {
       userUpdater(data.user);
       setProfileImageKey(data.user.image)
-      ApiClient.setToken(data.token);
+      apiClient.setToken(data.token);
       loginHandler();
       navigate("/");
     }

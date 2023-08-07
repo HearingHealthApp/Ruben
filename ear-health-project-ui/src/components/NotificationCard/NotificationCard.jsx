@@ -1,7 +1,7 @@
 import React from "react";
 import "./NotificationCard.css";
 import { useNavigate } from "react-router-dom";
-import ApiClient from "../../services/apiClient";
+import apiClient from "../../services/apiClient";
 
 
 function NotificationCard({ notificationData, fetchNavNotifs, user}) {
@@ -42,8 +42,8 @@ function NotificationCard({ notificationData, fetchNavNotifs, user}) {
   let navigate = useNavigate();
 
   const notificationNavigator =  async () => {
-    ApiClient.notificationUpdater(notificationData.notificationId)
-    const { data, error } = await ApiClient.getUserNotifications(user.userId)
+    apiClient.notificationUpdater(notificationData.notificationId)
+    const { data, error } = await apiClient.getUserNotifications(user.userId)
     fetchNavNotifs(data.notifications)
     navigate(`/forum/post/${notificationData.postId}`)
   
