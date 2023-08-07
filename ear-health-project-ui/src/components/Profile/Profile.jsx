@@ -179,10 +179,11 @@ const Profile = ({ user, setProfileImageKey }) => {
                   onChange={conditionUpdater}
                   maxLength={17}
                   minLength={1}
+                  required
                 />
                 <br />
                 <button className="interaction-filter-buttons" type="submit">
-                { userData.isDoctor ? 'Add Specialty' : 'Add Condition' }
+                  {userData.isDoctor ? "Add Specialty" : "Add Condition"}
                 </button>
                 <button onClick={handleConditionClick}>Cancel</button>
               </form>
@@ -194,7 +195,7 @@ const Profile = ({ user, setProfileImageKey }) => {
                   className="condition-adder"
                   onClick={handleConditionClick}
                 >
-                  { userData.isDoctor ? 'Add a Specialty' : 'Add a Condition' }
+                  {userData.isDoctor ? "Add a Specialty" : "Add a Condition"}
                 </button>
               )}
             </div>
@@ -251,58 +252,61 @@ const Profile = ({ user, setProfileImageKey }) => {
 
           <div className="user-interaction-container">
             <div className="user-interactions">
-              {conditionalRender === "Posts"
-                ? 
-                <div>{ user.userId == userId ? 
-                  userPosts
-                    .map((post) => (
-                      <div>
-                        <Link
-                          className="link"
-                          to={`/forum/post/${post.postId}`}
-                        >
-                          <ForumPostCard key={post.postId} post={post} />
-                        </Link>
-                      </div>
-                    )): userPosts
-                    .filter((post) => !post.isAnonymous)
-                    .map((post) => (
-                      <div>
-                        <Link
-                          className="link"
-                          to={`/forum/post/${post.postId}`}
-                        >
-                          <ForumPostCard key={post.postId} post={post} />
-                        </Link>
-                      </div>
-                    ))
-                  } </div>
-                : conditionalRender === "Comments" &&
-                <div>{user.userId == userId ? 
-                  userComments
-                  .map((comment) => (
-                    <div>
-                      <Link
-                        className="link"
-                        to={`/forum/post/${comment.postId}`}
-                      >
-                        <CommentCard comment={comment} />
-                      </Link>
-                    </div>
-                  )): userComments
-                  .filter((comment) => !comment.isAnonymous)
-                  .map((comment) => (
-                    <div>
-                      <Link
-                        className="link"
-                        to={`/forum/post/${comment.postId}`}
-                      >
-                        <CommentCard comment={comment} />
-                      </Link>
-                    </div>
-                  ))
-                }</div>
-                  }
+              {conditionalRender === "Posts" ? (
+                <div>
+                  {user.userId == userId
+                    ? userPosts.map((post) => (
+                        <div>
+                          <Link
+                            className="link"
+                            to={`/forum/post/${post.postId}`}
+                          >
+                            <ForumPostCard key={post.postId} post={post} />
+                          </Link>
+                        </div>
+                      ))
+                    : userPosts
+                        .filter((post) => !post.isAnonymous)
+                        .map((post) => (
+                          <div>
+                            <Link
+                              className="link"
+                              to={`/forum/post/${post.postId}`}
+                            >
+                              <ForumPostCard key={post.postId} post={post} />
+                            </Link>
+                          </div>
+                        ))}{" "}
+                </div>
+              ) : (
+                conditionalRender === "Comments" && (
+                  <div>
+                    {user.userId == userId
+                      ? userComments.map((comment) => (
+                          <div>
+                            <Link
+                              className="link"
+                              to={`/forum/post/${comment.postId}`}
+                            >
+                              <CommentCard comment={comment} />
+                            </Link>
+                          </div>
+                        ))
+                      : userComments
+                          .filter((comment) => !comment.isAnonymous)
+                          .map((comment) => (
+                            <div>
+                              <Link
+                                className="link"
+                                to={`/forum/post/${comment.postId}`}
+                              >
+                                <CommentCard comment={comment} />
+                              </Link>
+                            </div>
+                          ))}
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>
