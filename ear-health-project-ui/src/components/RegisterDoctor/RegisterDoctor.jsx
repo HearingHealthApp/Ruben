@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import apiClient from "../../services/apiClient.JS";
+import apiClient from "../../services/apiClient.js";
 import "./RegisterDoctor.css";
 
 const RegisterDoctor = ({ loginHandler, userUpdater , setProfileImageKey}) => {
