@@ -26,7 +26,7 @@ app.use("/forum", forumRoutes);
 app.use("/comments", commentsRoutes);
 app.use("/profile", profileRoutes);
 app.use("/notification", notificationRoutes);
-app.use("/s3", s3Routes);
+// app.use("/s3", s3Routes);
 app.use("/ai", aiRoutes);
 
 app.get("/", async (req, res, next) => {
