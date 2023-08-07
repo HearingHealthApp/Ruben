@@ -43,7 +43,7 @@ function App() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      setIsLoading(true);
+      // setIsLoading(true);
 
       const { data, error } = await ApiClient.fetchUserFromToken();
 
