@@ -3,6 +3,8 @@ require("colors");
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001;
 
+console.log(process.env.DATABASE_USER)
+
 const getDatabaseUri = () => {
   const dbUser = process.env.DATABASE_USER || "postgres";
   const dbPass = process.env.DATABASE_PASS
@@ -21,10 +23,7 @@ const getDatabaseUri = () => {
   );
 };
 
-// ! CAN'T HAVE SUPPLEMENTAL VALUE AT THE END
 const BCRYPT_WORK_FACTOR = process.env.BCRYPT_WORK_FACTOR;
-
-// ! CAN'T HAVE SUPPLEMENTAL VALUE AT THE END
 const SECRET_KEY = process.env.SECRET_KEY;
 
 console.log("Hearinghealth API config".red);

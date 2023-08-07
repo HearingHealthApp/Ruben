@@ -2,6 +2,7 @@ const { Client } = require("pg");
 const { getDatabaseUri } = require("./config");
 require("colors");
 
+console.log(getDatabaseUri().bgBlue)
 // connect to database using the databse Uri
 const db = new Client({ connectionString: getDatabaseUri() });
 
