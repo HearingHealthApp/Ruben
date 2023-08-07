@@ -22,10 +22,10 @@ const getDatabaseUri = () => {
 };
 
 // ! CAN'T HAVE SUPPLEMENTAL VALUE AT THE END
-const BCRYPT_WORK_FACTOR = process.env.BCRYPT_WORK_FACTOR || 10;
+const BCRYPT_WORK_FACTOR = process.env.BCRYPT_WORK_FACTOR;
 
 // ! CAN'T HAVE SUPPLEMENTAL VALUE AT THE END
-const SECRET_KEY = process.env.SECRET_KEY || "SOMETHING_SUPER_SECRET_GOES_HERE" ;
+const SECRET_KEY = process.env.SECRET_KEY;
 
 console.log("Hearinghealth API config".red);
 console.log("PORT:".blue, PORT);
