@@ -172,4 +172,4 @@ class ApiClient {
 
 }
 
-export default new ApiClient("https://ruben-api.onrender.com/");
+export default new ApiClient("https://ruben-api.onrender.com");
