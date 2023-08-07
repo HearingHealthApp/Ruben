@@ -9,7 +9,7 @@ import Forum from "../Forum/Forum";
 import History from "../History/History";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import RegisterDoctor from "../RegisterDoctor/RegisterDoctor";
-import apiClient from "../../services/apiClient.JS";
+import apiClient from "../../services/apiClient.js";
 import ForumPost from "../ForumPost/ForumPost";
 import Profile from "../Profile/Profile";
 import NotFound from "../NotFound/NotFound";
