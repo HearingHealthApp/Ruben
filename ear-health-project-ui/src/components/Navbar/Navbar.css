@@ -156,10 +156,12 @@ header{
 
 .dropdown-content a:hover {
   background-color: #ddd;
+  border-radius: 20%;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  border-radius: 20%;
 }
 
 .dropdown {
