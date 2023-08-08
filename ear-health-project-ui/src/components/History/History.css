@@ -5,7 +5,9 @@
   align-items: center;
   margin-top: 5%;
   overflow-x: hidden;
-  background-color: black;
+  /* background-color: black; */
+  background-color: rgb(40, 36, 102);
+  border-radius: 30px;
   margin: 5%;
 }
 
@@ -16,7 +18,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: blue;
+  /* background-color: blue; */
 }
 
 #child {
@@ -76,10 +78,10 @@
   color: white;
 }
 
-#hello {
+/* #hello {
   padding-right:20%;
   background-color: aliceblue;
-}
+} */
 
 #undertext.loaded {
   margin: 20px;
