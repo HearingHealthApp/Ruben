@@ -23,7 +23,7 @@ const getDatabaseUri = () => {
   );
 };
 
-const BCRYPT_WORK_FACTOR = process.env.BCRYPT_WORK_FACTOR;
+const BCRYPT_WORK_FACTOR = 10;
 const SECRET_KEY = process.env.SECRET_KEY;
 
 console.log("Hearinghealth API config".red);
