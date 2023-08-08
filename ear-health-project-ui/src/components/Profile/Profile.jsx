@@ -179,6 +179,7 @@ const Profile = ({ user, setProfileImageKey }) => {
                   onChange={conditionUpdater}
                   maxLength={17}
                   minLength={1}
+                  value  = {condition}
                   required
                 />
                 <br />
