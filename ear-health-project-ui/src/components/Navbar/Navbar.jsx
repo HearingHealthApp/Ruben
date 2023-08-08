@@ -24,6 +24,11 @@ const Navbar = ({
               </Link>
             </li>
             <li>
+              <Link to="/">
+                <p>Home</p>
+              </Link>
+            </li>
+            <li>
               <Link to="/forum">
                 <p>Forum</p>
               </Link>
@@ -56,10 +61,10 @@ const Navbar = ({
                       <Link to={`/profile/${user.userId}`}>
                         <p>Profile</p>
                       </Link>
-                      <Link to = "/">
-                      <p onClick={logOutHandler} className="dropdown-logout">
-                        Logout
-                      </p>
+                      <Link to="/">
+                        <p onClick={logOutHandler} className="dropdown-logout">
+                          Logout
+                        </p>
                       </Link>
                     </div>
                   </div>
