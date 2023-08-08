@@ -121,9 +121,9 @@ const Listener = () => {
           <div className="graphs-parent">
             <div className="graphs">
               <h1 className="graphs-title">Decibel Statistics</h1>
-              {lastGeneratedNumber !== null && (
-                <h2>Current Decibel : {lastGeneratedNumber} dB</h2>
-              )}
+              <h2>Current Decibel: {lastGeneratedNumber == null ? `--`
+                 : `${lastGeneratedNumber} dB`
+              }</h2>
 
               <LineChart data={decibelsData} width={750} height={300} stroke="black">
                 <CartesianGrid strokeDasharray="3 3" />
@@ -145,7 +145,7 @@ const Listener = () => {
                 />
               </LineChart>
 
-              {average !== 0 && <h2>Average decibel : {average} dB</h2>}
+               <h2>Average Decibel: {average == 0 ? `--` : `${average} dB`}</h2>
 
               <LineChart
                 data={averageData}
