@@ -80,6 +80,7 @@ const Profile = ({ user, setProfileImageKey }) => {
     e.preventDefault();
     const { data } = await apiClient.updateConditions(condition, userId);
     setexistingConditions(data.conditions);
+    setCondition("")
   };
   //for the button to update conditions
   const [conditionClick, setConditionClicked] = useState(false);
