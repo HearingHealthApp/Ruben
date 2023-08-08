@@ -58,7 +58,7 @@ const Home = ({ isLoggedIn }) => {
             src="https://media.istockphoto.com/id/1281337346/vector/voice-messages-bubble-icon-with-sound-wave-and-microphone-voice-messaging-correspondence.jpg?s=612x612&w=0&k=20&c=Rx86e8B1QRzJw-O0VKOFKormcooexMVw61sJsJDSg-c="
             alt="audio recorder image"
           />
-          <p>Tracker</p>
+          <p>SoundSense</p>
         </div>
       </div>
       <div className="about-us-container">

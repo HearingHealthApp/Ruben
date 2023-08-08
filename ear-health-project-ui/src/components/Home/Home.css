@@ -15,7 +15,7 @@
   padding-bottom: 50px;
   font-size: 70px;
   text-align: center;
-  background-color: #bbd0ff;
+  
   border-radius: 5%;
 }
 
@@ -45,20 +45,22 @@
   box-shadow: 0 4px 7px 0 rgba(0,0,0,.4);
   padding-left: 0px;
   margin-left: 20px;
+  background-color: aliceblue;
 
 }
 
 .about-us {
   display: flex;
   flex-direction: row;
+  /* background-color: #24262b;   */
   background-color: aliceblue;
-  width: 80%;
+  width: 70%;
   height: fit-content;
   border-radius: 20px;
-  margin: 200px 0px;
+  margin: 300px 0px;
   padding: 50px 10px;
-  box-shadow: 0 4px 7px 0 rgba(0,0,0,.4);
-
+  box-shadow: 6px 6px 6px 6px rgba(.2,.2,.2,.2);
+  /* color: white; */
 }
 .aboutblurb {
   font-size:1.1vw;
