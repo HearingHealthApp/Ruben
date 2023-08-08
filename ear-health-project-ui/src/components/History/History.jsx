@@ -14,9 +14,9 @@ const History = () => {
     <h1 id = 'title'>RUBEN'S STORY</h1>
       <div id = "hello">
       <div id="parent" className={isLoaded ? 'loaded' : ''}>
-        <h1 id="child">Protect your ears,</h1>
-        <h1 id="child">embrace the world,</h1>
-        <h1 id="child">and keep on living.</h1>
+        <h1 className="child">Protect your ears,</h1>
+        <h1 className="child">embrace the world,</h1>
+        <h1 className="child">and keep on living.</h1>
       </div>
       </div>
       

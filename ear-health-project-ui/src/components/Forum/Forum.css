@@ -12,7 +12,7 @@
   min-height: 80vh;
 }
 .forum-container{
-    width: 80%;
+    width: 75%;
 }
 
 #forum-search-bar {
@@ -20,6 +20,8 @@
   padding: 10px 20px;
   border-radius: 30px;
   font-size: 1.2vw;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+
 }
 
 .category-selector > div > button {
