@@ -1,7 +1,7 @@
 import React from "react";
 import "./ForumPostCard.css";
 
-const ForumPostCard = ({ post }) => {
+const ForumPostCard = ({ post}) => {
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour

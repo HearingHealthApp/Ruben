@@ -194,9 +194,9 @@ const ForumPost = ({ user, isLoggedIn }) => {
               </form>{" "}
             </div>
           )}
-          <h1>Comments: </h1>
+          <h1 id = "comment-label">Comments: </h1>
           {comments.length === 0 ? (
-            <p>No comments yet</p>
+            <p id = "comment-status">No comments yet</p>
           ) : (
             <div className="comments">
               {comments.map((comment) => (

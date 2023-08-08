@@ -20,10 +20,14 @@ const s3 = new S3({
 const uploadFile = (file) => {
     const fileStream = fs.createReadStream(file.path)
 
+    // default_hash + .type
+    // deafult.type + hash
+    const hashedName = file.originalname + Math.random()
+
     const uploadParams = {
         Bucket: bucketName,
         Body: fileStream,
-        Key: file.originalname
+        Key: hashedName
     }
 
     return s3.upload(uploadParams).promise()

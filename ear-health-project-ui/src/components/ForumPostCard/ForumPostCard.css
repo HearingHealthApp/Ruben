@@ -6,7 +6,12 @@
   min-height: 2em;
   line-height: var(--line-height);
   position: relative;
-  font-size: 130%;
+  font-size: 1.1vw;
+}
+
+.posted-by{
+  font-size: .9vw;
+  margin: 5px 0px;
 }
 
 .cutoff-text::before {
@@ -26,7 +31,6 @@
   padding: 10px 10px;
   text-decoration: none;
   width: 100%;
-  font-size: 90%;
   box-shadow: 0 6px 9px 0 rgba(0,0,0,.4);
   word-break: break-all;
 }
@@ -39,7 +43,7 @@
 }
 
 .forum-post-title {
-  font-size: 200%;
+  font-size: 2vw;
 }
 
 .Lifestyle {
@@ -61,7 +65,7 @@
     width: fit-content;
     padding: 0.5% 1%;
     border-radius: 10px;
-    
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
 }
 
 .forum-post-handler {
@@ -74,7 +78,7 @@
   border-radius: 10px;
   box-sizing: border-box;
   color: black;
-  font-size: 100%;
+  font-size: 1vw;
   font-weight: 700;
   line-height: 24px;
   opacity: 1;
@@ -85,4 +89,5 @@
   touch-action: manipulation;
   word-break: break-word;
   border: 0;
+  margin-top: 40px;
 }

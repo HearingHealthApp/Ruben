@@ -5,8 +5,9 @@
   align-items: center;
   margin-top: 5%;
   overflow-x: hidden;
-  background-color: black;
+  background-color: rgb(40, 36, 102);
   margin: 5%;
+  border-radius: 30px;
 }
 
 #parent {
@@ -16,10 +17,9 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: blue;
 }
 
-#child {
+.child {
   position: relative;
   bottom: 0%;
   left: 0%;
@@ -30,7 +30,7 @@
 }
 
 
-#parent.loaded #child {
+#parent.loaded .child {
   opacity: 1;
   transform: translate(15%, 1%);
 }
@@ -46,10 +46,7 @@
   flex-direction: row;
 }
 
-.childp::first-letter {
-  font-size: 200%;
-  color: #8A2BE2;
-}
+
 
 #undertext {
   display: flex;
@@ -76,10 +73,6 @@
   color: white;
 }
 
-#hello {
-  padding-right:20%;
-  background-color: aliceblue;
-}
 
 #undertext.loaded {
   margin: 20px;

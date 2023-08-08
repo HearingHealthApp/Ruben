@@ -45,7 +45,7 @@
   /* float: left; */
   gap: 20px;
   /* margin-left: 50px; */
-  font-size: 1vw;
+  font-size: 1.3vw;
 }
 
 .user-details {
@@ -57,13 +57,11 @@
 
 .actual-post {
   margin-top: 20px;
-  font-size: 20px;
-  font-weight: 900;
+  font-size: 1.3vw;
 }
 
 .username-forum-post {
   font-weight: 900;
-  font-size: 1vw;
   text-decoration: none;
   color: black;
 }
@@ -88,9 +86,10 @@
   place-content: center;
   border-radius: 11px;
   background: lightblue;
-  padding: 15px;
-  width: 100px;
+  padding: 20px 15px;
+  width: fit-content;
   height: 3px;
+  font-size: 1.3vw;
 }
 
 .medical-comment{
@@ -155,7 +154,7 @@ form textarea {
 }
 
 .reply-symbol{
-  width: 3%;
+  width: 5%;
   text-align: right;
 }
 
