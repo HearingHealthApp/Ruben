@@ -74,7 +74,7 @@ const Navbar = ({
                   <Link to={`/notifications`}>
                     <img
                       className="notification-icon"
-                      src="../../public/565422.png"
+                      src="https://i.imgur.com/eD1cNxS.png"
                     />
                   </Link>
                   <div className="dropdown">
@@ -88,6 +88,7 @@ const Navbar = ({
                       </a>
                     </div>
                   </div>
+                  
                 </ul>
               )}
             </div>
