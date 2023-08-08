@@ -12,14 +12,14 @@
   min-height: 80vh;
 }
 .forum-container{
-    width: 50%;
+    width: 80%;
 }
 
 #forum-search-bar {
   width: 90%;
   padding: 10px 20px;
   border-radius: 30px;
-  font-size: 110%;
+  font-size: 1.2vw;
 }
 
 .category-selector > div > button {
@@ -27,7 +27,7 @@
   border-radius: 10px;
   box-sizing: border-box;
   color: black;
-  font-size: 100%;
+  font-size: 1vw;
   font-weight: 700;
   line-height: 24px;
   opacity: 1;
@@ -36,10 +36,10 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 90px;
+  width: 120px;
   word-break: break-word;
   border: 0;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.6);
 }
 .category-selector > div{
   display: flex;
@@ -62,7 +62,7 @@ button:hover {
   border-radius: 10px;
   box-sizing: border-box;
   color: black;
-  font-size: 15px;
+  font-size: 1vw;
   font-weight: 700;
   line-height: 24px;
   opacity: 1;
@@ -71,9 +71,11 @@ button:hover {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 150px;
+  width: fit-content;
   word-break: break-word;
   border: 0;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4);
+
 }
 
 .create-a-post {
