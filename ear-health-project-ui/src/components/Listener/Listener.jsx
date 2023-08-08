@@ -125,7 +125,7 @@ const Listener = () => {
                  : `${lastGeneratedNumber} dB`
               }</h2>
 
-              <LineChart data={decibelsData} width={750} height={300} stroke="black">
+              <LineChart data={decibelsData} width={650} height={300} stroke="black">
                 <CartesianGrid strokeDasharray="3 3" />
                 <YAxis
                   label={{
@@ -149,7 +149,7 @@ const Listener = () => {
 
               <LineChart
                 data={averageData}
-                width={750}
+                width={650}
                 height={300}
                 stroke="black"
               >
