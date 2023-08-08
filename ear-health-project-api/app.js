@@ -7,19 +7,20 @@ const security = require("./middleware/security");
 
 // mount the middleware
 app.use(security.extractUserFromJwt);
-app.use(
-  cors({
-    origin: "https://ruben-ui.onrender.com",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://ruben-ui.onrender.com",
+//   })
+// );
+app.use(cors());
 app.use(morgan("tiny"));
 app.use(express.json());
-app.use(
-  "/s3/upload/:userId",
-  cors({
-    origin: "https://ruben-ui.onrender.com",
-  })
-);
+// app.use(
+//   "/s3/upload/:userId",
+//   cors({
+//     origin: "https://ruben-ui.onrender.com",
+//   })
+// );
 
 //import the routes
 const authRoutes = require("./routes/authRoutes");
