@@ -100,7 +100,7 @@ const Profile = ({ user, setProfileImageKey }) => {
     }
   };
 
-  const imageLink = `http://localhost:3001/s3/image/${imageKey}`;
+  const imageLink = `https://ruben-ui.onrender.com/s3/image/${imageKey}`;
 
   const conditions = Object.values(existingConditions || {}) || [];
 
