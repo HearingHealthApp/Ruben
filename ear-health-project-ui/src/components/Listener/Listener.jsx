@@ -17,13 +17,6 @@ const Listener = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [lastGeneratedNumber, setLastGeneratedNumber] = useState(null);
   const [average, setAverage] = useState(0);
-  const [aiData, setAIData] = useState([]);
-
-  const getAIData = async () => {
-    const { data } = await apiClient.getAIResponse(average);
-
-    setAIData(data.response);
-  };
 
   const generateRandomNumber = () => {
     return Math.floor(Math.random() * 100 + 60);
@@ -49,7 +42,6 @@ const Listener = () => {
         Math.ceil(decibels.reduce((sum, num) => sum + num, 0) / decibels.length)
       );
       clearInterval(interval); // Clear the interval after 10 seconds
-      getAIData();
     }, 10000); // Stop after 10 seconds
   };
 
@@ -84,9 +76,6 @@ const Listener = () => {
           <div className="soundsense-blurb-bigger-container">
             <div className="soundsense-all-text">
               <h1 id="soundsense-text">SoundSense</h1>
-              {/* {aiData.length >= 1 ? 
-        <h1>{aiData[0].analysis}</h1>  : null
-        } */}
               <p id="soundsense-paragraph">
                 Experience the power of "SoundSense" - our listening tool that
                 transforms the way you engage with sound. With SoundSense, you
