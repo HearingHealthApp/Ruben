@@ -9,18 +9,18 @@
   border-radius: 10px;
   text-decoration: none;
   width: 80%;
-  font-size: 90%;
+  font-size: 1vw;
 }
 
-.prompt > form{
+.prompt > form {
   padding: 2%;
 }
 
 .prompt > form > textarea {
   width: 96%;
-  font-size: .75vw;
-  height:6.4vw;
-  line-height: .8vw;
+  font-size: 1vw;
+  height: 9.6vw;
+  line-height: 1.2vw;
   border-radius: 10px;
   font-family: "Nunito Sans", sans-serif;
   padding: 10px;
@@ -28,13 +28,12 @@
   margin: 10px 0px;
 }
 
-
 .prompt-button {
   background: white;
   border-radius: 10px;
   box-sizing: border-box;
   color: black;
-  font-size: .75vw;
+  font-size: 1vw;
   font-weight: 700;
   line-height: 24px;
   opacity: 1;
@@ -48,24 +47,24 @@
   border: 0;
 }
 
-.prompt > form > label{
- padding-right: 5px;
- font-size: .8vw;
+.prompt > form > label {
+  padding-right: 5px;
+  font-size: 1.2vw;
 }
 
-.title-input{
+.title-input {
   width: 30%;
-  font-size: .75vw;
+  font-size: 1vw;
   margin: 4px 0px;
   padding: 3px 5px;
   border-radius: 10px;
 }
 
-.category-form{
+.category-form {
   font-family: "Nunito Sans", sans-serif;
   width: 25%;
   background-color: white;
-  font-size: .75vw;
+  font-size: 1vw;
   padding: 2px 5px;
   border-radius: 10px;
   margin: 5px 0px;

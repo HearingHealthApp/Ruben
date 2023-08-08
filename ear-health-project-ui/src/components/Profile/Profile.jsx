@@ -8,7 +8,6 @@ import UploadImage from "../UploadImage/UploadImage";
 import "./Profile.css";
 
 const Profile = ({ user, setProfileImageKey }) => {
-  console.log(user);
   //get the userId from the link
   const { userId } = useParams();
   //get userData using a fetcher
@@ -81,6 +80,7 @@ const Profile = ({ user, setProfileImageKey }) => {
     e.preventDefault();
     const { data } = await apiClient.updateConditions(condition, userId);
     setexistingConditions(data.conditions);
+    setCondition("")
   };
   //for the button to update conditions
   const [conditionClick, setConditionClicked] = useState(false);
@@ -179,6 +179,7 @@ const Profile = ({ user, setProfileImageKey }) => {
                   onChange={conditionUpdater}
                   maxLength={17}
                   minLength={1}
+                  value  = {condition}
                   required
                 />
                 <br />
@@ -311,7 +312,7 @@ const Profile = ({ user, setProfileImageKey }) => {
               {userPosts.length == 0 && conditionalRender == "Posts" ? (
                 <div className="center">
                   <img
-                    id="nothingimg"
+                    className="nothingimg"
                     src="https://cdn.dribbble.com/users/745861/screenshots/7889509/nothing_here_yet.png"
                   />
                   <p>nothing to show</p>
@@ -320,7 +321,7 @@ const Profile = ({ user, setProfileImageKey }) => {
               {userComments.length == 0 && conditionalRender == "Comments" && (
                 <div className="center">
                   <img
-                    id="nothingimg"
+                    className="nothingimg"
                     src="https://cdn.dribbble.com/users/745861/screenshots/7889509/nothing_here_yet.png"
                   />
                   <p>no comments to show</p>

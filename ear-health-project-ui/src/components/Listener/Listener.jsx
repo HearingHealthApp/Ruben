@@ -121,11 +121,11 @@ const Listener = () => {
           <div className="graphs-parent">
             <div className="graphs">
               <h1 className="graphs-title">Decibel Statistics</h1>
-              {lastGeneratedNumber !== null && (
-                <h2>Current Decibel : {lastGeneratedNumber} dB</h2>
-              )}
+              <h2>Current Decibel: {lastGeneratedNumber == null ? `--`
+                 : `${lastGeneratedNumber} dB`
+              }</h2>
 
-              <LineChart data={decibelsData} width={800} height={300}>
+              <LineChart data={decibelsData} width={650} height={300} stroke="black">
                 <CartesianGrid strokeDasharray="3 3" />
                 <YAxis
                   label={{
@@ -134,7 +134,7 @@ const Listener = () => {
                     position: "insideLeft",
                   }}
                 />
-                <XAxis dataKey="time" stroke="white" />
+                <XAxis dataKey="time" stroke="black" />
                 <Tooltip />
                 <Legend />
                 <Line
@@ -145,13 +145,13 @@ const Listener = () => {
                 />
               </LineChart>
 
-              {average !== 0 && <h2>Average decibel : {average} dB</h2>}
+               <h2>Average Decibel: {average == 0 ? `--` : `${average} dB`}</h2>
 
               <LineChart
                 data={averageData}
-                width={800}
+                width={650}
                 height={300}
-                stroke="white"
+                stroke="black"
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <YAxis
@@ -161,7 +161,7 @@ const Listener = () => {
                     position: "insideLeft",
                   }}
                 />
-                <XAxis dataKey="time" />
+                <XAxis dataKey="time" stroke = "black" />
                 <Tooltip />
                 <Legend />
                 <Line
