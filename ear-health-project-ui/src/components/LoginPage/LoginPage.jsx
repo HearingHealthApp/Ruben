@@ -39,7 +39,7 @@ const LoginPage = ({
       setProfileImageKey(data.user.image);
       apiClient.setToken(data.token);
       loginHandler();
-      const notificationData = await ApiClient.getUserNotifications(
+      const notificationData = await apiClient.getUserNotifications(
         data.user.userId
       );
       fetchNavNotifs(notificationData.data.notifications);
