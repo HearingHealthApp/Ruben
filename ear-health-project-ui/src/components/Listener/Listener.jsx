@@ -125,7 +125,7 @@ const Listener = () => {
                 <h2>Current Decibel : {lastGeneratedNumber} dB</h2>
               )}
 
-              <LineChart data={decibelsData} width={800} height={300}>
+              <LineChart data={decibelsData} width={750} height={300} stroke="black">
                 <CartesianGrid strokeDasharray="3 3" />
                 <YAxis
                   label={{
@@ -134,7 +134,7 @@ const Listener = () => {
                     position: "insideLeft",
                   }}
                 />
-                <XAxis dataKey="time" stroke="white" />
+                <XAxis dataKey="time" stroke="black" />
                 <Tooltip />
                 <Legend />
                 <Line
@@ -149,9 +149,9 @@ const Listener = () => {
 
               <LineChart
                 data={averageData}
-                width={800}
+                width={750}
                 height={300}
-                stroke="white"
+                stroke="black"
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <YAxis
@@ -161,7 +161,7 @@ const Listener = () => {
                     position: "insideLeft",
                   }}
                 />
-                <XAxis dataKey="time" />
+                <XAxis dataKey="time" stroke = "black" />
                 <Tooltip />
                 <Legend />
                 <Line
