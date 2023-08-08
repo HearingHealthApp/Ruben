@@ -148,15 +148,6 @@ class ApiClient {
     });
   }
 
-  async updateProfilePicture({ file }, userId) {
-    return await this.request({
-      endpoint: `s3/upload/${userId}`,
-      method: "POST",
-      data: { file },
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-  }
-
   async getAIResponse(average) {
     return await this.request({
       endpoint: `ai/response`,
