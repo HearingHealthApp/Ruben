@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import "../UploadImage/UploadImage.css"
+import "../UploadImage/UploadImage.css";
 
 const UploadImage = ({ userId, setImageKey, setProfileImageKey }) => {
   //useState for the input file
@@ -12,7 +12,7 @@ const UploadImage = ({ userId, setImageKey, setProfileImageKey }) => {
     formData.append("image", image);
 
     const result = await axios.post(
-      `https://ruben-api.onrender.com/s3/upload/${userId}`,
+      `http://localhost:3001/s3/upload/${userId}`,
       formData,
       { headers: { "Content-Type": "multipart/form-data" } }
     );
@@ -39,8 +39,10 @@ const UploadImage = ({ userId, setImageKey, setProfileImageKey }) => {
   return (
     <div className="upload-form">
       <form onSubmit={handleSubmit}>
-        <input  type="file" accept="image/*" onChange={fileSelected} />
-        <button className="file-button" type="submit">Submit</button>
+        <input type="file" accept="image/*" onChange={fileSelected} />
+        <button className="file-button" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
