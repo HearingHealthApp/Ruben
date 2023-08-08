@@ -101,7 +101,7 @@ const ForumPost = ({ user, isLoggedIn }) => {
   }, []);
 
   let key = userImg.image;
-  let userImage = `https://ruben-ui.onrender.com/s3/image/${key}`;
+  let userImage = `https://ruben-api.onrender.com/s3/image/${key}`;
 
   const setCommenting = () => {
     if (isCommenting) {

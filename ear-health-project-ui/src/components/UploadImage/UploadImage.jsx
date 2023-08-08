@@ -12,7 +12,7 @@ const UploadImage = ({ userId, setImageKey, setProfileImageKey }) => {
     formData.append("image", image);
 
     const result = await axios.post(
-      `https://ruben-ui.onrender.com/s3/upload/${userId}`,
+      `https://ruben-api.onrender.com/s3/upload/${userId}`,
       formData,
       { headers: { "Content-Type": "multipart/form-data" } }
     );
