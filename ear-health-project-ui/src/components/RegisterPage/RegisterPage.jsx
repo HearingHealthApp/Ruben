@@ -49,8 +49,8 @@ const RegisterPage = ({ loginHandler, userUpdater, setProfileImageKey}) => {
       <div className="screen-split">
         <div className="left-side">
           <section className="copy-reg">
-            <h1 className="header-reg">Enjoy our services without cost</h1>
-            <p>Licensed professionals are here for all you hearing needs</p>
+            <h1 className="registration-text">Enjoy our services without cost</h1>
+            <p className="registration-text">Licensed professionals are here for all you hearing needs</p>
           </section>
         </div>
         <div className="right-side">

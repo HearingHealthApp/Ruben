@@ -52,8 +52,8 @@ const RegisterDoctor = ({ loginHandler, userUpdater , setProfileImageKey}) => {
       <div className="screen-split">
         <div className="left-side">
           <section className="copy-reg">
-            <h1 className="header-reg">Register</h1>
-            <p>Users awaiting your trustful advice</p>
+            <h1 className="registration-text">Register</h1>
+            <p className="registration-text">Users awaiting your trustful advice</p>
           </section>
         </div>
         <div className="right-side">
