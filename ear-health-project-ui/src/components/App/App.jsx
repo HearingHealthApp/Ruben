@@ -75,12 +75,12 @@ function App() {
   }, []);
 
   //notification getter that runs every 15 minnutes
-  let timer = setInterval(async function () {
-    if (user?.userId) {
-      const { data } = await apiClient.getUserNotifications(user.userId);
-      setNavNotifs(data.notifications);
-    }
-  }, 900000);
+  // let timer = setInterval(async function () {
+  //   if (user?.userId) {
+  //     const { data } = await apiClient.getUserNotifications(user.userId);
+  //     setNavNotifs(data.notifications);
+  //   }
+  // }, 900000);
 
   //loginHandler
   const loginHandler = () => {
