@@ -27,7 +27,7 @@
 }
 
 #text {
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .comment-username {
@@ -79,18 +79,18 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: fit-content;
-  word-break: break-all;
+  word-break: break-word;
   border: 0;
   box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.2);
   margin-top: 10px;
   margin-right: 20px;
 }
 
-#comment-label{
+#comment-label {
   font-size: 2vw;
 }
 
-#comment-status{
+#comment-status {
   text-align: center;
   font-size: 1.5vw;
 }
