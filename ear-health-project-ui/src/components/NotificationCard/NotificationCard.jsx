@@ -3,8 +3,7 @@ import "./NotificationCard.css";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../../services/apiClient";
 
-
-function NotificationCard({ notificationData, fetchNavNotifs, user}) {
+function NotificationCard({ notificationData, fetchNavNotifs, user }) {
   const formatTimeSincePost = (timestamp) => {
     const ONE_MINUTE = 60 * 1000; // milliseconds in a minute
     const ONE_HOUR = 60 * ONE_MINUTE; // milliseconds in an hour
@@ -41,17 +40,19 @@ function NotificationCard({ notificationData, fetchNavNotifs, user}) {
 
   let navigate = useNavigate();
 
-  const notificationNavigator =  async () => {
-    apiClient.notificationUpdater(notificationData.notificationId)
-    const { data, error } = await apiClient.getUserNotifications(user.userId)
-    fetchNavNotifs(data.notifications)
-    navigate(`/forum/post/${notificationData.postId}`)
-  
+  const notificationNavigator = async () => {
+    apiClient.notificationUpdater(notificationData.notificationId);
+    const { data, error } = await apiClient.getUserNotifications(user.userId);
+    fetchNavNotifs(data.notifications);
+    navigate(`/forum/post/${notificationData.postId}`);
   };
   return (
-    <div className={`notification-card-${notificationData.viewStatus}`}>
+    <div
+      className={`notification-card-${notificationData.viewStatus}`}
+      onClick={notificationNavigator}
+    >
       <p>{formatTimeSincePost(notificationData.createdAt)}</p>
-      <p onClick={notificationNavigator}>{notificationData.message}</p>
+      <p>{notificationData.message}</p>
     </div>
   );
 }
