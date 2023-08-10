@@ -38,7 +38,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 130px;
-  word-break: break-word;
+  word-break: break-all;
   border: 0;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.6);
 }
@@ -75,7 +75,7 @@ button:hover {
   -webkit-user-select: none;
   touch-action: manipulation;
   width: fit-content;
-  word-break: break-word;
+  word-break: auto;
   border: 0;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.4);
 }

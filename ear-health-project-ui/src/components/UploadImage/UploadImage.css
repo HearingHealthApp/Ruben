@@ -17,7 +17,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: fit-content;
-  word-break: break-word;
+  word-break: auto;
   border: 0;
   margin-left: 30px;
   margin-top: 20px;
@@ -40,7 +40,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: fit-content;
-  word-break: break-word;
+  word-break: auto;
   border: 0;
   margin-left: 30px;
   margin-top: 20px;
@@ -49,5 +49,5 @@
 }
 
 .upload-form > form > input::file-selector-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
