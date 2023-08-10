@@ -7,15 +7,9 @@ const security = require("./middleware/security");
 
 // mount the middleware
 app.use(security.extractUserFromJwt);
-app.use(
-  cors({
-    origin: "https://ruben-ui.onrender.com",
-  })
-);
-// app.use("/s3/upload/:userId", cors());
+app.use(cors());
 app.use(morgan("tiny"));
 app.use(express.json());
-
 
 //import the routes
 const authRoutes = require("./routes/authRoutes");
@@ -24,7 +18,6 @@ const commentsRoutes = require("./routes/commentsRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const s3Routes = require("./routes/s3Routes");
-const aiRoutes = require("./routes/aiRoutes");
 
 //use the routes
 app.use("/auth", authRoutes);
@@ -33,15 +26,6 @@ app.use("/comments", commentsRoutes);
 app.use("/profile", profileRoutes);
 app.use("/notification", notificationRoutes);
 app.use("/s3", s3Routes);
-// app.use("/ai", aiRoutes);
-
-app.get("/", async (req, res, next) => {
-  try {
-    return res.status(201).json({ message: "this is working" });
-  } catch (err) {
-    next(err);
-  }
-});
 
 //error handling next functions
 app.use((req, res, next) => {
