@@ -74,6 +74,9 @@ router.get("/me", async (req, res, next) => {
       // const publicUser = User.makePublicUser(user)
       return res.status(200).json({ user: user });
     }
+    else{
+      return res.status(404).json({message: "nothing to verify"})
+    }
   } catch (err) {
     next(err);
   }
