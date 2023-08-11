@@ -49,9 +49,9 @@ function NotificationCard({ notificationData, fetchNavNotifs, user}) {
   
   };
   return (
-    <div className={`notification-card-${notificationData.viewStatus}`}>
+    <div  onClick={notificationNavigator} className={`notification-card-${notificationData.viewStatus}`}>
       <p>{formatTimeSincePost(notificationData.createdAt)}</p>
-      <p onClick={notificationNavigator}>{notificationData.message}</p>
+      <p >{notificationData.message}</p>
     </div>
   );
 }
